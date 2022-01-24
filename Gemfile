@@ -1,7 +1,6 @@
 source 'https://rubygems.org'
 ruby '2.6.5'
 gem 'rails'
-gem "rename"
 gem 'pg'
 gem 'puma'
 gem 'sass-rails'
