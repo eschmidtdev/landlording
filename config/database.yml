@@ -1,0 +1,21 @@
+
+default: &default
+  adapter: postgresql
+  encoding: unicode
+  host: localhost
+  pool: 5
+  username: postgres
+  password: ZfQx3wek
+
+
+development:
+  <<: *default
+  database: ipm_development
+
+test:
+  <<: *default
+  database: ipm_test
+
+production:
+  <<: *default
+  database: ipm_production
