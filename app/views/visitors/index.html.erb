@@ -1,2 +1,65 @@
-<h3>Welcome</h3>
-<p><%= link_to 'Users:', users_path %> <%= User.count %> registered</p>
+<div class="container-fluid">
+  <div class="col-lg-12 access-doc-breadcrumb-row">
+    <span>Home</span> >>
+    <span class="access-doc-text">Access Your Documents</span>
+  </div>
+  <div class="col-md-12 access-doc-heading-row">
+    <span class="access-doc-heading">Access Your Documents</span>
+  </div>
+  <hr class="horizontalLine"> <!-- A horizontal line -->
+
+  <div class="row">
+    <div class="col-md-9">
+
+      <!-- Login buttons -->
+      <div class="row">
+        <div class="col-md-12">
+          <button class="logins-buttons" id="sign-in">Sign in</button>
+          <button class="logins-buttons" id="sign-up">Sign up</button>
+        </div>
+      </div>
+
+      <!-- Sign in form -->
+      <form class="new_user col-md-6 logins-form" id="sign-in-form" role="form" action="/users/sign_in" accept-charset="UTF-8" method="post">
+        <input name="utf8" type="hidden" value="✓"><input type="hidden" name="authenticity_token" value="E0uXy0i0vmDMo3NsywwKb2hM8KW9DxtCVGI+CnlfelVGhWthvUwkya2nNK6uGjeppy4JO+ytAH1EidDjFQ2Avw==">
+        <div class="form-group">
+          <label for="user_email">Email</label>
+          <input autofocus="autofocus" class="form-control" type="email" value="" name="user[email]" id="user_email">
+        </div>
+        <div class="form-group">
+          <a class="pull-right" href="/users/password/new">Forgot password?</a>
+          <label for="user_password">Password</label>
+          <input class="form-control" type="password" name="user[password]" id="user_password">
+        </div>
+        <input type="submit" name="commit" value="Sign in" class="center-block btn btn-primary signin-button" data-disable-with="Sign in">
+        <div class="checkbox" style="width:150px">
+        </div>
+      </form>
+
+      <!-- Sign up form -->
+      <form class="new_user col-md-6 logins-form display-none" id="sign-up-form" role="form" action="/users" accept-charset="UTF-8" method="post">
+        <input name="utf8" type="hidden" value="✓"><input type="hidden" name="authenticity_token" value="ZPRbJxi70/gXv7M3BmZlhjufRIUqKkmTBchoVW6DlvwZ/vBHZ6c90WNt4udI7Ga68H/tnGMZgAjBCvpQxjqohw==">
+        <div class="form-group">
+          <label for="user_name">Name</label>
+          <input autofocus="autofocus" class="form-control" type="text" name="user[name]" id="user_name">
+        </div>
+        <div class="form-group">
+          <label for="user_email">Email</label>
+          <input class="form-control" type="email" value="" name="user[email]" id="user_email">
+        </div>
+        <div class="form-group">
+          <label for="user_password">Password</label>
+          <input class="form-control" type="password" name="user[password]" id="user_password">
+        </div>
+        <div class="form-group">
+          <label for="user_password_confirmation">Password confirmation</label>
+          <input class="form-control" type="password" name="user[password_confirmation]" id="user_password_confirmation">
+        </div>
+        <input type="submit" name="commit" value="Sign up" class="center-block btn btn-primary signin-button" data-disable-with="Sign up">
+      </form>
+
+    </div>
+    <div class="col-md-3">.col-sm-3</div>
+  </div>
+
+</div>
