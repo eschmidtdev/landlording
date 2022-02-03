@@ -4,15 +4,15 @@
     <div class="column">
       <table class="table">
         <thead>
-          <th class="text-center">Name</th>
-          <th class="text-center">Email</th>
+        <th class="text-center">Name</th>
+        <th class="text-center">Email</th>
         </thead>
         <tbody>
-          <% @users.each do |user| %>
-            <tr>
-              <%= render user %>
-            </tr>
-          <% end %>
+        <% @users.each do |user| %>
+          <tr>
+            <%= render user %>
+          </tr>
+        <% end %>
         </tbody>
       </table>
     </div>
