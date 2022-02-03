@@ -1,0 +1,58 @@
+/* line 1, app/assets/stylesheets/logins.css.scss */
+.access-doc-text {
+  font-size: 17px;
+  color: #000000;
+}
+
+/* line 6, app/assets/stylesheets/logins.css.scss */
+.access-doc-heading {
+  font-size: 20px;
+  color: #000000;
+  font-weight: 600;
+}
+
+/* line 12, app/assets/stylesheets/logins.css.scss */
+.access-doc-heading-row {
+  margin-top: 10px;
+}
+
+/* line 16, app/assets/stylesheets/logins.css.scss */
+.hr-style {
+  color: #000000;
+}
+
+/* line 20, app/assets/stylesheets/logins.css.scss */
+.access-doc-breadcrumb-row {
+  padding: 10px;
+}
+
+/* line 24, app/assets/stylesheets/logins.css.scss */
+.logins-buttons {
+  background-color: #eee;
+  padding: 15px;
+  border: none gainsboro;
+  font-size: 15px;
+  font-weight: bold;
+}
+
+/* line 32, app/assets/stylesheets/logins.css.scss */
+.logins-form {
+  border: 1px solid gainsboro;
+  padding: 15px;
+}
+
+/* line 37, app/assets/stylesheets/logins.css.scss */
+.signin-button {
+  width: 200px;
+}
+
+/* line 41, app/assets/stylesheets/logins.css.scss */
+.display-none {
+  display: none;
+}
+
+/* line 45, app/assets/stylesheets/logins.css.scss */
+.active-now {
+  padding-top: 20px;
+  background-color: #eee;
+}
