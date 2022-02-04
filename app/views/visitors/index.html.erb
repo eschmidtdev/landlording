@@ -39,19 +39,31 @@
       <form class="new_user col-md-6 logins-form display-none" id="sign-up-form" role="form" action="/users" accept-charset="UTF-8" method="post">
         <div class="form-group">
           <label for="user_name">Name</label>
-          <input autofocus="autofocus" class="form-control" type="text" name="user[name]" id="user_name" required>
+          <input autofocus="autofocus" class="form-control" type="text" name="user[name]" id="user_name" placeholder="your name" required>
+          <span class="sign-up-desc">Please enter you first name</span>
         </div>
         <div class="form-group">
           <label for="user_email">Email</label>
-          <input class="form-control" type="email" value="" name="user[email]" id="user_email" required>
+          <input class="form-control" type="email" value="" name="user[email]" id="user_email" placeholder="eg. john@doe.com" required>
+          <span class="sign-up-desc">Please enter you email address.</span>
         </div>
         <div class="form-group">
           <label for="user_password">Password</label>
-          <input class="form-control" type="password" name="user[password]" id="user_password" required>
+          <input class="form-control" type="password" name="user[password]" id="user_password" placeholder="your password" required>
+          <span class="sign-up-desc">Your password should be at least 6 characters and should consists of number and symbols</span>
         </div>
         <div class="form-group">
           <label for="user_password_confirmation">Password confirmation</label>
-          <input class="form-control" type="password" name="user[password_confirmation]" id="user_password_confirmation" required>
+          <input class="form-control" type="password" name="user[password_confirmation]" id="user_password_confirmation" placeholder="your password confirmation" required>
+        </div>
+
+        <div class="">
+          <div class="tacbox">
+            <input id="checkbox" type="checkbox" required/>
+            <label for="checkbox"> I agree to the <a href="#">Terms of Use</a> and
+              <a href="#">Privacy Policy</a>.</label>
+          </div>
+          <br>
         </div>
         <input type="submit" name="commit" value="Sign up" class="center-block btn btn-primary signin-button" data-disable-with="Sign up">
       </form>
