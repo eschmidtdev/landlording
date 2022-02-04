@@ -9,11 +9,11 @@
   <hr class="horizontalLine"> <!-- A horizontal line -->
 
   <div class="row">
-    <div class="col-md-9">
+    <div class="col-md-8">
 
       <!-- Login buttons -->
       <div class="row">
-        <div class="col-md-12">
+        <div class="col-md-8">
           <button class="logins-buttons" id="sign-in">Sign in</button>
           <button class="logins-buttons" id="sign-up">Sign up</button>
         </div>
@@ -37,7 +37,6 @@
 
       <!-- Sign up form -->
       <form class="new_user col-md-6 logins-form display-none" id="sign-up-form" role="form" action="/users" accept-charset="UTF-8" method="post">
-        <input name="utf8" type="hidden" value="✓"><input type="hidden" name="authenticity_token" value="ZPRbJxi70/gXv7M3BmZlhjufRIUqKkmTBchoVW6DlvwZ/vBHZ6c90WNt4udI7Ga68H/tnGMZgAjBCvpQxjqohw==">
         <div class="form-group">
           <label for="user_name">Name</label>
           <input autofocus="autofocus" class="form-control" type="text" name="user[name]" id="user_name" required>
@@ -58,6 +57,77 @@
       </form>
 
     </div>
-    <div class="col-md-3">.col-sm-3</div>
+
+    <!-- Search documents -->
+    <div class="col-md-3">
+      <div class="search-documents">
+        <div class="row">
+          <div class="col-md-12">
+
+            <!-- Search document heading -->
+            <div class="documents-content">
+              <span class="search-doc-heading">Search Documents</span>
+            </div>
+
+            <!-- Search field -->
+            <form id="form" class="documents-search">
+              <input type="search" class="search-field" id="query" name="q" placeholder="Search..."/>
+              <button type="submit" class="btn btn-primary vertically-align">Search</button>
+            </form>
+
+            <!-- Help text -->
+            <div class="documents-content">
+              <span class="search-doc-heading">Do you need help?</span>
+            </div>
+
+            <!-- Help description -->
+            <div class="documents-search">
+              <span class="">
+                Our support agents are standing by to assist you. Please be aware that our agents are not licensed
+                attorneys and cannot address legal questions.
+              </span>
+            </div>
+
+            <!-- Phone -->
+            <div class="row">
+              <div class="contact-section">
+                <div class="col-md-1"><i class="fa fa-phone font-awesome-size"></i></div>
+                <div class="col-md-9">
+                  <span><b>Phone</b></span><br>
+                  <span>1 (844) 533-6767</span><br>
+                  <span class="timing">(9am to 9am, sat/sun 9am to 5pm)</span>
+                </div>
+              </div>
+            </div>
+
+            <!-- Chat -->
+            <div class="row">
+              <div class="contact-section">
+                <div class="col-md-1"><i class="fa fa-comments font-awesome-size"></i></div>
+                <div class="col-md-9">
+                  <span><b>Chat</b></span><br>
+                  <span>Online - Start Chat</span><br>
+                </div>
+              </div>
+            </div>
+
+            <!-- Email -->
+            <div class="row">
+              <div class="contact-section">
+                <div class="col-md-1"><i class="fa fa-comments font-awesome-size"></i></div>
+                <div class="col-md-9">
+                  <span><b>Email</b></span><br>
+                  <span>Send Message</span><br>
+                </div>
+              </div>
+            </div>
+
+          </div>
+        </div>
+      </div>
+    </div>
+
+    <!-- Empty space -->
+    <div class="col-md-1"></div>
   </div>
 </div>

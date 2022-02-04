@@ -42,8 +42,74 @@
   display: none;
 }
 
-.active-now{
+.active-now {
 
   padding-top: 20px;
   background-color: #eee;
 }
+
+.search-documents {
+  background-color: #eee;
+  height: 580px;
+}
+
+.documents-content {
+  padding: 10%;
+}
+
+.search-doc-heading {
+  font-weight: bold;
+  font-size: 17px;
+}
+
+.documents-search {
+  padding: 0 0 0 10%;
+}
+
+.search-field {
+  padding: 5px;
+  border: 1px solid black;
+}
+
+.documents-search {
+  padding: 0 10% 0 10%;
+}
+
+.contact-section {
+  padding: 5% 10% 3% 10%;
+}
+
+.font-awesome-size {
+  font-size: 20px;
+}
+
+.timing {
+  font-size: 12px;
+}
+
+//Media queries
+
+//Mobile devices.
+@media (min-width: 320px) and (max-width: 420px) {
+  .search-documents {
+    height: 650px;
+  }
+  .vertically-align {
+    margin: 10px 0 0 60px;
+  }
+}
+
+//iPads, Tablets.
+@media (min-width: 481px) and (max-width: 768px) {
+  .search-documents {
+    height: 700px;
+  }
+}
+
+//Small screens, laptops.
+@media (min-width: 769px) and (max-width: 1024px) {
+  .search-documents {
+    height: 900px;
+  }
+}
+
