@@ -72,7 +72,7 @@
 }
 
 .documents-search {
-  padding: 0 10% 0 10%;
+  padding: 0 5% 0 10%;
 }
 
 .contact-section {
@@ -86,9 +86,18 @@
 .timing {
   font-size: 12px;
 }
-.sign-up-desc{
+
+.sign-up-desc {
   font-size: 12px;
   font-style: italic;
+}
+
+.form-width {
+  width: 100%
+}
+
+.custom-fluid {
+  margin-bottom: 5%;
 }
 
 //Media queries
