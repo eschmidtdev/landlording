@@ -11,7 +11,8 @@ class RegistrationsController < Devise::RegistrationsController
     resource = User.new(user_params)
     resource.save
     set_flash_message(:registrations, :signed_up)
-    redirect_to root_path
+    sign_in(resource)
+    redirect_to e_forms_url
   end
 
   private
