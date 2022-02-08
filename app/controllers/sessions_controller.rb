@@ -1,3 +1,6 @@
+# frozen_string_literal: true
+
+# This Controller is responsible for user login
 class SessionsController < Devise::SessionsController
   skip_before_action :verify_authenticity_token
 
@@ -6,6 +9,7 @@ class SessionsController < Devise::SessionsController
     redirect_to root_path
   end
 
+  # rubocop:disable Metrics/AbcSize
   def create
     self.resource = warden.authenticate!(auth_options)
     set_flash_message(:notice, :signed_in) if is_navigational_format?
@@ -17,4 +21,6 @@ class SessionsController < Devise::SessionsController
       redirect_to e_forms_path
     end
   end
+
+  # rubocop:enable Metrics/AbcSize
 end

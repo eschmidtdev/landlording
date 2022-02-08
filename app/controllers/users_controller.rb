@@ -1,3 +1,6 @@
+# frozen_string_literal: true
+
+# This Controller is responsible for users operations
 class UsersController < ApplicationController
   before_action :authenticate_user!
 
@@ -7,9 +10,6 @@ class UsersController < ApplicationController
 
   def show
     @user = User.find(params[:id])
-    unless @user == current_user
-      redirect_to :back, :alert => "Access denied."
-    end
+    redirect_to :back, alert: 'Access denied.' unless @user == current_user
   end
-
 end

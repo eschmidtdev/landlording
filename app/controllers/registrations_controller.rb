@@ -4,9 +4,10 @@
 class RegistrationsController < Devise::RegistrationsController
   skip_before_action :verify_authenticity_token
 
+  # rubocop:disable Metrics/AbcSize
   def create
     return if params_missing?(params[:user]) || user_exists?(params[:user]) ||
-              password_clashing?(params[:user][:password], params[:user][:password_confirmation])
+      password_clashing?(params[:user][:password], params[:user][:password_confirmation])
 
     resource = User.new(user_params)
     resource.save
@@ -14,6 +15,8 @@ class RegistrationsController < Devise::RegistrationsController
     sign_in(resource)
     redirect_to e_forms_url
   end
+
+  # rubocop:enable Metrics/AbcSize
 
   private
 

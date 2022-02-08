@@ -2,53 +2,25 @@
 @import "bootstrap-sprockets";
 @import "bootstrap";
 
-// make all images responsive by default
+//---------- Make all images responsive by default ----------
 img {
   @extend .img-responsive;
   margin: 0 auto;
 }
 
-// override for the 'Home' navigation link
-.navbar-brand {
-  font-size: inherit;
-}
-
-// THESE ARE EXAMPLES YOU CAN MODIFY
-// create your own classes
-// to make views framework-neutral
-.column {
-  @extend .col-md-6;
-  @extend .text-center;
-}
-
-.form {
-  @extend .col-md-6;
-}
-
-.form-centered {
-  @extend .col-md-6;
-  @extend .text-center;
-}
-
-.submit {
-  @extend .btn;
-  @extend .btn-primary;
-  @extend .btn-lg;
-}
-
-// apply styles to HTML elements
-// to make views framework-neutral
-main {
-  @extend .container;
-  //background-color: #eee;
-  padding-bottom: 20px;
-  width: 100%;
-  margin-top: 51px; // accommodate the navbar
-}
-
+//---------- Section default css ----------
 section {
   @extend .row;
   margin-top: 20px;
+}
+
+//---------- Divider css ----------
+hr {
+  border: 0;
+  clear: both;
+  display: block;
+  background-color: gainsboro;
+  height: 1px;
 }
 
 // Styles for form views
@@ -79,15 +51,6 @@ section {
   @extend .well;
 }
 
-#error_explanation:not(:empty) {
-  @extend .alert;
-  @extend .alert-danger;
-}
-
-#error_explanation h2 {
-  font-size: 16px;
-}
-
 .button-xs {
   @extend .btn;
   @extend .btn-primary;
@@ -98,15 +61,35 @@ section {
   float: right;
 }
 
-hr {
-  border: 0;
-  clear: both;
-  display: block;
-  background-color: gainsboro;
-  height: 1px;
+//---------- Override for the 'Home' navigation link ----------
+.navbar-brand {
+  font-size: inherit;
 }
 
-//Footer Css
+// THESE ARE EXAMPLES YOU CAN MODIFY
+// create your own classes
+// to make views framework-neutral
+.column {
+  @extend .col-md-6;
+  @extend .text-center;
+}
+
+.form {
+  @extend .col-md-6;
+}
+
+.form-centered {
+  @extend .col-md-6;
+  @extend .text-center;
+}
+
+.submit {
+  @extend .btn;
+  @extend .btn-primary;
+  @extend .btn-lg;
+}
+
+//---------- Footer Css ----------
 .site-footer {
   background-color: #26272b;
   padding: 45px 0 20px;
@@ -181,20 +164,10 @@ hr {
   margin: 0
 }
 
-@media (max-width: 991px) {
-  .site-footer [class^=col-] {
-    margin-bottom: 30px
-  }
-}
-
-@media (max-width: 767px) {
-  .site-footer {
-    padding-bottom: 0
-  }
-
-  .site-footer .copyright-text, .site-footer .social-icons {
-    text-align: center
-  }
+.nav-bg {
+  background: #000 !important;
+  padding-bottom: 0 !important;
+  border-bottom: 1px solid #000 !important;
 }
 
 .social-icons {
@@ -260,12 +233,26 @@ hr {
   background-color: #ea4c89
 }
 
+.access-doc-breadcrumb-row span a {
+  text-decoration: none;
+  color: #000000;
+}
+
 #footer {
-  position:fixed;
-  left:0px;
-  bottom:0px;
-  z-index:1;
-  width:100%;
+  position: fixed;
+  left: 0px;
+  bottom: 0px;
+  z-index: 1;
+  width: 100%;
+}
+
+#error_explanation:not(:empty) {
+  @extend .alert;
+  @extend .alert-danger;
+}
+
+#error_explanation h2 {
+  font-size: 16px;
 }
 
 @media (max-width: 767px) {
@@ -273,5 +260,21 @@ hr {
     display: block;
     margin-right: 0;
     font-weight: 600
+  }
+}
+
+@media (max-width: 991px) {
+  .site-footer [class^=col-] {
+    margin-bottom: 30px
+  }
+}
+
+@media (max-width: 767px) {
+  .site-footer {
+    padding-bottom: 0
+  }
+
+  .site-footer .copyright-text, .site-footer .social-icons {
+    text-align: center
   }
 }

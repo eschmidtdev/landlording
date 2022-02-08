@@ -16,6 +16,8 @@ class EFormsController < ApplicationController
 
   def edit; end
 
+  # rubocop:disable Metrics/AbcSize
+  # rubocop:disable Metrics/MethodLength
   def create
     @e_form = EForm.new(e_form_params)
     @e_form.user_id = current_user.id
@@ -30,6 +32,9 @@ class EFormsController < ApplicationController
       end
     end
   end
+
+  # rubocop:enable Metrics/AbcSize
+  # rubocop:enable Metrics/MethodLength
 
   def update
     respond_to do |format|
