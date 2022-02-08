@@ -11,7 +11,7 @@
   </div>
 
   <div class="img">
-    <a href="<%= root_path %>">
+    <a href="<%= user_signed_in? ? e_forms_url : root_path %>">
       <img src="/eform_logo.png" class="pull-left">
     </a>
   </div>
