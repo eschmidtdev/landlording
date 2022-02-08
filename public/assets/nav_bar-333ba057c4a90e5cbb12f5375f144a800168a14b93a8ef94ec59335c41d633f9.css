@@ -1,0 +1,17 @@
+/* line 1, app/assets/stylesheets/nav_bar.css.scss */
+.active-link {
+  color: black !important;
+  background-color: #fff;
+  border-top-right-radius: 5px;
+  border-top-left-radius: 5px;
+  font-weight: bold !important;
+}
+
+/* line 9, app/assets/stylesheets/nav_bar.css.scss */
+.active-link:hover {
+  color: black !important;
+  background-color: #fff !important;
+  border-top-right-radius: 5px !important;
+  border-top-left-radius: 5px !important;
+  font-weight: bold !important;
+}
