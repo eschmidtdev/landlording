@@ -1,112 +1,110 @@
 <%= render 'layouts/breadcrumb_headings' %>
 
-<div class="container-fluid">
-  <div class="row">
-    <!-- Actual form content -->
-    <div class="col-md-8">
+<div class="row">
+  <!-- Actual form content -->
+  <div class="col-md-8">
 
-      <!-- Progressbar -->
-      <div class="row-fluid title-row">
-        <div class="span12">
-          <div class="dm_form_progress_area">
-            <div class="dm_form_progress">
-              <div class="dm_form_progress_bar" style="width: 0%;">
-                <div class="stripped-bar"></div>
-                <div class="dm_form_progress_info">0 %</div>
-              </div>
+    <!-- Progressbar -->
+    <div class="row-fluid title-row">
+      <div class="span12">
+        <div class="dm_form_progress_area">
+          <div class="dm_form_progress">
+            <div class="dm_form_progress_bar" style="width: 0%;">
+              <div class="stripped-bar"></div>
+              <div class="dm_form_progress_info">0 %</div>
             </div>
           </div>
         </div>
       </div>
-
-      <div id="TypeOfAgreement">
-        <h2>Type of Agreement</h2>
-        <div class="checkbox-sec">
-          <input type="radio" name="gender" value="male">&emsp;<span><b>Standard Residential Lease</b></span><br>
-          <input type="radio" name="gender" value="male">&emsp;<span><b>Month-to-Month Lease - Also known as a "Tenancy at Will"</b></span>
-        </div>
-        <br>
-        <label>Start Date</label><br>
-        <input type="date" id="birthday" name="birthday"><br><br>
-        <label>End Date</label><br>
-        <input type="date" id="birthday" name="birthday">
-      </div>
-
-      <div class="row next-prev-but">
-        <div class="col-md-12">
-          <div class="pull-right">
-            <button type="button" name="prev" class="btn btn-primary btn-prev" disabled="">
-              <i class="fa fa-arrow-left"></i> Previous
-            </button>
-            <button type="button" name="next" class="btn btn-primary btn-next">Next
-              <i class="fa fa-arrow-right icon-right"></i></button>
-          </div>
-        </div>
-      </div>
-
     </div>
 
+    <div id="TypeOfAgreement">
+      <h2>Type of Agreement</h2>
+      <div class="checkbox-sec">
+        <input type="radio" name="gender" value="male">&emsp;<span><b>Standard Residential Lease</b></span><br>
+        <input type="radio" name="gender" value="male">&emsp;<span><b>Month-to-Month Lease - Also known as a "Tenancy at Will"</b></span>
+      </div>
+      <br>
+      <label>Start Date</label><br>
+      <input type="date" id="birthday" name="birthday"><br><br>
+      <label>End Date</label><br>
+      <input type="date" id="birthday" name="birthday">
+    </div>
 
-    <!-- Form listing points -->
-    <div class="col-md-2">
-      <div id="sidebar" class="rounded">
-        <ul>
-          <li>
-            <ul class="dm_navigation">
-              <li>Type of Agreement</li>
-              <li>Lease Termination</li>
-              <li>Type of Property</li>
-              <li>Property Address</li>
-              <li>Number (#) of Bedrooms</li>
-              <li>Number (#) of Bathrooms</li>
-              <li>Furnishings</li>
-              <li>Appliances</li>
-              <li>Parking</li>
-              <li>Fee for Parking</li>
-              <li>The Landlord</li>
-              <li>Business Entity (Landlord)</li>
-              <li>Landlord's Name</li>
-              <li>Landlord's Address</li>
-              <li>The Tenant</li>
-              <li>Business Entity (Tenant)</li>
-              <li>Tenant's Name</li>
-              <li>Occupants</li>
-              <li>Occupant's Names</li>
-              <li>Rent</li>
-              <li>Due Date</li>
-              <li>Security Deposit</li>
-              <li>First (1st) Month's Rent</li>
-              <li>Pre-Payment of Rent</li>
-              <li>NSF</li>
-              <li>Late Fee</li>
-              <li>Early Termination (Sale of Property)</li>
-              <li>Early Termination (Tenant)</li>
-              <li>Proration</li>
-              <li>Option to Purchase</li>
-              <li>Move-in Inspection</li>
-              <li>Utilities &amp; Services</li>
-              <li>Pets</li>
-              <li>Smoking Policy</li>
-              <li>Subletting</li>
-              <li>Guests</li>
-              <li>Waterbeds</li>
-              <li>Contact Info</li>
-              <li>Lead-Based Paint</li>
-              <li>Agent Representation</li>
-              <li>Co-Signer</li>
-              <li>Additional Terms &amp; Conditions</li>
-              <li>Signature Date</li>
-              <li>Signature Page</li>
-              <li>Landlord's Signature</li>
-              <li>Tenant's Signature</li>
-              <li>Co-Signer's Signature</li>
-            </ul>
-          </li>
-        </ul>
+    <div class="row next-prev-but">
+      <div class="col-md-12">
+        <div class="pull-right">
+          <button type="button" name="prev" class="btn btn-primary btn-prev" disabled="">
+            <i class="fa fa-arrow-left"></i> Previous
+          </button>
+          <button type="button" name="next" class="btn btn-primary btn-next">Next
+            <i class="fa fa-arrow-right icon-right"></i></button>
+        </div>
       </div>
     </div>
 
-    <!-- Empty space -->
-    <div class="col-md-1"></div>
   </div>
+
+
+  <!-- Form listing points -->
+  <div class="col-md-2">
+    <div id="sidebar" class="rounded">
+      <ul>
+        <li>
+          <ul class="dm_navigation">
+            <li>Type of Agreement</li>
+            <li>Lease Termination</li>
+            <li>Type of Property</li>
+            <li>Property Address</li>
+            <li>Number (#) of Bedrooms</li>
+            <li>Number (#) of Bathrooms</li>
+            <li>Furnishings</li>
+            <li>Appliances</li>
+            <li>Parking</li>
+            <li>Fee for Parking</li>
+            <li>The Landlord</li>
+            <li>Business Entity (Landlord)</li>
+            <li>Landlord's Name</li>
+            <li>Landlord's Address</li>
+            <li>The Tenant</li>
+            <li>Business Entity (Tenant)</li>
+            <li>Tenant's Name</li>
+            <li>Occupants</li>
+            <li>Occupant's Names</li>
+            <li>Rent</li>
+            <li>Due Date</li>
+            <li>Security Deposit</li>
+            <li>First (1st) Month's Rent</li>
+            <li>Pre-Payment of Rent</li>
+            <li>NSF</li>
+            <li>Late Fee</li>
+            <li>Early Termination (Sale of Property)</li>
+            <li>Early Termination (Tenant)</li>
+            <li>Proration</li>
+            <li>Option to Purchase</li>
+            <li>Move-in Inspection</li>
+            <li>Utilities &amp; Services</li>
+            <li>Pets</li>
+            <li>Smoking Policy</li>
+            <li>Subletting</li>
+            <li>Guests</li>
+            <li>Waterbeds</li>
+            <li>Contact Info</li>
+            <li>Lead-Based Paint</li>
+            <li>Agent Representation</li>
+            <li>Co-Signer</li>
+            <li>Additional Terms &amp; Conditions</li>
+            <li>Signature Date</li>
+            <li>Signature Page</li>
+            <li>Landlord's Signature</li>
+            <li>Tenant's Signature</li>
+            <li>Co-Signer's Signature</li>
+          </ul>
+        </li>
+      </ul>
+    </div>
+  </div>
+
+  <!-- Empty space -->
+  <div class="col-md-1"></div>
 </div>
