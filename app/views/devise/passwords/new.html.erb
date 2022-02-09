@@ -1,12 +1,27 @@
-<div class="authform">
-  <%= form_for(resource, :as => resource_name, :url => password_path(resource_name), :html => { :method => :post, :role => 'form'}) do |f| %>
-    <h3>Forgot your password?</h3>
-    <p>We'll send password reset instructions.</p>
-    <%= devise_error_messages! %>
-    <div class="form-group">
-      <%= f.label :email %>
-      <%= f.email_field :email, :autofocus => true, class: 'form-control' %>
+<div class="container-fluid custom-fluid">
+
+  <%= render 'layouts/breadcrumb_headings' %>
+
+  <div class="row">
+    <!-- Forget password form -->
+    <div class="col-md-8">
+      <%= form_for(resource, :as => resource_name, :url => password_path(resource_name), :html => { :method => :post, :role => 'form' }) do |f| %>
+        <%= devise_error_messages! %>
+        <div class="form-group">
+          <%= f.label :email %>
+          <%= f.email_field :email, :autofocus => true, class: 'form-control', placeholder: 'eg. john@doe.com' %>
+          <span class="help-block">Please enter your email address.</span>
+        </div>
+        <%= f.submit 'Send', :class => 'button right btn btn-primary', :onclick => "return;" %>
+      <% end %>
     </div>
-     <%= f.submit 'Reset Password', :class => 'button right' %>
-  <% end %>
+
+    <!-- Search documents -->
+    <div class="col-md-3">
+      <%= render 'layouts/search_documents' %>
+    </div>
+
+    <!-- Empty space -->
+    <div class="col-md-1"></div>
+  </div>
 </div>

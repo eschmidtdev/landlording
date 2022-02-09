@@ -25,6 +25,24 @@
   <div class="col-md-12 access-doc-heading-row">
     <span class="access-doc-heading">North Dakota Residential Lease Agreement</span>
   </div>
+<% elsif current_page?(new_user_password_path) %>
+  <div class="col-lg-12 access-doc-breadcrumb-row">
+    <span>Home</span> >> <span class="access-doc-text">Password Recovery</span>
+  </div>
+  <div class="col-md-12 access-doc-heading-row">
+    <span class="access-doc-heading">Password Recovery</span>
+  </div>
+<% elsif current_page?(edit_user_registration_path) %>
+  <div class="col-lg-12 access-doc-breadcrumb-row">
+    <span><a href="<%= root_path %>">Home</a></span>
+    >>
+    <span><a href="<%= e_forms_path %>">My eForms</a></span>
+    >>
+    <span class="access-doc-text">Change Password</span>
+  </div>
+  <div class="col-md-12 access-doc-heading-row">
+    <span class="access-doc-heading">Change Password</span>
+  </div>
 <% end %>
 
 <hr class="horizontalLine">
