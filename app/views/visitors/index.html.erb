@@ -1,79 +1,74 @@
-<div class="container-fluid custom-fluid">
+<%= render 'layouts/breadcrumb_headings' %>
 
-  <%= render 'layouts/breadcrumb_headings' %>
+<div class="row">
+  <div class="col-md-8">
 
-  <div class="row">
-    <div class="col-md-8">
+    <!-- Login buttons -->
+    <div class="row">
+      <div class="col-md-8">
+        <button class="logins-buttons" id="sign-in">Sign in</button>
+        <button class="logins-buttons" id="sign-up">Sign up</button>
+      </div>
+    </div>
 
-      <!-- Login buttons -->
-      <div class="row">
-        <div class="col-md-8">
-          <button class="logins-buttons" id="sign-in">Sign in</button>
-          <button class="logins-buttons" id="sign-up">Sign up</button>
-        </div>
+    <!-- Sign in form -->
+    <form class="new_user col-md-6 logins-form form-width" id="sign-in-form" role="form" action="/users/sign_in" accept-charset="UTF-8" method="post">
+      <div class="form-group">
+        <label for="user_email">Email</label>
+        <input autofocus="autofocus" class="form-control" type="email" value="" name="user[email]" id="user_email" placeholder="eg. john@doe.com" required>
+        <span class="help-block">Please enter your email address.</span>
+      </div>
+      <div class="form-group">
+        <a class="pull-right" href="/users/password/new">Forgot password?</a>
+        <label for="user_password">Password</label>
+        <input class="form-control" type="password" name="user[password]" id="user_password" placeholder="your password" required>
+        <span class="help-block">Please enter your password.</span>
+      </div>
+      <input type="submit" name="commit" value="Sign in" class="btn btn-primary-custom signin-button" data-disable-with="Sign in">
+      <div class="checkbox" style="width:150px">
+      </div>
+    </form>
+
+    <!-- Sign up form -->
+    <form class="new_user col-md-6 logins-form display-none form-width" id="sign-up-form" role="form" action="/users" accept-charset="UTF-8" method="post">
+      <div class="form-group">
+        <label for="user_name">Name</label>
+        <input autofocus="autofocus" class="form-control" type="text" name="user[name]" id="user_name" placeholder="your name" required>
+        <span class="help-block">Please enter you first name</span>
+      </div>
+      <div class="form-group">
+        <label for="user_email">Email</label>
+        <input class="form-control" type="email" value="" name="user[email]" id="user_email" placeholder="eg. john@doe.com" required>
+        <span class="help-block">Please enter you email address.</span>
+      </div>
+      <div class="form-group">
+        <label for="user_password">Password</label>
+        <input class="form-control" type="password" name="user[password]" id="user_password" placeholder="your password" required>
+        <span class="help-block">Your password should be at least 6 characters and should consists of number and symbols</span>
+      </div>
+      <div class="form-group">
+        <label for="user_password_confirmation">Password confirmation</label>
+        <input class="form-control" type="password" name="user[password_confirmation]" id="user_password_confirmation" placeholder="your password confirmation" required>
       </div>
 
-      <!-- Sign in form -->
-      <form class="new_user col-md-6 logins-form form-width" id="sign-in-form" role="form" action="/users/sign_in" accept-charset="UTF-8" method="post">
-        <div class="form-group">
-          <label for="user_email">Email</label>
-          <input autofocus="autofocus" class="form-control" type="email" value="" name="user[email]" id="user_email" placeholder="eg. john@doe.com" required>
-          <span class="help-block">Please enter your email address.</span>
+      <div class="">
+        <div class="tacbox">
+          <input id="checkbox" type="checkbox" required/>
+          <label for="checkbox"> I agree to the <a href="#">Terms of Use</a> and
+            <a href="#">Privacy Policy</a>.</label>
         </div>
-        <div class="form-group">
-          <a class="pull-right" href="/users/password/new">Forgot password?</a>
-          <label for="user_password">Password</label>
-          <input class="form-control" type="password" name="user[password]" id="user_password" placeholder="your password" required>
-          <span class="help-block">Please enter your password.</span>
-        </div>
-        <input type="submit" name="commit" value="Sign in" class="btn btn-primary signin-button" data-disable-with="Sign in">
-        <div class="checkbox" style="width:150px">
-        </div>
-      </form>
+        <br>
+      </div>
+      <input type="submit" name="commit" value="Sign up" class="btn btn-primary-custom signin-button" data-disable-with="Sign up">
+    </form>
 
-      <!-- Sign up form -->
-      <form class="new_user col-md-6 logins-form display-none form-width" id="sign-up-form" role="form" action="/users" accept-charset="UTF-8" method="post">
-        <div class="form-group">
-          <label for="user_name">Name</label>
-          <input autofocus="autofocus" class="form-control" type="text" name="user[name]" id="user_name" placeholder="your name" required>
-          <span class="help-block">Please enter you first name</span>
-        </div>
-        <div class="form-group">
-          <label for="user_email">Email</label>
-          <input class="form-control" type="email" value="" name="user[email]" id="user_email" placeholder="eg. john@doe.com" required>
-          <span class="help-block">Please enter you email address.</span>
-        </div>
-        <div class="form-group">
-          <label for="user_password">Password</label>
-          <input class="form-control" type="password" name="user[password]" id="user_password" placeholder="your password" required>
-          <span class="help-block">Your password should be at least 6 characters and should consists of number and symbols</span>
-        </div>
-        <div class="form-group">
-          <label for="user_password_confirmation">Password confirmation</label>
-          <input class="form-control" type="password" name="user[password_confirmation]" id="user_password_confirmation" placeholder="your password confirmation" required>
-        </div>
-
-        <div class="">
-          <div class="tacbox">
-            <input id="checkbox" type="checkbox" required/>
-            <label for="checkbox"> I agree to the <a href="#">Terms of Use</a> and
-              <a href="#">Privacy Policy</a>.</label>
-          </div>
-          <br>
-        </div>
-        <input type="submit" name="commit" value="Sign up" class="btn btn-primary signin-button" data-disable-with="Sign up">
-      </form>
-
-    </div>
-
-    <!-- Search documents -->
-    <div class="col-md-3">
-      <%= render 'layouts/search_documents' %>
-    </div>
-
-    <!-- Empty space -->
-    <div class="col-md-1"></div>
   </div>
+
+  <!-- Search documents -->
+  <div class="col-md-4">
+    <%= render 'layouts/search_documents' %>
+  </div>
+
 </div>
 
 <%= javascript_include_tag 'logins' %>

@@ -1,9 +1,0 @@
-<%# add navigation links to this file %>
-<li><%= link_to 'Business', page_path('about') %></li>
-<li><%= link_to 'Personal', page_path('about') %></li>
-<li><%= link_to 'Real Estate', page_path('about') %></li>
-
-<!--Show links when user signed in-->
-<% if user_signed_in? %>
-  <li><a href="<%= e_forms_path %>" class="<%= 'active-link' if current_page?(e_forms_path) %>">My eForms</a></li>
-<% end %>
