@@ -59,6 +59,7 @@ hr {
 
 .navbar-nav {
   float: right;
+  margin: 20px 12px 0px 0px;
 }
 
 //---------- Override for the 'Home' navigation link ----------
@@ -277,4 +278,8 @@ hr {
   .site-footer .copyright-text, .site-footer .social-icons {
     text-align: center
   }
+}
+
+.main-div{
+  margin: 6% 0% 10% 2%
 }
