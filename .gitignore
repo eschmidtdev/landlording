@@ -85,4 +85,4 @@ pickle-email-*.html
 
 /config/master.key
 vendor/cache/
-/config/database.ymlconfig/database.yml
+config/database.yml
