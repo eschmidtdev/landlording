@@ -9182,56 +9182,56 @@ td.visible-print {
   }
 }
 
-/* line 6, app/assets/stylesheets/1st_load_framework.css.scss */
+/* line 6, app/assets/stylesheets/custom.css.scss */
 img {
   margin: 0 auto;
 }
 
-/* line 12, app/assets/stylesheets/1st_load_framework.css.scss */
+/* line 12, app/assets/stylesheets/custom.css.scss */
 .navbar-brand {
   font-size: inherit;
 }
 
-/* line 41, app/assets/stylesheets/1st_load_framework.css.scss */
+/* line 41, app/assets/stylesheets/custom.css.scss */
 main {
   padding-bottom: 20px;
   width: 100%;
   margin-top: 51px;
 }
 
-/* line 49, app/assets/stylesheets/1st_load_framework.css.scss */
+/* line 49, app/assets/stylesheets/custom.css.scss */
 section {
   margin-top: 20px;
 }
 
-/* line 57, app/assets/stylesheets/1st_load_framework.css.scss */
+/* line 57, app/assets/stylesheets/custom.css.scss */
 .authform {
   padding-top: 30px;
   max-width: 320px;
   margin: 0 auto;
 }
 
-/* line 63, app/assets/stylesheets/1st_load_framework.css.scss */
+/* line 63, app/assets/stylesheets/custom.css.scss */
 .authform form {
   padding-bottom: 40px;
 }
 
-/* line 69, app/assets/stylesheets/1st_load_framework.css.scss */
+/* line 69, app/assets/stylesheets/custom.css.scss */
 .authform .right {
   float: right !important;
 }
 
-/* line 87, app/assets/stylesheets/1st_load_framework.css.scss */
+/* line 87, app/assets/stylesheets/custom.css.scss */
 #error_explanation h2 {
   font-size: 16px;
 }
 
-/* line 97, app/assets/stylesheets/1st_load_framework.css.scss */
+/* line 97, app/assets/stylesheets/custom.css.scss */
 .navbar-nav {
   float: right;
 }
 
-/* line 101, app/assets/stylesheets/1st_load_framework.css.scss */
+/* line 101, app/assets/stylesheets/custom.css.scss */
 hr {
   border: 0;
   clear: both;

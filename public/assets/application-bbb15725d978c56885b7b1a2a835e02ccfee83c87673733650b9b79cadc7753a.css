@@ -9180,17 +9180,17 @@ td.visible-print {
   }
 }
 
-/* line 6, app/assets/stylesheets/1st_load_framework.css.scss */
+/* line 6, app/assets/stylesheets/custom.css.scss */
 img {
   margin: 0 auto;
 }
 
-/* line 12, app/assets/stylesheets/1st_load_framework.css.scss */
+/* line 12, app/assets/stylesheets/custom.css.scss */
 section {
   margin-top: 20px;
 }
 
-/* line 18, app/assets/stylesheets/1st_load_framework.css.scss */
+/* line 18, app/assets/stylesheets/custom.css.scss */
 hr {
   border: 0;
   clear: both;
@@ -9199,34 +9199,34 @@ hr {
   height: 1px;
 }
 
-/* line 29, app/assets/stylesheets/1st_load_framework.css.scss */
+/* line 29, app/assets/stylesheets/custom.css.scss */
 .authform {
   padding-top: 30px;
   max-width: 320px;
   margin: 0 auto;
 }
 
-/* line 35, app/assets/stylesheets/1st_load_framework.css.scss */
+/* line 35, app/assets/stylesheets/custom.css.scss */
 .authform form {
   padding-bottom: 40px;
 }
 
-/* line 41, app/assets/stylesheets/1st_load_framework.css.scss */
+/* line 41, app/assets/stylesheets/custom.css.scss */
 .authform .right {
   float: right !important;
 }
 
-/* line 60, app/assets/stylesheets/1st_load_framework.css.scss */
+/* line 60, app/assets/stylesheets/custom.css.scss */
 .navbar-nav {
   float: right;
 }
 
-/* line 65, app/assets/stylesheets/1st_load_framework.css.scss */
+/* line 65, app/assets/stylesheets/custom.css.scss */
 .navbar-brand {
   font-size: inherit;
 }
 
-/* line 93, app/assets/stylesheets/1st_load_framework.css.scss */
+/* line 93, app/assets/stylesheets/custom.css.scss */
 .site-footer {
   background-color: #26272b;
   padding: 45px 0 20px;
@@ -9235,18 +9235,18 @@ hr {
   color: #737373;
 }
 
-/* line 101, app/assets/stylesheets/1st_load_framework.css.scss */
+/* line 101, app/assets/stylesheets/custom.css.scss */
 .site-footer hr {
   border-top-color: #bbb;
   opacity: 0.5;
 }
 
-/* line 106, app/assets/stylesheets/1st_load_framework.css.scss */
+/* line 106, app/assets/stylesheets/custom.css.scss */
 .site-footer hr.small {
   margin: 20px 0;
 }
 
-/* line 110, app/assets/stylesheets/1st_load_framework.css.scss */
+/* line 110, app/assets/stylesheets/custom.css.scss */
 .site-footer h6 {
   color: #fff;
   font-size: 16px;
@@ -9255,50 +9255,50 @@ hr {
   letter-spacing: 2px;
 }
 
-/* line 118, app/assets/stylesheets/1st_load_framework.css.scss */
+/* line 118, app/assets/stylesheets/custom.css.scss */
 .site-footer a {
   color: #737373;
 }
 
-/* line 122, app/assets/stylesheets/1st_load_framework.css.scss */
+/* line 122, app/assets/stylesheets/custom.css.scss */
 .site-footer a:hover {
   color: #3366cc;
   text-decoration: none;
 }
 
-/* line 127, app/assets/stylesheets/1st_load_framework.css.scss */
+/* line 127, app/assets/stylesheets/custom.css.scss */
 .footer-links {
   padding-left: 0;
   list-style: none;
 }
 
-/* line 132, app/assets/stylesheets/1st_load_framework.css.scss */
+/* line 132, app/assets/stylesheets/custom.css.scss */
 .footer-links li {
   display: block;
 }
 
-/* line 136, app/assets/stylesheets/1st_load_framework.css.scss */
+/* line 136, app/assets/stylesheets/custom.css.scss */
 .footer-links a {
   color: #737373;
 }
 
-/* line 140, app/assets/stylesheets/1st_load_framework.css.scss */
+/* line 140, app/assets/stylesheets/custom.css.scss */
 .footer-links a:active, .footer-links a:focus, .footer-links a:hover {
   color: #3366cc;
   text-decoration: none;
 }
 
-/* line 145, app/assets/stylesheets/1st_load_framework.css.scss */
+/* line 145, app/assets/stylesheets/custom.css.scss */
 .footer-links.inline li {
   display: inline-block;
 }
 
-/* line 149, app/assets/stylesheets/1st_load_framework.css.scss */
+/* line 149, app/assets/stylesheets/custom.css.scss */
 .site-footer .social-icons {
   text-align: right;
 }
 
-/* line 153, app/assets/stylesheets/1st_load_framework.css.scss */
+/* line 153, app/assets/stylesheets/custom.css.scss */
 .site-footer .social-icons a {
   width: 40px;
   height: 40px;
@@ -9309,32 +9309,32 @@ hr {
   background-color: #33353d;
 }
 
-/* line 163, app/assets/stylesheets/1st_load_framework.css.scss */
+/* line 163, app/assets/stylesheets/custom.css.scss */
 .copyright-text {
   margin: 0;
 }
 
-/* line 167, app/assets/stylesheets/1st_load_framework.css.scss */
+/* line 167, app/assets/stylesheets/custom.css.scss */
 .nav-bg {
   background: #000 !important;
   padding-bottom: 0 !important;
   border-bottom: 1px solid #000 !important;
 }
 
-/* line 173, app/assets/stylesheets/1st_load_framework.css.scss */
+/* line 173, app/assets/stylesheets/custom.css.scss */
 .social-icons {
   padding-left: 0;
   margin-bottom: 0;
   list-style: none;
 }
 
-/* line 179, app/assets/stylesheets/1st_load_framework.css.scss */
+/* line 179, app/assets/stylesheets/custom.css.scss */
 .social-icons li {
   display: inline-block;
   margin-bottom: 4px;
 }
 
-/* line 184, app/assets/stylesheets/1st_load_framework.css.scss */
+/* line 184, app/assets/stylesheets/custom.css.scss */
 .social-icons li.title {
   margin-right: 15px;
   text-transform: uppercase;
@@ -9343,7 +9343,7 @@ hr {
   font-size: 13px;
 }
 
-/* line 192, app/assets/stylesheets/1st_load_framework.css.scss */
+/* line 192, app/assets/stylesheets/custom.css.scss */
 .social-icons a {
   background-color: #eceeef;
   color: #818a91;
@@ -9360,13 +9360,13 @@ hr {
   transition: all .2s linear;
 }
 
-/* line 208, app/assets/stylesheets/1st_load_framework.css.scss */
+/* line 208, app/assets/stylesheets/custom.css.scss */
 .social-icons a:active, .social-icons a:focus, .social-icons a:hover {
   color: #fff;
   background-color: #29aafe;
 }
 
-/* line 213, app/assets/stylesheets/1st_load_framework.css.scss */
+/* line 213, app/assets/stylesheets/custom.css.scss */
 .social-icons.size-sm a {
   line-height: 34px;
   height: 34px;
@@ -9374,33 +9374,33 @@ hr {
   font-size: 14px;
 }
 
-/* line 220, app/assets/stylesheets/1st_load_framework.css.scss */
+/* line 220, app/assets/stylesheets/custom.css.scss */
 .social-icons a.facebook:hover {
   background-color: #3b5998;
 }
 
-/* line 224, app/assets/stylesheets/1st_load_framework.css.scss */
+/* line 224, app/assets/stylesheets/custom.css.scss */
 .social-icons a.twitter:hover {
   background-color: #00aced;
 }
 
-/* line 228, app/assets/stylesheets/1st_load_framework.css.scss */
+/* line 228, app/assets/stylesheets/custom.css.scss */
 .social-icons a.linkedin:hover {
   background-color: #007bb6;
 }
 
-/* line 232, app/assets/stylesheets/1st_load_framework.css.scss */
+/* line 232, app/assets/stylesheets/custom.css.scss */
 .social-icons a.dribbble:hover {
   background-color: #ea4c89;
 }
 
-/* line 236, app/assets/stylesheets/1st_load_framework.css.scss */
+/* line 236, app/assets/stylesheets/custom.css.scss */
 .access-doc-breadcrumb-row span a {
   text-decoration: none;
   color: #000000;
 }
 
-/* line 241, app/assets/stylesheets/1st_load_framework.css.scss */
+/* line 241, app/assets/stylesheets/custom.css.scss */
 #footer {
   position: fixed;
   left: 0px;
@@ -9409,13 +9409,13 @@ hr {
   width: 100%;
 }
 
-/* line 254, app/assets/stylesheets/1st_load_framework.css.scss */
+/* line 254, app/assets/stylesheets/custom.css.scss */
 #error_explanation h2 {
   font-size: 16px;
 }
 
 @media (max-width: 767px) {
-  /* line 259, app/assets/stylesheets/1st_load_framework.css.scss */
+  /* line 259, app/assets/stylesheets/custom.css.scss */
   .social-icons li.title {
     display: block;
     margin-right: 0;
@@ -9424,18 +9424,18 @@ hr {
 }
 
 @media (max-width: 991px) {
-  /* line 267, app/assets/stylesheets/1st_load_framework.css.scss */
+  /* line 267, app/assets/stylesheets/custom.css.scss */
   .site-footer [class^=col-] {
     margin-bottom: 30px;
   }
 }
 
 @media (max-width: 767px) {
-  /* line 273, app/assets/stylesheets/1st_load_framework.css.scss */
+  /* line 273, app/assets/stylesheets/custom.css.scss */
   .site-footer {
     padding-bottom: 0;
   }
-  /* line 277, app/assets/stylesheets/1st_load_framework.css.scss */
+  /* line 277, app/assets/stylesheets/custom.css.scss */
   .site-footer .copyright-text, .site-footer .social-icons {
     text-align: center;
   }

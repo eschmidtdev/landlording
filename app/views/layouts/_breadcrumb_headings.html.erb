@@ -1,6 +1,6 @@
 <% if current_page?(root_path) %>
   <div class="col-lg-12 access-doc-breadcrumb-row">
-    <span>Home</span> >> <span class="access-doc-text">Access Your Documents</span>
+    <span><a href="<%= root_path %>">Home</a></span> » <span class="access-doc-text">Access Your Documents</span>
   </div>
   <div class="col-md-12 access-doc-heading-row">
     <span class="access-doc-heading">Access Your Documents</span>
@@ -8,9 +8,9 @@
 <% elsif current_page?(e_forms_path) %>
   <div class="col-lg-12 access-doc-breadcrumb-row">
     <span><a href="<%= root_path %>">Home</a></span>
-    >>
+    »
     <span><a href="<%= e_forms_path %>">My eForms</a></span>
-    >>
+    »
     <span class="access-doc-text">My Documents</span>
   </div>
   <div class="col-md-12 access-doc-heading-row">
@@ -19,7 +19,7 @@
 <% elsif current_page?(new_e_form_path) %>
   <div class="col-lg-12 access-doc-breadcrumb-row">
     <span><a href="<%= root_path %>">Home</a></span>
-    >>
+    »
     <span class="access-doc-text"><b>North Dakota Residential Lease Agreement</b></span>
   </div>
   <div class="col-md-12 access-doc-heading-row">
@@ -27,7 +27,7 @@
   </div>
 <% elsif current_page?(new_user_password_path) %>
   <div class="col-lg-12 access-doc-breadcrumb-row">
-    <span>Home</span> >> <span class="access-doc-text">Password Recovery</span>
+    <span>Home</span> » <span class="access-doc-text">Password Recovery</span>
   </div>
   <div class="col-md-12 access-doc-heading-row">
     <span class="access-doc-heading">Password Recovery</span>
@@ -35,9 +35,9 @@
 <% elsif current_page?(edit_user_registration_path) %>
   <div class="col-lg-12 access-doc-breadcrumb-row">
     <span><a href="<%= root_path %>">Home</a></span>
-    >>
+    »
     <span><a href="<%= e_forms_path %>">My eForms</a></span>
-    >>
+    »
     <span class="access-doc-text">Change Password</span>
   </div>
   <div class="col-md-12 access-doc-heading-row">
@@ -46,9 +46,9 @@
 <% elsif current_page?(subscriptions_path) %>
   <div class="col-lg-12 access-doc-breadcrumb-row">
     <span><a href="<%= root_path %>">Home</a></span>
-    >>
+    »
     <span><a href="<%= e_forms_path %>">My eForms</a></span>
-    >>
+    »
     <span class="access-doc-text">Subscription</span>
     <div class="col-md-12 access-doc-heading-row">
       <span class="access-doc-heading">Subscription</span>
