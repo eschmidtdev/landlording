@@ -4,6 +4,7 @@
   border-top-right-radius: 5px;
   border-top-left-radius: 5px;
   font-weight: bold !important;
+  font-size: 13px;
 }
 
 .active-link:hover {
@@ -12,4 +13,7 @@
   border-top-right-radius: 5px !important;
   border-top-left-radius: 5px !important;
   font-weight: bold !important;
+}
+.header-common-link{
+  color: white !important;
 }

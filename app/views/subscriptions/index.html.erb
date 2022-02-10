@@ -1,0 +1,106 @@
+<%= render 'layouts/breadcrumb_headings' %>
+
+<div class="row">
+
+  <!-- Subscription form -->
+  <div class="col-md-8">
+    <div class="dm_settings_section">
+      <div class="subscription-details">
+        <p>
+          You don't have active any subscription.</p>
+        <p>
+          <a href="#" class="btn btn-primary-custom">Subscription Plans</a>
+        </p>
+      </div>
+    </div>
+
+    <!-- Start subscription form -->
+    <div class="dm_settings_section_heading">
+      <h3>Billing Details</h3>
+    </div>
+
+
+    <%= form_with(model: Subscription.new) do |f| %>
+
+      <fieldset>
+        <div class="form-group">
+          <%= f.label :email %>
+          <%= f.text_field :email, class: 'form-control', placeholder: 'enter your email' %>
+        </div>
+      </fieldset>
+
+      <fieldset>
+        <div class="row">
+          <div class="col-md-6">
+            <%= f.label :first_name %>
+            <%= f.text_field :first_name, class: 'form-control', placeholder: 'enter your first name' %>
+          </div>
+          <div class="col-md-6">
+            <%= f.label :last_name %>
+            <%= f.text_field :last_name, class: 'form-control', placeholder: 'enter your first name' %>
+          </div>
+        </div>
+      </fieldset>
+      <br>
+
+      <fieldset>
+        <div class="form-group">
+          <%= f.label :company %>
+          <%= f.text_field :company, class: 'form-control', placeholder: '(optional)' %>
+        </div>
+      </fieldset>
+
+      <fieldset>
+        <div class="form-group">
+          <%= f.label 'Address Line 1' %>
+          <%= f.text_field :address_line_one, class: 'form-control', placeholder: 'enter address line 1' %>
+        </div>
+      </fieldset>
+
+      <fieldset>
+        <div class="form-group">
+          <%= f.label 'Address Line 2' %>
+          <%= f.text_field :address_line_one, class: 'form-control', placeholder: 'enter address line 2' %>
+        </div>
+      </fieldset>
+
+      <fieldset>
+        <div class="row">
+          <div class="col-md-6">
+            <%= f.label :city %>
+            <%= f.text_field :city, class: 'form-control', placeholder: 'enter your city name' %>
+          </div>
+          <div class="col-md-6">
+            <%= f.label 'Zip Code' %>
+            <%= f.text_field :zip_code, class: 'form-control', placeholder: 'enter your zip code' %>
+          </div>
+        </div>
+      </fieldset>
+      <br>
+
+      <fieldset>
+        <div class="row">
+          <div class="col-md-6">
+            <%= f.label :country %>
+            <%= f.text_field :country, class: 'form-control' %>
+          </div>
+          <div class="col-md-6">
+            <%= f.label 'Sate / Province' %>
+            <%= f.text_field :state, class: 'form-control' %>
+          </div>
+        </div>
+      </fieldset>
+      <br>
+
+      <%= f.submit 'Save', :class => 'button right btn btn-primary-custom' %>
+    <% end %>
+
+
+  </div>
+
+
+  <!-- Search documents -->
+  <div class="col-md-4">
+    <%= render 'layouts/search_documents' %>
+  </div>
+</div>

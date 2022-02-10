@@ -1,0 +1,54 @@
+<p id="notice"><%= notice %></p>
+
+<p>
+  <strong>Email:</strong>
+  <%= @subscription.email %>
+</p>
+
+<p>
+  <strong>First name:</strong>
+  <%= @subscription.first_name %>
+</p>
+
+<p>
+  <strong>Last name:</strong>
+  <%= @subscription.last_name %>
+</p>
+
+<p>
+  <strong>Company:</strong>
+  <%= @subscription.company %>
+</p>
+
+<p>
+  <strong>Address line one:</strong>
+  <%= @subscription.address_line_one %>
+</p>
+
+<p>
+  <strong>Address line two:</strong>
+  <%= @subscription.address_line_two %>
+</p>
+
+<p>
+  <strong>City:</strong>
+  <%= @subscription.city %>
+</p>
+
+<p>
+  <strong>Zip code:</strong>
+  <%= @subscription.zip_code %>
+</p>
+
+<p>
+  <strong>Country:</strong>
+  <%= @subscription.country %>
+</p>
+
+<p>
+  <strong>State:</strong>
+  <%= @subscription.state %>
+</p>
+
+<%= link_to 'Edit', edit_subscription_path(@subscription) %> |
+<%= link_to 'Back', subscriptions_path %>

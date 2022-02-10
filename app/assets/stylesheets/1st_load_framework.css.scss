@@ -77,6 +77,9 @@ hr {
   filter: progid:DXImageTransform.Microsoft.gradient(enabled = false);
 }
 
+.btn-primary-custom:hover {
+  color: #ffffff;
+}
 
 .nav-bg {
   background: #000 !important;
@@ -159,4 +162,79 @@ footer {
   list-style: none;
   padding: 0;
 
+}
+
+//Header Css
+.dropbtn {
+  color: white;
+  padding: 16px;
+  font-size: 16px;
+  border: none;
+}
+
+.dropdown {
+  position: relative;
+  display: inline-block;
+}
+
+.dropdown-content {
+  display: none;
+  position: absolute;
+  background-color: #fff;
+  min-width: 160px;
+  box-shadow: 0px 8px 16px 0px rgba(0, 0, 0, 0.2);
+  z-index: 1;
+}
+
+.dropdown-content a {
+  text-decoration: none;
+  display: block;
+  border-bottom: 1px solid #f1f1f1;
+  padding: 10px 20px;
+  color: #5d5d5d;
+  font-size: .786em;
+  cursor: pointer;
+}
+
+.dropdown-content a:hover {
+  background-color: #f1f1f1;
+}
+
+.dropdown:hover .dropdown-content {
+  display: block;
+}
+
+.dropdown:hover .dropbtn {
+  background-color: #fff;
+}
+
+.dropdown-active-link {
+  color: #d25555 !important;
+}
+
+.dropdown-active-parent-link {
+  color: black !important;
+  background-color: #fff !important;
+  border-top-right-radius: 5px !important;
+  border-top-left-radius: 5px !important;
+  font-weight: bold !important;
+}
+
+
+//Subscription Css
+.dm_settings_section h3 {
+  margin-bottom: 20px;
+  border-bottom: #dfdfdf 1px solid;
+  padding-bottom: 5px;
+  font-weight: 700;
+}
+
+.dm_settings_section {
+  margin-bottom: 50px;
+}
+
+.dm_settings_section_heading h3{
+  font-weight: 700;
+  border-bottom: #dfdfdf 1px solid;
+  padding-bottom: 5px;
 }

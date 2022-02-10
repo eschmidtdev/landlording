@@ -15,22 +15,40 @@
         <ul class="nav navbar-nav">
 
           <!-- Common Links -->
-          <li><%= link_to 'Business', page_path('about') %></li>
-          <li><%= link_to 'Personal', page_path('about') %></li>
-          <li><%= link_to 'Real Estate', page_path('about') %></li>
+          <li><a href="#" class="header-common-link"><b>Business</b></a></li>
+          <li><a href="#" class="header-common-link"><b>Personal</b></a></li>
+          <li><a href="#" class="header-common-link"><b>Real Estate</b></a></li>
 
           <!--Show links when user signed in-->
           <% if user_signed_in? %>
             <li>
-              <a href="<%= e_forms_path %>" class="<%= 'active-link' if current_page?(e_forms_path) %>">My eForms</a>
+              <div class="dropdown">
+                <button
+                  onclick="location.href='<%= e_forms_path %>'"
+                  class="dropbtn <%= 'active-link' if current_page?(e_forms_path) ||
+                    current_page?(edit_user_registration_path) || current_page?(subscriptions_path) %>">
+                  My eForms
+                </button>
+                <div class="dropdown-content">
+                  <a
+                    onclick="location.href='<%= e_forms_path %>'"
+                    class="<%= 'dropdown-active-link' if current_page?(e_forms_path) %>">
+                    My Document
+                  </a>
+                  <a
+                    onclick="location.href='<%= subscriptions_path %>'"
+                    class="<%= 'dropdown-active-link' if current_page?(subscriptions_path) %>">
+                    Subscription
+                  </a>
+                  <a
+                    onclick="location.href='<%= edit_user_registration_path %>'"
+                    class="<%= 'dropdown-active-link' if current_page?(edit_user_registration_path) %>">
+                    Change Password
+                  </a>
+                  <a rel="nofollow" data-method="delete" href="/users/sign_out">Sign Out</a>
+                </div>
+              </div>
             </li>
-            <li>
-              <a href="<%= edit_user_registration_path %>" class="<%= 'active-link' if current_page?(edit_user_registration_path) %>">
-                Edit account
-              </a>
-            </li>
-            <li><%= link_to 'Sign out', destroy_user_session_path, :method => 'delete' %></li>
-            <!--  <li><%#= link_to 'Users', users_path %></li>-->
           <% end %>
         </ul>
       </div>
