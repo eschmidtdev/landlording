@@ -7,10 +7,35 @@
           <ul>
             <li>
               <ul class="dm_navigation">
-                <li>My Documents</li>
-                <li>Subscription</li>
-                <li>Change Password</li>
-                <li>Sign Out</li>
+                <li>
+                  <a
+                    href="<%= e_forms_path %>"
+                    class="<%= 'dropdown-active-link' if current_page?(e_forms_path) %>">
+                    My Documents
+                  </a>
+                </li>
+                <li>
+                  <a
+                    href="<%= subscriptions_path %>">
+                    class="<%= 'dropdown-active-link' if current_page?(subscriptions_path) %>">
+                    Subscription
+                  </a>
+                </li>
+                <li>
+                  <a
+                    href="<%= edit_user_registration_path %>">
+                    class="<%= 'dropdown-active-link' if current_page?(edit_user_registration_path) %>">
+                    Change Password
+                  </a>
+                </li>
+                <li>
+                  <a
+                    rel="nofollow"
+                    data-method="delete"
+                    href="/users/sign_out">
+                    Sign Out
+                  </a>
+                </li>
               </ul>
             </li>
           </ul>

@@ -1,55 +1,53 @@
 <%= render 'layouts/breadcrumb_headings' %>
 
-<div class="doc-table">
-  <%= link_to 'New Document', new_e_form_path, class: 'btn btn-primary-custom doc-btn pull-right' %>
-  <table class="table table-striped table-bordered">
-    <thead>
+<%= link_to 'New Document', new_e_form_path, class: 'btn btn-primary-custom doc-btn pull-right' %>
+<table class="table table-striped table-bordered">
+  <thead>
+  <tr>
+    <th>Name</th>
+    <th>Created At</th>
+    <th class="dm_table_actions">Actions</th>
+  </tr>
+  </thead>
+  <% @e_forms.each do |e_form| %>
+    <tbody>
     <tr>
-      <th>Name</th>
-      <th>Created At</th>
-      <th class="dm_table_actions">Actions</th>
-    </tr>
-    </thead>
-    <% @e_forms.each do |e_form| %>
-      <tbody>
-      <tr>
-        <td>
-          <div class="dm_table_name"><%= e_form.name %></div>
-          <div class="dm_table_source">
-            Source:
-            <a href="#">North Dakota Residential Lease Agreement</a>
-          </div>
-        </td>
-        <td>
-          <%= e_form.created_at.strftime('%d/%m/%Y') %>
-        </td>
-        <td class="dm_table_actions">
-          <a href="#" class="btn btn-primary-custom">
-            <i class="fa fa-edit"></i> Edit </a>
+      <td>
+        <div class="dm_table_name"><%= e_form.name %></div>
+        <div class="dm_table_source">
+          Source:
+          <a href="#">North Dakota Residential Lease Agreement</a>
+        </div>
+      </td>
+      <td>
+        <%= e_form.created_at.strftime('%d/%m/%Y') %>
+      </td>
+      <td class="dm_table_actions">
+        <a href="#" class="btn btn-primary-custom">
+          <i class="fa fa-edit"></i> Edit </a>
 
-          <div class="btn-group">
-            <button type="button" name="dm_button_more" class="btn dropdown-toggle" data-toggle="dropdown">
-              <i class="fa fa-bars"></i> More
-            </button>
-            <ul class="dropdown-menu">
-              <li>
-                <a href="#">
-                  <i class="fa fa-edit"></i> Edit </a>
-              </li>
-              <li>
-                <a href="" data-rename="9355908">
-                  <i class="fa fa-tag"></i> Rename </a>
-              </li>
-              <li>
-                <a href="" data-delete="9355908">
-                  <i class="fa fa-trash"></i> Delete </a>
-              </li>
-            </ul>
-          </div>
-        </td>
-      </tr>
-    <% end %>
-    </tbody>
-  </table>
-  <!--    TODO Add pagination-->
-</div>
+        <div class="btn-group">
+          <button type="button" name="dm_button_more" class="btn dropdown-toggle" data-toggle="dropdown">
+            <i class="fa fa-bars"></i> More
+          </button>
+          <ul class="dropdown-menu">
+            <li>
+              <a href="#">
+                <i class="fa fa-edit"></i> Edit </a>
+            </li>
+            <li>
+              <a href="" data-rename="9355908">
+                <i class="fa fa-tag"></i> Rename </a>
+            </li>
+            <li>
+              <a href="" data-delete="9355908">
+                <i class="fa fa-trash"></i> Delete </a>
+            </li>
+          </ul>
+        </div>
+      </td>
+    </tr>
+  <% end %>
+  </tbody>
+</table>
+<!--    TODO Add pagination-->

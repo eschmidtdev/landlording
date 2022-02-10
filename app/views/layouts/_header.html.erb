@@ -28,7 +28,7 @@
                 <button
                   onclick="location.href='<%= e_forms_path %>'"
                   class="dropbtn <%= 'active-link' if current_page?(e_forms_path) ||
-                    current_page?(edit_user_registration_path) || current_page?(subscriptions_path) %>">
+                    current_page?(edit_user_registration_path) || current_page?(subscriptions_path) || current_page?(root_path)  %>">
                   My eForms
                 </button>
 
