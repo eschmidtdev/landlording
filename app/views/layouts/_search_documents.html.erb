@@ -40,7 +40,45 @@
             </li>
           </ul>
         </div>
+      <% elsif params[:controller] == 'subscriptions' && params[:action] == 'plans' %>
+
+        <!-- Search document heading -->
+        <div class="documents-content">
+          <span class="search-doc-heading">Features</span>
+          <!-- Encrypt -->
+          <div class="membership-feature margin-top-10">
+            <div class="membership-feature-icon"><i class="fa fa-lock"></i></div>
+            Encrypted and Secure
+          </div>
+          <!-- Print -->
+          <div class="membership-feature">
+            <div class="membership-feature-icon"><i class="fa fa-print"></i></div>
+            Print Unlimited Documents
+          </div>
+          <!-- cloud download -->
+          <div class="membership-feature">
+            <div class="membership-feature-icon"><i class="fa fa-cloud-download"></i></div>
+            Export to PDF, Word and ODT
+          </div>
+          <!-- refresh -->
+          <div class="membership-feature">
+            <div class="membership-feature-icon"><i class="fa fa-refresh"></i></div>
+            Regularly Updated
+          </div>
+          <!-- legal -->
+          <div class="membership-feature">
+            <div class="membership-feature-icon"><i class="fa fa-gavel"></i></div>
+            Suited to your State Laws
+          </div>
+          <!-- diamond -->
+          <div class="membership-feature">
+            <div class="membership-feature-icon"><i class="fa fa-diamond"></i></div>
+            100% Satisfaction Guarantee
+          </div>
+        </div>
+
       <% else %>
+
         <!-- Search document heading -->
         <div class="documents-content">
           <span class="search-doc-heading">Search Documents</span>
@@ -78,27 +116,29 @@
         </div>
       </div>
 
-      <!-- Chat -->
-      <div class="row">
-        <div class="contact-section">
-          <div class="col-md-1"><i class="fa fa-comments font-awesome-size"></i></div>
-          <div class="col-md-9">
-            <span><b>Chat</b></span><br>
-            <span>Online - Start Chat</span><br>
+      <% unless params[:controller] == 'subscriptions' && params[:action] == 'plans' %>
+        <!-- Chat -->
+        <div class="row">
+          <div class="contact-section">
+            <div class="col-md-1"><i class="fa fa-comments font-awesome-size"></i></div>
+            <div class="col-md-9">
+              <span><b>Chat</b></span><br>
+              <span>Online - Start Chat</span><br>
+            </div>
           </div>
         </div>
-      </div>
 
-      <!-- Email -->
-      <div class="row">
-        <div class="contact-section">
-          <div class="col-md-1"><i class="fa fa-envelope font-awesome-size"></i></div>
-          <div class="col-md-9">
-            <span><b>Email</b></span><br>
-            <span>Send Message</span><br>
+        <!-- Email -->
+        <div class="row">
+          <div class="contact-section">
+            <div class="col-md-1"><i class="fa fa-envelope font-awesome-size"></i></div>
+            <div class="col-md-9">
+              <span><b>Email</b></span><br>
+              <span>Send Message</span><br>
+            </div>
           </div>
         </div>
-      </div>
+      <% end %>
 
     </div>
   </div>

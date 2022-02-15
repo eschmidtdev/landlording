@@ -111,7 +111,7 @@ hr {
 
 .search-documents {
   background-color: #eee;
-  height: 580px;
+  min-height: 80vh;
 }
 
 .search-doc-heading {
@@ -333,7 +333,8 @@ ul.dm_navigation li {
   border-top-left-radius: 5px !important;
   font-weight: bold !important;
 }
-.header-common-link{
+
+.header-common-link {
   color: white !important;
 }
 
@@ -481,7 +482,68 @@ footer {
   background: #EEEEEE;
 }
 
-.dm_navigation > li > a{
+.dm_navigation > li > a {
   text-decoration: none !important;
   color: #5d5d5d;
+}
+
+//--------------------------------------------------- Plans css -----------------------------------------------------
+
+.subscription_highlight {
+  background-color: #d9edf7;
+}
+
+.plan-heading {
+  margin-bottom: 20px !important;
+  padding: 15px 25px !important;
+  border-bottom: #dfdfdf 1px solid !important;
+  position: relative !important;
+}
+
+.plan-heading h2 {
+  margin-top: 0;
+}
+
+.plan-description ul {
+  padding-left: 20px;
+}
+
+.plan-description li {
+  line-height: 25px;
+}
+
+.plan-description-buttons {
+  float: right;
+  padding-top: 4px;
+}
+
+.plan-description-price {
+  float: right;
+  font-size: 30px;
+  color: #777;
+  margin-right: 30px;
+}
+
+.plan-description-price-after {
+  font-size: 14px;
+  color: #777;
+}
+
+.membership-feature {
+  color: #777;
+  margin-left: 5px;
+  margin-bottom: 25px;
+  font-size: 15px;
+}
+
+.membership-feature-icon {
+  width: 28px;
+  text-align: center;
+  display: inline-block;
+  margin-right: 8px;
+  font-size: 20px;
+}
+
+.margin-top-10 {
+  margin-top: 10px;
 }

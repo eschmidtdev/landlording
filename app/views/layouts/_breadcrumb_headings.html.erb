@@ -54,6 +54,17 @@
       <span class="access-doc-heading">Subscription</span>
     </div>
   </div>
+<% elsif current_page?(plans_subscriptions_path) %>
+  <div class="col-lg-12 access-doc-breadcrumb-row">
+    <span><a href="<%= root_path %>">Home</a></span>
+    »
+    <span><a href="<%= e_forms_path %>">My eForms</a></span>
+    »
+    <span class="access-doc-text">Premium Plans</span>
+    <div class="col-md-12 access-doc-heading-row">
+      <span class="access-doc-heading">Premium Plans</span>
+    </div>
+  </div>
 <% end %>
 
 <hr class="horizontalLine">
