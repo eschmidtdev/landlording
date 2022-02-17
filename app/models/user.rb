@@ -8,4 +8,5 @@ class User < ApplicationRecord
 
   # Associations
   has_many :e_forms, dependent: :destroy
+  has_many :cards, dependent: :destroy
 end

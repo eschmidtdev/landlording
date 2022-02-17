@@ -1,6 +1,6 @@
 # frozen_string_literal: true
 
-class EForm < ApplicationRecord
+class Card < ApplicationRecord
   # Association
   belongs_to :user
 end

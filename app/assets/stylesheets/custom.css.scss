@@ -551,3 +551,56 @@ footer {
 #flash_alert p {
   font-size: 15px;
 }
+
+//--------------------------------------------------- Payment css -----------------------------------------------------
+
+.payment p {
+  margin: 0 !important;
+  font-size: 15px;
+}
+
+.dm_credit_card {
+  background-size: 240px 60px;
+  width: 48px;
+  height: 30px;
+  border: #dfdfdf 1px solid;
+  border-radius: 3px;
+  display: inline-block;
+  background-image: url('/card_icons_96x60.png');
+  box-sizing: content-box !important;
+  -webkit-box-sizing: content-box !important;
+  -moz-box-sizing: content-box !important;
+  background-repeat: no-repeat;
+}
+
+.dm_credit_card_visa {
+  background-position: 0 -30px;
+}
+
+.dm_credit_card_mastercard {
+  background-position: -48px -30px;
+}
+
+.dm_credit_card_american_express {
+  background-position: -96px -30px;
+}
+
+.dm_credit_card_discover {
+  background-position: -192px -30px;
+}
+
+.dm_credit_card_diners_club {
+  background-position: -144px -30px;
+}
+
+.dm_credit_card_selected {
+  background-position: 0 0;
+}
+
+.dm_icon_input {
+  position: relative;
+}
+
+.dm_settings_section_heading_checkout h3 {
+
+}

@@ -9,5 +9,6 @@ Rails.application.routes.draw do
       get :plans
     end
   end
+  resources :payments, only: :index
 
 end
