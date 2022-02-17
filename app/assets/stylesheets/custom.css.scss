@@ -64,6 +64,10 @@ hr {
   padding: 5% 10% 3% 10%;
 }
 
+.last-contact{
+  padding-bottom: 30px;
+}
+
 .documents-search {
   padding: 0 0 0 10%;
 }
@@ -601,6 +605,31 @@ footer {
   position: relative;
 }
 
-.dm_settings_section_heading_checkout h3 {
+.widget_title {
+  font-size: 1.125em;
+  margin: 0 0 1em 0;
+  font-weight: 700;
+}
 
+.dm_order_name {
+  width: 70%;
+  float: left;
+}
+
+.dm_order_value {
+  width: 30%;
+  float: right;
+  text-align: right;
+  margin-bottom: 5px;
+}
+
+.payment-hr{
+  margin-top: 5px;
+}
+
+.dm_order_description {
+  margin-top: 20px;
+  font-size: 13px;
+  color: #777;
+  text-align: justify;
 }

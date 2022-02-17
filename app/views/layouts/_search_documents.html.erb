@@ -77,6 +77,27 @@
           </div>
         </div>
 
+      <% elsif params[:controller] == 'payments' && params[:action] == 'index' %>
+
+        <!-- Order heading -->
+        <div class="documents-content">
+          <h3 class="widget_title">Your Order</h3>
+
+          <div class="dm_order_name">Monthly Plan</div>
+          <div class="dm_order_value">$0.00</div>
+          <br>
+          <hr>
+          <div class="dm_order_name"><b>Total</b></div>
+          <div class="dm_order_value"><b>$0.00</b></div>
+          <br>
+
+          <div class="dm_order_description">
+            Your trial subscription plan is free for 7 days and you can cancel anytime. After that you will pay just
+            $39 per month starting on 29th January 2022 (EST).
+            If you have any questions, please do not hesitate and use our support via phone, online chat or email.
+          </div>
+        </div>
+
       <% else %>
 
         <!-- Search document heading -->
@@ -98,10 +119,10 @@
 
       <!-- Help description -->
       <div class="documents-search">
-              <span class="">
-                Our support agents are standing by to assist you. Please be aware that our agents are not licensed
-                attorneys and cannot address legal questions.
-              </span>
+                <span class="">
+                  Our support agents are standing by to assist you. Please be aware that our agents are not licensed
+                  attorneys and cannot address legal questions.
+                </span>
       </div>
 
       <!-- Phone -->
@@ -116,6 +137,7 @@
         </div>
       </div>
 
+      <!-- Chat / Email -->
       <% unless params[:controller] == 'subscriptions' && params[:action] == 'plans' %>
         <!-- Chat -->
         <div class="row">
@@ -132,7 +154,7 @@
         <div class="row">
           <div class="contact-section">
             <div class="col-md-1"><i class="fa fa-envelope font-awesome-size"></i></div>
-            <div class="col-md-9">
+            <div class="col-md-9 last-contact">
               <span><b>Email</b></span><br>
               <span>Send Message</span><br>
             </div>
