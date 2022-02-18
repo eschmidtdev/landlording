@@ -265,23 +265,83 @@
 
       <% elsif params[:controller] == 'payments' && params[:action] == 'index' %>
 
-        <!-- Order heading -->
-        <div class="documents-content">
-          <h3 class="widget_title">Your Order</h3>
 
-          <div class="dm_order_name">Monthly Plan</div>
-          <div class="dm_order_value">$0.00</div>
-          <br>
-          <hr>
-          <div class="dm_order_name"><b>Total</b></div>
-          <div class="dm_order_value"><b>$0.00</b></div>
-          <br>
+        <div class="sign-in-widget">
 
-          <div class="dm_order_description">
-            Your trial subscription plan is free for 7 days and you can cancel anytime. After that you will pay just
-            $39 per month starting on 29th January 2022 (EST).
-            If you have any questions, please do not hesitate and use our support via phone, online chat or email.
+          <!-- Order heading -->
+          <div class="side-widget-element">
+            <span class="heading">Your Order</span>
           </div>
+
+
+          <!-- Order heading -->
+          <div class="side-widget-element">
+
+              <div class="dm_order_name">Monthly Plan</div>
+              <div class="dm_order_value">$0.00</div>
+              <br>
+              <hr>
+              <div class="dm_order_name"><b>Total</b></div>
+              <div class="dm_order_value"><b>$0.00</b></div>
+              <br>
+
+              <div class="dm_order_description">
+                Your trial subscription plan is free for 7 days and you can cancel anytime. After that you will pay just
+                $39 per month starting on 29th January 2022 (EST).
+                If you have any questions, please do not hesitate and use our support via phone, online chat or email.
+              </div>
+          </div>
+
+
+          <!-- Help heading -->
+          <div class="side-widget-element">
+            <span class="heading">Do you need help?</span>
+          </div>
+
+          <!-- Help description -->
+          <div class="side-widget-element">
+            <span class="help-description">
+              Our support agents are standing by to assist you. Please be aware that our agents are not licensed
+              attorneys and cannot address legal questions.
+            </span>
+          </div>
+
+          <!-- Phone -->
+          <div class="side-widget-element">
+            <div class="row">
+              <div class="">
+                <div class="col-md-1 fa-container"><i class="fa fa-phone font-awesome-size"></i></div>
+                <div class="col-md-9">
+                  <span><b>Phone</b></span><br>
+                  <span>1 (844) 533-6767</span><br>
+                  <span class="timing">(9am to 9am, sat/sun 9am to 5pm)</span>
+                </div>
+              </div>
+            </div>
+          </div>
+
+          <!-- Chat -->
+          <div class="row">
+            <div class="contact-section">
+              <div class="col-md-1 fa-container"><i class="fa fa-comments font-awesome-size"></i></div>
+              <div class="col-md-9">
+                <span><b>Chat</b></span><br>
+                <span>Online - Start Chat</span><br>
+              </div>
+            </div>
+          </div>
+
+          <!-- Email -->
+          <div class="row">
+            <div class="contact-section">
+              <div class="col-md-1 fa-container"><i class="fa fa-envelope font-awesome-size"></i></div>
+              <div class="col-md-9 last-contact">
+                <span><b>Email</b></span><br>
+                <span>Send Message</span><br>
+              </div>
+            </div>
+          </div>
+
         </div>
 
       <% else %>
