@@ -41,51 +41,57 @@
           </ul>
         </div>
 
-        <!-- Help text -->
-        <div class="documents-content">
-          <span class="search-doc-heading">Do you need help?</span>
-        </div>
+        <div class="sign-in-widget">
 
-        <!-- Help description -->
-        <div class="documents-search">
-        <span class="">
-          Our support agents are standing by to assist you. Please be aware that our agents are not licensed
-          attorneys and cannot address legal questions.
-        </span>
-        </div>
+          <!-- Help heading -->
+          <div class="side-widget-element">
+            <span class="heading">Do you need help?</span>
+          </div>
 
-        <!-- Phone -->
-        <div class="row">
-          <div class="contact-section">
-            <div class="col-md-1 fa-container"><i class="fa fa-phone font-awesome-size"></i></div>
-            <div class="col-md-9">
-              <span><b>Phone</b></span><br>
-              <span>1 (844) 533-6767</span><br>
-              <span class="timing">(9am to 9am, sat/sun 9am to 5pm)</span>
+          <!-- Help description -->
+          <div class="side-widget-element">
+            <span class="help-description">
+              Our support agents are standing by to assist you. Please be aware that our agents are not licensed
+              attorneys and cannot address legal questions.
+            </span>
+          </div>
+
+          <!-- Phone -->
+          <div class="side-widget-element">
+            <div class="row">
+              <div class="">
+                <div class="col-md-1 fa-container"><i class="fa fa-phone font-awesome-size"></i></div>
+                <div class="col-md-9">
+                  <span><b>Phone</b></span><br>
+                  <span>1 (844) 533-6767</span><br>
+                  <span class="timing">(9am to 9am, sat/sun 9am to 5pm)</span>
+                </div>
+              </div>
             </div>
           </div>
-        </div>
 
-        <!-- Chat -->
-        <div class="row">
-          <div class="contact-section">
-            <div class="col-md-1 fa-container"><i class="fa fa-comments font-awesome-size"></i></div>
-            <div class="col-md-9">
-              <span><b>Chat</b></span><br>
-              <span>Online - Start Chat</span><br>
+          <!-- Chat -->
+          <div class="row">
+            <div class="contact-section">
+              <div class="col-md-1 fa-container"><i class="fa fa-comments font-awesome-size"></i></div>
+              <div class="col-md-9">
+                <span><b>Chat</b></span><br>
+                <span>Online - Start Chat</span><br>
+              </div>
             </div>
           </div>
-        </div>
 
-        <!-- Email -->
-        <div class="row">
-          <div class="contact-section">
-            <div class="col-md-1 fa-container"><i class="fa fa-envelope font-awesome-size"></i></div>
-            <div class="col-md-9 last-contact">
-              <span><b>Email</b></span><br>
-              <span>Send Message</span><br>
+          <!-- Email -->
+          <div class="row">
+            <div class="contact-section">
+              <div class="col-md-1 fa-container"><i class="fa fa-envelope font-awesome-size"></i></div>
+              <div class="col-md-9 last-contact">
+                <span><b>Email</b></span><br>
+                <span>Send Message</span><br>
+              </div>
             </div>
           </div>
+
         </div>
 
       <% elsif current_page?(root_path) %>
@@ -155,41 +161,106 @@
           </div>
 
         </div>
+
       <% elsif params[:controller] == 'subscriptions' && params[:action] == 'plans' %>
 
-        <!-- Search document heading -->
-        <div class="documents-content">
-          <span class="search-doc-heading">Features</span>
-          <!-- Encrypt -->
-          <div class="membership-feature margin-top-10">
-            <div class="membership-feature-icon"><i class="fa fa-lock"></i></div>
-            Encrypted and Secure
+        <div class="sign-in-widget">
+
+          <!-- Features -->
+          <div class="side-widget-element">
+            <span class="heading">Features</span>
           </div>
-          <!-- Print -->
-          <div class="membership-feature">
-            <div class="membership-feature-icon"><i class="fa fa-print"></i></div>
-            Print Unlimited Documents
+
+          <!-- Subscription features -->
+          <div class="side-widget-element">
+
+            <!-- Encrypt -->
+            <div class="membership-feature margin-top-10">
+              <div class="membership-feature-icon"><i class="fa fa-lock"></i></div>
+              Encrypted and Secure
+            </div>
+
+            <!-- Print -->
+            <div class="membership-feature">
+              <div class="membership-feature-icon"><i class="fa fa-print"></i></div>
+              Print Unlimited Documents
+            </div>
+
+            <!-- cloud download -->
+            <div class="membership-feature">
+              <div class="membership-feature-icon"><i class="fa fa-cloud-download"></i></div>
+              Export to PDF, Word and ODT
+            </div>
+
+            <!-- refresh -->
+            <div class="membership-feature">
+              <div class="membership-feature-icon"><i class="fa fa-refresh"></i></div>
+              Regularly Updated
+            </div>
+
+            <!-- legal -->
+            <div class="membership-feature">
+              <div class="membership-feature-icon"><i class="fa fa-gavel"></i></div>
+              Suited to your State Laws
+            </div>
+
+            <!-- diamond -->
+            <div class="membership-feature">
+              <div class="membership-feature-icon"><i class="fa fa-diamond"></i></div>
+              100% Satisfaction Guarantee
+            </div>
+
           </div>
-          <!-- cloud download -->
-          <div class="membership-feature">
-            <div class="membership-feature-icon"><i class="fa fa-cloud-download"></i></div>
-            Export to PDF, Word and ODT
+
+          <!-- Help heading -->
+          <div class="side-widget-element">
+            <span class="heading">Do you need help?</span>
           </div>
-          <!-- refresh -->
-          <div class="membership-feature">
-            <div class="membership-feature-icon"><i class="fa fa-refresh"></i></div>
-            Regularly Updated
+
+          <!-- Help description -->
+          <div class="side-widget-element">
+            <span class="help-description">
+              Our support agents are standing by to assist you. Please be aware that our agents are not licensed
+              attorneys and cannot address legal questions.
+            </span>
           </div>
-          <!-- legal -->
-          <div class="membership-feature">
-            <div class="membership-feature-icon"><i class="fa fa-gavel"></i></div>
-            Suited to your State Laws
+
+          <!-- Phone -->
+          <div class="side-widget-element">
+            <div class="row">
+              <div class="">
+                <div class="col-md-1 fa-container"><i class="fa fa-phone font-awesome-size"></i></div>
+                <div class="col-md-9">
+                  <span><b>Phone</b></span><br>
+                  <span>1 (844) 533-6767</span><br>
+                  <span class="timing">(9am to 9am, sat/sun 9am to 5pm)</span>
+                </div>
+              </div>
+            </div>
           </div>
-          <!-- diamond -->
-          <div class="membership-feature">
-            <div class="membership-feature-icon"><i class="fa fa-diamond"></i></div>
-            100% Satisfaction Guarantee
+
+          <!-- Chat -->
+          <div class="row">
+            <div class="contact-section">
+              <div class="col-md-1 fa-container"><i class="fa fa-comments font-awesome-size"></i></div>
+              <div class="col-md-9">
+                <span><b>Chat</b></span><br>
+                <span>Online - Start Chat</span><br>
+              </div>
+            </div>
           </div>
+
+          <!-- Email -->
+          <div class="row">
+            <div class="contact-section">
+              <div class="col-md-1 fa-container"><i class="fa fa-envelope font-awesome-size"></i></div>
+              <div class="col-md-9 last-contact">
+                <span><b>Email</b></span><br>
+                <span>Send Message</span><br>
+              </div>
+            </div>
+          </div>
+
         </div>
 
       <% elsif params[:controller] == 'payments' && params[:action] == 'index' %>
