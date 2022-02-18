@@ -1,0 +1,33 @@
+footer {
+  background: #f3f3f3;
+  border-top: 1px solid #d7d7d7;
+  padding: 3.55em 0 2.55em 0;
+}
+
+.logo-footer {
+  background: none, url("eforms-footer_r.svg") no-repeat;
+  background-size: 120px auto;
+  display: block;
+  width: 120px;
+  height: 45px;
+  position: relative;
+  top: -10px;
+  left: -4px;
+}
+
+.footer-ul-li > ul {
+  line-height: 2.4em;
+  list-style: none;
+  padding: 0;
+}
+
+.footer-ul-li > ul > li > a {
+  text-decoration: none;
+  color: #5d5d5d;
+}
+
+.footer-rating-list > ul {
+  list-style: none;
+  padding: 0;
+
+}

@@ -2,6 +2,12 @@
 @import "bootstrap-sprockets";
 @import "bootstrap";
 
+//--------------------------------------------------- Global css ------------------------------------------------------
+
+body {
+  color: #252525 !important;
+}
+
 //--------------------------------------------------- Make all images responsive by default ---------------------------
 img {
   @extend .img-responsive;
@@ -32,13 +38,11 @@ hr {
 
 .access-doc-text {
   font-size: 14px;
-  color: #000000;
   font-weight: bold;
 }
 
 .access-doc-heading {
   font-size: 20px;
-  color: #000000;
   font-weight: 600;
 }
 
@@ -61,66 +65,19 @@ hr {
 }
 
 .contact-section {
-  padding: 5% 10% 3% 10%;
+  padding: 5% 7% 5% 7%;
 }
 
-.last-contact{
+.last-contact {
   padding-bottom: 30px;
-}
-
-.documents-search {
-  padding: 0 0 0 10%;
-}
-
-.documents-search {
-  padding: 0 5% 0 10%;
 }
 
 .display-none {
   display: none;
 }
 
-.documents-content {
-  padding: 10%;
-}
-
-.font-awesome-size {
-  font-size: 20px;
-}
-
-.form-width {
-  width: 100%
-}
-
 .hr-style {
-  color: #000000;
-}
 
-.logins-buttons {
-  background-color: #eee;
-  padding: 15px;
-  border: none gainsboro;
-  font-size: 15px;
-  font-weight: bold;
-}
-
-.logins-form {
-  border: 1px solid gainsboro;
-  padding: 15px;
-}
-
-.signin-button {
-  width: 200px;
-}
-
-.search-documents {
-  background-color: #eee;
-  min-height: 80vh;
-}
-
-.search-doc-heading {
-  font-weight: bold;
-  font-size: 17px;
 }
 
 .search-field {
@@ -128,14 +85,6 @@ hr {
   border: 1px solid black;
 }
 
-span.help-block {
-  font-style: italic;
-  font-size: 13px;
-}
-
-.timing {
-  font-size: 12px;
-}
 
 .bread-links {
   color: #5d5d5d;
@@ -158,7 +107,6 @@ span.help-block {
 
 .new-doc-btn {
   transition: none;
-  color: #000;
 }
 
 .page_title {
@@ -236,15 +184,92 @@ ul.dm_navigation li {
   margin-top: 50px;
 }
 
-//---------- Media queries ----------
+//-------------------------------------------------- Search documents -------------------------------------------------
+
+.search-documents {
+  background-color: #eee;
+  min-height: 76.5vh
+}
+
+.search-doc-heading {
+  font-weight: bold;
+  font-size: 17px;
+}
+
+.documents-content {
+  padding: 0 7% 0 7%;
+}
+
+.documents-content span {
+  font-size: 15px;
+}
+
+.documents-search {
+  padding: 5% 7% 5% 7%;
+}
+
+.documents-search span {
+  font-size: 15px;
+}
+
+//----- sign in widget -----
+
+.search-documents .sign-in-widget .side-widget-element {
+  padding: 7% 7% 0 7%;
+}
+
+.search-documents .sign-in-widget .heading {
+  font-size: 1.125em;
+  font-weight: 700;
+}
+
+.sign-in-widget .help-description {
+  line-height: 23px !important;
+  font-size: 15px;
+}
+
+.sign-in-widget .fa-container {
+  top: 14px;
+}
+
+.sign-in-widget .fa-container i.fa {
+  font-size: 24px;
+}
+
+.sign-in-widget .timing {
+  font-size: 13px;
+  color: #666 !important;
+}
+
+
+//-------------------------------------------------- Media queries ----------------------------------------------------
 
 //---------- Mobile devices ----------
-@media (min-width: 320px) and (max-width: 420px) {
+@media (min-width: 320px) and (max-width: 480px) {
   .search-documents {
     height: 650px;
   }
-  .vertically-align {
-    margin: 10px 0 0 60px;
+  .access-doc-heading-row {
+    text-align: center !important;
+    padding: 0;
+  }
+  .media-section-separator {
+    padding: 10px 0 10px 0;
+  }
+  .search-documents {
+    text-align: center;
+  }
+  .sign-in-widget .fa-container {
+    top: 0;
+  }
+  .main-div {
+    margin-top: 60px;
+  }
+  .mobile-center {
+    text-align: center;
+  }
+  .media-logins-btn-container {
+    text-align: center !important;
   }
 }
 
@@ -322,7 +347,7 @@ ul.dm_navigation li {
 }
 
 .active-link {
-  color: black !important;
+  color: #252525 !important;
   background-color: #fff;
   border-top-right-radius: 5px;
   border-top-left-radius: 5px;
@@ -331,7 +356,7 @@ ul.dm_navigation li {
 }
 
 .active-link:hover {
-  color: black !important;
+  color: #252525 !important;
   background-color: #fff !important;
   border-top-right-radius: 5px !important;
   border-top-left-radius: 5px !important;
@@ -360,42 +385,6 @@ ul.dm_navigation li {
 
 //--------------------------------------------------- Footer css ------------------------------------------------------
 
-
-footer {
-  background: #f3f3f3;
-  border-top: 1px solid #d7d7d7;
-  padding: 3.55em 0 2.55em 0;
-}
-
-
-.logo-footer {
-  background: none, url("eforms-footer_r.svg") no-repeat;
-  background-size: 120px auto;
-  display: block;
-  width: 120px;
-  height: 45px;
-  position: relative;
-  top: -10px;
-  left: -4px;
-}
-
-.footer-ul-li > ul {
-  color: #a8a8a8;
-  line-height: 2.4em;
-  list-style: none;
-  padding: 0;
-}
-
-.footer-ul-li > ul > li > a {
-  text-decoration: none;
-  color: #5d5d5d;
-}
-
-.footer-rating-list > ul {
-  list-style: none;
-  padding: 0;
-
-}
 
 //--------------------------------------------------- Header css ------------------------------------------------------
 
@@ -447,7 +436,7 @@ footer {
 }
 
 .dropdown-active-parent-link {
-  color: black !important;
+  color: #252525 !important;
   background-color: #fff !important;
   border-top-right-radius: 5px !important;
   border-top-left-radius: 5px !important;
@@ -482,8 +471,19 @@ footer {
 
 #sidebar > ul > li {
   list-style: none;
-  padding: 1.1em 1.5em;
+  padding: 1.1em 1.8em;
   background: #EEEEEE;
+  font-size: 15px;
+}
+
+
+.dm_navigation li a {
+  display: block;
+}
+
+.dm_navigation li a:hover, li a:focus {
+
+  transition: .3s ease-out;
 }
 
 .dm_navigation > li > a {
@@ -623,7 +623,7 @@ footer {
   margin-bottom: 5px;
 }
 
-.payment-hr{
+.payment-hr {
   margin-top: 5px;
 }
 

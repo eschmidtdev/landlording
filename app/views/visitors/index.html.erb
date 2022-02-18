@@ -24,8 +24,8 @@
         <input class="form-control" type="password" name="user[password]" id="user_password" placeholder="your password" required>
         <span class="help-block">Please enter your password.</span>
       </div>
-      <input type="submit" name="commit" value="Sign in" class="btn btn-primary-custom signin-button" data-disable-with="Sign in">
-      <div class="checkbox" style="width:150px">
+      <div class="media-logins-btn-container">
+        <input type="submit" name="commit" value="Sign in" class="btn btn-primary-custom logins-btns-width" data-disable-with="Sign in">
       </div>
     </form>
 
@@ -51,22 +51,24 @@
         <input class="form-control" type="password" name="user[password_confirmation]" id="user_password_confirmation" placeholder="your password confirmation" required>
       </div>
 
-      <div class="">
-        <div class="tacbox">
-          <input id="checkbox" type="checkbox" required/>
-          <label for="checkbox"> I agree to the <a href="#">Terms of Use</a> and
-            <a href="#">Privacy Policy</a>.</label>
-        </div>
-        <br>
+      <div class="after-agreement">
+        <input id="checkbox" type="checkbox" required/>
+        <label for="checkbox"> I agree to the <a href="#">Terms of Use</a> and
+          <a href="#">Privacy Policy</a>.</label>
       </div>
-      <input type="submit" name="commit" value="Sign up" class="btn btn-primary-custom signin-button" data-disable-with="Sign up">
+      <div class="media-logins-btn-container">
+        <input type="submit" name="commit" value="Sign up" class="btn btn-primary-custom logins-btns-width" data-disable-with="Sign up">
+      </div>
     </form>
 
   </div>
 
+  <!--  Mobile view separator -->
+  <div class="media-section-separator"></div>
+
   <!-- Search documents -->
   <div class="col-md-4">
-    <%= render 'layouts/search_documents' %>
+    <%= render 'layouts/side_widget' %>
   </div>
 
 </div>
