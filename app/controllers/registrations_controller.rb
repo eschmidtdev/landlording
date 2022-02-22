@@ -15,7 +15,7 @@ class RegistrationsController < Devise::RegistrationsController
     resource.confirmed_at = nil
     resource.confirmation_sent_at = DateTime.now
     resource.save!
-    UserMailer.send_verification_email(resource).deliver_now!
+    UserMailer.send_verification_email(resource).deliver_later
     set_flash_message(:registrations, :signed_up_but_inactive)
     redirect_to root_path
   end
