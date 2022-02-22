@@ -64,8 +64,8 @@ Rails.application.configure do
     port: 587,
     domain: host,
     authentication: 'plain',
-    user_name: 'isoquick217@gmail.com',
-    password: 'Shirokuma-2022@.m3'
+    user_name: ENV['SMTP_USERNAME'],
+    password: ENV['SMTP_PASSWORD']
   }
 
   # Raises error for missing translations

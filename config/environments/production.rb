@@ -70,22 +70,23 @@ Rails.application.configure do
   # Send deprecation notices to registered listeners.
   config.active_support.deprecation = :notify
 
+  host = 'i-pm-app.herokuapp.com'
+
   # ActionMailer Config
-  config.action_mailer.default_url_options = { host: 'i-pm-app.herokuapp.com' }
+  config.action_mailer.default_url_options = { host: host }
   config.action_mailer.delivery_method = :smtp
-  config.action_mailer.perform_deliveries = true
-  config.action_mailer.raise_delivery_errors = false
+  config.action_mailer.raise_delivery_errors = true
 
   # SMTP configurations
   config.action_mailer.smtp_settings = {
     address: 'smtp.gmail.com',
     port: 587,
-    domain: Rails.application.secrets.domain_name,
+    domain: host,
     authentication: 'plain',
-    enable_starttls_auto: true,
     user_name: ENV['SMTP_USERNAME'],
     password: ENV['SMTP_PASSWORD']
   }
+
 
   # Use default logging formatter so that PID and timestamp are not suppressed.
   config.log_formatter = ::Logger::Formatter.new
