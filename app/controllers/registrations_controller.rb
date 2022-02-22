@@ -6,11 +6,13 @@ class RegistrationsController < Devise::RegistrationsController
 
   # rubocop:disable Metrics/AbcSize
   def create
-    return if params_missing?(params[:user]) || user_exists?(params[:user]) ||
-      password_clashing?(params[:user][:password], params[:user][:password_confirmation])
+    return if params_missing?(params[:user]) ||
+              user_exists?(params[:user]) ||
+              password_clashing?(params[:user][:password], params[:user][:password_confirmation])
 
     resource = User.new(user_params)
-    resource.save
+    resource.save!
+    UserMailer.send_verification_email(resource).deliver_now!
     set_flash_message(:registrations, :signed_up)
     sign_in(resource)
     redirect_to e_forms_url
