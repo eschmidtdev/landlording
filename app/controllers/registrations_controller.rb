@@ -11,11 +11,13 @@ class RegistrationsController < Devise::RegistrationsController
               password_clashing?(params[:user][:password], params[:user][:password_confirmation])
 
     resource = User.new(user_params)
+    resource.confirmation_token = SecureRandom.hex(10)
+    resource.confirmed_at = nil
+    resource.confirmation_sent_at = DateTime.now
     resource.save!
     UserMailer.send_verification_email(resource).deliver_now!
-    set_flash_message(:registrations, :signed_up)
-    sign_in(resource)
-    redirect_to e_forms_url
+    set_flash_message(:registrations, :signed_up_but_inactive)
+    redirect_to root_path
   end
 
   # rubocop:enable Metrics/AbcSize

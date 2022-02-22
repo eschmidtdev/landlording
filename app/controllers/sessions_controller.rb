@@ -10,17 +10,25 @@ class SessionsController < Devise::SessionsController
   end
 
   # rubocop:disable Metrics/AbcSize
+  # rubocop:disable Metrics/MethodLength
   def create
-    self.resource = warden.authenticate!(auth_options)
-    set_flash_message(:notice, :signed_in) if is_navigational_format?
-    sign_in(resource_name, resource)
-    if !session[:return_to].blank?
+    user = User.find_by(email: params[:user][:email])
+    if user.confirmed_at == nil
+      set_flash_message(:notice, :inactive) if is_navigational_format?
       redirect_to root_path
-      session[:return_to] = nil
     else
-      redirect_to e_forms_path
+      self.resource = warden.authenticate!(auth_options)
+      set_flash_message(:notice, :signed_in) if is_navigational_format?
+      sign_in(resource_name, resource)
+      if !session[:return_to].blank?
+        redirect_to root_path
+        session[:return_to] = nil
+      else
+        redirect_to e_forms_path
+      end
     end
   end
 
   # rubocop:enable Metrics/AbcSize
+  # rubocop:enable Metrics/MethodLength
 end
