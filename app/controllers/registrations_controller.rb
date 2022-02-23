@@ -10,11 +10,7 @@ class RegistrationsController < Devise::RegistrationsController
               user_exists?(params[:user]) ||
               password_clashing?(params[:user][:password], params[:user][:password_confirmation])
 
-    resource = User.new(user_params)
-    resource.confirmation_token = SecureRandom.hex(10)
-    resource.confirmed_at = nil
-    resource.confirmation_sent_at = DateTime.now
-    resource.save!
+    resource = create_resource
     UserMailer.send_verification_email(resource).deliver_later!
     set_flash_message(:registrations, :signed_up_but_inactive)
     redirect_to root_path
@@ -53,6 +49,15 @@ class RegistrationsController < Devise::RegistrationsController
       set_flash_message(:passwords, :invalid_confirmation)
       redirect_to root_path
     end
+  end
+
+  def create_resource
+    user = User.new(user_params)
+    user.confirmation_token = SecureRandom.hex(10)
+    user.confirmed_at = nil
+    user.confirmation_sent_at = DateTime.now
+    user.save!
+    user
   end
 
   def user_params

@@ -7,6 +7,6 @@ class User < ApplicationRecord
          :recoverable, :rememberable, :trackable, :validatable
 
   # Associations
-  has_many :e_forms, dependent: :destroy
+  has_many :documents, dependent: :destroy
   has_many :cards, dependent: :destroy
 end

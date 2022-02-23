@@ -2,12 +2,14 @@
 
 # Service for create Admin User
 class CreateAdminService
-  attr_reader :name, :email, :pass
+  attr_reader :name, :email, :pass, :token, :current_datetime
 
-  def initialize(name, email, pass)
+  def initialize(name, email, pass, token, current_datetime)
     @name = name
     @email = email
     @pass = pass
+    @confirmation_token = token
+    @datetime = current_datetime
   end
 
   def call
@@ -18,9 +20,9 @@ class CreateAdminService
       name: @name,
       email: @email,
       password: @pass,
-      confirmation_token: 'yz1vJa2dYtsJqte12345',
-      confirmed_at: DateTime.now,
-      confirmation_sent_at: DateTime.now
+      confirmation_token: @confirmation_token,
+      confirmed_at: @datetime,
+      confirmation_sent_at: @datetime
     )
   end
 end

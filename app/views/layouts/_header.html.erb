@@ -25,7 +25,7 @@
 
                 <!-- My eForms parent link -->
                 <button
-                  onclick="location.href='<%= e_forms_path %>'"
+                  onclick="location.href='<%= documents_path %>'"
                   class="dropbtn <%= 'active-link' if from_e_form_tab? %>">
                   My eForms
                 </button>
@@ -33,8 +33,8 @@
                 <!-- My eForms child link -->
                 <div class="dropdown-content">
                   <a
-                    onclick="location.href='<%= e_forms_path %>'"
-                    class="<%= 'dropdown-active-link' if current_page?(e_forms_path) %>">
+                    onclick="location.href='<%= documents_path %>'"
+                    class="<%= 'dropdown-active-link' if current_page?(documents_path) %>">
                     My Document
                   </a>
                   <a

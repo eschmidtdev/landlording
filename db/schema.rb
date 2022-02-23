@@ -26,12 +26,12 @@ ActiveRecord::Schema.define(version: 2022_02_17_171154) do
     t.index ["user_id"], name: "index_cards_on_user_id"
   end
 
-  create_table "e_forms", force: :cascade do |t|
+  create_table "documents", force: :cascade do |t|
     t.string "name"
     t.bigint "user_id", null: false
     t.datetime "created_at", precision: 6, null: false
     t.datetime "updated_at", precision: 6, null: false
-    t.index ["user_id"], name: "index_e_forms_on_user_id"
+    t.index ["user_id"], name: "index_documents_on_user_id"
   end
 
   create_table "subscriptions", force: :cascade do |t|
@@ -72,5 +72,5 @@ ActiveRecord::Schema.define(version: 2022_02_17_171154) do
   end
 
   add_foreign_key "cards", "users"
-  add_foreign_key "e_forms", "users"
+  add_foreign_key "documents", "users"
 end

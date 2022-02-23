@@ -7,7 +7,7 @@ Rails.application.routes.draw do
       get :confirm_email
     end
   end
-  resources :e_forms
+  resources :documents
   resources :subscriptions do
     collection do
       get :plans

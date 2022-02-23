@@ -24,7 +24,7 @@ class SessionsController < Devise::SessionsController
         redirect_to root_path
         session[:return_to] = nil
       else
-        redirect_to e_forms_path
+        redirect_to documents_path
       end
     end
   end

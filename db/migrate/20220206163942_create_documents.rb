@@ -1,6 +1,6 @@
-class CreateEForms < ActiveRecord::Migration[6.1]
+class CreateDocuments < ActiveRecord::Migration[6.1]
   def change
-    create_table :e_forms do |t|
+    create_table :documents do |t|
       t.string :name
       t.references :user, null: false, foreign_key: true
 

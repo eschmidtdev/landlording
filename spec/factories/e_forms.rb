@@ -1,5 +1,5 @@
 FactoryGirl.define do
-  factory :e_form do
+  factory :document do
     name "MyString"
     user nil
   end
