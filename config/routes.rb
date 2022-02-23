@@ -1,7 +1,8 @@
-Rails.application.routes.draw do
+# frozen_string_literal: true
 
+Rails.application.routes.draw do
   root to: 'visitors#index'
-  devise_for :users, controllers: { registrations: "registrations", sessions: "sessions" }
+  devise_for :users, controllers: { registrations: 'registrations', sessions: 'sessions' }
   resources :users do
     member do
       get :confirm_email
@@ -14,5 +15,4 @@ Rails.application.routes.draw do
     end
   end
   resources :payments, only: :index
-
 end

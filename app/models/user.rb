@@ -9,4 +9,11 @@ class User < ApplicationRecord
   # Associations
   has_many :documents, dependent: :destroy
   has_many :cards, dependent: :destroy
+  has_one :subscription, dependent: :destroy
+
+  after_create :set_subscription
+
+  def set_subscription
+    create_subscription
+  end
 end
