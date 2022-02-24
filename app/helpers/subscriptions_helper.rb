@@ -1,7 +1,4 @@
+# frozen_string_literal: true
+
 module SubscriptionsHelper
-
-  def check_for(value)
-    value.present? ? value : ''
-  end
-
 end

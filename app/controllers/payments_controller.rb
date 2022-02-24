@@ -2,5 +2,16 @@
 
 # This controller is responsible for payment process
 class PaymentsController < ApplicationController
-  def index; end
+  before_action :set_subscription, only: :index
+
+  def index
+    @subscription
+    @countries = CS.countries.values.sort
+  end
+
+  private
+
+  def set_subscription
+    @subscription = Subscription.find(params[:id])
+  end
 end

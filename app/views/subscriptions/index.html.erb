@@ -6,10 +6,13 @@
   <div class="col-md-8">
     <div class="dm_settings_section">
       <div class="subscription-details">
+        <% unless @subscription&.email.present? %>
+          <p>
+            You don't have active any subscription.</p>
+        <% end %>
         <p>
-          You don't have active any subscription.</p>
-        <p>
-          <a href="<%= plans_subscriptions_path %>" class="btn btn-primary-custom">Subscription Plans</a>
+          <a href="<%= plans_subscriptions_path(id: @subscription.id) %>" class="btn btn-primary-custom">Subscription
+            Plans</a>
         </p>
       </div>
     </div>
@@ -117,6 +120,7 @@
       </fieldset>
       <br>
 
+      <!-- Contry -->
       <fieldset>
         <div class="row">
           <div class="col-md-6">

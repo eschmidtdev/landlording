@@ -2,11 +2,11 @@
 
 # This controller is responsible for manage subscription
 class SubscriptionsController < ApplicationController
-  before_action :set_subscription, only: :update
+  before_action :set_subscription, only: %i[update plans]
 
   def index
     @subscription = current_user.subscription
-    @countries = CS.countries.values
+    @countries = CS.countries.values.sort
   end
 
   def update
