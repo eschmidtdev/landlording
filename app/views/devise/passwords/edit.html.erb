@@ -1,15 +1,25 @@
 <%= render 'layouts/breadcrumb_headings' %>
 
-<div class="authform">
-  <%= form_for(resource, :as => resource_name, :url => password_path(resource_name), :html => { :method => :put }) do |f| %>
-    <%= devise_error_messages! %>
-    <%= f.hidden_field :reset_password_token %>
-    <div class="form-group">
-      <%= f.label :password, 'New password' %>
+<div class="row">
+  <!-- Update password form -->
+  <div class="col-md-8">
+    <%= form_for(resource, :as => resource_name, :url => password_path(resource_name), :html => { :method => :put }) do |f| %>
+      <%= devise_error_messages! %>
+      <%= f.hidden_field :reset_password_token %>
+      <div class="form-group">
+        <%= f.label :password, 'New password' %>
         <%= f.password_field :password, autofocus: true, autocomplete: 'off', class: 'form-control' %>
-      <%= f.label :password_confirmation, 'Confirm new password' %>
+        <br>
+        <%= f.label :password_confirmation, 'Confirm new password' %>
         <%= f.password_field :password_confirmation, autocomplete: 'off', class: 'form-control' %>
-    </div>
-     <%= f.submit 'Change my Password', :class => 'btn btn-primary-custom right' %>
-  <% end %>
+      </div>
+      <%= f.submit 'Change my Password', :class => 'btn btn-primary-custom right' %>
+    <% end %>
+  </div>
+
+  <!-- Search documents -->
+  <div class="col-md-4">
+    <%= render 'layouts/side_widget' %>
+  </div>
+
 </div>
