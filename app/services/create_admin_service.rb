@@ -5,11 +5,11 @@ class CreateAdminService
   attr_reader :name, :email, :pass, :token, :current_datetime
 
   def initialize(name, email, pass, token, current_datetime)
-    @name = name
-    @email = email
-    @pass = pass
+    @name               = name
+    @email              = email
+    @pass               = pass
     @confirmation_token = token
-    @datetime = current_datetime
+    @datetime           = current_datetime
   end
 
   def call
@@ -20,9 +20,9 @@ class CreateAdminService
       name: @name,
       email: @email,
       password: @pass,
-      confirmation_token: @confirmation_token,
       confirmed_at: @datetime,
-      confirmation_sent_at: @datetime
+      confirmation_sent_at: @datetime,
+      confirmation_token: @confirmation_token
     )
   end
 end

@@ -9,7 +9,7 @@ Rails.application.routes.draw do
     end
   end
   resources :documents
-  resources :subscriptions do
+  resources :subscriptions, only: %i[index update] do
     collection do
       get :plans
     end

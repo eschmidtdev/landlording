@@ -20,59 +20,98 @@
     </div>
 
 
-    <%= form_with(model: Subscription.new) do |f| %>
+    <%= form_with(url: "/subscriptions/#{@subscription.id}", method: :put) do |f| %>
+      <% f.hidden_field :user_id, value: current_user.id %>
 
+      <!-- Email -->
       <fieldset>
         <div class="form-group">
           <%= f.label :email %>
-          <%= f.text_field :email, class: 'form-control', placeholder: 'enter your email' %>
+          <%= f.text_field :email,
+                           class: 'form-control',
+                           placeholder: 'enter your email',
+                           value: check_for(@subscription&.email)
+          %>
         </div>
       </fieldset>
 
+      <!-- First name -->
       <fieldset>
         <div class="row">
           <div class="col-md-6">
             <%= f.label :first_name %>
-            <%= f.text_field :first_name, class: 'form-control', placeholder: 'enter your first name' %>
+            <%= f.text_field :first_name,
+                             class: 'form-control',
+                             placeholder: 'enter your first name',
+                             value: check_for(@subscription&.first_name)
+            %>
           </div>
           <div class="col-md-6">
             <%= f.label :last_name %>
-            <%= f.text_field :last_name, class: 'form-control', placeholder: 'enter your first name' %>
+            <%= f.text_field :last_name,
+                             class: 'form-control',
+                             placeholder: 'enter your first name',
+                             value: check_for(@subscription&.last_name)
+            %>
           </div>
         </div>
       </fieldset>
       <br>
 
+      <!-- Company -->
       <fieldset>
         <div class="form-group">
           <%= f.label :company %>
-          <%= f.text_field :company, class: 'form-control', placeholder: '(optional)' %>
+          <%= f.text_field :company,
+                           class: 'form-control',
+                           placeholder: '(optional)',
+                           value: check_for(@subscription&.company)
+          %>
         </div>
       </fieldset>
 
+      <!-- Address line 1 -->
       <fieldset>
         <div class="form-group">
           <%= f.label 'Address Line 1' %>
-          <%= f.text_field :address_line_one, class: 'form-control', placeholder: 'enter address line 1' %>
+          <%= f.text_field :address_line_one,
+                           class: 'form-control',
+                           placeholder: 'enter address line 1',
+                           value: check_for(@subscription&.address_line_one)
+          %>
         </div>
       </fieldset>
 
+      <!-- Address line 2 -->
       <fieldset>
         <div class="form-group">
           <%= f.label 'Address Line 2' %>
-          <%= f.text_field :address_line_one, class: 'form-control', placeholder: 'enter address line 2' %>
+          <%= f.text_field :address_line_two,
+                           class: 'form-control',
+                           placeholder: 'enter address line 2',
+                           value: check_for(@subscription&.address_line_two)
+          %>
         </div>
       </fieldset>
 
+      <!-- City / Zip Code -->
       <fieldset>
         <div class="row">
           <div class="col-md-6">
             <%= f.label :city %>
-            <%= f.text_field :city, class: 'form-control', placeholder: 'enter your city name' %>
+            <%= f.text_field :city,
+                             class: 'form-control',
+                             placeholder: 'enter your city name',
+                             value: check_for(@subscription&.city)
+            %>
           </div>
           <div class="col-md-6">
             <%= f.label 'Zip Code' %>
-            <%= f.text_field :zip_code, class: 'form-control', placeholder: 'enter your zip code' %>
+            <%= f.text_field :zip_code,
+                             class: 'form-control',
+                             placeholder: 'enter your zip code',
+                             value: check_for(@subscription&.zip_code)
+            %>
           </div>
         </div>
       </fieldset>
@@ -82,17 +121,27 @@
         <div class="row">
           <div class="col-md-6">
             <%= f.label :country %>
-            <%= f.text_field :country, class: 'form-control' %>
+            <%= f.select :country,
+                         options_for_select(@countries,
+                                            selected: check_for(@subscription&.country)
+                         ),
+                         {},
+                         { class: 'form-control' }
+            %>
           </div>
           <div class="col-md-6">
             <%= f.label 'Sate / Province' %>
-            <%= f.text_field :state, class: 'form-control' %>
+            <%= f.text_field :state,
+                             class: 'form-control',
+                             placeholder: 'enter state',
+                             value: check_for(@subscription&.state)
+            %>
           </div>
         </div>
       </fieldset>
       <br>
 
-      <%= f.submit 'Save', :class => 'button right btn btn-primary-custom' %>
+      <%= f.submit 'Save', class: 'button right btn btn-primary-custom' %>
     <% end %>
 
 

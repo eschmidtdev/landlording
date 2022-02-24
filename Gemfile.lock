@@ -86,6 +86,8 @@ GEM
       regexp_parser (>= 1.5, < 3.0)
       xpath (~> 3.2)
     childprocess (4.1.0)
+    city-state (0.1.0)
+      rubyzip (>= 1.1)
     coderay (1.1.3)
     coffee-rails (5.0.0)
       coffee-script (>= 2.2.0)
@@ -304,6 +306,7 @@ DEPENDENCIES
   bootstrap-sass
   byebug
   capybara
+  city-state
   coffee-rails
   database_cleaner
   devise

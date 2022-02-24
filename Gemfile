@@ -14,6 +14,7 @@ gem 'tzinfo-data', platforms: [:mingw, :mswin, :x64_mingw, :jruby]
 gem 'bootstrap-sass'
 gem 'devise'
 gem 'high_voltage'
+gem 'city-state'
 
 group :development do
   gem 'web-console'
