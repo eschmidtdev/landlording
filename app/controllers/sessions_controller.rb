@@ -3,6 +3,7 @@
 # This Controller is responsible for user login
 class SessionsController < Devise::SessionsController
   skip_before_action :verify_authenticity_token
+  include SessionsHelper
 
   def new
     set_flash_message(:notice, :invalid)
@@ -29,6 +30,19 @@ class SessionsController < Devise::SessionsController
     end
   end
 
+  def google_auth
+    user = CreateOAuthUserService.new(auth).call
+    sign_in user
+    set_flash_message(:notice, :signed_in) if is_navigational_format?
+    redirect_to root_path
+  end
+
   # rubocop:enable Metrics/AbcSize
   # rubocop:enable Metrics/MethodLength
+
+  private
+
+  def auth
+    request.env['omniauth.auth']
+  end
 end

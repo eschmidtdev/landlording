@@ -1,5 +1,6 @@
 # frozen_string_literal: true
 
+# This klass is responsible for handling email methods
 class UserMailer < ApplicationMailer
   def send_verification_email(user)
     @user = user

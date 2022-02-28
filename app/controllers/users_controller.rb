@@ -15,14 +15,14 @@ class UsersController < ApplicationController
 
   def confirm_email
     user = User.find_by(id: params[:id])
-    if user.present? && user.confirmation_token == params[:confirmation_token]
-      user.confirmed_at = DateTime.now
-      if user.save!
-        redirect_to documents_path, notice: I18n.t('devise.sessions.signed_in')
-        sign_in(user)
-      else
-        redirect_to root_path
-      end
+    return unless user.present? && user.confirmation_token == params[:confirmation_token]
+
+    user.confirmed_at = DateTime.now
+    if user.save!
+      redirect_to documents_path, notice: I18n.t('devise.sessions.signed_in')
+      sign_in(user)
+    else
+      redirect_to root_path
     end
   end
 end

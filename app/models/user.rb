@@ -1,5 +1,7 @@
 # frozen_string_literal: true
 
+# This Model is a library containing various modules used in developing classes that need some features present on
+# Active Record
 class User < ApplicationRecord
   # Include default devise modules. Others available are:
   # :confirmable, :lockable, :timeoutable and :omniauthable

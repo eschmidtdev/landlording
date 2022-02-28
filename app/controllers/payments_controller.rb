@@ -4,10 +4,13 @@
 class PaymentsController < ApplicationController
   before_action :set_subscription, only: :index
 
+  # rubocop:disable Lint/Void
   def index
     @subscription
     @countries = CS.countries.values.sort
   end
+
+  # rubocop:enable Lint/Void
 
   private
 

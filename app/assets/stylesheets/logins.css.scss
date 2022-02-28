@@ -38,28 +38,31 @@ span.help-block {
   margin-bottom: 10px;
 }
 
-.facebook-sign-in {
+.google-sign-in {
   margin-top: 15px;
 }
 
-.btn.btn-facebook {
-  text-shadow: none;
+
+.btn.btn-google-sign-in {
+  background-image: none;
   background-color: #fff;
   border: 1px solid #ccc;
   border-radius: 4px;
-  background-image: none;
+  padding: 2px;
+  text-align: center;
+  width: 210px;
   height: 45px;
 }
 
-.btn.btn-facebook i {
-  color: #4267b2;
-  font-size: 21px;
+
+.btn-google-sign-in div {
+  background: transparent url('GoogleOmniAuth.png') no-repeat;
+  background-size: 191px 47px;
+  background-position: -14px -3px;
+  width: 23px;
+  height: 39px;
+  display: inline-block;
+  vertical-align: middle;
   position: relative;
-  top: 2px;
-  border-radius: 50% !important;
-
-}
-
-.fa.fa-facebook-official {
-  font-weight: 400;
+  top: -1px;
 }

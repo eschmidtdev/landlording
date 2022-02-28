@@ -35,10 +35,10 @@ class RegistrationsController < Devise::RegistrationsController
   end
 
   def user_exists?(params)
-    if User.exists?(email: params[:email])
-      set_flash_message(:registrations, :email_taken)
-      redirect_to root_path
-    end
+    return unless User.exists?(email: params[:email])
+
+    set_flash_message(:registrations, :email_taken)
+    redirect_to root_path
   end
 
   def password_clashing?(password, confirm_password)

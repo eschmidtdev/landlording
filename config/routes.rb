@@ -3,6 +3,9 @@
 Rails.application.routes.draw do
   root to: 'visitors#index'
   devise_for :users, controllers: { registrations: 'registrations', sessions: 'sessions' }
+  devise_scope :user do
+    get '/auth/google_oauth2/callback', to: 'sessions#google_auth'
+  end
   resources :users do
     member do
       get :confirm_email
