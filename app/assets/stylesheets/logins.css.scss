@@ -27,3 +27,39 @@ span.help-block {
 .after-agreement{
   margin-bottom: 15px;
 }
+
+.tos-line {
+  font-size: 13px;
+  font-style: italic;
+}
+
+
+.control-group {
+  margin-bottom: 10px;
+}
+
+.facebook-sign-in {
+  margin-top: 15px;
+}
+
+.btn.btn-facebook {
+  text-shadow: none;
+  background-color: #fff;
+  border: 1px solid #ccc;
+  border-radius: 4px;
+  background-image: none;
+  height: 45px;
+}
+
+.btn.btn-facebook i {
+  color: #4267b2;
+  font-size: 21px;
+  position: relative;
+  top: 2px;
+  border-radius: 50% !important;
+
+}
+
+.fa.fa-facebook-official {
+  font-weight: 400;
+}
