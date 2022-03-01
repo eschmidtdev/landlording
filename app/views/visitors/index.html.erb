@@ -12,16 +12,38 @@
     </div>
 
     <!-- Sign in form -->
-    <form class="new_user col-md-6 logins-form form-width" id="sign-in-form" role="form" action="/users/sign_in" accept-charset="UTF-8" method="post">
+    <form
+      class="new_user col-md-6 logins-form form-width"
+      id="sign-in-form"
+      role="form"
+      action="/users/sign_in"
+      accept-charset="UTF-8"
+      method="post"
+    >
       <div class="form-group">
         <label for="user_email">Email</label>
-        <input autofocus="autofocus" class="form-control" type="email" value="" name="user[email]" id="user_email" placeholder="eg. john@doe.com" required>
+        <input
+          type="email"
+          autofocus="autofocus"
+          name="user[email]"
+          id="user_email"
+          class="form-control"
+          placeholder="eg. john@doe.com"
+          required
+        >
         <span class="help-block">Please enter your email address.</span>
       </div>
       <div class="form-group">
         <a class="pull-right" href="/users/password/new">Forgot password?</a>
         <label for="user_password">Password</label>
-        <input class="form-control" type="password" name="user[password]" id="user_password" placeholder="your password" required>
+        <input
+          type="password"
+          name="user[password]"
+          id="user_password"
+          class="form-control"
+          placeholder="your password"
+          required
+        >
         <span class="help-block">Please enter your password.</span>
         <div class="tos-line">
           This page is protected by reCAPTCHA and subject to the Google
@@ -31,46 +53,116 @@
         </div>
       </div>
       <div class="media-logins-btn-container">
-        <input type="submit" name="commit" value="Sign in" class="btn btn-primary-custom logins-btns-width" data-disable-with="Sign in">
+        <input
+          type="submit"
+          name="commit"
+          value="Sign in"
+          class="btn btn-primary-custom logins-btns-width"
+          data-disable-with="Sign in"
+        >
       </div>
 
       <div class="control-group google-sign-in">
-        <button type="button" name="google_sign_in" class="btn btn-google-sign-in" onclick="window.location.href='/auth/google_oauth2'">
+        <button
+          type="button"
+          name="google_sign_in"
+          class="btn btn-google-sign-in"
+          onclick="window.location.href='/auth/google_oauth2'">
           <div></div>
-          Sign in with Google	</button>
+          Sign in with Google
+        </button>
       </div>
 
     </form>
 
     <!-- Sign up form -->
-    <form class="new_user col-md-6 logins-form display-none form-width" id="sign-up-form" role="form" action="/users" accept-charset="UTF-8" method="post">
+    <form
+      role="form"
+      action="/users"
+      method="post"
+      id="sign-up-form"
+      class="new_user col-md-6 logins-form display-none form-width"
+      accept-charset="UTF-8"
+    >
       <div class="form-group">
         <label for="user_name">Name</label>
-        <input autofocus="autofocus" class="form-control" type="text" name="user[name]" id="user_name" placeholder="your name" required>
+        <input
+          type="text"
+          name="user[name]"
+          autofocus="autofocus"
+          id="user_name"
+          class="form-control"
+          placeholder="your name"
+          required
+        >
         <span class="help-block">Please enter you first name</span>
       </div>
       <div class="form-group">
         <label for="user_email">Email</label>
-        <input class="form-control" type="email" value="" name="user[email]" id="user_email" placeholder="eg. john@doe.com" required>
+        <input
+          type="email"
+          name="user[email]"
+          id="user_email"
+          class="form-control"
+          placeholder="eg. john@doe.com"
+          required
+        >
         <span class="help-block">Please enter you email address.</span>
       </div>
       <div class="form-group">
         <label for="user_password">Password</label>
-        <input class="form-control" type="password" name="user[password]" id="user_password" placeholder="your password" required>
+        <input
+          type="password"
+          name="user[password]"
+          id="user_password"
+          class="form-control"
+          placeholder="your password"
+          required
+        >
         <span class="help-block">Your password should be at least 6 characters and should consists of number and symbols</span>
       </div>
       <div class="form-group">
         <label for="user_password_confirmation">Password confirmation</label>
-        <input class="form-control" type="password" name="user[password_confirmation]" id="user_password_confirmation" placeholder="your password confirmation" required>
+        <input
+          type="password"
+          name="user[password_confirmation]"
+          id="user_password_confirmation"
+          class="form-control"
+          placeholder="your password confirmation"
+          required
+        >
       </div>
-
+      <div class="tos-line">
+        This page is protected by reCAPTCHA and subject to the Google
+        <a href="#" target="_blank">Privacy Policy</a>
+        and
+        <a href="#" target="_blank">Terms of service</a>.
+      </div>
+      <br>
       <div class="after-agreement">
         <input id="checkbox" type="checkbox" required/>
         <label for="checkbox"> I agree to the <a href="#">Terms of Use</a> and
           <a href="#">Privacy Policy</a>.</label>
       </div>
       <div class="media-logins-btn-container">
-        <input type="submit" name="commit" value="Sign up" class="btn btn-primary-custom logins-btns-width" data-disable-with="Sign up">
+        <input
+          type="submit"
+          name="commit"
+          value="Sign up"
+          class="btn btn-primary-custom logins-btns-width"
+          data-disable-with="Sign up"
+        >
+      </div>
+
+      <div class="control-group google-sign-in">
+        <button
+          type="button"
+          name="google_sign_in"
+          class="btn btn-google-sign-in"
+          onclick="window.location.href='/auth/google_oauth2'">
+          <div></div>
+          Sign in with Google
+        </button>
       </div>
     </form>
 
