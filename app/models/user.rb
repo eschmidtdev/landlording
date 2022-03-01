@@ -14,8 +14,13 @@ class User < ApplicationRecord
   has_one :subscription, dependent: :destroy
 
   after_create :set_subscription
+  after_create :send_change_password_email
 
   def set_subscription
     create_subscription
+  end
+
+  def send_change_password_email
+    UserMailer.change_password(self, self.password).deliver_later! unless uid.nil?
   end
 end

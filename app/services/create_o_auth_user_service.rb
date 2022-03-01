@@ -15,11 +15,12 @@ class CreateOAuthUserService
 
   def call
     User.find_or_create_by(uid: @auth['uid']) do |u|
-      u.name = @name
-      u.email = @email
-      u.google_token = @token
+      u.name                 = @name
+      u.email                = @email
+      u.google_token         = @token
       u.google_refresh_token = @refresh_token if @refresh_token.present?
-      u.password = @password
+      u.password             = @password
+      u.confirmed_at         = DateTime.now
     end
   end
 end
