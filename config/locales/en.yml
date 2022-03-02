@@ -2,7 +2,7 @@ en:
   EForm:
     Messages:
       Success:
-        Created: 'Document was successfully created.'
+        Created: 'Document was successfully saved.'
         Updated: 'Document was successfully updated.'
         Deleted: 'Document was successfully destroyed.'
       Error:

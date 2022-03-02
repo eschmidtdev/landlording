@@ -22,14 +22,10 @@ class DocumentsController < ApplicationController
     @document = Document.new(e_form_params)
     @document.user_id = current_user.id
 
-    respond_to do |format|
-      if @document.save
-        format.html { redirect_to document_url(@document), notice: I18n.t('EForm.Messages.Success.Created') }
-        format.json { render :show, status: :created, location: @document }
-      else
-        format.html { render :new, status: :unprocessable_entity }
-        format.json { render json: @document.errors, status: :unprocessable_entity }
-      end
+    if @document.save
+      redirect_to documents_url, notice: I18n.t('EForm.Messages.Success.Created')
+    else
+      redirect_to documents_url
     end
   end
 
@@ -64,6 +60,6 @@ class DocumentsController < ApplicationController
   end
 
   def e_form_params
-    params.require(:e_form).permit(:name, :user_id)
+    params.require(:document).permit(:name, :user_id)
   end
 end

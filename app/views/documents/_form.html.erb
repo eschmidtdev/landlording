@@ -18,34 +18,30 @@
       </div>
     </div>
 
-    <div id="TypeOfAgreement">
-      <h2>Type of Agreement</h2>
-      <div class="checkbox-sec">
-        <input type="radio" name="gender" value="male">&emsp;<span><b>Standard Residential Lease</b></span><br>
-        <input type="radio" name="gender" value="male">&emsp;<span><b>Month-to-Month Lease - Also known as a "Tenancy at Will"</b></span>
-      </div>
-      <br>
-      <label>Start Date</label><br>
-      <input type="date" id="birthday" name="birthday"><br><br>
-      <label>End Date</label><br>
-      <input type="date" id="birthday" name="birthday">
-    </div>
+    <%= form_with(model: document, id: 'DocumentForm') do |form| %>
+      <% hidden_field 'document[user_id]', value: current_user.id %>
 
-    <div class="row next-prev-but">
-      <div class="col-md-12">
-        <div class="pull-left">
-          <a href="#" class="dm_save_finish_later"><i class="fa fa-save"></i> Save and finish later</a>
+        <div class="checkbox-sec">
+          <%= form.label :name %>
+          <%= form.text_field :name, required: true %>
         </div>
-        <div class="pull-right">
-          <button type="button" name="prev" class="btn btn-primary-custom btn-prev" disabled="">
-            <i class="fa fa-arrow-left"></i> Previous
-          </button>
-          <button type="button" name="next" class="btn btn-primary-custom btn-next">Next
-            <i class="fa fa-arrow-right icon-right"></i></button>
+        <br>
+
+      <div class="row next-prev-but">
+        <div class="col-md-12">
+          <div class="pull-left">
+            <i class="fa fa-save"></i> <%= link_to 'Save and finish later', "#", :onclick => "$('#DocumentForm').submit()" %>
+          </div>
+          <div class="pull-right">
+            <button type="button" name="prev" class="btn btn-primary-custom btn-prev" disabled="">
+              <i class="fa fa-arrow-left"></i> Previous
+            </button>
+            <button type="button" name="next" class="btn btn-primary-custom btn-next">Next
+              <i class="fa fa-arrow-right icon-right"></i></button>
+          </div>
         </div>
       </div>
-    </div>
-
+    <% end %>
   </div>
 
 
