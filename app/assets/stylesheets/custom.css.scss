@@ -150,7 +150,7 @@ hr {
 }
 
 .checkbox-sec input {
-  margin: 35px 0;
+  margin: 10px 0;
 }
 
 ul.dm_navigation li.active {
@@ -382,6 +382,9 @@ ul.dm_navigation li {
   font-size: 16px;
 }
 
+.alert-success {
+  color: green !important;
+}
 
 //--------------------------------------------------- Footer css ------------------------------------------------------
 
@@ -535,6 +538,7 @@ ul.dm_navigation li {
 
 #flash_alert p {
   font-size: 15px;
+  color: green !important;
 }
 
 //--------------------------------------------------- Payment css -----------------------------------------------------
