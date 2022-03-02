@@ -1,0 +1,88 @@
+/* line 1, app/assets/stylesheets/logins.css.scss */
+.logins-buttons {
+  background-color: #eee;
+  padding: 15px;
+  border: none gainsboro;
+  font-size: 15px;
+  font-weight: bold;
+}
+
+/* line 9, app/assets/stylesheets/logins.css.scss */
+.logins-form {
+  border: 1px solid gainsboro;
+  padding: 15px;
+}
+
+/* line 14, app/assets/stylesheets/logins.css.scss */
+.form-width {
+  width: 100%;
+}
+
+/* line 18, app/assets/stylesheets/logins.css.scss */
+span.help-block {
+  font-style: italic;
+  font-size: 13px;
+}
+
+/* line 23, app/assets/stylesheets/logins.css.scss */
+.logins-btns-width {
+  width: 200px;
+  height: 45px;
+}
+
+/* line 28, app/assets/stylesheets/logins.css.scss */
+.after-agreement {
+  margin-bottom: 15px;
+}
+
+/* line 32, app/assets/stylesheets/logins.css.scss */
+.tos-line {
+  font-size: 13px;
+  font-style: italic;
+}
+
+/* line 38, app/assets/stylesheets/logins.css.scss */
+.control-group {
+  margin-bottom: 10px;
+}
+
+/* line 42, app/assets/stylesheets/logins.css.scss */
+.google-sign-in {
+  margin-top: 15px;
+}
+
+/* line 47, app/assets/stylesheets/logins.css.scss */
+.btn.btn-google-sign-in {
+  background-image: none;
+  background-color: #fff;
+  border: 1px solid #ccc;
+  border-radius: 4px;
+  padding: 2px;
+  text-align: center;
+  width: 200px;
+  height: 45px;
+}
+
+/* line 59, app/assets/stylesheets/logins.css.scss */
+.btn-google-sign-in div {
+  background: transparent url(/GoogleOmniAuth.png) no-repeat;
+  background-size: 191px 47px;
+  background-position: -14px -3px;
+  width: 23px;
+  height: 39px;
+  display: inline-block;
+  vertical-align: middle;
+  position: relative;
+  top: -1px;
+}
+
+/* line 71, app/assets/stylesheets/logins.css.scss */
+.modal-dialog {
+  overflow-y: initial;
+}
+
+/* line 75, app/assets/stylesheets/logins.css.scss */
+.modal-body {
+  max-height: 75vh;
+  overflow-y: auto;
+}
