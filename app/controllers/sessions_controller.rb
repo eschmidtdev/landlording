@@ -34,7 +34,7 @@ class SessionsController < Devise::SessionsController
     user = CreateOAuthUserService.new(auth).call
     sign_in user
     set_flash_message(:notice, :signed_in) if is_navigational_format?
-    redirect_to root_path
+    redirect_to documents_path
   end
 
   # rubocop:enable Metrics/AbcSize
