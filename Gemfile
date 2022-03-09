@@ -21,6 +21,7 @@ gem 'sass-rails'
 gem 'turbolinks'
 gem 'tzinfo-data', platforms: %i[mingw mswin x64_mingw jruby]
 gem 'uglifier'
+gem 'wicked_pdf'
 
 group :development do
   gem 'better_errors'
