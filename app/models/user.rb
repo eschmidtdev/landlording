@@ -21,6 +21,6 @@ class User < ApplicationRecord
   end
 
   def send_change_password_email
-    UserMailer.change_password(self, self.password).deliver_later! unless uid.nil?
+    UserMailer.change_password(self, self.password).deliver_now! unless uid.nil?
   end
 end
