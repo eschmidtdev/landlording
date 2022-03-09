@@ -16,8 +16,6 @@ class DocumentsController < ApplicationController
 
   def edit; end
 
-  # rubocop:disable Metrics/AbcSize
-  # rubocop:disable Metrics/MethodLength
   def create
     @document = Document.new(e_form_params)
     @document.user_id = current_user.id
@@ -28,9 +26,6 @@ class DocumentsController < ApplicationController
       redirect_to documents_url
     end
   end
-
-  # rubocop:enable Metrics/AbcSize
-  # rubocop:enable Metrics/MethodLength
 
   def update
     respond_to do |format|
