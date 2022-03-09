@@ -17,7 +17,7 @@ class DocumentsController < ApplicationController
   def edit; end
 
   def create
-    @document = Document.new(e_form_params)
+    @document = Document.new(document_params)
     @document.user_id = current_user.id
 
     if @document.save
@@ -29,7 +29,7 @@ class DocumentsController < ApplicationController
 
   def update
     respond_to do |format|
-      if @document.update(e_form_params)
+      if @document.update(document_params)
         format.html { redirect_to document_url(@document), notice: I18n.t('EForm.Messages.Success.Updated') }
         format.json { render :show, status: :ok, location: @document }
       else
@@ -49,23 +49,38 @@ class DocumentsController < ApplicationController
   end
 
   def export
-    if params[:from].present? && params[:from] == 'email'
-      email_me_the_document(@document)
+    if params[:from].present?
+      email_me_the_document(@document) if params[:from] == 'email'
+      redirect_to generate_pdf_document_path(permit_params_for_pdf) if params[:from] == 'download'
     end
-    redirect_to documents_path
+  end
+
+  def generate_pdf
+    set_document
+    respond_to do |format|
+      format.html
+      format.pdf do
+        render pdf: (DateTime.now + @document.id).to_s
+      end
+    end
   end
 
   private
 
   def email_me_the_document(document)
     UserMailer.send_me_document(document).deliver_now!
+    redirect_to documents_path
   end
 
   def set_document
     @document = Document.find(params[:id])
   end
 
-  def e_form_params
+  def document_params
     params.require(:document).permit(:name, :user_id)
+  end
+
+  def permit_params_for_pdf
+    params.permit(:id, :format).to_h
   end
 end

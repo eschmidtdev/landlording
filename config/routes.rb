@@ -14,6 +14,7 @@ Rails.application.routes.draw do
   resources :documents do
     member do
       get :export
+      get :generate_pdf
     end
   end
   resources :subscriptions, only: %i[index update] do
