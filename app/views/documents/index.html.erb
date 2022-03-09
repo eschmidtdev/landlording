@@ -23,14 +23,22 @@
         <%= document.created_at.strftime('%d/%m/%Y') %>
       </td>
       <td class="doc-table-actions">
+        <!-- Edit Button -->
         <!--        <a href="#" class="btn btn-primary-custom">-->
         <!--          <i class="fa fa-edit"></i> Edit </a>-->
 
-        <button type="button" class="btn btn-primary-custom" data-toggle="modal" data-target="#ExportModal">
+        <!-- Export button -->
+        <button
+          type="button"
+          class="btn btn-primary-custom"
+          data-toggle="modal"
+          data-target="#ExportModal<%= document.id %>"
+        >
           <i class="fa fa-cloud-download"></i>
           Export
         </button>
 
+        <!-- Action Button -->
         <div class="btn-group">
           <button type="button" name="dm_button_more" class="btn dropdown-toggle" data-toggle="dropdown">
             <i class="fa fa-bars"></i> More
@@ -52,141 +60,69 @@
         </div>
       </td>
     </tr>
+
+    <!-- Dynamic Modal -->
+    <div
+      class="modal fade"
+      id="ExportModal<%= document.id %>"
+      tabindex="-1"
+      role="dialog"
+      aria-labelledby="exampleModalCenterTitle"
+      aria-hidden="true"
+    >
+      <div class="modal-dialog modal-dialog-centered modal-lg" role="document">
+        <div class="modal-content">
+          <div class="modal-header">
+            <button type="button" class="close" data-dismiss="modal" aria-label="Close">
+              <span aria-hidden="true">&times;</span>
+            </button>
+            <br>
+            <div class="row">
+              <div class="col-md-12">
+                <div class="col-md-6">
+                  <fieldset>
+                    <div class="form-group">
+                      <label>Choose name of the document</label>
+                      <input type="text" class="form-control">
+                    </div>
+                  </fieldset>
+                  <div class="dm_form_preview_title_text display-none"></div>
+                </div>
+                <div class="col-md-6 exports-buttons-margin">
+                  <div class="pull-right">
+
+                    <a target="_blank" class="btn btn-primary-custom">
+                      <i class="fa fa-print"></i> <span>Print</span>
+                    </a>
+
+                    <button
+                      class="btn btn-primary-custom"
+                      onclick="location.href='<%= export_document_path(id: document.id, from: 'email') %>'"
+                    >
+                      <i class="fa fa-envelope-o"></i> <span>Email</span>
+                    </button>
+
+                    <div class="btn-group">
+                      <button
+                        class="btn btn-primary-custom"
+                        onclick="location.href='<%= export_document_path(document.id) %>'"
+                      >
+                        <i class="fa fa-download"></i> <span>Download</span>
+                      </button>
+                    </div>
+                  </div>
+                </div>
+              </div>
+            </div>
+
+          </div>
+          <div class="modal-body">
+            <%= document.name %>
+          </div>
+        </div>
+      </div>
+    </div>
   <% end %>
   </tbody>
 </table>
 <!--    TODO Add pagination-->
-
-<!-- Modal -->
-<div class="modal fade" id="ExportModal" tabindex="-1" role="dialog" aria-labelledby="exampleModalCenterTitle" aria-hidden="true">
-  <div class="modal-dialog modal-dialog-centered modal-lg" role="document">
-    <div class="modal-content">
-      <div class="modal-header">
-        <button type="button" class="close" data-dismiss="modal" aria-label="Close">
-          <span aria-hidden="true">&times;</span>
-        </button>
-        <br>
-
-        <div class="row">
-          <div class="col-md-12">
-            <div class="col-md-6">
-              <fieldset>
-                <div class="form-group">
-                  <label>Choose name of the document</label>
-                  <input type="text" class="form-control">
-                </div>
-              </fieldset>
-              <div class="dm_form_preview_title_text" style="display: none;"></div>
-            </div>
-            <div class="col-md-6" style="margin-top: 25px">
-              <div class="pull-right">
-
-                <a target="_blank" class="btn btn-primary-custom">
-                  <i class="fa fa-print"></i> <span>Print</span>
-                </a>
-
-                <button class="btn btn-primary-custom">
-                  <i class="fa fa-envelope-o"></i> <span>Email</span>
-                </button>
-
-                <div class="btn-group">
-                  <button class="btn btn-primary-custom">
-                    <i class="fa fa-download"></i> <span>Download</span>
-                  </button>
-                </div>
-              </div>
-            </div>
-          </div>
-        </div>
-
-      </div>
-      <div class="modal-body">
-        Lorem ipsum dolor sit amet consectetur adipisicing elit. Maxime mollitia,
-        molestiae quas vel sint commodi repudiandae consequuntur voluptatum laborum
-        numquam blanditiis harum quisquam eius sed odit fugiat iusto fuga praesentium
-        optio, eaque rerum! Provident similique accusantium nemo autem. Veritatis
-        obcaecati tenetur iure eius earum ut molestias architecto voluptate aliquam
-        nihil, eveniet aliquid culpa officia aut! Impedit sit sunt quaerat, odit,
-        tenetur error, harum nesciunt ipsum debitis quas aliquid. Reprehenderit,
-        quia. Quo neque error repudiandae fuga? Ipsa laudantium molestias eos
-        sapiente officiis modi at sunt excepturi expedita sint? Sed quibusdam
-        recusandae alias error harum maxime adipisci amet laborum. Perspiciatis
-        minima nesciunt dolorem! Officiis iure rerum voluptates a cumque velit
-        quibusdam sed amet tempora. Sit laborum ab, eius fugit doloribus tenetur
-        fugiat, temporibus enim commodi iusto libero magni deleniti quod quam
-        consequuntur! Commodi minima excepturi repudiandae velit hic maxime
-        doloremque. Quaerat provident commodi consectetur veniam similique ad
-        earum omnis ipsum saepe, voluptas, hic voluptates pariatur est explicabo
-        fugiat, dolorum eligendi quam cupiditate excepturi mollitia maiores labore
-        suscipit quas? Nulla, placeat. Voluptatem quaerat non architecto ab laudantium
-        modi minima sunt esse temporibus sint culpa, recusandae aliquam numquam
-        totam ratione voluptas quod exercitationem fuga. Possimus quis earum veniam
-        quasi aliquam eligendi, placeat qui corporis!
-        Lorem ipsum dolor sit amet consectetur adipisicing elit. Maxime mollitia,
-        molestiae quas vel sint commodi repudiandae consequuntur voluptatum laborum
-        numquam blanditiis harum quisquam eius sed odit fugiat iusto fuga praesentium
-        optio, eaque rerum! Provident similique accusantium nemo autem. Veritatis
-        obcaecati tenetur iure eius earum ut molestias architecto voluptate aliquam
-        nihil, eveniet aliquid culpa officia aut! Impedit sit sunt quaerat, odit,
-        tenetur error, harum nesciunt ipsum debitis quas aliquid. Reprehenderit,
-        quia. Quo neque error repudiandae fuga? Ipsa laudantium molestias eos
-        sapiente officiis modi at sunt excepturi expedita sint? Sed quibusdam
-        recusandae alias error harum maxime adipisci amet laborum. Perspiciatis
-        minima nesciunt dolorem! Officiis iure rerum voluptates a cumque velit
-        quibusdam sed amet tempora. Sit laborum ab, eius fugit doloribus tenetur
-        fugiat, temporibus enim commodi iusto libero magni deleniti quod quam
-        consequuntur! Commodi minima excepturi repudiandae velit hic maxime
-        doloremque. Quaerat provident commodi consectetur veniam similique ad
-        earum omnis ipsum saepe, voluptas, hic voluptates pariatur est explicabo
-        fugiat, dolorum eligendi quam cupiditate excepturi mollitia maiores labore
-        suscipit quas? Nulla, placeat. Voluptatem quaerat non architecto ab laudantium
-        modi minima sunt esse temporibus sint culpa, recusandae aliquam numquam
-        totam ratione voluptas quod exercitationem fuga. Possimus quis earum veniam
-        quasi aliquam eligendi, placeat qui corporis!
-        Lorem ipsum dolor sit amet consectetur adipisicing elit. Maxime mollitia,
-        molestiae quas vel sint commodi repudiandae consequuntur voluptatum laborum
-        numquam blanditiis harum quisquam eius sed odit fugiat iusto fuga praesentium
-        optio, eaque rerum! Provident similique accusantium nemo autem. Veritatis
-        obcaecati tenetur iure eius earum ut molestias architecto voluptate aliquam
-        nihil, eveniet aliquid culpa officia aut! Impedit sit sunt quaerat, odit,
-        tenetur error, harum nesciunt ipsum debitis quas aliquid. Reprehenderit,
-        quia. Quo neque error repudiandae fuga? Ipsa laudantium molestias eos
-        sapiente officiis modi at sunt excepturi expedita sint? Sed quibusdam
-        recusandae alias error harum maxime adipisci amet laborum. Perspiciatis
-        minima nesciunt dolorem! Officiis iure rerum voluptates a cumque velit
-        quibusdam sed amet tempora. Sit laborum ab, eius fugit doloribus tenetur
-        fugiat, temporibus enim commodi iusto libero magni deleniti quod quam
-        consequuntur! Commodi minima excepturi repudiandae velit hic maxime
-        doloremque. Quaerat provident commodi consectetur veniam similique ad
-        earum omnis ipsum saepe, voluptas, hic voluptates pariatur est explicabo
-        fugiat, dolorum eligendi quam cupiditate excepturi mollitia maiores labore
-        suscipit quas? Nulla, placeat. Voluptatem quaerat non architecto ab laudantium
-        modi minima sunt esse temporibus sint culpa, recusandae aliquam numquam
-        totam ratione voluptas quod exercitationem fuga. Possimus quis earum veniam
-        quasi aliquam eligendi, placeat qui corporis!
-        Lorem ipsum dolor sit amet consectetur adipisicing elit. Maxime mollitia,
-        molestiae quas vel sint commodi repudiandae consequuntur voluptatum laborum
-        numquam blanditiis harum quisquam eius sed odit fugiat iusto fuga praesentium
-        optio, eaque rerum! Provident similique accusantium nemo autem. Veritatis
-        obcaecati tenetur iure eius earum ut molestias architecto voluptate aliquam
-        nihil, eveniet aliquid culpa officia aut! Impedit sit sunt quaerat, odit,
-        tenetur error, harum nesciunt ipsum debitis quas aliquid. Reprehenderit,
-        quia. Quo neque error repudiandae fuga? Ipsa laudantium molestias eos
-        sapiente officiis modi at sunt excepturi expedita sint? Sed quibusdam
-        recusandae alias error harum maxime adipisci amet laborum. Perspiciatis
-        minima nesciunt dolorem! Officiis iure rerum voluptates a cumque velit
-        quibusdam sed amet tempora. Sit laborum ab, eius fugit doloribus tenetur
-        fugiat, temporibus enim commodi iusto libero magni deleniti quod quam
-        consequuntur! Commodi minima excepturi repudiandae velit hic maxime
-        doloremque. Quaerat provident commodi consectetur veniam similique ad
-        earum omnis ipsum saepe, voluptas, hic voluptates pariatur est explicabo
-        fugiat, dolorum eligendi quam cupiditate excepturi mollitia maiores labore
-        suscipit quas? Nulla, placeat. Voluptatem quaerat non architecto ab laudantium
-        modi minima sunt esse temporibus sint culpa, recusandae aliquam numquam
-        totam ratione voluptas quod exercitationem fuga. Possimus quis earum veniam
-        quasi aliquam eligendi, placeat qui corporis!
-
-      </div>
-    </div>
-  </div>
-</div>

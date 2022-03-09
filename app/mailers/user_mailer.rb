@@ -14,4 +14,11 @@ class UserMailer < ApplicationMailer
 
     mail(to: @user.email, subject: 'LAND LORDING CHANGE PASSWORD REQUEST')
   end
+
+  def send_me_document(document)
+    @user     = document&.user
+    @document = document
+
+    mail(to: @user.email, subject: "LAND LORDING #{@document&.name} DOCUMENT")
+  end
 end

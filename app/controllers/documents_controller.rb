@@ -2,7 +2,7 @@
 
 # Controller to perform eForm CRUD
 class DocumentsController < ApplicationController
-  before_action :set_e_form, only: %i[show edit update destroy]
+  before_action :set_document, only: %i[show edit update destroy export]
 
   def index
     @documents = current_user.documents
@@ -48,9 +48,20 @@ class DocumentsController < ApplicationController
     end
   end
 
+  def export
+    if params[:from].present? && params[:from] == 'email'
+      email_me_the_document(@document)
+    end
+    redirect_to documents_path
+  end
+
   private
 
-  def set_e_form
+  def email_me_the_document(document)
+    UserMailer.send_me_document(document).deliver_now!
+  end
+
+  def set_document
     @document = Document.find(params[:id])
   end
 

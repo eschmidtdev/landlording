@@ -11,7 +11,11 @@ Rails.application.routes.draw do
       get :confirm_email
     end
   end
-  resources :documents
+  resources :documents do
+    member do
+      get :export
+    end
+  end
   resources :subscriptions, only: %i[index update] do
     collection do
       get :plans
