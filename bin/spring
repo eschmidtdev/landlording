@@ -3,6 +3,7 @@
 
 # This file loads spring without using Bundler, in order to be fast.
 # It gets overwritten when you run the `spring binstub` command.
+# rubocop:disable Lint/AssignmentInCondition
 
 unless defined?(Spring)
   require 'rubygems'
@@ -15,3 +16,5 @@ unless defined?(Spring)
     require 'spring/binstub'
   end
 end
+
+# rubocop:enable Lint/AssignmentInCondition

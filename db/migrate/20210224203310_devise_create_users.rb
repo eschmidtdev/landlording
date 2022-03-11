@@ -1,5 +1,9 @@
 # frozen_string_literal: true
 
+# rubocop:disable Metrics/AbcSize
+# rubocop:disable Metrics/MethodLength
+
+# Migrations for Devise User
 class DeviseCreateUsers < ActiveRecord::Migration[4.2]
   def change
     create_table(:users) do |t|
@@ -41,3 +45,5 @@ class DeviseCreateUsers < ActiveRecord::Migration[4.2]
     # add_index :users, :unlock_token,         :unique => true
   end
 end
+# rubocop:enable Metrics/AbcSize
+# rubocop:enable Metrics/MethodLength

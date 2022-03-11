@@ -1,5 +1,6 @@
 # frozen_string_literal: true
 
+# Migration to create cards table
 class CreateCards < ActiveRecord::Migration[6.1]
   def change
     create_table :cards do |t|

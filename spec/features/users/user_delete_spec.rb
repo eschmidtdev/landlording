@@ -1,5 +1,6 @@
 # frozen_string_literal: true
 
+# rubocop:disable Style/MixinUsage
 include Warden::Test::Helpers
 Warden.test_mode!
 
@@ -26,3 +27,4 @@ feature 'User delete', :devise, :js do
     expect(page).to have_content I18n.t 'devise.registrations.destroyed'
   end
 end
+# rubocop:enable Style/MixinUsage

@@ -49,10 +49,10 @@ class DocumentsController < ApplicationController
   end
 
   def export
-    if params[:from].present?
-      email_me_the_document(@document) if params[:from] == 'email'
-      redirect_to generate_pdf_document_path(pdf_params) if params[:from] == 'download'
-    end
+    return unless params[:from].present?
+
+    email_me_the_document(@document) if params[:from] == 'email'
+    redirect_to generate_pdf_document_path(pdf_params) if params[:from] == 'download'
   end
 
   def generate_pdf

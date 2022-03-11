@@ -9,6 +9,8 @@ require 'rails/all'
 Bundler.require(*Rails.groups)
 
 module IPMApp
+  # Rails offers four standard spots to place initialization
+  # Environment-specific configuration files; Initializers; After-initializers etc.
   class Application < Rails::Application
     config.generators do |g|
       g.test_framework :rspec,

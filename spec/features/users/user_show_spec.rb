@@ -1,5 +1,6 @@
 # frozen_string_literal: true
 
+# rubocop:disable Style/MixinUsage
 include Warden::Test::Helpers
 Warden.test_mode!
 
@@ -37,3 +38,4 @@ feature 'User profile page', :devise do
     expect(page).to have_content 'Access denied.'
   end
 end
+# rubocop:enable Style/MixinUsage

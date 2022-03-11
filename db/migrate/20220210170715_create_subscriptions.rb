@@ -1,5 +1,7 @@
 # frozen_string_literal: true
 
+# rubocop:disable Metrics/MethodLength
+# Migrations to create subscriptions
 class CreateSubscriptions < ActiveRecord::Migration[6.1]
   def change
     create_table :subscriptions do |t|
@@ -18,3 +20,4 @@ class CreateSubscriptions < ActiveRecord::Migration[6.1]
     end
   end
 end
+# rubocop:enable Metrics/MethodLength

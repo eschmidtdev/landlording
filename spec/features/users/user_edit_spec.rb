@@ -1,5 +1,6 @@
 # frozen_string_literal: true
 
+# rubocop:disable Style/MixinUsage
 include Warden::Test::Helpers
 Warden.test_mode!
 
@@ -40,3 +41,4 @@ feature 'User edit', :devise do
     expect(page).to have_field('Email', with: me.email)
   end
 end
+# rubocop:enable Style/MixinUsage

@@ -1,5 +1,6 @@
 # frozen_string_literal: true
 
+# rubocop:disable Style/MixinUsage
 include Warden::Test::Helpers
 Warden.test_mode!
 
@@ -23,3 +24,4 @@ feature 'User index page', :devise do
     expect(page).to have_content user.email
   end
 end
+# rubocop:enable Style/MixinUsage
