@@ -1,6 +1,6 @@
 # frozen_string_literal: true
 
-# Controller to perform eForm CRUD
+# Controller to perform Document CRUD
 class DocumentsController < ApplicationController
   before_action :set_document, only: %i[show edit update destroy export]
 
@@ -51,7 +51,7 @@ class DocumentsController < ApplicationController
   def export
     if params[:from].present?
       email_me_the_document(@document) if params[:from] == 'email'
-      redirect_to generate_pdf_document_path(permit_params_for_pdf) if params[:from] == 'download'
+      redirect_to generate_pdf_document_path(pdf_params) if params[:from] == 'download'
     end
   end
 
@@ -80,7 +80,7 @@ class DocumentsController < ApplicationController
     params.require(:document).permit(:name, :user_id)
   end
 
-  def permit_params_for_pdf
+  def pdf_params
     params.permit(:id, :format).to_h
   end
 end

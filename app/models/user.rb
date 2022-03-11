@@ -13,6 +13,7 @@ class User < ApplicationRecord
   has_many :cards, dependent: :destroy
   has_one :subscription, dependent: :destroy
 
+  # Activerecord callbacks
   after_create :set_subscription
   after_create :send_change_password_email
 
