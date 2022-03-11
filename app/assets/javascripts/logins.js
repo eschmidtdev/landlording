@@ -9,17 +9,30 @@ $(document).ready(function () {
 
     // Functionality for SignUp button
     SignUpButton.on('click', function () {
-        SignInForm.addClass('display-none');
-        SignUpForm.removeClass('display-none');
-        SignUpButton.addClass('active-now');
-        SignInButton.removeClass('active-now');
+        // Calling SignIn Function
+        SignInFunction();
     });
 
     // Functionality for SignIn button
     SignInButton.on('click', function () {
+        // Calling SignUp Function
+        SignUpFunction();
+    });
+
+    // Define SignInFunction
+    function SignInFunction() {
+        SignInForm.addClass('display-none');
+        SignUpForm.removeClass('display-none');
+        SignUpButton.addClass('active-now');
+        SignInButton.removeClass('active-now');
+    }
+
+    // Define SignUpFunction
+    function SignUpFunction() {
         SignInForm.removeClass('display-none');
         SignUpForm.addClass('display-none');
         SignInButton.addClass('active-now');
         SignUpButton.removeClass('active-now');
-    });
+    }
+
 });
