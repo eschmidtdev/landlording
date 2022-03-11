@@ -1,14 +1,25 @@
+// This file is only responsible for handling "LOGIN" page javascript
+
 $(document).ready(function () {
-    $('#sign-up').on('click', function () {
-        $('#sign-in-form').addClass('display-none');
-        $('#sign-up-form').removeClass('display-none');
-        $('#sign-up').addClass('active-now');
-        $('#sign-in').removeClass('active-now');
+    // Declaring variables
+    let SignUpButton = $('#sign-up');
+    let SignInButton = $('#sign-in');
+    let SignInForm   = $('#sign-in-form');
+    let SignUpForm   = $('#sign-up-form');
+
+    // Functionality for SignUp button
+    SignUpButton.on('click', function () {
+        SignInForm.addClass('display-none');
+        SignUpForm.removeClass('display-none');
+        SignUpButton.addClass('active-now');
+        SignInButton.removeClass('active-now');
     });
-    $('#sign-in').on('click', function () {
-        $('#sign-in-form').removeClass('display-none');
-        $('#sign-up-form').addClass('display-none');
-        $('#sign-in').addClass('active-now');
-        $('#sign-up').removeClass('active-now');
+
+    // Functionality for SignIn button
+    SignInButton.on('click', function () {
+        SignInForm.removeClass('display-none');
+        SignUpForm.addClass('display-none');
+        SignInButton.addClass('active-now');
+        SignUpButton.removeClass('active-now');
     });
 });
