@@ -2,6 +2,7 @@ en:
   EForm:
     Messages:
       Success:
+        EmailSent: 'Email sent successfully.'
         Created: 'Document was successfully saved.'
         Updated: 'Document was successfully updated.'
         Deleted: 'Document was successfully destroyed.'

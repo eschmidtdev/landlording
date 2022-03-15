@@ -2,7 +2,7 @@
 
 # Controller to perform Document CRUD
 class DocumentsController < ApplicationController
-  before_action :set_document, only: %i[show edit update destroy export]
+  before_action :set_document, only: %i[show edit update destroy export generate_pdf]
 
   def index
     @documents = current_user.documents
@@ -52,11 +52,10 @@ class DocumentsController < ApplicationController
     return unless params[:from].present?
 
     email_me_the_document(@document) if params[:from] == 'email'
-    redirect_to generate_pdf_document_path(pdf_params) if params[:from] == 'download'
+    redirect_to generate_pdf_document_path(pdf_params) if params[:from] == 'download' ||  params[:from] == 'print'
   end
 
   def generate_pdf
-    set_document
     respond_to do |format|
       format.html
       format.pdf do
@@ -69,7 +68,7 @@ class DocumentsController < ApplicationController
 
   def email_me_the_document(document)
     UserMailer.send_me_document(document).deliver_now!
-    redirect_to documents_path
+    redirect_to documents_path, notice: I18n.t('EForm.Messages.Success.EmailSent')
   end
 
   def set_document

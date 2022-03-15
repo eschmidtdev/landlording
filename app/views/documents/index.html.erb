@@ -91,9 +91,12 @@
                 <div class="col-md-6 exports-buttons-margin">
                   <div class="pull-right">
 
-                    <a target="_blank" class="btn btn-primary-custom">
+                    <button
+                      class="btn btn-primary-custom"
+                      onclick="location.href='<%= export_document_path(id: document.id, from: 'print', format: :pdf) %>'"
+                    >
                       <i class="fa fa-print"></i> <span>Print</span>
-                    </a>
+                    </button>
 
                     <button
                       class="btn btn-primary-custom"
