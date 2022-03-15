@@ -49,11 +49,16 @@
                 <i class="fa fa-edit"></i> Edit </a>
             </li>
             <li>
-              <a href="" data-rename="9355908">
+              <a href="">
                 <i class="fa fa-tag"></i> Rename </a>
             </li>
             <li>
-              <a href="" data-delete="9355908">
+              <a
+                rel="nofollow"
+                 data-method="delete"
+                href="/documents/<%= document.id %>"
+                data-confirm="Are you sure?"
+              >
                 <i class="fa fa-trash"></i> Delete </a>
             </li>
           </ul>
