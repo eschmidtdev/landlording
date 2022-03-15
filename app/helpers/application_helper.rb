@@ -12,4 +12,8 @@ module ApplicationHelper
   def check_for(value)
     value.present? ? value : ''
   end
+
+  def check_for_home_path
+    user_signed_in? ? documents_path : root_path
+  end
 end
