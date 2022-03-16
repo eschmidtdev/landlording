@@ -5,10 +5,9 @@
 //= require_tree .
 
 // Auto hide notification div
-$(document).ready(function () {
-    const $myDiv = $('.alert');
-    if ($myDiv.length) {
-        $myDiv.show().delay(3000).fadeOut();
-    }
+$(document).on('turbolinks:load', function () {
+    $('.alert').delay(2000).slideUp(500, function () {
+        $('.alert').alert('close');
+    });
 });
 

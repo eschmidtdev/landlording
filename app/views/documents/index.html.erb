@@ -13,7 +13,18 @@
     <tbody>
     <tr>
       <td>
-        <div class="dm_table_name"><%= document.name %></div>
+        <div class="dm_table_name"><span id="DocumentName"><%= document.name %></span></div>
+        <div class="display-none" id="DocumentNameField">
+          <input
+            type="text"
+            name="document[name]"
+            value="<%= document.name %>"
+            data-id="<%= document.id %>"
+            class="form-control"
+            id="TextField"
+          >
+          <span><i class="fa icon_style">&#xf058;</i></span>
+        </div>
         <div class="dm_table_source">
           Source:
           <a href="<%= documents_url %>"><%= document.name %></a>
@@ -49,7 +60,7 @@
                 <i class="fa fa-edit"></i> Edit </a>
             </li>
             <li>
-              <a href="">
+              <a role="button" id="EditDocument">
                 <i class="fa fa-tag"></i> Rename </a>
             </li>
             <li>

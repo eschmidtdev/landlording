@@ -28,24 +28,16 @@ class DocumentsController < ApplicationController
   end
 
   def update
-    respond_to do |format|
-      if @document.update(document_params)
-        format.html { redirect_to document_url(@document), notice: I18n.t('EForm.Messages.Success.Updated') }
-        format.json { render :show, status: :ok, location: @document }
-      else
-        format.html { render :edit, status: :unprocessable_entity }
-        format.json { render json: @document.errors, status: :unprocessable_entity }
-      end
-    end
+    return unless @document.update(document_params)
+    return render json: { status: 200, message: I18n.t('EForm.Messages.Success.Updated') } if request.xhr?
+
+    redirect_to documents_path, notice: I18n.t('EForm.Messages.Success.Updated')
   end
 
   def destroy
     @document.destroy
 
-    respond_to do |format|
-      format.html { redirect_to documents_url, notice: I18n.t('EForm.Messages.Success.Deleted') }
-      format.json { head :no_content }
-    end
+    redirect_to documents_url, notice: I18n.t('EForm.Messages.Success.Deleted')
   end
 
   def export
