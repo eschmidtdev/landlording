@@ -10,20 +10,21 @@
   </tr>
   </thead>
   <% @documents.each do |document| %>
+    <% id = document.id %>
     <tbody>
     <tr>
       <td>
-        <div class="dm_table_name"><span id="DocumentName"><%= document.name %></span></div>
-        <div class="display-none" id="DocumentNameField">
+        <div class="dm_table_name document_name"><%= document.name %></div>
+        <div class="display-none" id="DocumentNameField<%= id %>">
           <input
             type="text"
             name="document[name]"
             value="<%= document.name %>"
-            data-id="<%= document.id %>"
+            data-id="<%= id %>"
             class="form-control"
-            id="TextField"
+            id="TextField<%= id %>"
           >
-          <span><i class="fa icon_style">&#xf058;</i></span>
+          <span><i class="fa icon_style" onclick="$(this).UpdateFromIcon(<%= id %>);">&#xf058;</i></span>
         </div>
         <div class="dm_table_source">
           Source:
@@ -43,7 +44,7 @@
           type="button"
           class="btn btn-primary-custom"
           data-toggle="modal"
-          data-target="#ExportModal<%= document.id %>"
+          data-target="#ExportModal<%= id %>"
         >
           <i class="fa fa-cloud-download"></i>
           Export
@@ -60,14 +61,14 @@
                 <i class="fa fa-edit"></i> Edit </a>
             </li>
             <li>
-              <a role="button" id="EditDocument">
+              <a role="button" id="EditDocument" onclick="$(this).ShowTextField(<%= id %>);">
                 <i class="fa fa-tag"></i> Rename </a>
             </li>
             <li>
               <a
                 rel="nofollow"
-                 data-method="delete"
-                href="/documents/<%= document.id %>"
+                data-method="delete"
+                href="/documents/<%= id %>"
                 data-confirm="Are you sure?"
               >
                 <i class="fa fa-trash"></i> Delete </a>
@@ -80,7 +81,7 @@
     <!-- Dynamic Modal -->
     <div
       class="modal fade"
-      id="ExportModal<%= document.id %>"
+      id="ExportModal<%= id %>"
       tabindex="-1"
       role="dialog"
       aria-labelledby="exampleModalCenterTitle"
@@ -109,14 +110,14 @@
 
                     <button
                       class="btn btn-primary-custom"
-                      onclick="location.href='<%= export_document_path(id: document.id, from: 'print', format: :pdf) %>'"
+                      onclick="location.href='<%= export_document_path(id: id, from: 'print', format: :pdf) %>'"
                     >
                       <i class="fa fa-print"></i> <span>Print</span>
                     </button>
 
                     <button
                       class="btn btn-primary-custom"
-                      onclick="location.href='<%= export_document_path(id: document.id, from: 'email') %>'"
+                      onclick="location.href='<%= export_document_path(id: id, from: 'email') %>'"
                     >
                       <i class="fa fa-envelope-o"></i> <span>Email</span>
                     </button>
@@ -124,7 +125,7 @@
                     <div class="btn-group">
                       <button
                         class="btn btn-primary-custom"
-                        onclick="location.href='<%= export_document_path(id: document.id, from: 'download', format: :pdf) %>'"
+                        onclick="location.href='<%= export_document_path(id: id, from: 'download', format: :pdf) %>'"
                       >
                         <i class="fa fa-download"></i> <span>Download</span>
                       </button>
