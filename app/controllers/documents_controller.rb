@@ -2,7 +2,10 @@
 
 # Controller to perform Document CRUD
 class DocumentsController < ApplicationController
+  require 'json'
+  require 'open-uri'
   before_action :set_document, only: %i[show edit update destroy export generate_pdf]
+  before_action :set_access_token, only: %i[new]
 
   def index
     @documents = current_user.documents
@@ -54,6 +57,29 @@ class DocumentsController < ApplicationController
         render pdf: (DateTime.now + @document.id).to_s
       end
     end
+  end
+
+  def set_access_token
+    headers = {}
+    body = {
+      client_id: 'b928uHKexztJQd3cGAC8ZRcnp0PTiQIv',
+      client_secret: 'JltsDnRVRh9OLHKR',
+      grant_type: 'client_credentials'
+    }
+    res = make_request('https://api-sandbox.rocketlawyer.com/partners/v1/auth/accesstoken', headers, body)
+    JSON.parse(res.body)
+  end
+
+  def make_request(uri, headers = {}, body = nil, type = 'Post')
+    uri = URI.parse(uri.to_s)
+    request = "Net::HTTP::#{type}".constantize.new(uri)
+    headers = headers.merge({ Accept: 'application/json' })
+    headers.each_with_object(request) do |(k, v), req|
+      req[k] = v
+    end
+    request.content_type = 'application/json'
+    request.body = body.to_json unless body.nil?
+    Net::HTTP.start(uri.hostname, uri.port, use_ssl: true) { |http| http.request(request) }
   end
 
   private

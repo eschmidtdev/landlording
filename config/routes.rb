@@ -16,6 +16,9 @@ Rails.application.routes.draw do
       get :export
       get :generate_pdf
     end
+    collection do
+      post :set_access_token
+    end
   end
   resources :subscriptions, only: %i[index update] do
     collection do
