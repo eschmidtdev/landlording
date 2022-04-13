@@ -5,7 +5,6 @@ class DocumentsController < ApplicationController
   require 'json'
   require 'open-uri'
   before_action :set_document, only: %i[show edit update destroy export generate_pdf]
-  before_action :set_access_token, only: %i[new]
 
   def index
     @documents = current_user.documents
@@ -14,7 +13,18 @@ class DocumentsController < ApplicationController
   def show; end
 
   def new
-    @document = Document.new
+    # @document = Document.new
+
+    access_token_response = execute_access_token_request
+    return redirect_to documents_url, notice: I18n.t('EForm.Messages.Error.WentWrong') unless access_token_response.code == '200'
+
+    access_token_data = JSON.parse(access_token_response.body)
+    interview_response = execute_interview_request(access_token_data)
+    return redirect_to documents_url, notice: I18n.t('EForm.Messages.Error.WentWrong') unless interview_response.code == '201'
+
+    interview_data = JSON.parse(interview_response.body)
+    @interview_id = interview_data['interviewId']
+    @service_token = interview_response.each_header.to_h['rl-rdoc-servicetoken']
   end
 
   def edit; end
@@ -59,18 +69,6 @@ class DocumentsController < ApplicationController
     end
   end
 
-  def set_access_token
-    access_token_response = execute_access_token_request
-    return redirect_to documents_url, notice: I18n.t('EForm.Messages.Error.WentWrong') unless access_token_response.code == '200'
-
-    access_token_data = JSON.parse(access_token_response.body)
-    interview_response = execute_interview_request(access_token_data)
-    return redirect_to documents_url, notice: I18n.t('EForm.Messages.Error.WentWrong') unless interview_response.code == '201'
-
-    interview_data = JSON.parse(interview_response.body)
-
-  end
-
   def execute_access_token_request
     make_request(ENV['ACCESS_TOKEN_URL'], request_header, access_request_body)
   end
@@ -84,22 +82,6 @@ class DocumentsController < ApplicationController
     {
       'Content-Type' => 'application/json',
       'Accept' => 'application/json'
-    }
-  end
-
-  def access_request_body
-    {
-      client_id: ENV['CLIENT_ID'],
-      client_secret: ENV['CLIENT_SECRET'],
-      grant_type: ENV['CLIENT_CREDENTIALS']
-    }
-  end
-
-  def interview_request_body
-    {
-      templateId: '04d9d0ba-3113-40d3-9a4e-e7b226a72154',
-      partyEmailAddress: 'me@emailaddress.com',
-      partnerEndUserId: 'cfd1ee5a-061a-40cc-be72-8cbb9945b5d9'
     }
   end
 
@@ -131,5 +113,21 @@ class DocumentsController < ApplicationController
 
   def pdf_params
     params.permit(:id, :format).to_h
+  end
+
+  def access_request_body
+    {
+      client_id: ENV['CLIENT_ID'],
+      client_secret: ENV['CLIENT_SECRET'],
+      grant_type: ENV['CLIENT_CREDENTIALS']
+    }
+  end
+
+  def interview_request_body
+    {
+      templateId: '04d9d0ba-3113-40d3-9a4e-e7b226a72154',
+      partyEmailAddress: current_user.email,
+      partnerEndUserId: current_user.id
+    }
   end
 end

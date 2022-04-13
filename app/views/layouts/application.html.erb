@@ -21,13 +21,13 @@
 <!-- Application Body -->
 <body>
 <div class="container">
-  <%= render 'layouts/header' %>
+  <%= render 'layouts/header' unless params[:controller] == 'documents' && params[:action] == 'new' %>
   <div class="main-div">
     <%= render 'layouts/messages' %>
     <%= yield %>
   </div>
 </div>
 <!--Footer-->
-<%= render 'layouts/footer' %>
+<%= render 'layouts/footer' unless params[:controller] == 'documents' && params[:action] == 'new' %>
 </body>
 </html>
