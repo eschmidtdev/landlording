@@ -8,3 +8,4 @@ en:
         Deleted: 'Document was successfully destroyed.'
       Error:
         AlreadyExists: 'User already exists'
+        WentWrong: 'Oops, something went wrong! please try again.'
