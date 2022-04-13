@@ -11,7 +11,7 @@ class RegistrationsController < Devise::RegistrationsController
               password_clashing?(params[:user][:password], params[:user][:password_confirmation])
 
     resource = create_resource
-    UserMailer.send_verification_email(resource).deliver_later!
+    UserMailer.send_verification_email(resource).deliver_now!
     set_flash_message(:registrations, :signed_up_but_inactive)
     redirect_to root_path
   end
