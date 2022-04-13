@@ -60,30 +60,46 @@ class DocumentsController < ApplicationController
   end
 
   def set_access_token
-    binding.pry
-    headers = make_header
-    body = make_request_body
-    request = make_request(ENV['ACCESS_TOKEN_UR'], headers, body)
-    return redirect_to documents_url, notice: I18n.t('EForm.Messages.Error.WentWrong') unless request.code == '200'
+    access_token_response = execute_access_token_request
+    return redirect_to documents_url, notice: I18n.t('EForm.Messages.Error.WentWrong') unless access_token_response.code == '200'
 
-    response = JSON.parse(request.body)
-    make_header.merge({ 'Authorization' => 'Bearer foobar' })
-    binding.pry
+    access_token_data = JSON.parse(access_token_response.body)
+    interview_response = execute_interview_request(access_token_data)
+    return redirect_to documents_url, notice: I18n.t('EForm.Messages.Error.WentWrong') unless interview_response.code == '201'
+
+    interview_data = JSON.parse(interview_response.body)
 
   end
 
-  def make_header
+  def execute_access_token_request
+    make_request(ENV['ACCESS_TOKEN_URL'], request_header, access_request_body)
+  end
+
+  def execute_interview_request(response)
+    headers = request_header.merge({ 'Authorization' => "Bearer #{response['access_token']}" })
+    make_request(ENV['INTERVIEW_URL'], headers, interview_request_body)
+  end
+
+  def request_header
     {
       'Content-Type' => 'application/json',
       'Accept' => 'application/json'
     }
   end
 
-  def make_request_body
+  def access_request_body
     {
       client_id: ENV['CLIENT_ID'],
       client_secret: ENV['CLIENT_SECRET'],
       grant_type: ENV['CLIENT_CREDENTIALS']
+    }
+  end
+
+  def interview_request_body
+    {
+      templateId: '04d9d0ba-3113-40d3-9a4e-e7b226a72154',
+      partyEmailAddress: 'me@emailaddress.com',
+      partnerEndUserId: 'cfd1ee5a-061a-40cc-be72-8cbb9945b5d9'
     }
   end
 

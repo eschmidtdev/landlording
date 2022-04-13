@@ -5,9 +5,9 @@
 //= require_tree .
 
 // Auto hide notification div
-$(document).on('turbolinks:load', function () {
-    $('.alert').delay(2000).slideUp(500, function () {
-        $('.alert').alert('close');
-    });
-});
+// $(document).on('turbolinks:load', function () {
+//     $('.alert').delay(2000).slideUp(500, function () {
+//         $('.alert').alert('close');
+//     });
+// });
 
