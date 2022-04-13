@@ -60,20 +60,36 @@ class DocumentsController < ApplicationController
   end
 
   def set_access_token
-    headers = {}
-    body = {
-      client_id: 'b928uHKexztJQd3cGAC8ZRcnp0PTiQIv',
-      client_secret: 'JltsDnRVRh9OLHKR',
-      grant_type: 'client_credentials'
+    binding.pry
+    headers = make_header
+    body = make_request_body
+    request = make_request(ENV['ACCESS_TOKEN_UR'], headers, body)
+    return redirect_to documents_url, notice: I18n.t('EForm.Messages.Error.WentWrong') unless request.code == '200'
+
+    response = JSON.parse(request.body)
+    make_header.merge({ 'Authorization' => 'Bearer foobar' })
+    binding.pry
+
+  end
+
+  def make_header
+    {
+      'Content-Type' => 'application/json',
+      'Accept' => 'application/json'
     }
-    res = make_request('https://api-sandbox.rocketlawyer.com/partners/v1/auth/accesstoken', headers, body)
-    JSON.parse(res.body)
+  end
+
+  def make_request_body
+    {
+      client_id: ENV['CLIENT_ID'],
+      client_secret: ENV['CLIENT_SECRET'],
+      grant_type: ENV['CLIENT_CREDENTIALS']
+    }
   end
 
   def make_request(uri, headers = {}, body = nil, type = 'Post')
     uri = URI.parse(uri.to_s)
     request = "Net::HTTP::#{type}".constantize.new(uri)
-    headers = headers.merge({ Accept: 'application/json' })
     headers.each_with_object(request) do |(k, v), req|
       req[k] = v
     end
