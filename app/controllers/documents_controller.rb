@@ -13,8 +13,6 @@ class DocumentsController < ApplicationController
   def show; end
 
   def new
-    # @document = Document.new
-
     access_token_response = execute_access_token_request
     return redirect_to documents_url, notice: I18n.t('EForm.Messages.Error.WentWrong') unless access_token_response.code == '200'
 
