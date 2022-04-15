@@ -28,6 +28,6 @@
   </div>
 </div>
 <!--Footer-->
-<%= render 'layouts/footer' %>
+<%= render 'layouts/footer' unless params[:controller] == 'documents' && params[:action] == 'new' %>
 </body>
 </html>
