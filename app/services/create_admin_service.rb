@@ -6,8 +6,8 @@ class CreateAdminService
     @name               = name
     @email              = email
     @password           = password
-    @confirmation_token = confirmation_token
     @datetime           = current_datetime
+    @confirmation_token = confirmation_token
   end
 
   # rubocop:disable Metrics/MethodLength
