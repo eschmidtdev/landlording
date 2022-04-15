@@ -14,7 +14,7 @@ class SessionsController < Devise::SessionsController
   # rubocop:disable Metrics/MethodLength
   def create
     user = User.find_by(email: params[:user][:email])
-    if user.confirmed_at.nil?
+    if user && user.confirmed_at.nil?
       set_flash_message(:notice, :inactive) if is_navigational_format?
       redirect_to root_path
     else
