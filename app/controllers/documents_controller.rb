@@ -14,11 +14,17 @@ class DocumentsController < ApplicationController
 
   def new
     access_token_response = execute_access_token_request
-    return redirect_to documents_url, notice: I18n.t('EForm.Messages.Error.WentWrong') unless access_token_response.code == '200'
+    unless access_token_response.code == '200'
+      return redirect_to documents_url,
+                         notice: I18n.t('EForm.Messages.Error.WentWrong')
+    end
 
     access_token_data = JSON.parse(access_token_response.body)
     interview_response = execute_interview_request(access_token_data)
-    return redirect_to documents_url, notice: I18n.t('EForm.Messages.Error.WentWrong') unless interview_response.code == '201'
+    unless interview_response.code == '201'
+      return redirect_to documents_url,
+                         notice: I18n.t('EForm.Messages.Error.WentWrong')
+    end
 
     interview_data = JSON.parse(interview_response.body)
     @interview_id = interview_data['interviewId']
