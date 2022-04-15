@@ -1,7 +1,7 @@
 # frozen_string_literal: true
 
 # Service for create Admin User
-class CreateAdminService
+class CreateAdminService < ApplicationService
   def initialize(name, email, password, confirmation_token, current_datetime)
     @name               = name
     @email              = email
