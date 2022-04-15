@@ -1,6 +1,7 @@
 # frozen_string_literal: true
 
 # Controller to perform Document CRUD
+# rubocop:disable Metrics/ClassLength
 class DocumentsController < ApplicationController
   require 'json'
   require 'open-uri'
@@ -12,6 +13,8 @@ class DocumentsController < ApplicationController
 
   def show; end
 
+  # rubocop:disable Metrics/Metrics/MethodLength
+  # rubocop:disable Metrics/AbcSize
   def new
     access_token_response = execute_access_token_request
     unless access_token_response.code == '200'
@@ -30,6 +33,8 @@ class DocumentsController < ApplicationController
     @interview_id = interview_data['interviewId']
     @service_token = interview_response.each_header.to_h['rl-rdoc-servicetoken']
   end
+  # rubocop:enable Metrics/Metrics/MethodLength
+  # rubocop:enable Metrics/AbcSize
 
   def edit; end
 
@@ -135,3 +140,4 @@ class DocumentsController < ApplicationController
     }
   end
 end
+# rubocop:enable Metrics/ClassLength
