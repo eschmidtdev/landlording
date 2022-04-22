@@ -6,7 +6,7 @@
   background: #eee;
 }
 
-.login_btn{
+.login_btn {
   height: 65px;
   background: #FF8F00 !important;
   border-radius: 7px !important;
@@ -15,30 +15,34 @@
   padding-right: 2.5rem;
   color: white;
 }
-.login_btn:hover{
+
+.login_btn:hover {
   color: white;
 }
-.login_text{
+
+.login_text {
   font-weight: 400;
   font-size: 48px;
   line-height: 72px;
   color: #0E0E0E;
 }
-.text-body{
+
+.text-body {
   color: #ff8f00 !important;
 }
 
-.remember_text{
+.remember_text {
   color: #7D7D7D !important;
   font-weight: normal;
   margin-left: 20px;
 }
 
-.link-danger{
+.link-danger {
   color: #ff8f00 !important;
   font-weight: 700;
 }
-.btn-google-sign-in{
+
+.btn-google-sign-in {
   height: 65px;
   left: 941px;
   top: 771.3px;
@@ -59,9 +63,19 @@
   position: relative;
   top: -1px;
 }
-.normal_font{
+
+.normal_font {
   font-weight: normal !important;
 }
-.bg-light_red{
+
+.bg-light_red {
   background-color: #F6F6F6;
+}
+
+.error_alert {
+  background: rgba(255, 44, 58, 0.07);
+  border-radius: 5px;
+  padding: 5px 10px;
+  color: #FF2C3A;
+  display: none;
 }
