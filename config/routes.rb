@@ -5,6 +5,7 @@ Rails.application.routes.draw do
   devise_for :users, controllers: { registrations: 'registrations', sessions: 'sessions' }
   devise_scope :user do
     get '/auth/google_oauth2/callback', to: 'sessions#google_auth'
+    get '/registrations',               to: 'registrations#index'
   end
   resources :users do
     member do

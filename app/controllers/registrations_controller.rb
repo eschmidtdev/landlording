@@ -4,16 +4,18 @@
 class RegistrationsController < Devise::RegistrationsController
   skip_before_action :verify_authenticity_token
 
+  def index; end
+
   # rubocop:disable Metrics/AbcSize
   def create
     return if params_missing?(params[:user]) ||
               user_exists?(params[:user]) ||
-              password_clashing?(params[:user][:password], params[:user][:password_confirmation])
+              password_clashing?(params[:user][:password])
 
     resource = create_resource
     UserMailer.send_verification_email(resource).deliver_now!
     set_flash_message(:registrations, :signed_up_but_inactive)
-    redirect_to root_path
+    redirect_to registrations_path
   end
 
   # rubocop:enable Metrics/AbcSize
@@ -41,13 +43,10 @@ class RegistrationsController < Devise::RegistrationsController
     redirect_to root_path
   end
 
-  def password_clashing?(password, confirm_password)
+  def password_clashing?(password)
     if password.length < set_minimum_password_length
       set_flash_message(:passwords, :min_length)
-      redirect_to root_path
-    elsif password != confirm_password
-      set_flash_message(:passwords, :invalid_confirmation)
-      redirect_to root_path
+      redirect_to registrations_path
     end
   end
 
@@ -56,6 +55,7 @@ class RegistrationsController < Devise::RegistrationsController
     user.confirmation_token = SecureRandom.hex(10)
     user.confirmed_at = nil
     user.confirmation_sent_at = DateTime.now
+    user.password_confirmation = user.password
     user.save!
     user
   end

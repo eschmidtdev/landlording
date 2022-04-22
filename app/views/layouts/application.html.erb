@@ -34,10 +34,10 @@
 <!-- Application Body -->
 <body>
 <div class="container">
-  <%= render 'layouts/header' unless current_page?(root_path) %>
+  <%= render 'layouts/header' unless new_pages? %>
   <%= render 'layouts/messages' %>
   <%= yield %>
 </div>
-<%= render 'layouts/footer' unless (params[:controller] == 'documents' && params[:action] == 'new' || current_page?(root_path)) %>
+<%= render 'layouts/footer' unless (params[:controller] == 'documents' && params[:action] == 'new' || new_pages?) %>
 </body>
 </html>

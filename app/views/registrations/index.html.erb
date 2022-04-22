@@ -6,21 +6,30 @@
   <div class="col-md-8 col-lg-6 col-xl-4 offset-xl-1">
     <!-- Sign in form -->
     <form
-      id="sign-in-form"
       role="form"
-      action="/users/sign_in"
+      action="/users"
       accept-charset="UTF-8"
       method="post"
     >
       <div class="d-flex flex-row align-items-center justify-content-center justify-content-lg-start">
-        <p class="login_text">Login</p>
-      </div>
-
-      <div class="error_alert">
-        <span>Wrong email or password. Try again or click Forgot password to reset it.</span>
+        <p class="login_text">Sign Up</p>
       </div>
 
       <div class="d-flex align-items-center my-4"></div>
+
+      <!-- Full Name -->
+      <div class="form-group">
+        <label for="user_name" class="normal_font">Full Name*</label>
+        <input
+          type="text"
+          name="user[name]"
+          autofocus="autofocus"
+          id="user_name"
+          class="form-control"
+          placeholder="Your full name"
+          required
+        >
+      </div>
 
       <!-- Email input -->
       <div class="form-outline mb-4">
@@ -52,14 +61,18 @@
       <div class="d-flex justify-content-between align-items-center">
         <!-- Checkbox -->
         <div class="mb-0">
-          <input class="form-check-input" type="checkbox" value="" id="form2Example3"/>
-          <label class="form-check-label remember_text" for="form2Example3">Remember me </label>
+          <input class="form-check-input" type="checkbox" value="" id="form2Example3" required/>
+          <label class="form-check-label remember_text" for="form2Example3">
+            I have read and understand the
+            <a href="#!" class="text-body">Terms of Use</a>
+            and
+            <a href="#!" class="text-body">Privacy Policy</a>
+          </label>
         </div>
-        <a href="#!" class="text-body">Forgot password?</a>
       </div>
 
       <div class="text-center text-lg-start mt-4 pt-2">
-        <button type="submit" class="btn w-100 login_btn">Login</button>
+        <button type="submit" class="btn w-100 login_btn">Sign Up</button>
 
         <div class="divider d-flex align-items-center my-4">
           <p class="text-center fw-bold mx-3 mb-0 remember_text">OR</p>
@@ -72,12 +85,12 @@
             class="btn w-100 btn-google-sign-in"
             onclick="window.location.href='/auth/google_oauth2'">
             <div></div>
-            Sign in with Google
+            Sign Up with Google
           </button>
         </div>
 
-        <p class="fw-bold mt-2 pt-1 mb-0 c">Don't have an account?
-          <a href="<%= registrations_path %>" class="link-danger">Sign Up</a></p>
+        <p class="fw-bold mt-2 pt-1 mb-0 c">Have an account?
+          <a href="<%= root_path %>" class="link-danger">Login</a></p>
       </div>
     </form>
   </div>

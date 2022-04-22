@@ -17,4 +17,8 @@ module ApplicationHelper
   def check_for_home_path
     user_signed_in? ? documents_path : root_path
   end
+
+  def new_pages?
+    current_page?(root_path) || current_page?(registrations_path)
+  end
 end
