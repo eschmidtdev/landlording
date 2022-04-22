@@ -1,181 +1,80 @@
-<%= render 'layouts/breadcrumb_headings' %>
-
-<div class="row">
-  <div class="col-md-8">
-
-    <!-- Login buttons -->
-    <div class="row">
-      <div class="col-md-8">
-        <button class="logins-buttons" id="sign-in">Sign in</button>
-        <button class="logins-buttons" id="sign-up">Sign up</button>
-      </div>
-    </div>
-
+<div class="row d-flex justify-content-center align-items-center">
+  <div class="col-md-9 col-lg-6 col-xl-5 bg-light_red">
+    <img src="Logo.png" class="pull-left">
+    <img src="Illsutration.png" alt="Sample image">
+  </div>
+  <div class="col-md-8 col-lg-6 col-xl-4 offset-xl-1">
     <!-- Sign in form -->
     <form
-      class="new_user col-md-6 logins-form form-width"
       id="sign-in-form"
       role="form"
       action="/users/sign_in"
       accept-charset="UTF-8"
       method="post"
     >
-      <div class="form-group">
-        <label for="user_email">Email</label>
+      <div class="d-flex flex-row align-items-center justify-content-center justify-content-lg-start">
+        <p class="login_text">Login</p>
+      </div>
+
+      <div class="d-flex align-items-center my-4"></div>
+
+      <!-- Email input -->
+      <div class="form-outline mb-4">
+        <label class="form-label normal_font" for="form3Example3">Email*</label>
         <input
           type="email"
           autofocus="autofocus"
           name="user[email]"
-          id="user_email"
-          class="form-control"
+          id="form3Example3"
+          class="form-control form-control-lg"
           placeholder="eg. john@doe.com"
           required
         >
-        <span class="help-block">Please enter your email address.</span>
       </div>
-      <div class="form-group">
-        <a class="pull-right" href="/users/password/new">Forgot password?</a>
-        <label for="user_password">Password</label>
+
+      <!-- Password input -->
+      <div class="form-outline mb-3">
+        <label class="form-label normal_font" for="form3Example4">Password*</label>
         <input
           type="password"
           name="user[password]"
-          id="user_password"
-          class="form-control"
-          placeholder="your password"
+          id="form3Example4"
+          class="form-control form-control-lg"
+          placeholder="Enter password"
           required
         >
-        <span class="help-block">Please enter your password.</span>
-        <div class="tos-line">
-          This page is protected by reCAPTCHA and subject to the Google
-          <a href="#" target="_blank">Privacy Policy</a>
-          and
-          <a href="#" target="_blank">Terms of service</a>.
+      </div>
+
+      <div class="d-flex justify-content-between align-items-center">
+        <!-- Checkbox -->
+        <div class="mb-0">
+          <input class="form-check-input" type="checkbox" value="" id="form2Example3"/>
+          <label class="form-check-label remember_text" for="form2Example3">Remember me </label>
         </div>
-      </div>
-      <div class="media-logins-btn-container">
-        <input
-          type="submit"
-          name="commit"
-          value="Sign in"
-          class="btn btn-primary-custom logins-btns-width"
-          data-disable-with="Sign in"
-        >
+        <a href="#!" class="text-body">Forgot password?</a>
       </div>
 
-      <div class="control-group google-sign-in">
-        <button
-          type="button"
-          name="google_sign_in"
-          class="btn btn-google-sign-in"
-          onclick="window.location.href='/auth/google_oauth2'">
-          <div></div>
-          Sign in with Google
-        </button>
-      </div>
+      <div class="text-center text-lg-start mt-4 pt-2">
+        <button type="submit" class="btn w-100 login_btn">Login</button>
 
-    </form>
+        <div class="divider d-flex align-items-center my-4">
+          <p class="text-center fw-bold mx-3 mb-0 remember_text">OR</p>
+        </div>
 
-    <!-- Sign up form -->
-    <form
-      role="form"
-      action="/users"
-      method="post"
-      id="sign-up-form"
-      class="new_user col-md-6 logins-form display-none form-width"
-      accept-charset="UTF-8"
-    >
-      <div class="form-group">
-        <label for="user_name">Name</label>
-        <input
-          type="text"
-          name="user[name]"
-          autofocus="autofocus"
-          id="user_name"
-          class="form-control"
-          placeholder="your name"
-          required
-        >
-        <span class="help-block">Please enter you first name</span>
-      </div>
-      <div class="form-group">
-        <label for="user_email">Email</label>
-        <input
-          type="email"
-          name="user[email]"
-          id="user_email"
-          class="form-control"
-          placeholder="eg. john@doe.com"
-          required
-        >
-        <span class="help-block">Please enter you email address.</span>
-      </div>
-      <div class="form-group">
-        <label for="user_password">Password</label>
-        <input
-          type="password"
-          name="user[password]"
-          id="user_password"
-          class="form-control"
-          placeholder="your password"
-          required
-        >
-        <span class="help-block">Your password should be at least 6 characters and should consists of number and symbols</span>
-      </div>
-      <div class="form-group">
-        <label for="user_password_confirmation">Password confirmation</label>
-        <input
-          type="password"
-          name="user[password_confirmation]"
-          id="user_password_confirmation"
-          class="form-control"
-          placeholder="your password confirmation"
-          required
-        >
-      </div>
-      <div class="tos-line">
-        This page is protected by reCAPTCHA and subject to the Google
-        <a href="#" target="_blank">Privacy Policy</a>
-        and
-        <a href="#" target="_blank">Terms of service</a>.
-      </div>
-      <br>
-      <div class="after-agreement">
-        <input id="checkbox" type="checkbox" required/>
-        <label for="checkbox"> I agree to the <a href="#">Terms of Use</a> and
-          <a href="#">Privacy Policy</a>.</label>
-      </div>
-      <div class="media-logins-btn-container">
-        <input
-          type="submit"
-          name="commit"
-          value="Sign up"
-          class="btn btn-primary-custom logins-btns-width"
-          data-disable-with="Sign up"
-        >
-      </div>
+        <div class="control-group google-sign-in">
+          <button
+            type="button"
+            name="google_sign_in"
+            class="btn w-100 btn-google-sign-in"
+            onclick="window.location.href='/auth/google_oauth2'">
+            <div></div>
+            Sign in with Google
+          </button>
+        </div>
 
-      <div class="control-group google-sign-in">
-        <button
-          type="button"
-          name="google_sign_in"
-          class="btn btn-google-sign-in"
-          onclick="window.location.href='/auth/google_oauth2'">
-          <div></div>
-          Sign in with Google
-        </button>
+        <p class="fw-bold mt-2 pt-1 mb-0 c">Don't have an account?
+          <a href="#!" class="link-danger">Sign Up</a></p>
       </div>
     </form>
-
   </div>
-
-  <!--  Mobile view separator -->
-  <div class="media-section-separator"></div>
-
-  <!-- Search documents -->
-  <div class="col-md-4">
-    <%= render 'layouts/side_widget' %>
-  </div>
-
 </div>
-
-<%= javascript_include_tag 'logins' %>

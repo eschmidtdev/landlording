@@ -1,60 +1,52 @@
-.logins-buttons {
-  background-color: #eee;
-  padding: 15px;
-  border: none gainsboro;
-  font-size: 15px;
-  font-weight: bold;
+.divider:after,
+.divider:before {
+  content: "";
+  flex: 1;
+  height: 1px;
+  background: #eee;
 }
 
-.logins-form {
-  border: 1px solid gainsboro;
-  padding: 15px;
+.login_btn{
+  height: 65px;
+  background: #FF8F00 !important;
+  border-radius: 7px !important;
+  font-size: 20px !important;
+  padding-left: 2.5rem;
+  padding-right: 2.5rem;
+  color: white;
+}
+.login_btn:hover{
+  color: white;
+}
+.login_text{
+  font-weight: 400;
+  font-size: 48px;
+  line-height: 72px;
+  color: #0E0E0E;
+}
+.text-body{
+  color: #ff8f00 !important;
 }
 
-.form-width {
-  width: 100%
+.remember_text{
+  color: #7D7D7D !important;
+  font-weight: normal;
+  margin-left: 20px;
 }
 
-span.help-block {
-  font-style: italic;
-  font-size: 13px;
+.link-danger{
+  color: #ff8f00 !important;
+  font-weight: 700;
 }
-
-.logins-btns-width {
-  width: 200px;
-  height: 45px;
+.btn-google-sign-in{
+  height: 65px;
+  left: 941px;
+  top: 771.3px;
+  border: 1.3px solid #EBEBEB;
+  box-sizing: border-box;
+  border-radius: 7px;
+  font-weight: 700;
 }
-
-.after-agreement{
-  margin-bottom: 15px;
-}
-
-.tos-line {
-  font-size: 13px;
-  font-style: italic;
-}
-
-
-.control-group {
-  margin-bottom: 10px;
-}
-
-.google-sign-in {
-  margin-top: 15px;
-}
-
-
-.btn.btn-google-sign-in {
-  background-image: none;
-  background-color: #fff;
-  border: 1px solid #ccc;
-  border-radius: 4px;
-  padding: 2px;
-  text-align: center;
-  width: 200px;
-  height: 45px;
-}
-
 
 .btn-google-sign-in div {
   background: transparent url('GoogleOmniAuth.png') no-repeat;
@@ -67,12 +59,9 @@ span.help-block {
   position: relative;
   top: -1px;
 }
-
-.modal-dialog{
-  overflow-y: initial;
+.normal_font{
+  font-weight: normal !important;
 }
-
-.modal-body{
-  max-height: 75vh;
-  overflow-y: auto;
+.bg-light_red{
+  background-color: #F6F6F6;
 }
