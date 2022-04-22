@@ -33,12 +33,10 @@
 
 <!-- Application Body -->
 <body>
-<div class="container-fluid">
-<%= render 'layouts/header' unless current_page?(root_path)%>
-  <div class="main-div">
-<%= render 'layouts/messages' %>
-<%= yield %>
-  </div>
+<div class="container">
+  <%= render 'layouts/header' unless current_page?(root_path) %>
+  <%= render 'layouts/messages' %>
+  <%= yield %>
 </div>
 <%= render 'layouts/footer' unless (params[:controller] == 'documents' && params[:action] == 'new' || current_page?(root_path)) %>
 </body>
