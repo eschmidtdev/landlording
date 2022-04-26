@@ -1,9 +1,13 @@
-<div class="d-flex">
-  <div class="mr-auto p-2">
-    <img src="Logo.png">
+<div class="row">
+  <div class="col-md-12">
+    <div class="col-md-6"><img class="nav_logo" src="Logo.png"></div>
+    <div class="col-md-6">
+      <div class="d-flex justify-content-end line_height">
+        <div class="p-2"><b>Help & Support</b></div>
+        <div class="p-2 nav_vector">&emsp;|&emsp;</div>
+        <div class="p-2">Hi, <%= current_user.name %></div>
+        <div class="p-2"><img src="NavImage.png"></div>
+      </div>
+    </div>
   </div>
-  <div class="p-2 line_height set_font">Help & Support</div>
-  <div class="p-2 line_height nav_vector">&emsp;|&emsp;</div>
-  <div class="p-2 line_height">
-    Hi, <%= current_user.name %></div>
 </div>
