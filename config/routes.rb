@@ -1,11 +1,12 @@
 # frozen_string_literal: true
 
 Rails.application.routes.draw do
-  root to: 'visitors#index'
   devise_for :users, controllers: { registrations: 'registrations', sessions: 'sessions' }
   devise_scope :user do
     get '/auth/google_oauth2/callback', to: 'sessions#google_auth'
-    get '/registrations',               to: 'registrations#index'
+    get '/signup', to: 'registrations#index'
+    get '/', to: 'sessions#index'
+    root to: 'sessions#index'
   end
   resources :users do
     member do
@@ -24,4 +25,5 @@ Rails.application.routes.draw do
     end
   end
   resources :payments, only: :index
+  resources :visitors, only: :index
 end

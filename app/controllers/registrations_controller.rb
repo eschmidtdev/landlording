@@ -15,7 +15,7 @@ class RegistrationsController < Devise::RegistrationsController
     resource = create_resource
     UserMailer.send_verification_email(resource).deliver_now!
     set_flash_message(:registrations, :signed_up_but_inactive)
-    redirect_to registrations_path
+    redirect_to signup_path
   end
 
   # rubocop:enable Metrics/AbcSize
@@ -46,7 +46,7 @@ class RegistrationsController < Devise::RegistrationsController
   def password_clashing?(password)
     if password.length < set_minimum_password_length
       set_flash_message(:passwords, :min_length)
-      redirect_to registrations_path
+      redirect_to signup_path
     end
   end
 

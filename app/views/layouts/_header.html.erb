@@ -1,60 +1,9 @@
-<header>
-  <nav class="navbar navbar-inverse navbar-fixed-top nav-bg">
-    <div class="container">
-
-      <!-- Application Logo -->
-      <!--      <div class="img">-->
-      <!--        <a href="<%#= user_signed_in? ? e_forms_url : root_path %>">-->
-      <!--          <img src="/eform_logo.png" class="pull-left">-->
-      <!--        </a>-->
-      <!--      </div>-->
-
-      <!-- Header links -->
-      <div class="collapse navbar-collapse">
-        <ul class="nav navbar-nav">
-
-          <!-- Common Links -->
-          <li><a href="#" class="header-common-link"><b>Business</b></a></li>
-          <li><a href="#" class="header-common-link"><b>Personal</b></a></li>
-          <li><a href="#" class="header-common-link"><b>Real Estate</b></a></li>
-
-          <!--Show links when user signed in-->
-          <% if user_signed_in? %>
-            <li>
-              <div class="dropdown">
-
-                <!-- My eForms parent link -->
-                <button
-                  onclick="location.href='<%= documents_path %>'"
-                  class="dropbtn <%= 'active-link' if from_e_form_tab? %>">
-                  My eForms
-                </button>
-
-                <!-- My eForms child link -->
-                <div class="dropdown-content">
-                  <a
-                    onclick="location.href='<%= documents_path %>'"
-                    class="<%= 'dropdown-active-link' if current_page?(documents_path) %>">
-                    My Document
-                  </a>
-                  <a
-                    onclick="location.href='<%= subscriptions_path %>'"
-                    class="<%= 'dropdown-active-link' if current_page?(subscriptions_path) %>">
-                    Subscription
-                  </a>
-                  <a
-                    onclick="location.href='<%= edit_user_registration_path %>'"
-                    class="<%= 'dropdown-active-link' if current_page?(edit_user_registration_path) %>">
-                    Change Password
-                  </a>
-                  <a rel="nofollow" data-method="delete" href="/users/sign_out">Sign Out</a>
-                </div>
-
-              </div>
-            </li>
-          <% end %>
-        </ul>
-      </div>
-    </div>
-  </nav>
-</header>
+<div class="d-flex">
+  <div class="mr-auto p-2">
+    <img src="Logo.png">
+  </div>
+  <div class="p-2 line_height set_font">Help & Support</div>
+  <div class="p-2 line_height nav_vector">&emsp;|&emsp;</div>
+  <div class="p-2 line_height">
+    Hi, <%= current_user.name %></div>
+</div>

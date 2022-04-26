@@ -34,10 +34,18 @@
 <!-- Application Body -->
 <body>
 <div class="container-fluid">
-  <%= render 'layouts/header' if user_signed_in? %>
+  <div class="row">
+    <div class="col-12 partial_cover">
+      <%= render 'layouts/header' if user_signed_in? %>
+    </div>
+  </div>
+  <div class="row">
+    <div class="col-2 bg-success" style="height: 90vh;">.col-2</div>
+    <div class="col-10 bg-warning" style="height: 90vh;">.col-10</div>
+  </div>
   <%= render 'layouts/messages' %>
   <%= yield %>
-  <a rel="nofollow" data-method="delete" href="/users/sign_out">Sign Out</a>
+    <a rel="nofollow" data-method="delete" href="/users/sign_out">Sign Out</a>
 </div>
 </body>
 </html>

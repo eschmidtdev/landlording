@@ -20,601 +20,102 @@ section {
   margin-top: 20px;
 }
 
-//--------------------------------------------------- Divider css -----------------------------------------------------
-hr {
-  border: 0;
-  clear: both;
-  display: block;
-  background-color: gainsboro;
+//--------------------------------------------------- Login ----------------------------------------------------------
+
+.divider:after,
+.divider:before {
+  content: "";
+  flex: 1;
   height: 1px;
+  background: #eee;
 }
 
-//--------------------------------------------------  Application.html.erb --------------------------------------------
-.main-div {
-  margin: 6% 0 10% 0;
-}
-
-//-------------------------------------------------- Login Page Css ---------------------------------------------------
-
-.access-doc-text {
-  font-size: 14px;
-  font-weight: bold;
-}
-
-.access-doc-heading {
-  font-size: 20px;
-  font-weight: 600;
-}
-
-.access-doc-heading-row {
-  margin-top: 10px;
-  padding-left: 0;
-}
-
-.access-doc-breadcrumb-row {
-  padding: 20px 10px 10px 0;
-}
-
-.active-now {
-  padding-top: 20px !important;
-  background-color: #eee;
-}
-
-.custom-fluid {
-  margin-top: 4%;
-}
-
-.contact-section {
-  padding: 5% 7% 5% 7%;
-}
-
-.last-contact {
-  padding-bottom: 30px;
-}
-
-.display-none {
-  display: none;
-}
-
-.hr-style {
-
-}
-
-.search-field {
-  padding: 5px;
-  border: 1px solid black;
-}
-
-
-.bread-links {
-  color: #5d5d5d;
-}
-
-.doc-table {
-  margin-top: 10px;
-  padding: 20px;
-}
-
-.dm_table_name {
-  font-weight: 700;
-  margin-bottom: 5px;
-}
-
-.dm_table_source {
-  font-size: 12px;
-  font-style: italic;
-}
-
-.new-doc-btn {
-  transition: none;
-}
-
-.page_title {
-  font-weight: 700;
-  font-size: 1.8em;
-  margin: 0.5em 0 0.2em 0;
-}
-
-.pagination {
-  float: right;
-  margin: 0 0 3em 0;
-}
-
-.pagination a {
-  color: #0945ad;
-  background-color: #f5f5f5;
-  padding: 10px;
-}
-
-.separator {
-  border-top: #f2f2f2 1px solid;
-  border-bottom: #f4f4f4 1px solid;
-}
-
-.doc-btn {
-  margin-bottom: 8px;
-}
-
-.dm_form_progress {
-  position: relative;
-  background-color: #f4f4f4;
-  border-radius: 4px;
-}
-
-.dm_form_progress_bar {
-  background-color: #ccc;
-  background-image: linear-gradient(to bottom, #339fd6, #0045cc);
-  height: 5px;
-  width: 0%;
-  position: relative;
-}
-
-.checkbox-sec input {
-  margin: 10px 0;
-}
-
-ul.dm_navigation li.active {
-  font-weight: 700;
-}
-
-ul.dm_navigation li {
-  border-bottom: 1px solid #dedede;
-  line-height: 2.4em;
-  list-style: none;
-  color: #5d5d5d;
-  display: block;
-  cursor: pointer;
-}
-
-.dm_navigation {
-  padding: 0;
-}
-
-.dm_form_progress_info {
-  position: absolute;
-  height: 20px;
-  top: 5px;
-  display: inline-block;
-  width: 40px;
-  right: -40px;
-  font-size: 13px;
-}
-
-.next-prev-but {
-  margin-top: 50px;
-}
-
-//-------------------------------------------------- Search documents -------------------------------------------------
-
-.search-documents {
-  background-color: #eee;
-  min-height: 76.5vh
-}
-
-.search-doc-heading {
-  font-weight: bold;
-  font-size: 17px;
-}
-
-.documents-content {
-  padding: 0 7% 0 7%;
-}
-
-.documents-content span {
-  font-size: 15px;
-}
-
-.documents-search {
-  padding: 5% 7% 5% 7%;
-}
-
-.documents-search span {
-  font-size: 15px;
-}
-
-//----- sign in widget -----
-
-.search-documents .sign-in-widget .side-widget-element {
-  padding: 7% 7% 0 7%;
-}
-
-.search-documents .sign-in-widget .heading {
-  font-size: 1.125em;
-  font-weight: 700;
-}
-
-.sign-in-widget .help-description {
-  line-height: 23px !important;
-  font-size: 15px;
-}
-
-.sign-in-widget .fa-container {
-  top: 14px;
-}
-
-.sign-in-widget .fa-container i.fa {
-  font-size: 24px;
-}
-
-.sign-in-widget .timing {
-  font-size: 13px;
-  color: #666 !important;
-}
-
-
-//-------------------------------------------------- Media queries ----------------------------------------------------
-
-//---------- Mobile devices ----------
-@media (min-width: 320px) and (max-width: 480px) {
-  .search-documents {
-    height: 650px;
-  }
-  .access-doc-heading-row {
-    text-align: center !important;
-    padding: 0;
-  }
-  .media-section-separator {
-    padding: 10px 0 10px 0;
-  }
-  .search-documents {
-    text-align: center;
-  }
-  .sign-in-widget .fa-container {
-    top: 0;
-  }
-  .main-div {
-    margin-top: 60px;
-  }
-  .mobile-center {
-    text-align: center;
-  }
-  .media-logins-btn-container {
-    text-align: center !important;
-  }
-}
-
-//---------- iPads, Tablets ----------
-@media (min-width: 481px) and (max-width: 768px) {
-  .search-documents {
-    height: 700px;
-  }
-}
-
-//---------- Small screens, laptops ----------
-@media (min-width: 769px) and (max-width: 1024px) {
-  .search-documents {
-    height: 900px;
-  }
-}
-
-// THESE ARE EXAMPLES YOU CAN MODIFY
-// create your own classes
-// to make views framework-neutral
-.column {
-  @extend .col-md-6;
-  @extend .text-center;
-}
-
-.form {
-  @extend .col-md-6;
-}
-
-.form-centered {
-  @extend .col-md-6;
-  @extend .text-center;
-}
-
-.submit {
-  @extend .btn;
-  @extend .btn-primary;
-  @extend .btn-lg;
-}
-
-//---------- Custom Default Buttons Css ----------
-.btn-primary-custom {
-  color: #ffffff;
-  background-color: #006dcc;
-  background-image: -moz-linear-gradient(top, #0088cc, #0044cc);
-  background-image: -webkit-gradient(linear, 0 0, 0 100%, from(#0088cc), to(#0044cc));
-  background-image: -webkit-linear-gradient(top, #0088cc, #0044cc);
-  background-image: -o-linear-gradient(top, #0088cc, #0044cc);
-  background-image: linear-gradient(to bottom, #0088cc, #0044cc);
-  background-repeat: repeat-x;
-  border-color: #0044cc #0044cc #002a80;
-  border-color: rgba(0, 0, 0, 0.1) rgba(0, 0, 0, 0.1) rgba(0, 0, 0, 0.25);
-  *background-color: #0044cc;
-  filter: progid:DXImageTransform.Microsoft.gradient(enabled = false);
-}
-
-.btn-primary-custom:hover {
-  color: #ffffff;
-}
-
-//--------------------------------------------------- Nav bar css -----------------------------------------------------
-.navbar-brand {
-  font-size: inherit;
-}
-
-.navbar-nav {
-  float: right;
-  margin: 20px 12px 0px 0px;
-}
-
-.nav-bg {
-  background: #000 !important;
-  padding-bottom: 0 !important;
-  border-bottom: 1px solid #000 !important;
-}
-
-.active-link {
-  color: #252525 !important;
-  background-color: #fff;
-  border-top-right-radius: 5px;
-  border-top-left-radius: 5px;
-  font-weight: bold !important;
-  font-size: 13px;
-}
-
-.active-link:hover {
-  color: #252525 !important;
-  background-color: #fff !important;
-  border-top-right-radius: 5px !important;
-  border-top-left-radius: 5px !important;
-  font-weight: bold !important;
-}
-
-.header-common-link {
-  color: white !important;
-}
-
-//--------------------------------------------------- Breadcrumb css ---------------------------------------------------
-
-.access-doc-breadcrumb-row span a {
-  color: #5d5d5d;
-}
-
-#error_explanation:not(:empty) {
-  @extend .alert;
-  @extend .alert-danger;
-}
-
-#error_explanation h2 {
-  font-size: 16px;
-}
-
-.alert-success {
-  color: green !important;
-}
-
-//--------------------------------------------------- Footer css ------------------------------------------------------
-
-
-//--------------------------------------------------- Header css ------------------------------------------------------
-
-.dropbtn {
+.login_btn {
+  height: 65px;
+  background: #FF8F00 !important;
+  border-radius: 7px !important;
+  font-size: 20px !important;
+  padding-left: 2.5rem;
+  padding-right: 2.5rem;
   color: white;
-  padding: 16px;
-  font-size: 16px;
-  border: none;
 }
 
-.dropdown {
-  position: relative;
-  display: inline-block;
+.login_btn:hover {
+  color: white;
 }
 
-.dropdown-content {
-  display: none;
-  position: absolute;
-  background-color: #fff;
-  min-width: 160px;
-  box-shadow: 0px 8px 16px 0px rgba(0, 0, 0, 0.2);
-  z-index: 1;
+.login_text {
+  font-weight: 400;
+  font-size: 48px;
+  line-height: 72px;
+  color: #0E0E0E;
 }
 
-.dropdown-content a {
-  text-decoration: none;
-  display: block;
-  border-bottom: 1px solid #f1f1f1;
-  padding: 10px 20px;
-  color: #5d5d5d;
-  font-size: 12px;
-  cursor: pointer;
+.text-body {
+  color: #ff8f00 !important;
 }
 
-.dropdown-content a:hover {
-  background-color: #f1f1f1;
+.remember_text {
+  color: #7D7D7D !important;
+  font-weight: normal;
+  margin-left: 20px;
 }
 
-.dropdown:hover .dropdown-content {
-  display: block;
-}
-
-.dropdown:hover .dropbtn {
-  background-color: #fff;
-}
-
-.dropdown-active-link {
-  color: #d25555 !important;
-}
-
-.dropdown-active-parent-link {
-  color: #252525 !important;
-  background-color: #fff !important;
-  border-top-right-radius: 5px !important;
-  border-top-left-radius: 5px !important;
-  font-weight: bold !important;
-}
-
-
-//--------------------------------------------------- Sidebar css -----------------------------------------------------
-
-#sidebar > ul {
-  padding: 0;
-}
-
-#sidebar > ul > li {
-  list-style: none;
-  padding: 1.1em 1.8em;
-  background: #EEEEEE;
-  font-size: 15px;
-}
-
-
-.dm_navigation li a {
-  display: block;
-}
-
-.dm_navigation li a:hover, li a:focus {
-
-  transition: .3s ease-out;
-}
-
-.dm_navigation > li > a {
-  text-decoration: none !important;
-  color: #5d5d5d;
-}
-
-//--------------------------------------------------- Plans css -----------------------------------------------------
-
-.subscription_highlight {
-  background-color: #d9edf7;
-}
-
-.plan-heading {
-  margin-bottom: 20px !important;
-  padding: 15px 25px !important;
-  border-bottom: #dfdfdf 1px solid !important;
-  position: relative !important;
-}
-
-.plan-heading h2 {
-  margin-top: 0;
-}
-
-.plan-description ul {
-  padding-left: 20px;
-}
-
-.plan-description li {
-  line-height: 25px;
-}
-
-.plan-description-buttons {
-  float: right;
-  padding-top: 4px;
-}
-
-.plan-description-price {
-  float: right;
-  font-size: 30px;
-  color: #777;
-  margin-right: 30px;
-}
-
-.plan-description-price-after {
-  font-size: 14px;
-  color: #777;
-}
-
-.membership-feature {
-  color: #777;
-  margin-left: 5px;
-  margin-bottom: 25px;
-  font-size: 15px;
-}
-
-.membership-feature-icon {
-  width: 28px;
-  text-align: center;
-  display: inline-block;
-  margin-right: 8px;
-  font-size: 24px;
-}
-
-.margin-top-10 {
-  margin-top: 10px;
-}
-
-#flash_alert p {
-  font-size: 15px;
-  color: green !important;
-}
-
-//--------------------------------------------------- Payment css -----------------------------------------------------
-
-.payment p {
-  margin: 0 !important;
-  font-size: 15px;
-}
-
-.dm_credit_card {
-  background-size: 240px 60px;
-  width: 48px;
-  height: 30px;
-  border: #dfdfdf 1px solid;
-  border-radius: 3px;
-  display: inline-block;
-  background-image: url('/card_icons_96x60.png');
-  box-sizing: content-box !important;
-  -webkit-box-sizing: content-box !important;
-  -moz-box-sizing: content-box !important;
-  background-repeat: no-repeat;
-}
-
-.dm_credit_card_visa {
-  background-position: 0 -30px;
-}
-
-.dm_credit_card_mastercard {
-  background-position: -48px -30px;
-}
-
-.dm_credit_card_american_express {
-  background-position: -96px -30px;
-}
-
-.dm_credit_card_discover {
-  background-position: -192px -30px;
-}
-
-.dm_credit_card_diners_club {
-  background-position: -144px -30px;
-}
-
-.dm_credit_card_selected {
-  background-position: 0 0;
-}
-
-.dm_icon_input {
-  position: relative;
-}
-
-.widget_title {
-  font-size: 1.125em;
-  margin: 0 0 1em 0;
+.link-danger {
+  color: #ff8f00 !important;
   font-weight: 700;
 }
 
-.dm_order_name {
-  width: 70%;
-  float: left;
+.btn-google-sign-in {
+  height: 65px;
+  left: 941px;
+  top: 771.3px;
+  border: 1.3px solid #EBEBEB;
+  box-sizing: border-box;
+  border-radius: 7px;
+  font-weight: 700;
 }
 
-.dm_order_value {
-  width: 30%;
-  float: right;
-  text-align: right;
-  margin-bottom: 5px;
+.btn-google-sign-in div {
+  background: transparent url('GoogleOmniAuth.png') no-repeat;
+  background-size: 191px 47px;
+  background-position: -14px -3px;
+  width: 23px;
+  height: 39px;
+  display: inline-block;
+  vertical-align: middle;
+  position: relative;
+  top: -1px;
 }
 
-.payment-hr {
-  margin-top: 5px;
+.normal_font {
+  font-weight: normal !important;
 }
 
-.dm_order_description {
-  margin-top: 20px;
-  font-size: 13px;
-  color: #777;
-  text-align: justify;
+.bg-light_red {
+  background-color: #F6F6F6;
+}
+
+.error_alert {
+  background: rgba(255, 44, 58, 0.07);
+  border-radius: 5px;
+  padding: 5px 10px;
+  color: #FF2C3A;
+  display: none;
+}
+
+//--------------------------------------------------- Header ----------------------------------------------------------
+
+.line_height{
+  line-height: 50px;
+}
+.nav_vector{
+  color: #D6D6D6;
+}
+.set_font{
+  font-weight: 700;
+}
+
+.partial_cover{
+  height: 10vh; border: 1px solid #E2E2E2;
 }

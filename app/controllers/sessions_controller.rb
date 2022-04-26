@@ -5,6 +5,10 @@ class SessionsController < Devise::SessionsController
   skip_before_action :verify_authenticity_token
   include SessionsHelper
 
+  def index
+    redirect_to documents_path if user_signed_in?
+  end
+
   def new
     set_flash_message(:notice, :invalid)
     redirect_to root_path
@@ -25,7 +29,7 @@ class SessionsController < Devise::SessionsController
         redirect_to root_path
         session[:return_to] = nil
       else
-        redirect_to documents_path
+        redirect_to visitors_url
       end
     end
   end
@@ -34,7 +38,7 @@ class SessionsController < Devise::SessionsController
     user = CreateOAuthUserService.new(auth).call
     sign_in user
     set_flash_message(:notice, :signed_in) if is_navigational_format?
-    redirect_to documents_path
+    redirect_to visitors_url
   end
 
   # rubocop:enable Metrics/AbcSize
