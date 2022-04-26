@@ -40,7 +40,9 @@
     </div>
   </div>
   <div class="row">
-    <div class="col-2 bg-success" style="height: 90vh;">.col-2</div>
+    <div class="col-2" style="height: 90vh;">
+      <%= render 'layouts/sidebar' if user_signed_in? %>
+    </div>
     <div class="col-10 bg-warning" style="height: 90vh;">.col-10</div>
   </div>
   <%= render 'layouts/messages' %>
