@@ -1,0 +1,1 @@
+$(document).ready(function(){function n(){const n=$("#InputEmail").val(),o=$("#InputPassword").val();$.ajax({url:"/users/sign_in",type:"POST",data:{user:{email:n,password:o}},error:function(){},success:function(){}})}$("#LoginBtn").on("click",function(){n()})});
