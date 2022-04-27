@@ -6,7 +6,7 @@ class SessionsController < Devise::SessionsController
   include SessionsHelper
 
   def index
-    redirect_to documents_path if user_signed_in?
+    redirect_to visitors_url if user_signed_in?
   end
 
   def new

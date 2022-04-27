@@ -34,19 +34,18 @@
 <!-- Application Body -->
 <body>
 <div class="container-fluid">
-  <div class="row">
-    <div class="col-12 partial_cover">
-      <%= render 'layouts/header' if user_signed_in? %>
+  <% if user_signed_in? %>
+    <%= render 'layouts/header' %>
+    <div class="row">
+      <%= render 'layouts/sidebar' %>
+      <div class="col-10" style="height: 90vh;">
+        <%= render 'layouts/messages' %>
+        <%= yield %>
+      </div>
     </div>
-  </div>
-  <div class="row">
-    <div class="col-2 p-0" style="height: 90vh; background-color: #F8F8F8;">
-      <%= render 'layouts/sidebar' if user_signed_in? %>
-    </div>
-    <div class="col-10 bg-warning" style="height: 90vh;">.col-10</div>
-  </div>
-  <%= render 'layouts/messages' %>
-  <%= yield %>
+  <% else %>
+    <%= yield %>
+  <% end %>
 </div>
 </body>
 </html>
