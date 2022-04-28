@@ -14,7 +14,7 @@ class RegistrationsController < Devise::RegistrationsController
     resource = create_resource
     UserMailer.send_verification_email(resource).deliver_now!
     set_flash_message(:registrations, :signed_up_but_inactive)
-    redirect_to signup_path
+    redirect_to root_path
   end
 
   private

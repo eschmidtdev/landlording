@@ -8,9 +8,8 @@ $(document).ready(function () {
             type: 'POST',
             data: {user: {email: email, password: password}},
             success: function (data) {
-                debugger;
                 if (data.success === true) {
-
+                    window.location.href = data.url;
                 }
                 if (data.success === false) {
                     $('.error_alert').removeClass('display_none').text('').append(data.message);
