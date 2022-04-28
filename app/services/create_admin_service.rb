@@ -10,10 +10,12 @@ class CreateAdminService < ApplicationService
     @confirmation_token = confirmation_token
   end
 
-  # rubocop:disable Metrics/MethodLength
   def call
     prev_user = User.find_by email: @email
-    raise StandardError, I18n.t('EForm.Messages.Error.AlreadyExists') if prev_user.present?
+    if prev_user.present?
+      raise StandardError,
+            I18n.t('EForm.Messages.Error.AlreadyExists')
+    end
 
     user = User.create(
       name: @name,
@@ -25,5 +27,4 @@ class CreateAdminService < ApplicationService
     )
     user.save!
   end
-  # rubocop:enable Metrics/MethodLength
 end

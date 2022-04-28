@@ -1,7 +1,6 @@
 # frozen_string_literal: true
 
 # Controller to perform Document CRUD
-# rubocop:disable Metrics/ClassLength
 class DocumentsController < ApplicationController
   require 'json'
   require 'open-uri'
@@ -13,8 +12,6 @@ class DocumentsController < ApplicationController
 
   def show; end
 
-  # rubocop:disable Metrics/Metrics/MethodLength
-  # rubocop:disable Metrics/AbcSize
   def new
     access_token_response = execute_access_token_request
     unless access_token_response.code == '200'
@@ -33,8 +30,6 @@ class DocumentsController < ApplicationController
     @interview_id = interview_data['interviewId']
     @service_token = interview_response.each_header.to_h['rl-rdoc-servicetoken']
   end
-  # rubocop:enable Metrics/Metrics/MethodLength
-  # rubocop:enable Metrics/AbcSize
 
   def edit; end
 
@@ -51,7 +46,11 @@ class DocumentsController < ApplicationController
 
   def update
     return unless @document.update(document_params)
-    return render json: { status: 200, message: I18n.t('EForm.Messages.Success.Updated') } if request.xhr?
+
+    if request.xhr?
+      return render json: { status: 200,
+                            message: I18n.t('EForm.Messages.Success.Updated') }
+    end
 
     redirect_to documents_path, notice: I18n.t('EForm.Messages.Success.Updated')
   end
@@ -66,7 +65,9 @@ class DocumentsController < ApplicationController
     return unless params[:from].present?
 
     email_me_the_document(@document) if params[:from] == 'email'
-    redirect_to generate_pdf_document_path(pdf_params) if params[:from] == 'download' || params[:from] == 'print'
+    if params[:from] == 'download' || params[:from] == 'print'
+      redirect_to generate_pdf_document_path(pdf_params)
+    end
   end
 
   def generate_pdf
@@ -102,7 +103,9 @@ class DocumentsController < ApplicationController
     end
     request.content_type = 'application/json'
     request.body = body.to_json unless body.nil?
-    Net::HTTP.start(uri.hostname, uri.port, use_ssl: true) { |http| http.request(request) }
+    Net::HTTP.start(uri.hostname, uri.port, use_ssl: true) do |http|
+      http.request(request)
+    end
   end
 
   private
@@ -140,4 +143,3 @@ class DocumentsController < ApplicationController
     }
   end
 end
-# rubocop:enable Metrics/ClassLength

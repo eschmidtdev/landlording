@@ -6,7 +6,6 @@ class RegistrationsController < Devise::RegistrationsController
 
   def index; end
 
-  # rubocop:disable Metrics/AbcSize
   def create
     return if params_missing?(params[:user]) ||
               user_exists?(params[:user]) ||
@@ -17,8 +16,6 @@ class RegistrationsController < Devise::RegistrationsController
     set_flash_message(:registrations, :signed_up_but_inactive)
     redirect_to signup_path
   end
-
-  # rubocop:enable Metrics/AbcSize
 
   private
 

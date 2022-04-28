@@ -14,8 +14,6 @@ class SessionsController < Devise::SessionsController
     redirect_to root_path
   end
 
-  # rubocop:disable Metrics/AbcSize
-  # rubocop:disable Metrics/MethodLength
   def create
     user = User.find_by(email: params[:user][:email])
     if user && user.confirmed_at.nil?
@@ -25,11 +23,11 @@ class SessionsController < Devise::SessionsController
       self.resource = warden.authenticate!(auth_options)
       set_flash_message(:notice, :signed_in) if is_navigational_format?
       sign_in(resource_name, resource)
-      if !session[:return_to].blank?
+      if session[:return_to].blank?
+        redirect_to visitors_url
+      else
         redirect_to root_path
         session[:return_to] = nil
-      else
-        redirect_to visitors_url
       end
     end
   end
@@ -40,9 +38,6 @@ class SessionsController < Devise::SessionsController
     set_flash_message(:notice, :signed_in) if is_navigational_format?
     redirect_to visitors_url
   end
-
-  # rubocop:enable Metrics/AbcSize
-  # rubocop:enable Metrics/MethodLength
 
   private
 
