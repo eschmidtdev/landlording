@@ -1,7 +1,7 @@
 # frozen_string_literal: true
 
 source 'https://rubygems.org'
-ruby '2.6.6'
+ruby '3.1.0'
 
 gem 'bcrypt'
 gem 'bootstrap-sass'
@@ -15,7 +15,7 @@ gem 'omniauth-google-oauth2'
 gem 'omniauth-rails_csrf_protection'
 gem 'pg'
 gem 'puma'
-gem 'rails'
+gem 'rails', '~> 6.1.5', '>= 6.1.5'
 gem 'sass-rails'
 gem 'turbolinks'
 gem 'tzinfo-data', platforms: %i[mingw mswin x64_mingw jruby]

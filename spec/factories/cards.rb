@@ -1,11 +1,11 @@
 # frozen_string_literal: true
 
-FactoryGirl.define do
+FactoryBot.define do
   factory :card do
-    card_holder_name 'MyString'
-    card_number 'MyString'
-    exp 'MyString'
-    cvv 'MyString'
+    card_holder_name { "MyString" }
+    card_number { 'MyString' }
+    exp { 'MyString' }
+    cvv { 'MyString' }
     user nil
   end
 end
