@@ -22,6 +22,10 @@ gem 'tzinfo-data', platforms: %i[mingw mswin x64_mingw jruby]
 gem 'uglifier'
 gem 'wicked_pdf'
 gem 'wkhtmltopdf-binary'
+gem 'net-smtp'
+gem 'net-imap'
+gem 'net-pop'
+
 
 group :development do
   gem 'better_errors'
