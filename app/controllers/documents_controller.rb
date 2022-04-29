@@ -80,12 +80,12 @@ class DocumentsController < ApplicationController
   end
 
   def execute_access_token_request
-    make_request(ENV['ACCESS_TOKEN_URL'], request_header, access_request_body)
+    make_request(ENV.fetch('ACCESS_TOKEN_URL', nil), request_header, access_request_body)
   end
 
   def execute_interview_request(response)
     headers = request_header.merge({ 'Authorization' => "Bearer #{response['access_token']}" })
-    make_request(ENV['INTERVIEW_URL'], headers, interview_request_body)
+    make_request(ENV.fetch('INTERVIEW_URL', nil), headers, interview_request_body)
   end
 
   def request_header
@@ -129,9 +129,9 @@ class DocumentsController < ApplicationController
 
   def access_request_body
     {
-      client_id: ENV['CLIENT_ID'],
-      client_secret: ENV['CLIENT_SECRET'],
-      grant_type: ENV['CLIENT_CREDENTIALS']
+      client_id: ENV.fetch('CLIENT_ID', nil),
+      client_secret: ENV.fetch('CLIENT_SECRET', nil),
+      grant_type: ENV.fetch('CLIENT_CREDENTIALS', nil)
     }
   end
 
