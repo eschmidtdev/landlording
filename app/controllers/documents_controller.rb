@@ -137,9 +137,9 @@ class DocumentsController < ApplicationController
 
   def interview_request_body
     {
-      templateId: '04d9d0ba-3113-40d3-9a4e-e7b226a72154',
-      partyEmailAddress: current_user.email,
-      partnerEndUserId: current_user.id
+      "templateId": "04d9d0ba-3113-40d3-9a4e-e7b226a72154",
+      "partyEmailAddress": "me@emailaddress.com",
+      "partnerEndUserId": "cfd1ee5a-061a-40cc-be72-8cbb9945b5d9"
     }
   end
 end
