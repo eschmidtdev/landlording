@@ -10,7 +10,6 @@ class DocumentsController < ApplicationController
   end
 
   def new
-
     # Get Access Token
     access_token_response = execute_access_token_request
     unless access_token_response.code == '200'
@@ -42,33 +41,6 @@ class DocumentsController < ApplicationController
     @interview_id = interview_data['interviewId']
     @rl_rdoc_service_token = interview_response.each_header.to_h['rl-rdoc-servicetoken']
     @access_token = access_token_data['access_token']
-
-    # # Integrating with RocketSign
-    # access_binder_response = execute_binder_request(@interview_id, access_token_data)
-    # unless access_binder_response.code == '200'
-    #   return redirect_to documents_url,
-    #                      notice: I18n.t('EForm.Messages.Error.WentWrong')
-    # end
-    #
-    # binder_data = JSON.parse(access_binder_response.body)
-    # # @binder_id = binder_data.dig('binder', 'binderId')
-    # # @document_id = binder_data.dig('binder', 'documentId')
-    #
-    # # Interview Completion
-    # interview_completion_response = execute_interview_completion_request(@interview_id, access_token_data)
-    # unless interview_completion_response.code == '201'
-    #   return redirect_to documents_url,
-    #                      notice: I18n.t('EForm.Messages.Error.WentWrong')
-    # end
-    #
-    # interview_completion_data = JSON.parse(interview_completion_response.body)
-    # @binder_id = interview_completion_data.dig('binder', 'binderId')
-    # @document_id = interview_completion_data.dig('binder', 'documentId')
-    #
-    # # Retrieves a document
-    # retrieves_document_response = execute_retrieves_document_request(@binder_id, @document_id, access_token_data)
-    # @url = get_response_with_redirect(retrieves_document_response)
-
   end
 
   def complete
@@ -82,7 +54,7 @@ class DocumentsController < ApplicationController
     @binder_id = interview_completion_data.dig('binder', 'binderId')
     @document_id = interview_completion_data.dig('binder', 'documentId')
 
-    retrieves_document_response = execute_retrieves_document_request(@binder_id, @document_id, params[:access_token])
+    retrieves_document_response = execute_retrieves_document_request(@binder_id, @document_id, params[:access_token], params[:download])
     @url = get_response_with_redirect(retrieves_document_response)
   end
 
@@ -136,8 +108,13 @@ class DocumentsController < ApplicationController
     )
   end
 
-  def execute_retrieves_document_request(binder_id, document_id, access_token)
-    headers = { Accept: 'application/pdf', Authorization: "Bearer #{access_token}" }
+  def execute_retrieves_document_request(binder_id, document_id, access_token, download)
+    download = if download == 'pdf'
+                 'application/pdf'
+               else
+                 'text/html'
+               end
+    headers = { Accept: download, Authorization: "Bearer #{access_token}" }
     make_request(
       "https://api-sandbox.rocketlawyer.com/document-manager/v1/binders/#{binder_id}/documents/#{document_id}", headers, nil, 'Get'
     )

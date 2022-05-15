@@ -1,3 +1,7 @@
+<a href="<%= document_complete_path(interview_id: params[:interview_id], access_token: params[:access_token], download: 'pdf') %>">
+  Download as PDF
+</a>
+
 <iframe
   id="rocketSignFrame"
   src="<%= @url %>"
