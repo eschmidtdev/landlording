@@ -4,46 +4,86 @@
 class DocumentsController < ApplicationController
   require 'json'
   require 'open-uri'
-  before_action :set_document, only: %i[show edit update destroy export generate_pdf]
 
   def index
     @documents = current_user.documents
   end
 
   def new
+
+    # Get Access Token
     access_token_response = execute_access_token_request
-    redirect_url(access_token_response, '200')
+    unless access_token_response.code == '200'
+      redirect_to documents_url,
+                  notice: I18n.t('EForm.Messages.Error.WentWrong')
+    end
+
     access_token_data = JSON.parse(access_token_response.body)
 
+    # Get Interview ID
     interview_response = execute_interview_request(access_token_data)
     unless interview_response.code == '201'
       return redirect_to documents_url,
                          notice: I18n.t('EForm.Messages.Error.WentWrong')
     end
 
-    service_token_response = execute_service_token_request(access_token_data)
-    unless service_token_response.code == '200'
-      return redirect_to documents_url,
-                         notice: I18n.t('EForm.Messages.Error.WentWrong')
-    end
+    # # Get Service Token
+    # service_token_response = execute_service_token_request(access_token_data)
+    # unless service_token_response.code == '200'
+    #   return redirect_to documents_url,
+    #                      notice: I18n.t('EForm.Messages.Error.WentWrong')
+    # end
 
-    service_token_data = JSON.parse(service_token_response.body)
-    @service_token = service_token_data['token']
+    # service_token_data = JSON.parse(service_token_response.body)
+    # @service_token = service_token_data['token']
 
+    # Lease Agreement Form
     interview_data = JSON.parse(interview_response.body)
     @interview_id = interview_data['interviewId']
     @rl_rdoc_service_token = interview_response.each_header.to_h['rl-rdoc-servicetoken']
+    @access_token = access_token_data['access_token']
 
-    # Integrating with RocketSign
-    access_binder_response = execute_binder_request(@interview_id, access_token_data)
-    unless access_binder_response.code == '200'
+    # # Integrating with RocketSign
+    # access_binder_response = execute_binder_request(@interview_id, access_token_data)
+    # unless access_binder_response.code == '200'
+    #   return redirect_to documents_url,
+    #                      notice: I18n.t('EForm.Messages.Error.WentWrong')
+    # end
+    #
+    # binder_data = JSON.parse(access_binder_response.body)
+    # # @binder_id = binder_data.dig('binder', 'binderId')
+    # # @document_id = binder_data.dig('binder', 'documentId')
+    #
+    # # Interview Completion
+    # interview_completion_response = execute_interview_completion_request(@interview_id, access_token_data)
+    # unless interview_completion_response.code == '201'
+    #   return redirect_to documents_url,
+    #                      notice: I18n.t('EForm.Messages.Error.WentWrong')
+    # end
+    #
+    # interview_completion_data = JSON.parse(interview_completion_response.body)
+    # @binder_id = interview_completion_data.dig('binder', 'binderId')
+    # @document_id = interview_completion_data.dig('binder', 'documentId')
+    #
+    # # Retrieves a document
+    # retrieves_document_response = execute_retrieves_document_request(@binder_id, @document_id, access_token_data)
+    # @url = get_response_with_redirect(retrieves_document_response)
+
+  end
+
+  def complete
+    interview_completion_response = execute_interview_completion_request(params[:interview_id], params[:access_token])
+    unless interview_completion_response.code == '201'
       return redirect_to documents_url,
                          notice: I18n.t('EForm.Messages.Error.WentWrong')
     end
 
-    binder_data = JSON.parse(access_binder_response.body)
-    @binder_id = binder_data.dig('binder', 'binderId')
-    @document_id = binder_data.dig('binder', 'documentId')
+    interview_completion_data = JSON.parse(interview_completion_response.body)
+    @binder_id = interview_completion_data.dig('binder', 'binderId')
+    @document_id = interview_completion_data.dig('binder', 'documentId')
+
+    retrieves_document_response = execute_retrieves_document_request(@binder_id, @document_id, params[:access_token])
+    @url = get_response_with_redirect(retrieves_document_response)
   end
 
   def export
@@ -66,10 +106,6 @@ class DocumentsController < ApplicationController
 
   private
 
-  def set_document
-    @document = Document.find(params[:id])
-  end
-
   def execute_access_token_request
     make_request(ENV.fetch('ACCESS_TOKEN_URL', nil), request_header, access_request_body,
                  'Post')
@@ -90,6 +126,20 @@ class DocumentsController < ApplicationController
     headers = { Authorization: "Bearer #{response['access_token']}" }
     make_request(
       "https://api-sandbox.rocketlawyer.com/rocketdoc/v1/interviews/#{interview_id}", headers, nil, 'Get'
+    )
+  end
+
+  def execute_interview_completion_request(interview_id, access_token)
+    headers = request_header.merge({ Authorization: "Bearer #{access_token}" })
+    make_request(
+      "https://api-sandbox.rocketlawyer.com/rocketdoc/v1/interviews/#{interview_id}/completions", headers, nil, 'Post'
+    )
+  end
+
+  def execute_retrieves_document_request(binder_id, document_id, access_token)
+    headers = { Accept: 'application/pdf', Authorization: "Bearer #{access_token}" }
+    make_request(
+      "https://api-sandbox.rocketlawyer.com/document-manager/v1/binders/#{binder_id}/documents/#{document_id}", headers, nil, 'Get'
     )
   end
 
@@ -146,10 +196,9 @@ class DocumentsController < ApplicationController
     }
   end
 
-  def redirect_url(response, code)
-    unless response.code == code
-      redirect_to documents_url,
-                  notice: I18n.t('EForm.Messages.Error.WentWrong')
-    end
+  def get_response_with_redirect(response)
+    return if (response.code != '303')
+
+    response.each_header.to_h['location'] if response.code == '303'
   end
 end

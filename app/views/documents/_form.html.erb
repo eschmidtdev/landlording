@@ -1,36 +1,9 @@
-<!--<a href="https://document-manager.sandbox.rocketlawyer.com/<%#= @binder_id %>#serviceToken=<%#= @service_token %>" target="_blank">-->
-<!--  Click Me-->
-<!--</a>-->
+<a href="<%= document_complete_path(interview_id: @interview_id, access_token: @access_token) %>">
+  Complete Interview
+</a>
 
-<!--<script src="https://logo-ipsum.sandbox.rocketlawyer.com/rocket-document.js"></script>-->
+<script src="https://logo-ipsum.sandbox.rocketlawyer.com/rocket-document.js"></script>
 
-<!--<div class="container-fluid">-->
-<!--  <rocket-document serviceToken="<%#= @rl_rdoc_service_token %>" interviewId="<%#= @interview_id %>"></rocket-document>-->
-<!--</div>-->
-
-<iframe
-  id="rocketSignFrame"
-  src="https://document-manager.rocketlawyer.com/<%= @binder_id %>#serviceToken=<%= @service_token %>"
-  style="width: 100%; overflow: auto; border: none;">
-</iframe>
-
-<script>
-    function onResize() {
-        var h = window.innerHeight;
-        var frame = document.getElementById("rocketSignFrame");
-        frame.style.height = h + "px";
-
-        postObject = {
-            clientWidth: document.documentElement.clientWidth,
-            zoomLevel: 1 / window.visualViewport.scale
-        };
-
-        var message = JSON.stringify(postObject);
-        frame.contentWindow.postMessage(message, "*");
-    }
-
-    (function () {
-        onResize();
-        window.addEventListener('resize', onResize);
-    })();
-</script>
+<div class="container-fluid">
+  <rocket-document serviceToken="<%= @rl_rdoc_service_token %>" interviewId="<%= @interview_id %>"></rocket-document>
+</div>

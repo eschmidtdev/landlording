@@ -13,12 +13,14 @@ Rails.application.routes.draw do
       get :confirm_email
     end
   end
-  resources :documents do
-    member do
-      get :export
-      get :generate_pdf
-    end
-  end
+  # resources :documents do
+  #   member do
+  #     get :export
+  #     get :generate_pdf
+  #   end
+  # end
+  resources :documents
+  get '/document/complete', to: 'documents#complete'
   resources :subscriptions, only: %i[index update] do
     collection do
       get :plans
