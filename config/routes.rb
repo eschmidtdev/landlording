@@ -19,8 +19,9 @@ Rails.application.routes.draw do
   #     get :generate_pdf
   #   end
   # end
-  resources :documents
-  get '/document/complete', to: 'documents#complete'
+  get '/documents', to: 'documents#index'
+  get '/create/interview', to: 'documents#create_interview'
+  get '/complete/interview', to: 'documents#complete_interview'
   resources :subscriptions, only: %i[index update] do
     collection do
       get :plans

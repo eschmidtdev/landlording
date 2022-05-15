@@ -6,20 +6,20 @@ class DocumentsController < ApplicationController
   require 'open-uri'
 
   def index
-    @documents = current_user.documents
+    @documents = []
   end
 
-  def new
+  def create_interview
     @access_token = generate_access_token
     response = generate_interview_id(@access_token)
     @interview_id = response[:interview_id]
     @rl_rdoc_service_token = response[:service_token]
   end
 
-  def complete
+  def complete_interview
     interview_completion_response = execute_interview_completion_request(params[:interview_id], params[:access_token])
     unless interview_completion_response.code == '201'
-      return redirect_to documents_url,
+      return redirect_to documents_path,
                          notice: I18n.t('EForm.Messages.Error.WentWrong')
     end
 
@@ -54,7 +54,7 @@ class DocumentsController < ApplicationController
   def generate_access_token
     access_token_response = execute_access_token_request
     unless access_token_response.code == '200'
-      redirect_to documents_url,
+      redirect_to documents_path,
                   notice: I18n.t('EForm.Messages.Error.WentWrong')
     end
 
@@ -65,7 +65,7 @@ class DocumentsController < ApplicationController
   def generate_interview_id(access_token)
     interview_response = execute_interview_request(access_token)
     unless interview_response.code == '201'
-      return redirect_to documents_url,
+      return redirect_to documents_path,
                          notice: I18n.t('EForm.Messages.Error.WentWrong')
     end
 
@@ -172,7 +172,7 @@ class DocumentsController < ApplicationController
   end
 
   def get_response_with_redirect(response)
-    return if (response.code != '303')
+    return if response.code != '303'
 
     response.each_header.to_h['location'] if response.code == '303'
   end
