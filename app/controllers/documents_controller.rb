@@ -10,37 +10,10 @@ class DocumentsController < ApplicationController
   end
 
   def new
-    # Get Access Token
-    access_token_response = execute_access_token_request
-    unless access_token_response.code == '200'
-      redirect_to documents_url,
-                  notice: I18n.t('EForm.Messages.Error.WentWrong')
-    end
-
-    access_token_data = JSON.parse(access_token_response.body)
-
-    # Get Interview ID
-    interview_response = execute_interview_request(access_token_data)
-    unless interview_response.code == '201'
-      return redirect_to documents_url,
-                         notice: I18n.t('EForm.Messages.Error.WentWrong')
-    end
-
-    # # Get Service Token
-    # service_token_response = execute_service_token_request(access_token_data)
-    # unless service_token_response.code == '200'
-    #   return redirect_to documents_url,
-    #                      notice: I18n.t('EForm.Messages.Error.WentWrong')
-    # end
-
-    # service_token_data = JSON.parse(service_token_response.body)
-    # @service_token = service_token_data['token']
-
-    # Lease Agreement Form
-    interview_data = JSON.parse(interview_response.body)
-    @interview_id = interview_data['interviewId']
-    @rl_rdoc_service_token = interview_response.each_header.to_h['rl-rdoc-servicetoken']
-    @access_token = access_token_data['access_token']
+    @access_token = generate_access_token
+    response = generate_interview_id(@access_token)
+    @interview_id = response[:interview_id]
+    @rl_rdoc_service_token = response[:service_token]
   end
 
   def complete
@@ -78,13 +51,38 @@ class DocumentsController < ApplicationController
 
   private
 
+  def generate_access_token
+    access_token_response = execute_access_token_request
+    unless access_token_response.code == '200'
+      redirect_to documents_url,
+                  notice: I18n.t('EForm.Messages.Error.WentWrong')
+    end
+
+    access_token_data = JSON.parse(access_token_response.body)
+    access_token_data['access_token']
+  end
+
+  def generate_interview_id(access_token)
+    interview_response = execute_interview_request(access_token)
+    unless interview_response.code == '201'
+      return redirect_to documents_url,
+                         notice: I18n.t('EForm.Messages.Error.WentWrong')
+    end
+
+    interview_data = JSON.parse(interview_response.body)
+    {
+      interview_id: interview_data['interviewId'],
+      service_token: interview_response.each_header.to_h['rl-rdoc-servicetoken']
+    }
+  end
+
   def execute_access_token_request
     make_request(ENV.fetch('ACCESS_TOKEN_URL', nil), request_header, access_request_body,
                  'Post')
   end
 
-  def execute_interview_request(response)
-    headers = request_header.merge({ Authorization: "Bearer #{response['access_token']}" })
+  def execute_interview_request(access_token)
+    headers = request_header.merge({ Authorization: "Bearer #{access_token}" })
     make_request(ENV.fetch('INTERVIEW_URL', nil), headers, interview_request_body, 'Post')
   end
 
