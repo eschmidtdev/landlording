@@ -1,22 +1,72 @@
-<%= render 'layouts/breadcrumb_headings' %>
+<div class="row d-flex justify-content-center align-items-center">
+  <div class="col-md-9 col-lg-6 col-xl-5 bg-light_red">
+    <img class="set_login_ill" src="SingleIllustration.png">
+  </div>
+  <div class="col-md-8 col-lg-6 col-xl-4 offset-xl-1">
+    <!-- Sign in form -->
+    <form>
 
-<div class="row">
-  <!-- Forget password form -->
-  <div class="col-md-8">
-    <%= form_for(resource, :as => resource_name, :url => password_path(resource_name), :html => { :method => :post, :role => 'form' }) do |f| %>
-      <%= devise_error_messages! %>
-      <div class="form-group">
-        <%= f.label :email %>
-        <%= f.email_field :email, :autofocus => true, class: 'form-control', placeholder: 'eg. john@doe.com' %>
-        <span class="help-block">Please enter your email address.</span>
+      <!-- Heading -->
+      <div class="d-flex flex-row align-items-center justify-content-center justify-content-lg-start">
+        <p class="login_text">Login</p>
       </div>
-      <%= f.submit 'Send', :class => 'button right btn btn-primary-custom', :onclick => "return;" %>
-    <% end %>
-  </div>
 
-  <!-- Search documents -->
-  <div class="col-md-4">
-    <%= render 'layouts/side_widget' %>
-  </div>
+      <!-- ErrorAlert -->
+      <div class="error_alert display_none"></div>
 
+      <div class="d-flex align-items-center my-4"></div>
+
+      <!-- Email input -->
+      <div class="form-outline mb-4">
+        <label class="form-label normal_font" for="InputEmail">Email*</label>
+        <input type="email" autofocus="autofocus" name="user[email]" id="InputEmail"
+               class="form-control form-control-lg" placeholder="eg. john@doe.com" required>
+      </div>
+
+      <!-- Password input -->
+      <div class="form-outline mb-3">
+        <label class="form-label normal_font" for="InputPassword">Password*</label>
+        <input type="password" name="user[password]" id="InputPassword" class="form-control form-control-lg"
+               placeholder="Enter password" required>
+      </div>
+
+      <!-- Checkbox -->
+      <div class="d-flex justify-content-between align-items-center">
+        <div class="mb-0">
+          <input class="form-check-input" type="checkbox" value="" id="form2Example3"/>
+          <label class="form-check-label remember_text" for="form2Example3">Remember me </label>
+        </div>
+        <a href="#!" class="text-body">Forgot password?</a>
+      </div>
+
+      <!-- Buttons -->
+      <div class="text-center text-lg-start mt-4 pt-2">
+        <button type="button" class="btn w-100 login_btn" id="LoginBtn">Login</button>
+
+        <div class="divider d-flex align-items-center my-4">
+          <p class="text-center fw-bold mx-3 mb-0 remember_text">OR</p>
+        </div>
+
+        <!-- OmniOuth Button -->
+        <div class="control-group google-sign-in">
+          <button
+            type="button"
+            name="google_sign_in"
+            class="btn w-100 btn-google-sign-in"
+            onclick="window.location.href='/auth/google_oauth2'">
+            <div></div>
+            Sign in with Google
+          </button>
+        </div>
+
+        <!-- SignUp Link -->
+        <p class="fw-bold mt-2 pt-1 mb-0 c">
+          Don't have an account?
+          <a href="<%= signup_path %>" class="link-danger">Sign Up</a>
+        </p>
+      </div>
+    </form>
+  </div>
 </div>
+
+<%= stylesheet_link_tag 'custom' %>
