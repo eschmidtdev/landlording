@@ -14,7 +14,7 @@ body {
 }
 
 .form-control{
-  height: 45px;
+  height: 60px;
 }
 //--------------------------------------------------- Make all images responsive by default ---------------------------
 img {
@@ -72,6 +72,7 @@ section {
   color: #7D7D7D !important;
   font-weight: normal;
   margin-left: 20px;
+  font-size: 15px !important;
 }
 
 .link-danger {
@@ -80,13 +81,16 @@ section {
 }
 
 .btn-google-sign-in {
-  height: 65px;
+  height: 60px;
   left: 941px;
   top: 771.3px;
   border: 1.3px solid #EBEBEB;
   box-sizing: border-box;
   border-radius: 7px;
-  font-weight: 700;
+  font-weight: 400;
+  font-size: 18px;
+  line-height: 31px;
+  text-align: center;
 }
 
 .btn-google-sign-in div {
@@ -102,7 +106,9 @@ section {
 }
 
 .normal_font {
-  font-weight: normal !important;
+  font-weight: 400 !important;
+  font-size: 14px;
+  mix-blend-mode: normal;
 }
 
 .bg-light_red {
