@@ -1,6 +1,6 @@
 <div class="row d-flex justify-content-center align-items-center">
   <div class="col-md-9 col-lg-6 col-xl-5 bg-light_red">
-    <img class="set_login_ill" src="SingleIllustration.png">
+    <%= image_tag('users/SingleIllustration.png', class: 'set_login_ill') %>
   </div>
   <div class="col-md-8 col-lg-6 col-xl-4 offset-xl-1">
     <!-- Sign in form -->
@@ -29,10 +29,15 @@
         <%= f.submit 'SEND RESET LINK', class: 'btn w-100 login_btn', onclick: "return;" %>
 
         <!-- Login Link -->
-        <p class="fw-bold mt-2 pt-1 mb-0 c">
-          Go back to
-          <a href="<%= user_session_path %>" class="link-danger">Login</a>
-        </p>
+        <div class="d-flex justify-content-center mt-2">
+          <%= image_tag('users/BackIcon.svg', class: 'set_back_icon mr-3 mt-2') %>
+          <p class="fw-bold mt-2 pt-1 mb-0">
+            Go back to
+            <a href="<%= user_session_path %>" class="link-danger">
+              Login
+            </a>
+          </p>
+        </div>
       </div>
     <% end %>
   </div>
