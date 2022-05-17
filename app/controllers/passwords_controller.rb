@@ -13,7 +13,6 @@ class PasswordsController < Devise::PasswordsController
     end
   end
 
-  def confirmation
-  end
+  def confirmation; end
 
 end
