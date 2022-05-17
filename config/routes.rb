@@ -5,6 +5,8 @@ Rails.application.routes.draw do
   devise_scope :user do
     get '/auth/google_oauth2/callback', to: 'sessions#google_auth'
     get '/signup', to: 'registrations#index'
+    get '/confirmation', to: 'passwords#confirmation'
+    post '/sent/email', to: 'passwords#create'
     get '/', to: 'sessions#index'
     root to: 'sessions#index'
   end

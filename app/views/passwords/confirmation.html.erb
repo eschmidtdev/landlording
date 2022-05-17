@@ -1,0 +1,31 @@
+<div class="row d-flex justify-content-center align-items-center">
+  <div class="col-md-9 col-lg-6 col-xl-5 bg-light_red">
+    <%= image_tag('users/SingleIllustration.png', class: 'set_login_ill') %>
+  </div>
+  <div class="col-md-8 col-lg-6 col-xl-4 offset-xl-1">
+
+    <!-- Heading -->
+    <div class="d-flex flex-row align-items-center justify-content-center justify-content-lg-start">
+      <p class="login_text">Mail Sent</p>
+    </div>
+
+    <h5>If there is an account under that address, we have sent an email to reset your password.”</h5>
+
+
+    <div class="d-flex align-items-center my-4"></div>
+
+
+    <!-- Buttons -->
+    <div class="text-center text-lg-start mt-4 pt-2">
+      <button type="button"
+              onclick="window.location.href='<%= user_session_path %>'"
+              class="btn login_btn got_it_btn pull-left"
+      >
+        GOT IT
+      </button>
+
+    </div>
+  </div>
+</div>
+
+<%= stylesheet_link_tag 'custom' %>
