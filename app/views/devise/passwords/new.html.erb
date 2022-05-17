@@ -4,7 +4,7 @@
   </div>
   <div class="col-md-8 col-lg-6 col-xl-4 offset-xl-1">
     <!-- Sign in form -->
-    <form>
+    <%= form_for(resource, as: resource_name, url: password_path(resource_name), html: { method: :post, role: 'form' }) do |f| %>
 
       <!-- Heading -->
       <div class="d-flex flex-row align-items-center justify-content-center justify-content-lg-start">
@@ -21,21 +21,20 @@
       <!-- Email input -->
       <div class="form-outline mb-4">
         <label class="form-label normal_font" for="InputEmail">Email*</label>
-        <input type="email" autofocus="autofocus" name="user[email]" id="InputEmail"
-               class="form-control form-control-lg" placeholder="Enter you email" required>
+        <%= f.email_field :email, autofocus: true, class: 'form-control form-control-lg', placeholder: "Enter you email", required: true %>
       </div>
 
       <!-- Buttons -->
       <div class="text-center text-lg-start mt-4 pt-2">
-        <button type="button" class="btn w-100 login_btn" id="LoginBtn">SEND RESET LINK</button>
+        <%= f.submit 'SEND RESET LINK', class: 'btn w-100 login_btn', onclick: "return;" %>
 
-        <!-- SignUp Link -->
+        <!-- Login Link -->
         <p class="fw-bold mt-2 pt-1 mb-0 c">
           Go back to
           <a href="<%= user_session_path %>" class="link-danger">Login</a>
         </p>
       </div>
-    </form>
+    <% end %>
   </div>
 </div>
 
