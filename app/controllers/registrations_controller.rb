@@ -12,8 +12,7 @@ class RegistrationsController < Devise::RegistrationsController
 
     resource = create_resource
     UserMailer.send_verification_email(resource).deliver_now!
-    render json: { success: true,
-                   url: redirect_url }
+    render json: { success: true, url: redirect_url }
   end
 
   private

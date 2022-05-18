@@ -8,7 +8,9 @@ $(document).ready(function () {
             }, messages: {
                 'user[name]': {
                     required: "Full Name is required.",
-                }, 'user[email]': 'Please enter a valid email address', 'user[password]': {
+                },
+                'user[email]': 'Please enter a valid email address',
+                'user[password]': {
                     required: 'Please provide a password', minlength: 'Password is too short (minimum is 8 characters)'
                 }
             }, submitHandler: function (form, e) {
