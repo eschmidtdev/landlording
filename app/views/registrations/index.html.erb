@@ -5,11 +5,11 @@
   <div class="col-md-8 col-lg-6 col-xl-4 offset-xl-1">
     <!-- Sign in form -->
     <form
-      role="form"
+      id="RegistrationForm"
       action="/users"
-      accept-charset="UTF-8"
       method="post"
     >
+
       <div class="d-flex flex-row align-items-center justify-content-center justify-content-lg-start">
         <p class="login_text">Sign Up</p>
       </div>
@@ -23,7 +23,7 @@
           type="text"
           name="user[name]"
           autofocus="autofocus"
-          id="user_name"
+          id="UserName"
           class="form-control"
           placeholder="Your full name"
           required
@@ -32,12 +32,12 @@
 
       <!-- Email input -->
       <div class="form-outline mb-4">
-        <label class="form-label normal_font" for="form3Example3">Email*</label>
+        <label class="form-label normal_font" for="RegEmail">Email*</label>
         <input
           type="email"
           autofocus="autofocus"
           name="user[email]"
-          id="form3Example3"
+          id="RegEmail"
           class="form-control form-control-lg"
           placeholder="Your email address"
           required
@@ -46,19 +46,19 @@
 
       <!-- Password input -->
       <div class="form-outline mb-3">
-        <label class="form-label normal_font" for="form3Example4">Password*</label>
+        <label class="form-label normal_font" for="RegPass">Password*</label>
         <input
           type="password"
           name="user[password]"
-          id="form3Example4"
+          id="RegPass"
           class="form-control form-control-lg"
           placeholder="Enter your password"
           required
         >
       </div>
 
+      <!-- Terms + PP + Checkbox -->
       <div class="d-flex justify-content-between align-items-center">
-        <!-- Checkbox -->
         <div class="mb-0 my-2">
           <input class="form-check-input" type="checkbox" value="" id="form2Example3" required/>
           <label class="form-check-label remember_text" for="form2Example3">
@@ -70,6 +70,7 @@
         </div>
       </div>
 
+      <!-- Buttons -->
       <div class="text-center text-lg-start mt-4 pt-2">
         <button type="submit" class="btn w-100 login_btn">Sign Up</button>
 
@@ -94,3 +95,5 @@
     </form>
   </div>
 </div>
+
+<%= javascript_include_tag 'signup' %>
