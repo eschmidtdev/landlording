@@ -5,7 +5,7 @@
   <div class="col-md-8 col-lg-6 col-xl-4 offset-xl-1">
     <!-- Sign in form -->
     <form
-      id="RegistrationForm"
+      name="registration"
       action="/users"
       method="post"
     >
@@ -18,15 +18,13 @@
 
       <!-- Full Name -->
       <div class="form-group">
-        <label for="user_name" class="normal_font">Full Name*</label>
+        <label for="UserName" class="normal_font">Full Name*</label>
         <input
           type="text"
           name="user[name]"
-          autofocus="autofocus"
           id="UserName"
-          class="form-control"
+          class="form-control form-control-lg"
           placeholder="Your full name"
-          required
         >
       </div>
 
@@ -40,7 +38,6 @@
           id="RegEmail"
           class="form-control form-control-lg"
           placeholder="Your email address"
-          required
         >
       </div>
 
@@ -53,7 +50,6 @@
           id="RegPass"
           class="form-control form-control-lg"
           placeholder="Enter your password"
-          required
         >
       </div>
 
@@ -72,7 +68,8 @@
 
       <!-- Buttons -->
       <div class="text-center text-lg-start mt-4 pt-2">
-        <button type="submit" class="btn w-100 login_btn">Sign Up</button>
+
+        <button type="submit" class="btn w-100 login_btn" id="SignupBtn">Sign Up</button>
 
         <div class="divider d-flex align-items-center my-4">
           <p class="text-center fw-bold mx-3 mb-0 remember_text">OR</p>
