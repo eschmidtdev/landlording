@@ -4,7 +4,7 @@ $(document).ready(function () {
             rules: {
                 'user[name]': 'required',
                 'user[email]': {required: true, email: true},
-                'user[password]': {required: true, minlength: 6}
+                'user[password]': {required: true, minlength: 8}
             }, messages: {
                 'user[name]': {
                     required: "Full Name is required.",
