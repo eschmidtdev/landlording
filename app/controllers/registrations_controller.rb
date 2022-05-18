@@ -28,7 +28,7 @@ class RegistrationsController < Devise::RegistrationsController
     hash.values.any? do |i|
       if i.empty?
         set_flash_message(:registrations, :missing_params)
-        redirect_to root_path
+        signup_path
       end
     end
   end
@@ -37,7 +37,7 @@ class RegistrationsController < Devise::RegistrationsController
     return unless User.exists?(email: params[:email])
 
     set_flash_message(:registrations, :email_taken)
-    redirect_to root_path
+    redirect_to signup_path
   end
 
   def password_clashing?(password)
