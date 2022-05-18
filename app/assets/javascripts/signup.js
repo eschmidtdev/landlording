@@ -4,19 +4,14 @@ $(document).ready(function () {
             rules: {
                 'user[name]': 'required',
                 'user[email]': {required: true, email: true},
-                'user[password]': {required: true, minlength: 8}
-            },
-            messages: {
+                'user[password]': {required: true, minlength: 6}
+            }, messages: {
                 'user[name]': {
                     required: "Full Name is required.",
-                },
-                'user[email]': 'Please enter a valid email address',
-                'user[password]': {
-                    required: 'Please provide a password',
-                    minlength: 'Password is too short (minimum is 8 characters)'
+                }, 'user[email]': 'Please enter a valid email address', 'user[password]': {
+                    required: 'Please provide a password', minlength: 'Password is too short (minimum is 8 characters)'
                 }
-            },
-            submitHandler: function (form, e) {
+            }, submitHandler: function (form, e) {
                 ajaxRequest(e);
             }
             // other options
@@ -37,31 +32,30 @@ $(document).ready(function () {
                     window.location.href = data.url;
                 }
                 if (data.success === false) {
-                    debugger;
                     clearErrors();
-                    if (data.method === 'user_exists?'){
+                    if (data.method === 'user_exists?') {
                         $('#UserExists').text('').removeClass('display_none').text(data.message);
                     }
-                    if (data.method === 'password_clashing?'){
-                        $('#UserExists').text('').removeClass('display_none').text(data.message);
+                    if (data.method === 'password_clashing?') {
+                        $('#PasswordError').text('').removeClass('display_none').text(data.message);
                     }
-                    if (data.method === 'params_missing?'){
+                    if (data.method === 'params_missing?') {
                         $('.error_alert').text('').removeClass('display_none').text(data.message);
                     }
                 }
             },
             error: function (exception) {
-                debugger;
             }
         });
         return false;
     }
 
-    function clearErrors(){
+    function clearErrors() {
         $('.error_alert').addClass('display_none');
         $('#UserExists').text('').addClass('display_none');
         $('#PasswordError').text('').addClass('display_none');
     }
+
     function disableButton() {
         $('#SignupBtn').prop('disabled', true).text('Submitting...');
     }
