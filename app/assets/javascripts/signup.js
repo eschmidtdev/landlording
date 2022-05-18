@@ -17,7 +17,6 @@ $(document).ready(function () {
                 }
             },
             submitHandler: function (form, e) {
-                debugger;
                 ajaxRequest(e);
             }
             // other options
@@ -29,18 +28,26 @@ $(document).ready(function () {
         const name = $('#UserName').val();
         const email = $('#RegEmail').val();
         const password = $('#RegPass').val();
-        debugger;
         $.ajax({
             url: '/users',
             type: 'POST',
             data: {user: {name: name, email: email, password: password}},
             success: function (data) {
-                debugger;
                 if (data.success === true) {
                     window.location.href = data.url;
                 }
                 if (data.success === false) {
-                    $('.error_alert').removeClass('display_none').text('').append(data.message);
+                    debugger;
+                    clearErrors();
+                    if (data.method === 'user_exists?'){
+                        $('#UserExists').text('').removeClass('display_none').text(data.message);
+                    }
+                    if (data.method === 'password_clashing?'){
+                        $('#UserExists').text('').removeClass('display_none').text(data.message);
+                    }
+                    if (data.method === 'params_missing?'){
+                        $('.error_alert').text('').removeClass('display_none').text(data.message);
+                    }
                 }
             },
             error: function (exception) {
@@ -50,6 +57,11 @@ $(document).ready(function () {
         return false;
     }
 
+    function clearErrors(){
+        $('.error_alert').addClass('display_none');
+        $('#UserExists').text('').addClass('display_none');
+        $('#PasswordError').text('').addClass('display_none');
+    }
     function disableButton() {
         $('#SignupBtn').prop('disabled', true).text('Submitting...');
     }

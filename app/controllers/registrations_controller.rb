@@ -7,45 +7,16 @@ class RegistrationsController < Devise::RegistrationsController
   def index; end
 
   def create
-    return if params_missing?(params[:user]) ||
-              user_exists?(params[:user]) ||
-              password_clashing?(params[:user][:password])
+    response = RegistrationValidatorService.call(params)
+    return render_response(response) unless response.nil?
 
     resource = create_resource
     UserMailer.send_verification_email(resource).deliver_now!
-    set_flash_message(:registrations, :signed_up_but_inactive)
-    redirect_to root_path
+    render json: { success: true,
+                   url: redirect_url }
   end
 
   private
-
-  def params_missing?(params)
-    safe_params = params.permit!.to_h
-    hash_has_blank(safe_params)
-  end
-
-  def hash_has_blank(hash)
-    hash.values.any? do |i|
-      if i.empty?
-        set_flash_message(:registrations, :missing_params)
-        signup_path
-      end
-    end
-  end
-
-  def user_exists?(params)
-    return unless User.exists?(email: params[:email])
-
-    set_flash_message(:registrations, :email_taken)
-    redirect_to signup_path
-  end
-
-  def password_clashing?(password)
-    if password.length < set_minimum_password_length
-      set_flash_message(:passwords, :min_length)
-      redirect_to signup_path
-    end
-  end
 
   def create_resource
     user = User.new(user_params)
@@ -59,5 +30,15 @@ class RegistrationsController < Devise::RegistrationsController
 
   def user_params
     params.require(:user).permit(:name, :email, :password, :password_confirmation)
+  end
+
+  def render_response(response)
+    render json: { success: false,
+                   method: response[:method],
+                   message: response[:message] }
+  end
+
+  def redirect_url
+    request.base_url + root_path
   end
 end

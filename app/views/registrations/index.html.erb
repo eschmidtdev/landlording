@@ -10,6 +10,9 @@
         <p class="login_text">Sign Up</p>
       </div>
 
+      <!-- ErrorAlert -->
+      <span class="error display_none"></span>
+
       <div class="d-flex align-items-center my-4"></div>
 
       <!-- Full Name -->
@@ -26,7 +29,7 @@
       </div>
 
       <!-- Email input -->
-      <div class="form-outline mb-4">
+      <div class="form-outline mt-4">
         <label class="form-label normal_font" for="RegEmail">Email*</label>
         <input
           type="email"
@@ -37,9 +40,10 @@
           placeholder="Your email address"
         >
       </div>
+      <span class="error display_none" id="UserExists"></span>
 
       <!-- Password input -->
-      <div class="form-outline mb-3">
+      <div class="form-outline mt-4">
         <label class="form-label normal_font" for="RegPass">Password*</label>
         <input
           type="password"
@@ -49,6 +53,7 @@
           placeholder="Enter your password"
         >
       </div>
+      <span class="error display_none" id="PasswordError"></span>
 
       <!-- Terms + PP + Checkbox -->
       <div class="d-flex justify-content-between align-items-center">
