@@ -11,8 +11,9 @@ class RegistrationsController < Devise::RegistrationsController
     return render_response(response) unless response.nil?
 
     resource = create_resource
-    UserMailer.send_verification_email(resource).deliver_now!
-    render json: { success: true, url: redirect_url }
+    # UserMailer.send_verification_email(resource).deliver_now!
+    render json: { success: true,
+                   message: I18n.t('devise.registrations.signed_up_but_inactive') }
   end
 
   private
@@ -38,6 +39,6 @@ class RegistrationsController < Devise::RegistrationsController
   end
 
   def redirect_url
-    request.base_url + root_path
+    request.base_url + signup_path
   end
 end

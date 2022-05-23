@@ -2,7 +2,7 @@ $(document).ready(function () {
     $(function () {
         $("form[name='registration']").validate({
             rules: {
-                'user[name]': 'required',
+                'user[name]': {required: true},
                 'user[email]': {required: true, email: true},
                 'user[password]': {required: true, minlength: 8}
             }, messages: {
@@ -22,6 +22,7 @@ $(document).ready(function () {
 
     function ajaxRequest(e) {
         e.preventDefault();
+        disableButton();
         const name = $('#UserName').val();
         const email = $('#RegEmail').val();
         const password = $('#RegPass').val();
@@ -31,10 +32,13 @@ $(document).ready(function () {
             data: {user: {name: name, email: email, password: password}},
             success: function (data) {
                 if (data.success === true) {
-                    window.location.href = data.url;
+                    debugger
+                    clearErrors()
+                    $('.success_alert').text('').removeClass('display_none').text(data.message);
                 }
                 if (data.success === false) {
                     clearErrors();
+                    enableButton();
                     if (data.method === 'user_exists?') {
                         $('#UserExists').text('').removeClass('display_none').text(data.message);
                     }
@@ -60,6 +64,10 @@ $(document).ready(function () {
 
     function disableButton() {
         $('#SignupBtn').prop('disabled', true).text('Submitting...');
+    }
+
+    function enableButton() {
+        $('#SignupBtn').prop('disabled', false).text('Sign Up');
     }
 
 });
