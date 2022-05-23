@@ -3,12 +3,26 @@
     <!-- Sidebar -->
     <div id="sidebar-wrapper">
       <ul class="sidebar-nav">
-        <li class="active">
+        <li class="<%= 'active_border' if current_page? visitors_url %>">
           <div class="row">
             <div class="col-md-12">
-              <a href="<%= visitors_url %>" class="">
-                <div class="col-md-3 p-0 mt-2"><img src="Category.svg" style="width: 25px; height: 25px;"></div>
-                <div class="col-md-9 p-0"><span>Overview</span></div>
+              <a href="<%= visitors_url %>">
+                <div class="col-md-3 p-0 mt-2"><img src="<%= current_page?(visitors_url) ? 'active_category.svg' : 'inactive_category.svg' %>" style="width: 25px; height: 25px;"></div>
+                <div class="col-md-9 p-0">
+                  <span class="<%= current? 'active', visitors_url %>">Overview</span></div>
+              </a>
+            </div>
+          </div>
+        </li>
+        <li class="<%= 'active_border' if current_page? documents_url %>">
+          <div class="row">
+            <div class="col-md-12">
+              <a href="<%= documents_path %>" class="">
+                <div class="col-md-3 p-0 mt-2">
+                  <img src="<%= current_page?(documents_url) ? 'active_doc.svg' : 'inactive_doc.svg' %>" style="width: 25px; height: 25px;">
+                </div>
+                <div class="col-md-9 p-0">
+                  <span class="<%= current? 'active', documents_path %>">My Documents</span></div>
               </a>
             </div>
           </div>
@@ -16,18 +30,9 @@
         <li>
           <div class="row">
             <div class="col-md-12">
-              <a href="<%= documents_path %>" class="">
-                <div class="col-md-3 p-0 mt-2"><img src="MyDoc.svg" style="width: 25px; height: 25px;"></div>
-                <div class="col-md-9 p-0"><span>My Documents</span></div>
-              </a>
-          </div>
-          </div>
-        </li>
-        <li>
-          <div class="row">
-            <div class="col-md-12">
               <a href="#" class="">
-                <div class="col-md-3 p-0 mt-2"><img src="Application.svg" style="width: 25px; height: 25px;"></div>
+                <div class="col-md-3 p-0 mt-2">
+                  <img src="Application.svg" style="width: 25px; height: 25px;"></div>
                 <div class="col-md-9 p-0"><span>Rental Applications</span></div>
               </a>
             </div>
@@ -47,7 +52,8 @@
           <div class="row">
             <div class="col-md-12">
               <a href="#" class="">
-                <div class="col-md-3 p-0 mt-2"><img src="Setting.svg" style="width: 25px; height: 25px;"></div>
+                <div class="col-md-3 p-0 mt-2"><img src="Setting.svg" style="width: 25px; height: 25px;">
+                </div>
                 <div class="col-md-9 p-0"><span>Account Settings</span></div>
               </a>
             </div>

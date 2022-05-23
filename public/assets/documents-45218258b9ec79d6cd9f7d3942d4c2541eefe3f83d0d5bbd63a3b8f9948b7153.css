@@ -1,0 +1,20 @@
+/* line 1, app/assets/stylesheets/documents.css.scss */
+.exports-buttons-margin {
+  margin-top: 25px;
+}
+
+/* line 4, app/assets/stylesheets/documents.css.scss */
+.icon_style {
+  float: right;
+  margin-right: 6px;
+  margin-top: -25px;
+  position: relative;
+  z-index: 2;
+  font-size: 20px;
+  cursor: pointer;
+}
+
+/* line 14, app/assets/stylesheets/documents.css.scss */
+.icon_style:hover {
+  color: #006dcc;
+}
