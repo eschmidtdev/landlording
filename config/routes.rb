@@ -20,6 +20,7 @@ Rails.application.routes.draw do
   resources :payments, only: :index
   resources :visitors, only: :index
   resources :rental_applications, only: :index
+  resources :account_settings, only: :index
   resources :subscriptions, only: %i[index update] do
     collection do
       get :plans

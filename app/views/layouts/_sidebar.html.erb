@@ -63,13 +63,16 @@
         </li>
 
         <!-- Account Settings -->
-        <li>
+        <li class="<%= 'active_border' if current_page? account_settings_path %>">
           <div class="row">
             <div class="col-md-12">
-              <a href="#">
-                <div class="col-md-3 p-0 mt-2"><img src="Setting.svg" style="width: 25px; height: 25px;">
+              <a href="<%= account_settings_path %>">
+                <div class="col-md-3 p-0 mt-2">
+                  <img src="<%= current_page?(account_settings_path) ? 'active_account_setting.svg' : 'inactive_account_setting.svg' %>" style="width: 25px; height: 25px;">
                 </div>
-                <div class="col-md-9 p-0"><span>Account Settings</span></div>
+                <div class="col-md-9 p-0">
+                  <span class="<%= current? 'active', account_settings_path %>">Account Settings</span>
+                </div>
               </a>
             </div>
           </div>
