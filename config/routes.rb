@@ -1,18 +1,28 @@
 # frozen_string_literal: true
 
 Rails.application.routes.draw do
+
   devise_for :users, controllers: { registrations: 'registrations', sessions: 'sessions' }
   devise_scope :user do
-    get '/auth/google_oauth2/callback', to: 'sessions#google_auth'
-    get '/signup', to: 'registrations#index'
-    get '/confirmation', to: 'passwords#confirmation'
-    post '/sent/email', to: 'passwords#create'
-    get '/', to: 'sessions#index'
     root to: 'sessions#index'
+    get '/', to: 'sessions#index'
+    get '/signup', to: 'registrations#index'
+    post '/sent/email', to: 'passwords#create'
+    get '/confirmation', to: 'passwords#confirmation'
+    get '/auth/google_oauth2/callback', to: 'sessions#google_auth'
   end
+
   resources :users do
     member do
       get :confirm_email
+    end
+  end
+  resources :payments, only: :index
+  resources :visitors, only: :index
+  resources :rental_applications, only: :index
+  resources :subscriptions, only: %i[index update] do
+    collection do
+      get :plans
     end
   end
   # resources :documents do
@@ -21,14 +31,9 @@ Rails.application.routes.draw do
   #     get :generate_pdf
   #   end
   # end
+
   get '/documents', to: 'documents#index'
   get '/create/interview', to: 'documents#create_interview'
   get '/complete/interview', to: 'documents#complete_interview'
-  resources :subscriptions, only: %i[index update] do
-    collection do
-      get :plans
-    end
-  end
-  resources :payments, only: :index
-  resources :visitors, only: :index
+
 end

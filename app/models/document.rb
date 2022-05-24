@@ -4,6 +4,6 @@ class Document < ApplicationRecord
   # Association
   belongs_to :user
 
-  self.per_page = 6
+  self.per_page = 5
 
 end

@@ -3,7 +3,9 @@
     <!-- Sidebar -->
     <div id="sidebar-wrapper">
       <ul class="sidebar-nav">
-        <li class="<%= 'active_border' if current_page? visitors_url %>">
+
+        <!--Overview -->
+        <li class="<%= 'active_border' if current_page? visitors_path %>">
           <div class="row">
             <div class="col-md-12">
               <a href="<%= visitors_url %>">
@@ -16,10 +18,12 @@
             </div>
           </div>
         </li>
-        <li class="<%= 'active_border' if current_page? documents_url %>">
+
+        <!-- My Documents -->
+        <li class="<%= 'active_border' if current_page? documents_path %>">
           <div class="row">
             <div class="col-md-12">
-              <a href="<%= documents_path %>" class="">
+              <a href="<%= documents_path %>">
                 <div class="col-md-3 p-0 mt-2">
                   <img src="<%= current_page?(documents_url) ? 'active_doc.svg' : 'inactive_doc.svg' %>" style="width: 25px; height: 25px;">
                 </div>
@@ -29,31 +33,40 @@
             </div>
           </div>
         </li>
-        <li>
+
+        <!-- Rental Applications -->
+        <li class="<%= 'active_border' if current_page? rental_applications_path %>">
           <div class="row">
             <div class="col-md-12">
-              <a href="#" class="">
+              <a href="<%= rental_applications_path %>">
                 <div class="col-md-3 p-0 mt-2">
-                  <img src="Application.svg" style="width: 25px; height: 25px;"></div>
-                <div class="col-md-9 p-0"><span>Rental Applications</span></div>
+                  <img src="<%= current_page?(rental_applications_path) ? 'active_rental_application.svg' : 'inactive_rental_application.svg' %>" style="width: 25px; height: 25px;">
+                </div>
+                <div class="col-md-9 p-0">
+                  <span class="<%= current? 'active', rental_applications_path %>">Rental Applications</span>
+                </div>
               </a>
             </div>
           </div>
         </li>
+
+        <!-- My Properties -->
         <li>
           <div class="row">
             <div class="col-md-12">
-              <a href="#" class="">
+              <a href="#">
                 <div class="col-md-3 p-0 mt-2"><img src="Home.svg" style="width: 25px; height: 25px;"></div>
                 <div class="col-md-9 p-0"><span>My Properties</span></div>
               </a>
             </div>
           </div>
         </li>
+
+        <!-- Account Settings -->
         <li>
           <div class="row">
             <div class="col-md-12">
-              <a href="#" class="">
+              <a href="#">
                 <div class="col-md-3 p-0 mt-2"><img src="Setting.svg" style="width: 25px; height: 25px;">
                 </div>
                 <div class="col-md-9 p-0"><span>Account Settings</span></div>
@@ -63,6 +76,5 @@
         </li>
       </ul>
     </div>
-    <!-- /#sidebar-wrapper -->
   </div>
 </div>
