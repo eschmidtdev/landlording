@@ -6,7 +6,7 @@ class DocumentsController < ApplicationController
   require 'open-uri'
 
   def index
-    @documents = []
+    @documents = Document.paginate(page: params[:page]).order('id DESC')
   end
 
   def create_interview
