@@ -17,22 +17,59 @@
               autofocus="autofocus"
               name="user[name]"
               id="FirstName"
+              value="<%= user_name.first %>"
               class="form-control form-control-lg setting-form-custom"
             >
           </div>
 
           <!-- Last Name -->
           <div class="form-group">
-            <label for="LastName" class="normal_font setting_label">Last Name</label>
+            <label for="LastName" class="normal_font"><span class="setting_label">Last Name</span></label>
             <input
               type="text"
               autofocus="autofocus"
               name="user[name]"
               id="LastName"
+              value="<%= user_name.last %>"
               class="form-control form-control-lg setting-form-custom"
             >
           </div>
+
+          <!-- Email -->
+          <div class="form-group">
+            <label for="Email" class="normal_font"><span class="setting_label">Email</span></label>
+            <input
+              readonly
+              id="Email"
+              type="email"
+              value="<%= current_user.email %>"
+              class="form-control form-control-lg setting-form-custom"
+            >
+            <span class="email_instructions">Email address cannot be changed</span>
+          </div>
+
+          <!-- Password -->
+          <div class="form-group">
+            <label for="Password" class="normal_font"><span class="setting_label">Password</span></label>
+            <input
+              type="password"
+              id="Password"
+              name="user[name]"
+              autofocus="autofocus"
+              value="<%= current_user.password %>"
+              class="form-control form-control-lg setting-form-custom"
+            >
+            <span class="email_instructions">Want to change the password?</span><a href="" class="text-body-as ml-1">Click
+            here</a>
+          </div>
+
+          <div class="d-flex justify-content-start">
+            <button type="button" class="save_personal_info">Save</button>
+            <button type="button" class="cancel_personal_info ml-3">Cancel</button>
+          </div>
+
         </form>
+        <hr>
       </div>
 
     </div>

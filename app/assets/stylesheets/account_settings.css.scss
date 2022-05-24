@@ -13,3 +13,51 @@
 .setting-form-custom {
   height: 45px !important;
 }
+
+.email_instructions {
+  opacity: 0.5;
+  font-size: 12px;
+}
+
+.text-body-as {
+  color: #FF8F00 !important;
+  font-size: 12px;
+  font-weight: 700 !important;
+}
+
+.save_personal_info {
+  height: 35px;
+  width: 80px;
+  border: none;
+  background: #FF8F00;
+  border-radius: 7px;
+  display: flex;
+  flex-direction: row;
+  justify-content: center;
+  align-items: center;
+  padding: 10px;
+  gap: 10px;
+  font-weight: 550;
+  font-size: 14px;
+  line-height: 70px;
+  letter-spacing: -0.01em;
+  color: white;
+}
+
+.cancel_personal_info{
+  height: 35px;
+  width: 80px;
+  border: none;
+  background: transparent;
+  display: flex;
+  flex-direction: row;
+  justify-content: center;
+  align-items: center;
+  padding: 10px;
+  gap: 10px;
+  font-weight: 550;
+  font-size: 14px;
+  line-height: 70px;
+  letter-spacing: -0.01em;
+  color: black;
+}
