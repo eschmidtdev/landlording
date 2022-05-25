@@ -32,9 +32,10 @@ $(document).ready(function () {
             data: {user: {name: name, email: email, password: password}},
             success: function (data) {
                 if (data.success === true) {
-                    debugger
                     clearErrors()
                     $('.success_alert').text('').removeClass('display_none').text(data.message);
+                    enableButton();
+                    $('#RegistrationForm')[0].reset();
                 }
                 if (data.success === false) {
                     clearErrors();
