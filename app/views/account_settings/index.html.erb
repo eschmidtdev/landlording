@@ -7,6 +7,7 @@
       <div class="container col-12 my-5">
         <!-- Personal Information -->
         <span class="personal_information">Personal Information</span>
+        <!-- Personal Information Form -->
         <form name="personal_info" class="mt-4">
 
           <!-- First Name -->
@@ -56,7 +57,6 @@
               id="Password"
               name="user[name]"
               autofocus="autofocus"
-              value="<%= current_user.password %>"
               class="form-control form-control-lg setting-form-custom"
             >
             <span class="email_instructions">Want to change the password?</span><a href="" class="text-body-as ml-1">Click
@@ -69,7 +69,106 @@
           </div>
 
         </form>
+
         <hr>
+
+        <!-- My Subscription Row -->
+        <div class="row">
+          <div class="col-md-12">
+            <div class="col-md-6">
+              <span class="pull-left subscription_heading">My Subscription</span>
+            </div>
+            <div class="col-md-6">
+              <img src="account_setting_tooltip.svg" class="pull-right">
+            </div>
+          </div>
+        </div>
+
+        <!-- Plan Row -->
+        <div class="row mt-4">
+          <div class="col-md-12">
+            <div class="col-md-6">
+              <span class="pull-left account_name">Premium Account</span><br>
+              <p class="premium_acc_des">
+                Unlimited access to our legal document library and online rental application tool, billed monthly.
+              </p>
+            </div>
+            <div class="col-md-6">
+              <div class="plan_box pull-right plan_rectangle">
+                <span>Monthly Plan</span> <span class="plan_price">($39)</span><br>
+                <span class="plan_renewal_desc">Your subscription renews</span>
+                <span class="plan_till_valid">July 12th, 2023</span>
+              </div>
+            </div>
+          </div>
+        </div>
+
+        <hr>
+
+        <!-- Billing Details Row -->
+        <div class="row">
+          <div class="col-md-12">
+            <div class="col-md-6">
+              <span class="pull-left subscription_heading">Billing Details</span>
+            </div>
+          </div>
+        </div>
+
+        <!-- Billing Details Cards -->
+        <div class="mt-5">
+          <div class="row">
+            <div class="col-md-12">
+              <div class="col-md-6 billing_details_edit_card">
+                <div class="row">
+                  <div class="col-md-12">
+                    <div class="col-md-6">
+                      <div class="card_brand_container">
+                        <img src="master_card_logo.svg" class="card_brand pull-left mt-1"><br>
+                      </div>
+                      <span class="card_number">************4099</span>
+                      <span class="card_expiry">Expires 05/2024</span><br>
+                      <span class="card_expiry">123 Apple Street, Unit 101, Austin, TX 78741</span><br>
+                      <div class="mt-4">
+                        <span class="last_used">LAST USED 11/04/2021</span>
+                      </div>
+                    </div>
+
+                    <div class="col-md-6">
+                      <div class="pull-right">
+                        <div class="dropdown">
+                          <a type="button" id="dropdownMenuButton" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
+                            <img src="more.svg">
+                          </a>
+                          <div class="dropdown-menu" aria-labelledby="dropdownMenuButton">
+                            <a class="dropdown-item" href="#">
+                              <div class="d-flex justify-content-start">
+                                <img src="edit_svg.svg" class="m-0">
+                                <span class="ml-2">Edit</span>
+                              </div>
+                            </a>
+                            <a class="dropdown-item" href="#">
+                              <div class="d-flex justify-content-start">
+                                <img src="delete_icon.svg" class="m-0">
+                                <span class="ml-2">Delete</span>
+                              </div>
+                            </a>
+                          </div>
+                        </div>
+                      </div>
+                    </div>
+                  </div>
+
+                </div>
+              </div>
+              <div class="col-md-6 billing_details_edit_card pull-right">
+                <div class="parent">
+                  <span class="child"><b>Add Payment Method</b></span>
+                </div>
+              </div>
+            </div>
+          </div>
+        </div>
+
       </div>
 
     </div>

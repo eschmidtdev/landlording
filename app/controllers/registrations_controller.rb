@@ -11,7 +11,7 @@ class RegistrationsController < Devise::RegistrationsController
     return render_response(response) unless response.nil?
 
     resource = create_resource
-    # UserMailer.send_verification_email(resource).deliver_now!
+    UserMailer.send_verification_email(resource).deliver_now!
     render json: { success: true,
                    message: I18n.t('devise.registrations.signed_up_but_inactive') }
   end
