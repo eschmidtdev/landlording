@@ -2,6 +2,7 @@
   <div class="col-md-9 col-lg-6 col-xl-5 bg-light_red">
     <%= image_tag('users/SingleIllustration.png', class: 'set_login_ill') %>
   </div>
+
   <div class="col-md-8 col-lg-6 col-xl-4 offset-xl-1">
     <!-- Sign in form -->
     <form>
@@ -19,15 +20,25 @@
       <!-- Email input -->
       <div class="form-outline mb-4">
         <label class="form-label normal_font" for="InputEmail">Email*</label>
-        <input type="email" autofocus="autofocus" name="user[email]" id="InputEmail"
-               class="form-control form-control-lg" placeholder="eg. john@doe.com" required>
+        <input
+          type="email"
+          id="InputEmail"
+          name="user[email]"
+          autofocus="autofocus"
+          placeholder="eg. john@doe.com"
+          class="form-control form-control-lg"
+        >
       </div>
 
       <!-- Password input -->
       <div class="form-outline mb-3">
         <label class="form-label normal_font" for="InputPassword">Password*</label>
-        <input type="password" name="user[password]" id="InputPassword" class="form-control form-control-lg"
-               placeholder="Enter password" required>
+        <input type="password"
+               id="InputPassword"
+               name="user[password]"
+               placeholder="Enter password"
+               class="form-control form-control-lg"
+        >
       </div>
 
       <!-- Checkbox -->
@@ -41,6 +52,8 @@
 
       <!-- Buttons -->
       <div class="text-center text-lg-start mt-4 pt-2">
+
+        <!-- Login Button -->
         <button type="button" class="btn w-100 login_btn" id="LoginBtn">Login</button>
 
         <div class="divider d-flex align-items-center my-4">
