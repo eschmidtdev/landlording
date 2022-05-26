@@ -6,7 +6,6 @@ class RegistrationValidatorService < ApplicationService
   def initialize(params)
     @user_params = params[:user]
     @password_params = params[:user][:password]
-
   end
 
   def call
@@ -44,5 +43,4 @@ class RegistrationValidatorService < ApplicationService
         message: 'Password is too short (minimum is 8 characters)' }
     end
   end
-
 end

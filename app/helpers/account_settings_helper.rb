@@ -2,6 +2,6 @@
 
 module AccountSettingsHelper
   def user_name
-    current_user.name.split(' ')
+    current_user.name.split
   end
 end

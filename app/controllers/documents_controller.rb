@@ -17,7 +17,10 @@ class DocumentsController < ApplicationController
   end
 
   def complete_interview
-    interview_completion_response = execute_interview_completion_request(params[:interview_id], params[:access_token])
+    interview_completion_response = execute_interview_completion_request(
+      params[:interview_id],
+      params[:access_token]
+    )
     unless interview_completion_response.code == '201'
       return redirect_to documents_path,
                          notice: I18n.t('EForm.Messages.Error.WentWrong')
@@ -27,7 +30,12 @@ class DocumentsController < ApplicationController
     @binder_id = interview_completion_data.dig('binder', 'binderId')
     @document_id = interview_completion_data.dig('binder', 'documentId')
 
-    retrieves_document_response = execute_retrieves_document_request(@binder_id, @document_id, params[:access_token], params[:download])
+    retrieves_document_response = execute_retrieves_document_request(
+      @binder_id,
+      @document_id,
+      params[:access_token],
+      params[:download]
+    )
     @url = get_response_with_redirect(retrieves_document_response)
   end
 
@@ -35,9 +43,9 @@ class DocumentsController < ApplicationController
     return unless params[:from].present?
 
     email_me_the_document(@document) if params[:from] == 'email'
-    if params[:from] == 'download' || params[:from] == 'print'
-      redirect_to generate_pdf_document_path(pdf_params)
-    end
+    return unless params[:from] == 'download' || params[:from] == 'print'
+
+    redirect_to generate_pdf_document_path(pdf_params)
   end
 
   def generate_pdf
@@ -159,7 +167,7 @@ class DocumentsController < ApplicationController
   def service_token_body
     {
       purpose: 'api.rocketlawyer.com/document-manager/v1/binders',
-      expirationTime: 160780393200,
+      expirationTime: 160_780_393_200,
       upid: '9b713671-3b19-470e-85b6-191f2fc09a7a'
     }
   end
