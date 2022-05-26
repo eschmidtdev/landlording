@@ -2,10 +2,13 @@
   <div class="col-md-9 col-lg-6 col-xl-5 bg-light_red" id="HomeImage">
     <%= image_tag('users/SingleIllustration.png', class: 'set_login_ill') %>
   </div>
+
   <div class="col-md-8 col-lg-6 col-xl-4 offset-xl-1">
+
     <!-- Sign in form -->
     <form name="registration" id="RegistrationForm">
 
+      <!-- Heading -->
       <div class="d-flex flex-row align-items-center justify-content-center justify-content-lg-start">
         <p class="login_text">Sign Up</p>
       </div>
@@ -21,11 +24,11 @@
         <label for="UserName" class="normal_font">Full Name*</label>
         <input
           type="text"
-          autofocus="autofocus"
-          name="user[name]"
           id="UserName"
-          class="form-control form-control-lg"
+          name="user[name]"
+          autofocus="autofocus"
           placeholder="Your full name"
+          class="form-control form-control-lg"
         >
       </div>
 
@@ -34,11 +37,11 @@
         <label class="form-label normal_font" for="RegEmail">Email*</label>
         <input
           type="email"
-          autofocus="autofocus"
-          name="user[email]"
           id="RegEmail"
-          class="form-control form-control-lg"
+          name="user[email]"
+          autofocus="autofocus"
           placeholder="Your email address"
+          class="form-control form-control-lg"
         >
       </div>
       <span class="error display_none" id="UserExists"></span>
@@ -47,11 +50,11 @@
       <div class="form-outline mt-4">
         <label class="form-label normal_font" for="RegPass">Password*</label>
         <input
+          id="RegPass"
           type="password"
           name="user[password]"
-          id="RegPass"
-          class="form-control form-control-lg"
           placeholder="Enter your password"
+          class="form-control form-control-lg"
         >
       </div>
       <span class="error display_none" id="PasswordError"></span>
@@ -72,12 +75,14 @@
       <!-- Buttons -->
       <div class="text-center text-lg-start mt-4 pt-2">
 
+        <!-- Sign Up Button -->
         <button type="submit" class="btn w-100 login_btn" id="SignupBtn">Sign Up</button>
 
         <div class="divider d-flex align-items-center my-4">
           <p class="text-center fw-bold mx-3 mb-0 remember_text">OR</p>
         </div>
 
+        <!-- OmniOuth Button -->
         <div class="control-group google-sign-in">
           <button
             type="button"
@@ -89,6 +94,7 @@
           </button>
         </div>
 
+        <!-- Login Link -->
         <p class="fw-bold mt-2 pt-1 mb-0 c">Have an account?
           <a href="<%= root_path %>" class="link-danger">Login</a></p>
       </div>
