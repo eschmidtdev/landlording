@@ -1,12 +1,11 @@
-.personal_information {
-  font-weight: 500;
-  font-size: 24px;
+.section_heading {
+  font-weight: 700;
+  font-size: 20px;
 }
 
 .setting_label {
   font-weight: 600 !important;
   font-size: 13px;
-  line-height: 21px;
   mix-blend-mode: normal;
 }
 
@@ -62,11 +61,6 @@
   color: black;
 }
 
-.subscription_heading {
-  font-weight: 700;
-  font-size: 18px;
-}
-
 .account_name {
   font-weight: 700;
   font-size: 15px;
@@ -76,6 +70,7 @@
 .premium_acc_des {
   opacity: 0.75;
   float: left;
+  font-size: 13px;
 }
 
 .plan_box {
@@ -155,9 +150,30 @@
   vertical-align: middle;
 }
 
-.cancel_subscription{
+.cancel_subscription {
   font-size: 12px;
   font-weight: 600;
   color: #FF8F00;
 
+}
+
+.personal_info_rectangle {
+  border: 1.3px solid #E5E5E5;
+  border-top-right-radius: 10px;
+  border-top-left-radius: 10px;
+  padding: 20px 20px
+}
+
+.subscription_rectangle {
+  padding: 20px 20px;
+  border: 1.3px solid #E5E5E5;
+  border-top: none !important;
+}
+
+.billing_rectangle{
+  padding: 20px 20px;
+  border: 1.3px solid #E5E5E5;
+  border-top: none !important;
+  border-bottom-left-radius: 10px;
+  border-bottom-right-radius: 10px;
 }
