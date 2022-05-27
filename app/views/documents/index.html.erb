@@ -1,8 +1,11 @@
 <div class="container">
+
+  <!-- Heading -->
   <div class="col-md-12">
     <h2 style="margin-bottom: 30px; font-weight: 700;">My Documents</h2>
   </div>
 
+  <!-- Buttons Row -->
   <div class="row">
     <div class="col-md-12">
       <div class="d-flex justify-content-between">
@@ -19,6 +22,8 @@
   </div>
 
   <div class="mt-5">
+
+    <!-- Table Headers -->
     <div class="row py-3 doc_header">
       <div class="col-md-12">
         <div class="col-md-6">NAME</div>
@@ -26,6 +31,7 @@
       </div>
     </div>
 
+    <!-- Table -->
     <div class="doc_rectangle">
       <% @documents.each do |document| %>
         <div class="d-flex justify-content-between">
@@ -87,6 +93,8 @@
         </div>
       <% end %>
     </div>
+
+    <!-- Pagination -->
     <%= will_paginate @documents, renderer: WillPaginate::ActionView::BootstrapLinkRenderer %>
   </div>
 
