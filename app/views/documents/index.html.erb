@@ -10,13 +10,13 @@
 
         <!-- Export Button -->
         <button type="button" class="export_button">
-          <img src="export_icon.svg" class="pull-left m-0" width="20">
+          <%= image_tag 'documents/export_icon.svg', class: 'pull-left m-0', width: '20' %>
           <span class="ml-2">Date Created</span>
         </button>
 
         <!-- Create Doc Button -->
         <button type="button" class="new_doc_button">
-          <img src="plus_icon.svg" class="pull-left m-0" width="20">
+          <%= image_tag 'documents/plus_icon.svg', class: 'pull-left m-0', width: '20' %>
           <span class="ml-2">Create New</span>
         </button>
       </div>
@@ -46,47 +46,7 @@
           </div>
         </td>
         <td>
-          <div class="d-flex justify-content-around doc_status">
-            <a href="#2"><img src="downlaod_icon.svg"></a>
-            <a href="#1"><img src="edit_icon.svg"></a>
-            <div class="dropdown">
-              <a type="button" id="dropdownMenuButton" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
-                <img src="more.svg">
-              </a>
-              <div class="dropdown-menu" aria-labelledby="dropdownMenuButton">
-                <a class="dropdown-item" href="#">
-                  <div class="d-flex justify-content-start">
-                    <img src="view_icon.svg" class="m-0">
-                    <span class="ml-2">View</span>
-                  </div>
-                </a>
-                <a class="dropdown-item" href="#">
-                  <div class="d-flex justify-content-start">
-                    <img src="print_icon.svg" class="m-0">
-                    <span class="ml-2">Print</span>
-                  </div>
-                </a>
-                <a class="dropdown-item" href="#">
-                  <div class="d-flex justify-content-start">
-                    <img src="share_icon.svg" class="m-0">
-                    <span class="ml-2">Share</span>
-                  </div>
-                </a>
-                <a class="dropdown-item" href="#">
-                  <div class="d-flex justify-content-start">
-                    <img src="rename_icon.svg" class="m-0">
-                    <span class="ml-2">Rename</span>
-                  </div>
-                </a>
-                <a class="dropdown-item" href="#">
-                  <div class="d-flex justify-content-start">
-                    <img src="delete_icon.svg" class="m-0">
-                    <span class="ml-2">Delete</span>
-                  </div>
-                </a>
-              </div>
-            </div>
-          </div>
+          <%= render partial: 'dropdown' %>
         </td>
       </tr>
     <% end %>
