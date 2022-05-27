@@ -1,6 +1,7 @@
 # frozen_string_literal: true
 
-# This module is responsible for method that is (mostly) used in your Rails views to share reusable code
+# This module is responsible for method that is (mostly) used in your Rails
+# views to share reusable code
 module ApplicationHelper
   def from_e_form_tab?
     params[:controller] == 'subscriptions' ||
@@ -20,5 +21,16 @@ module ApplicationHelper
 
   def current?(key, path)
     key.to_s if current_page? path
+  end
+
+  def heading
+    headings = {
+      'documents' => 'My Documents',
+      'visitors' => 'Account Overview',
+      'account_settings' => 'Account Settings',
+      'rental_applications' => 'Rental Applications'
+    }
+    headings[params[:controller]]
+
   end
 end
