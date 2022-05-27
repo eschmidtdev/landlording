@@ -1,6 +1,8 @@
 <div class="container">
-  <div class="col-md-12">
-    <h2 style="margin-bottom: 30px; font-weight: 700;">Account Overview</h2>
+
+  <!-- Heading -->
+  <div class="col-md-12 my-4">
+    <span class="page_heading">Account Overview</span>
   </div>
 
   <div class="card">
@@ -12,7 +14,9 @@
             <h3><b>My Documents</b></h3>
             <p class="yield_description">Create, sign and manage lease agreements, notice forms and other documents.</p>
           </div>
-          <div class="col-md-3"><img src="<%= current_page?(visitors_url) ? 'active_arrow.svg' : 'inactive_arrow.svg' %>" style="margin-top: 4.5vh;"></div>
+          <div class="col-md-3">
+            <img src="<%= current_page?(visitors_url) ? 'active_arrow.svg' : 'inactive_arrow.svg' %>" style="margin-top: 4.5vh;">
+          </div>
         </div>
       </div>
     </div>
