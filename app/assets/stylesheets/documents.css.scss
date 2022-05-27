@@ -28,7 +28,7 @@
   padding: 10px;
   gap: 10px;
   font-weight: 400;
-  font-size: 16px;
+  font-size: 15px;
   line-height: 70px;
   letter-spacing: -0.01em;
   opacity: 0.75 !important;
@@ -46,7 +46,7 @@
   padding: 10px;
   gap: 10px;
   font-weight: 550;
-  font-size: 16px;
+  font-size: 15px;
   line-height: 70px;
   letter-spacing: -0.01em;
   color: white;
@@ -65,7 +65,7 @@
 
 .doc_name {
   font-weight: 600;
-  font-size: 22px;
+  font-size: 20px;
   line-height: 31px;
   letter-spacing: -0.01em;
   padding: 5px;
@@ -73,7 +73,7 @@
 
 .doc_date {
   font-weight: 400;
-  font-size: 15px;
+  font-size: 12px;
   line-height: 21px;
   letter-spacing: -0.01em;
   opacity: 0.6 !important;
@@ -81,13 +81,18 @@
 
 .progress_rectangle {
   background: #FFEAEA !important;
-  border-radius: 5px;
+  border-radius: 4px;
   padding: 5px;
   color: #FF4C4C;
+  font-size: 13px;
 }
 
 .doc_details {
-  padding: 15px 15px;
+  padding: 10px 0;
+}
+
+.doc_status {
+  padding: 25px 0;
 }
 
 .doc_header {
@@ -110,4 +115,17 @@
 
 .pagination > li > a, .pagination > li > span {
   color: #000000 !important;
+}
+
+.documents-table {
+  margin-top: 20px;
+}
+
+.documents-table > tbody {
+  border: 1px solid #ddd;
+  border-radius: 15px !important;
+}
+
+.documents-table > thead > tr > th{
+  border: none !important;
 }
