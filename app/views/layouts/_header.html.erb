@@ -5,7 +5,7 @@
 
         <!-- Nav Logo -->
         <div class="col-md-6">
-          <img class="nav_logo mt-2" src="Logo.png">
+          <%= image_tag 'navbar/app_logo.png', class: 'nav_logo mt-2' %>
         </div>
 
         <!-- Links & Image -->
@@ -14,7 +14,9 @@
             <div class="p-2"><b>Help & Support</b></div>
             <div class="p-2 nav_vector">&emsp;|&emsp;</div>
             <div class="p-2">Hi, <%= current_user.name %></div>
-            <div class="p-2"><img src="NavImage.png"></div>
+            <div class="p-2">
+              <%= image_tag 'navbar/user_image.png' %>
+            </div>
             <div class="p-2"><a rel="nofollow" data-method="delete" href="/users/sign_out">Sign Out</a></div>
           </div>
         </div>

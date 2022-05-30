@@ -19,7 +19,7 @@ Rails.application.routes.draw do
   end
   resources :payments, only: :index
   resources :visitors, only: :index
-  resources :properties, only: :index
+  resources :properties
   resources :account_settings, only: :index
   resources :rental_applications, only: :index
   resources :subscriptions, only: %i[index update] do

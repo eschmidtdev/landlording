@@ -1,0 +1,255 @@
+<!-- Personal Information Form -->
+<form name="property_form" class="mt-4">
+
+  <!-- Property Type -->
+  <div class="form-group">
+    <label for="PropertyType" class="normal_font"><span class="setting_label">Property Type*</span></label>
+    <select name="" id="PropertyType" class="form-control form-control-lg setting-form-custom">
+      <option value="" disabled selected>Select Property</option>
+      <option value="">Property Type 1</option>
+      <option value="">Property Type 2</option>
+      <option value="">Property Type 3</option>
+      <option value="">Property Type 4</option>
+    </select>
+  </div>
+
+  <!-- Street Address Line 1 -->
+  <div class="form-group">
+    <label for="ForAddress1" class="normal_font"><span class="setting_label">Street Address Line 1*</span></label>
+    <input
+      type="text"
+      id="ForAddress1"
+      name=""
+      value=""
+      class="form-control form-control-lg setting-form-custom"
+      placeholder="You Address"
+    >
+  </div>
+
+  <!-- Street Address Line 2 -->
+  <div class="form-group">
+    <label for="ForAddress2" class="normal_font"><span class="setting_label">Street Address Line 2</span></label>
+    <input
+      type="text"
+      id="ForAddress2"
+      name=""
+      value=""
+      class="form-control form-control-lg setting-form-custom"
+      placeholder="You Address"
+    >
+  </div>
+
+  <!-- Postal, City, State -->
+  <div class="row">
+    <div class="col-md-12">
+      <!-- Postal Code -->
+      <div class="col-md-3 pl-0">
+        <div class="form-group">
+          <label for="PostalCode" class="normal_font"><span class="setting_label">Postal Code*</span></label>
+          <input
+            type="text"
+            id="PostalCode"
+            name=""
+            value=""
+            class="form-control form-control-lg setting-form-custom"
+            placeholder="Zip Code"
+          >
+        </div>
+      </div>
+      <!-- City -->
+      <div class="col-md-5 pl-0 pr-0">
+        <div class="form-group">
+          <label for="City" class="normal_font"><span class="setting_label">City*</span></label>
+          <input
+            type="text"
+            id="City"
+            name=""
+            value=""
+            class="form-control form-control-lg setting-form-custom"
+            placeholder="City"
+          >
+        </div>
+      </div>
+      <!-- State -->
+      <div class="col-md-4 pr-0">
+        <label for="State" class="normal_font"><span class="setting_label">State*</span></label>
+        <select name="" id="State" class="form-control form-control-lg setting-form-custom">
+          <option value="" disabled selected>State</option>
+          <option value="">State 1</option>
+          <option value="">State 2</option>
+          <option value="">State 3</option>
+          <option value="">State 4</option>
+        </select>
+      </div>
+    </div>
+  </div>
+
+  <!-- Bedrooms -->
+  <div class="row">
+    <div class="col-md-12">
+      <!-- Bedrooms -->
+      <div class="col-md-6 pl-0">
+        <label for="BedroomA" class="normal_font"><span class="setting_label">Bedroom</span></label>
+        <select name="" id="BedroomA" class="form-control form-control-lg setting-form-custom">
+          <option value="" disabled selected>0</option>
+          <option value="">1</option>
+          <option value="">2</option>
+          <option value="">3</option>
+          <option value="">4</option>
+        </select>
+      </div>
+      <!-- Bedrooms -->
+      <div class="col-md-6 pr-0">
+        <label for="BedroomB" class="normal_font"><span class="setting_label">Bedroom</span></label>
+        <select name="" id="BedroomB" class="form-control form-control-lg setting-form-custom">
+          <option value="" disabled selected>0</option>
+          <option value="">1</option>
+          <option value="">2</option>
+          <option value="">3</option>
+          <option value="">4</option>
+        </select>
+      </div>
+    </div>
+  </div>
+
+  <!-- Checkbox -->
+  <div class="my-5">
+    <div class="form-check">
+      <input class="form-check-input" type="checkbox" value="" id="flexCheckChecked" checked>
+      <label class="form-check-label property_checkbox" for="flexCheckChecked">
+        Same landlord contact info as found in your Account Settings?
+      </label>
+    </div>
+  </div>
+
+  <!-- Landlord Contact Name -->
+  <div class="form-group">
+    <label for="LandlordContactName" class="normal_font"><span class="setting_label">Landlord Contact Name*</span></label>
+    <input
+      type="text"
+      id="LandlordContactName"
+      name=""
+      value=""
+      class="form-control form-control-lg setting-form-custom"
+      placeholder="Landlord Full Name"
+    >
+  </div>
+
+  <!-- Landlord Contact Phone -->
+  <div class="form-group">
+    <label for="LandlordContactPhone" class="normal_font"><span class="setting_label">Landlord Contact Phone*</span></label>
+    <input
+      type="text"
+      id="LandlordContactPhone"
+      name=""
+      value=""
+      class="form-control form-control-lg setting-form-custom"
+      placeholder="Phone Number"
+    >
+  </div>
+
+  <!-- Landlord Contact Email -->
+  <div class="form-group">
+    <label for="LandlordContactEmail" class="normal_font"><span class="setting_label">Landlord Contact Email*</span></label>
+    <input
+      type="email"
+      id="LandlordContactEmail"
+      name=""
+      value=""
+      class="form-control form-control-lg setting-form-custom"
+      placeholder="Enter Email Address"
+    >
+  </div>
+
+  <!-- Radio Buttons -->
+  <span class="radio_label">Currently Leased?</span>
+  <label class="radio-inline">
+    <input type="radio" name="" checked>Yes
+  </label>
+  <label class="radio-inline">
+    <input type="radio" name="">No
+  </label><br>
+
+  <h3 class="new_tenant">Add New Tenant</h3>
+  <div class="container p-5 new_tenant_container_rectangle">
+    <!-- Tenant Name -->
+    <div class="form-group">
+      <label for="TenantName" class="normal_font"><span class="setting_label">Tenant Name</span></label>
+      <input
+        type="text"
+        id="TenantName"
+        name=""
+        value=""
+        class="form-control form-control-lg setting-form-custom"
+        placeholder="Enter Full Name"
+      >
+    </div>
+
+    <div class="row">
+      <div class="col-md-12">
+        <!-- Tenant Phone -->
+        <div class="col-md-6 pl-0">
+          <div class="form-group">
+            <label for="TenantPhone" class="normal_font"><span class="setting_label">Tenant Phone</span></label>
+            <input
+              type="text"
+              id="TenantPhone"
+              name=""
+              value=""
+              class="form-control form-control-lg setting-form-custom"
+              placeholder="Enter Full Name"
+            >
+          </div>
+        </div>
+        <!-- Tenant Email -->
+        <div class="col-md-6 pr-0">
+          <div class="form-group">
+            <label for="TenantEmail" class="normal_font"><span class="setting_label">Tenant Email</span></label>
+            <input
+              type="email"
+              id="TenantEmail"
+              name=""
+              value=""
+              class="form-control form-control-lg setting-form-custom"
+              placeholder="Enter Email Address"
+            >
+          </div>
+        </div>
+      </div>
+    </div>
+
+    <div class="row">
+      <div class="col-md-12">
+        <!-- Lease Start Date -->
+        <div class="col-md-6 pl-0">
+          <div class="form-group">
+            <label for="LeaseStartDate" class="normal_font"><span class="setting_label">Lease Start Date</span></label>
+            <input
+              type="date"
+              id="LeaseStartDate"
+              name=""
+              value=""
+              class="form-control form-control-lg setting-form-custom"
+              placeholder="Enter Full Name"
+            >
+          </div>
+        </div>
+        <!-- Lease End Date -->
+        <div class="col-md-6 pr-0">
+          <div class="form-group">
+            <label for="LeaseEndDate" class="normal_font"><span class="setting_label">Lease End Date</span></label>
+            <input
+              type="date"
+              id="LeaseEndDate"
+              name=""
+              value=""
+              class="form-control form-control-lg setting-form-custom"
+              placeholder="Enter Email Address"
+            >
+          </div>
+        </div>
+      </div>
+    </div>
+  </div>
+
+</form>
