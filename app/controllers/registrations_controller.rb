@@ -1,6 +1,5 @@
 # frozen_string_literal: true
 
-# This controller inherits from Devise::RegistrationsController & for Users Registrations
 class RegistrationsController < Devise::RegistrationsController
   skip_before_action :verify_authenticity_token
 

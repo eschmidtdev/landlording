@@ -1,6 +1,5 @@
 # frozen_string_literal: true
 
-# This controller is responsible for manage subscription
 class SubscriptionsController < ApplicationController
   before_action :set_subscription, only: %i[update plans]
 

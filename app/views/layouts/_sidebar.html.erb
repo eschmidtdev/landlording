@@ -51,11 +51,13 @@
         </li>
 
         <!-- My Properties -->
-        <li>
+        <li class="<%= 'active_border' if current_page? properties_path %>">
           <div class="row">
             <div class="col-md-12">
-              <a href="#">
-                <div class="col-md-3 p-0 mt-2"><img src="Home.svg" style="width: 25px; height: 25px;"></div>
+              <a href="<%= properties_path %>">
+                <div class="col-md-3 p-0 mt-2">
+                  <img src="<%= current_page?(properties_path) ? 'active_home.svg' : 'inactive_home.svg' %>" style="width: 25px; height: 25px;">
+                </div>
                 <div class="col-md-9 p-0"><span>My Properties</span></div>
               </a>
             </div>

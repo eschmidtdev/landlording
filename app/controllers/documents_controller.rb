@@ -1,6 +1,5 @@
 # frozen_string_literal: true
 
-# Controller to perform Document CRUD
 class DocumentsController < ApplicationController
   require 'json'
   require 'open-uri'

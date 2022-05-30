@@ -1,5 +1,5 @@
 # frozen_string_literal: true
 
-class VisitorsController < ApplicationController
+class PropertiesController < ApplicationController
   def index; end
 end

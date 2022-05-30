@@ -19,22 +19,24 @@ Rails.application.routes.draw do
   end
   resources :payments, only: :index
   resources :visitors, only: :index
-  resources :rental_applications, only: :index
+  resources :properties, only: :index
   resources :account_settings, only: :index
+  resources :rental_applications, only: :index
   resources :subscriptions, only: %i[index update] do
     collection do
       get :plans
     end
   end
+
+  get '/documents', to: 'documents#index'
+  get '/create/interview', to: 'documents#create_interview'
+  get '/complete/interview', to: 'documents#complete_interview'
+
   # resources :documents do
   #   member do
   #     get :export
   #     get :generate_pdf
   #   end
   # end
-
-  get '/documents', to: 'documents#index'
-  get '/create/interview', to: 'documents#create_interview'
-  get '/complete/interview', to: 'documents#complete_interview'
 
 end

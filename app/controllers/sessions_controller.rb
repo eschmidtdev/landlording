@@ -1,6 +1,5 @@
 # frozen_string_literal: true
 
-# This Controller is responsible for user login
 class SessionsController < Devise::SessionsController
   skip_before_action :verify_authenticity_token
   include SessionsHelper

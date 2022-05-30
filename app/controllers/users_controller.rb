@@ -1,6 +1,5 @@
 # frozen_string_literal: true
 
-# This Controller is responsible for users operations
 class UsersController < ApplicationController
   before_action :authenticate_user!, except: :confirm_email
 
