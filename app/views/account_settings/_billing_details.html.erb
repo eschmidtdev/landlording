@@ -18,7 +18,8 @@
             <div class="col-md-12">
               <div class="col-md-6">
                 <div class="card_brand_container">
-                  <img src="master_card_logo.svg" class="card_brand pull-left mt-1"><br>
+                  <%= image_tag 'account_settings/master_card_logo.svg', class: 'card_brand pull-left mt-1', width: '20' %>
+                  <br>
                 </div>
                 <span class="card_number">************4099</span>
                 <span class="card_expiry">Expires 05/2024</span><br>
@@ -32,18 +33,18 @@
                 <div class="pull-right">
                   <div class="dropdown">
                     <a type="button" id="dropdownMenuButton" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
-                      <img src="more.svg">
+                      <%= image_tag 'account_settings/more.svg', width: '20' %>
                     </a>
                     <div class="dropdown-menu" aria-labelledby="dropdownMenuButton">
                       <a class="dropdown-item" href="#">
                         <div class="d-flex justify-content-start">
-                          <img src="edit_svg.svg" class="m-0">
+                          <%= image_tag 'account_settings/edit_svg.svg', class: 'm-0', width: '15' %>
                           <span class="ml-2">Edit</span>
                         </div>
                       </a>
                       <a class="dropdown-item" href="#">
                         <div class="d-flex justify-content-start">
-                          <img src="delete_icon.svg" class="m-0">
+                          <%= image_tag 'account_settings/delete_icon.svg', class: 'm-0', width: '15' %>
                           <span class="ml-2">Delete</span>
                         </div>
                       </a>
