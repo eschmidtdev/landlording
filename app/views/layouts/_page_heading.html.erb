@@ -1,5 +1,13 @@
-<div class="row ml-1">
+<div class="row ml-2 mt-3">
   <div class="col-md-12 my-4 p-0">
     <span class="page_heading"><%= heading %></span>
+
+    <!-- Add Rental Property Button -->
+    <% if params[:controller] == 'properties' && params[:action] == 'index' %>
+      <button type="button" class="new_doc_button pull-right my-auto">
+        <%= image_tag 'documents/plus_icon.svg', class: 'pull-left m-0', width: '20' %>
+        <span class="ml-2">Add Rental Property</span>
+      </button>
+    <% end %>
   </div>
 </div>

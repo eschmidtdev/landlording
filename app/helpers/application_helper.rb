@@ -26,6 +26,7 @@ module ApplicationHelper
   def heading
     headings = {
       'documents' => 'My Documents',
+      'properties' => 'My Properties',
       'visitors' => 'Account Overview',
       'account_settings' => 'Account Settings',
       'rental_applications' => 'Rental Applications'
