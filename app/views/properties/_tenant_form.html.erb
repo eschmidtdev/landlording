@@ -116,17 +116,86 @@
     <div class="modal fade" id="exampleModalCenterOne" tabindex="-1" role="dialog" aria-labelledby="exampleModalCenterOneTitle" aria-hidden="true">
       <div class="modal-dialog modal-dialog-centered" role="document">
         <div class="modal-content custom_modal_size">
-          <div class="modal-header no_border">
-            <button type="button" class="close" data-dismiss="modal" aria-label="Close" style="">
-              <%= image_tag 'properties/close_property_modal.svg' %>
-            </button>
+          <div class="close_icon_container">
+          <%= image_tag 'properties/close_property_modal.svg', data: { 'dismiss': 'modal' }, aria: { 'label': 'Close' }, class: 'close_modal_icon pull-right', width: '30' %>
           </div>
           <div class="modal-body">
-            ...
-          </div>
-          <div class="modal-footer no_border d-flex justify-content-start">
-            <button type="button" class="save_personal_info">Save</button>
-            <button type="button" class="cancel_personal_info ml-3" data-dismiss="modal">Cancel</button>
+            <div class="modal_body_container">
+              <span class="edit_modal_tenant">Edit Tenant</span>
+              <div class="my-5">
+                <form>
+                  <!-- Tenant Name -->
+                  <div class="form-group">
+                    <label for="TenantName" class="normal_font"><span class="setting_label">Tenant Name</span></label>
+                    <input
+                      type="text"
+                      id="TenantName"
+                      name=""
+                      value=""
+                      class="form-control form-control-lg setting-form-custom"
+                    >
+                  </div>
+                  <!-- Tenant Phone -->
+                  <div class="form-group">
+                    <label for="TenantPhone" class="normal_font"><span class="setting_label">Tenant Phone</span></label>
+                    <input
+                      type="text"
+                      id="TenantPhone"
+                      name=""
+                      value=""
+                      class="form-control form-control-lg setting-form-custom"
+                    >
+                  </div>
+                  <!-- Tenant Email -->
+                  <div class="form-group">
+                    <label for="TenantEmail" class="normal_font"><span class="setting_label">Tenant Email</span></label>
+                    <input
+                      type="email"
+                      id="TenantEmail"
+                      name=""
+                      value=""
+                      class="form-control form-control-lg setting-form-custom"
+                    >
+                  </div>
+                  <!-- Start & End Date -->
+                  <div class="row">
+                    <div class="col-md-12">
+                      <div class="col-md-6 pl-0">
+                        <!-- Lease Start Date -->
+                        <div class="form-group">
+                          <label for="TenantLSD" class="normal_font"><span class="setting_label">Lease Start Date</span></label>
+                          <input
+                            type="date"
+                            id="TenantLSD"
+                            name=""
+                            value=""
+                            class="form-control form-control-lg setting-form-custom"
+                          >
+                        </div>
+                      </div>
+                      <div class="col-md-6 pr-0">
+                        <!-- Lease End Date -->
+                        <div class="form-group">
+                          <label for="TenantLED" class="normal_font"><span class="setting_label">Lease End Date</span></label>
+                          <input
+                            type="date"
+                            id="TenantLED"
+                            name=""
+                            value=""
+                            class="form-control form-control-lg setting-form-custom"
+                          >
+                        </div>
+                      </div>
+                    </div>
+                  </div>
+                </form>
+                <!-- Save & Cancel Buttons -->
+                <div class="d-flex justify-content-start">
+                  <button type="button" class="save_personal_info">Save</button>
+                  <button type="button" class="cancel_personal_info ml-3" data-dismiss="modal">Cancel</button>
+                </div>
+              </div>
+            </div>
           </div>
         </div>
       </div>
@@ -168,9 +237,9 @@
               >
             </div>
 
+            <!-- Tenant Phone -->
             <div class="row">
               <div class="col-md-12">
-                <!-- Tenant Phone -->
                 <div class="col-md-6 pl-0">
                   <div class="form-group">
                     <label for="TenantPhone" class="normal_font"><span class="setting_label">Tenant Phone</span></label>
@@ -248,22 +317,91 @@
     <div class="modal fade" id="exampleModalCenterTwo" tabindex="-1" role="dialog" aria-labelledby="exampleModalCenterTwoTitle" aria-hidden="true">
       <div class="modal-dialog modal-dialog-centered" role="document">
         <div class="modal-content custom_modal_size">
-          <div class="modal-header no_border">
-            <h5 class="modal-title" id="exampleModalLongTitle">Modal title Two</h5>
-            <button type="button" class="close" data-dismiss="modal" aria-label="Close">
-              <span aria-hidden="true">×</span>
-            </button>
+          <div class="close_icon_container">
+            <%= image_tag 'properties/close_property_modal.svg', data: { 'dismiss': 'modal' }, aria: { 'label': 'Close' }, class: 'close_modal_icon pull-right', width: '30' %>
           </div>
           <div class="modal-body">
-            ...
-          </div>
-          <div class="modal-footer no_border">
-            <button type="button" class="btn btn-secondary" data-dismiss="modal">Close</button>
-            <button type="button" class="btn btn-primary">Save changes</button>
+            <div class="modal_body_container">
+              <span class="edit_modal_tenant">Edit Tenant</span>
+              <div class="my-5">
+                <form>
+                  <!-- Tenant Name -->
+                  <div class="form-group">
+                    <label for="TenantName" class="normal_font"><span class="setting_label">Tenant Name</span></label>
+                    <input
+                      type="text"
+                      id="TenantName"
+                      name=""
+                      value=""
+                      class="form-control form-control-lg setting-form-custom"
+                    >
+                  </div>
+                  <!-- Tenant Phone -->
+                  <div class="form-group">
+                    <label for="TenantPhone" class="normal_font"><span class="setting_label">Tenant Phone</span></label>
+                    <input
+                      type="text"
+                      id="TenantPhone"
+                      name=""
+                      value=""
+                      class="form-control form-control-lg setting-form-custom"
+                    >
+                  </div>
+                  <!-- Tenant Email -->
+                  <div class="form-group">
+                    <label for="TenantEmail" class="normal_font"><span class="setting_label">Tenant Email</span></label>
+                    <input
+                      type="email"
+                      id="TenantEmail"
+                      name=""
+                      value=""
+                      class="form-control form-control-lg setting-form-custom"
+                    >
+                  </div>
+                  <!-- Start & End Date -->
+                  <div class="row">
+                    <div class="col-md-12">
+                      <div class="col-md-6 pl-0">
+                        <!-- Lease Start Date -->
+                        <div class="form-group">
+                          <label for="TenantLSD" class="normal_font"><span class="setting_label">Lease Start Date</span></label>
+                          <input
+                            type="date"
+                            id="TenantLSD"
+                            name=""
+                            value=""
+                            class="form-control form-control-lg setting-form-custom"
+                          >
+                        </div>
+                      </div>
+                      <div class="col-md-6 pr-0">
+                        <!-- Lease End Date -->
+                        <div class="form-group">
+                          <label for="TenantLED" class="normal_font"><span class="setting_label">Lease End Date</span></label>
+                          <input
+                            type="date"
+                            id="TenantLED"
+                            name=""
+                            value=""
+                            class="form-control form-control-lg setting-form-custom"
+                          >
+                        </div>
+                      </div>
+                    </div>
+                  </div>
+                </form>
+                <!-- Save & Cancel Buttons -->
+                <div class="d-flex justify-content-start">
+                  <button type="button" class="save_personal_info">Save</button>
+                  <button type="button" class="cancel_personal_info ml-3" data-dismiss="modal">Cancel</button>
+                </div>
+              </div>
+            </div>
           </div>
         </div>
       </div>
     </div>
+
 
     <div class="card">
       <div class="card-header_header" id="headingThree">
@@ -380,22 +518,91 @@
     <div class="modal fade" id="exampleModalCenterThree" tabindex="-1" role="dialog" aria-labelledby="exampleModalCenterThreeTitle" aria-hidden="true">
       <div class="modal-dialog modal-dialog-centered" role="document">
         <div class="modal-content custom_modal_size">
-          <div class="modal-header no_border">
-            <h5 class="modal-title" id="exampleModalLongTitle">Modal title Three</h5>
-            <button type="button" class="close" data-dismiss="modal" aria-label="Close">
-              <span aria-hidden="true">×</span>
-            </button>
+          <div class="close_icon_container">
+            <%= image_tag 'properties/close_property_modal.svg', data: { 'dismiss': 'modal' }, aria: { 'label': 'Close' }, class: 'close_modal_icon pull-right', width: '30' %>
           </div>
           <div class="modal-body">
-            ...
-          </div>
-          <div class="modal-footer no_border">
-            <button type="button" class="btn btn-secondary" data-dismiss="modal">Close</button>
-            <button type="button" class="btn btn-primary">Save changes</button>
+            <div class="modal_body_container">
+              <span class="edit_modal_tenant">Edit Tenant</span>
+              <div class="my-5">
+                <form>
+                  <!-- Tenant Name -->
+                  <div class="form-group">
+                    <label for="TenantName" class="normal_font"><span class="setting_label">Tenant Name</span></label>
+                    <input
+                      type="text"
+                      id="TenantName"
+                      name=""
+                      value=""
+                      class="form-control form-control-lg setting-form-custom"
+                    >
+                  </div>
+                  <!-- Tenant Phone -->
+                  <div class="form-group">
+                    <label for="TenantPhone" class="normal_font"><span class="setting_label">Tenant Phone</span></label>
+                    <input
+                      type="text"
+                      id="TenantPhone"
+                      name=""
+                      value=""
+                      class="form-control form-control-lg setting-form-custom"
+                    >
+                  </div>
+                  <!-- Tenant Email -->
+                  <div class="form-group">
+                    <label for="TenantEmail" class="normal_font"><span class="setting_label">Tenant Email</span></label>
+                    <input
+                      type="email"
+                      id="TenantEmail"
+                      name=""
+                      value=""
+                      class="form-control form-control-lg setting-form-custom"
+                    >
+                  </div>
+                  <!-- Start & End Date -->
+                  <div class="row">
+                    <div class="col-md-12">
+                      <div class="col-md-6 pl-0">
+                        <!-- Lease Start Date -->
+                        <div class="form-group">
+                          <label for="TenantLSD" class="normal_font"><span class="setting_label">Lease Start Date</span></label>
+                          <input
+                            type="date"
+                            id="TenantLSD"
+                            name=""
+                            value=""
+                            class="form-control form-control-lg setting-form-custom"
+                          >
+                        </div>
+                      </div>
+                      <div class="col-md-6 pr-0">
+                        <!-- Lease End Date -->
+                        <div class="form-group">
+                          <label for="TenantLED" class="normal_font"><span class="setting_label">Lease End Date</span></label>
+                          <input
+                            type="date"
+                            id="TenantLED"
+                            name=""
+                            value=""
+                            class="form-control form-control-lg setting-form-custom"
+                          >
+                        </div>
+                      </div>
+                    </div>
+                  </div>
+                </form>
+                <!-- Save & Cancel Buttons -->
+                <div class="d-flex justify-content-start">
+                  <button type="button" class="save_personal_info">Save</button>
+                  <button type="button" class="cancel_personal_info ml-3" data-dismiss="modal">Cancel</button>
+                </div>
+              </div>
+            </div>
           </div>
         </div>
       </div>
     </div>
+
 
     <div class="card">
       <div class="card-header_header" id="headingFour">

@@ -59,10 +59,23 @@
 .edit_tenant_inner_link:hover {
   color: #FF8F00;
 }
-.custom_modal_size{
+
+.custom_modal_size {
   min-width: 700px !important;
-  min-height: 600px !important;
+  min-height: 500px !important;
 }
+
 .no_border {
   border: none !important;
+}
+
+.edit_modal_tenant {
+  font-weight: 700;
+  font-size: 18px;
+}
+.modal_body_container{
+  padding: 20px;
+}
+.close_icon_container{
+  padding: 5px;
 }
