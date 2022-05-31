@@ -28,6 +28,7 @@ module ApplicationHelper
       'documents' => 'My Documents',
       'properties' => 'My Properties',
       'visitors' => 'Account Overview',
+      'subscriptions' => 'My Subscription',
       'account_settings' => 'Account Settings',
       'rental_applications' => 'Rental Applications'
     }

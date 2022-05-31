@@ -20,13 +20,13 @@ Rails.application.routes.draw do
   resources :payments, only: :index
   resources :visitors, only: :index
   resources :properties
-  resources :account_settings, only: :index
-  resources :rental_applications, only: :index
-  resources :subscriptions, only: %i[index update] do
-    collection do
-      get :plans
+  resources :account_settings do
+    member do
+      get '/change/password', to: 'account_settings#change_password'
     end
   end
+  resources :rental_applications, only: :index
+  resources :subscriptions
 
   get '/documents', to: 'documents#index'
   get '/create/interview', to: 'documents#create_interview'

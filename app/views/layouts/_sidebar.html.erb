@@ -58,22 +58,23 @@
                 <div class="col-md-3 p-0 mt-2">
                   <%= image_tag params[:controller] == 'properties' ? 'sidebar/active_home.svg' : 'sidebar/inactive_home.svg', width: '25' %>
                 </div>
-                <div class="col-md-9 p-0"><span>My Properties</span></div>
+                <div class="col-md-9 p-0">
+                  <span class="<%= 'active' if params[:controller] == 'properties' %>">My Properties</span></div>
               </a>
             </div>
           </div>
         </li>
 
         <!-- Account Settings -->
-        <li class="<%= 'active_border' if current_page? account_settings_path %>">
+        <li class="<%= 'active_border' if params[:controller] == 'account_settings' || params[:controller] == 'subscriptions' %>">
           <div class="row">
             <div class="col-md-12">
               <a href="<%= account_settings_path %>">
                 <div class="col-md-3 p-0 mt-2">
-                  <%= image_tag current_page?(account_settings_path) ? 'sidebar/active_account_setting.svg' : 'sidebar/inactive_account_setting.svg', width: '25' %>
+                  <%= image_tag (params[:controller] == 'account_settings' || params[:controller] == 'subscriptions') ? 'sidebar/active_account_setting.svg' : 'sidebar/inactive_account_setting.svg', width: '25' %>
                 </div>
                 <div class="col-md-9 p-0">
-                  <span class="<%= current? 'active', account_settings_path %>">Account Settings</span>
+                  <span class="<%= 'active' if (params[:controller] == 'account_settings' || params[:controller] == 'subscriptions') %>">Account Settings</span>
                 </div>
               </a>
             </div>
