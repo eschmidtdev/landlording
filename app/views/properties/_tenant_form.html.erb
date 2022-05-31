@@ -32,6 +32,7 @@
                 value=""
                 class="form-control form-control-lg setting-form-custom"
                 placeholder="Enter Full Name"
+                disabled
               >
             </div>
 
@@ -48,6 +49,7 @@
                       value=""
                       class="form-control form-control-lg setting-form-custom"
                       placeholder="Enter Full Name"
+                      disabled
                     >
                   </div>
                 </div>
@@ -62,6 +64,7 @@
                       value=""
                       class="form-control form-control-lg setting-form-custom"
                       placeholder="Enter Email Address"
+                      disabled
                     >
                   </div>
                 </div>
@@ -81,6 +84,7 @@
                       value=""
                       class="form-control form-control-lg setting-form-custom"
                       placeholder="Enter Full Name"
+                      disabled
                     >
                   </div>
                 </div>
@@ -95,17 +99,40 @@
                       value=""
                       class="form-control form-control-lg setting-form-custom"
                       placeholder="Enter Email Address"
+                      disabled
                     >
                   </div>
                 </div>
               </div>
             </div>
 
-            <%= link_to 'Edit Tenant', '#', class: 'edit_tenant_inner_link' %>
+            <%= link_to 'Edit Tenant', '#', class: 'edit_tenant_inner_link', data: { 'toggle': 'modal',
+                                                                                     'target': '#exampleModalCenterOne' } %>
           </div>
         </div>
       </div>
     </div>
+    <!-- Modal -->
+    <div class="modal fade" id="exampleModalCenterOne" tabindex="-1" role="dialog" aria-labelledby="exampleModalCenterOneTitle" aria-hidden="true">
+      <div class="modal-dialog modal-dialog-centered" role="document">
+        <div class="modal-content">
+          <div class="modal-header">
+            <h5 class="modal-title" id="exampleModalLongTitle">Modal title One</h5>
+            <button type="button" class="close" data-dismiss="modal" aria-label="Close">
+              <span aria-hidden="true">×</span>
+            </button>
+          </div>
+          <div class="modal-body">
+            ...
+          </div>
+          <div class="modal-footer">
+            <button type="button" class="btn btn-secondary" data-dismiss="modal">Close</button>
+            <button type="button" class="btn btn-primary">Save changes</button>
+          </div>
+        </div>
+      </div>
+    </div>
+
 
     <div class="card">
       <div class="card-header_header" id="headingTwo">
@@ -138,6 +165,7 @@
                 value=""
                 class="form-control form-control-lg setting-form-custom"
                 placeholder="Enter Full Name"
+                disabled
               >
             </div>
 
@@ -154,6 +182,7 @@
                       value=""
                       class="form-control form-control-lg setting-form-custom"
                       placeholder="Enter Full Name"
+                      disabled
                     >
                   </div>
                 </div>
@@ -168,6 +197,7 @@
                       value=""
                       class="form-control form-control-lg setting-form-custom"
                       placeholder="Enter Email Address"
+                      disabled
                     >
                   </div>
                 </div>
@@ -187,6 +217,7 @@
                       value=""
                       class="form-control form-control-lg setting-form-custom"
                       placeholder="Enter Full Name"
+                      disabled
                     >
                   </div>
                 </div>
@@ -201,13 +232,35 @@
                       value=""
                       class="form-control form-control-lg setting-form-custom"
                       placeholder="Enter Email Address"
+                      disabled
                     >
                   </div>
                 </div>
               </div>
             </div>
 
-            <%= link_to 'Edit Tenant', '#', class: 'edit_tenant_inner_link' %>
+            <%= link_to 'Edit Tenant', '#', class: 'edit_tenant_inner_link', data: { 'toggle': 'modal',
+                                                                                     'target': '#exampleModalCenterTwo' } %>
+          </div>
+        </div>
+      </div>
+    </div>
+    <!-- Modal -->
+    <div class="modal fade" id="exampleModalCenterTwo" tabindex="-1" role="dialog" aria-labelledby="exampleModalCenterTwoTitle" aria-hidden="true">
+      <div class="modal-dialog modal-dialog-centered" role="document">
+        <div class="modal-content">
+          <div class="modal-header">
+            <h5 class="modal-title" id="exampleModalLongTitle">Modal title Two</h5>
+            <button type="button" class="close" data-dismiss="modal" aria-label="Close">
+              <span aria-hidden="true">×</span>
+            </button>
+          </div>
+          <div class="modal-body">
+            ...
+          </div>
+          <div class="modal-footer">
+            <button type="button" class="btn btn-secondary" data-dismiss="modal">Close</button>
+            <button type="button" class="btn btn-primary">Save changes</button>
           </div>
         </div>
       </div>
@@ -244,6 +297,7 @@
                 value=""
                 class="form-control form-control-lg setting-form-custom"
                 placeholder="Enter Full Name"
+                disabled
               >
             </div>
 
@@ -260,6 +314,7 @@
                       value=""
                       class="form-control form-control-lg setting-form-custom"
                       placeholder="Enter Full Name"
+                      disabled
                     >
                   </div>
                 </div>
@@ -274,6 +329,7 @@
                       value=""
                       class="form-control form-control-lg setting-form-custom"
                       placeholder="Enter Email Address"
+                      disabled
                     >
                   </div>
                 </div>
@@ -293,6 +349,7 @@
                       value=""
                       class="form-control form-control-lg setting-form-custom"
                       placeholder="Enter Full Name"
+                      disabled
                     >
                   </div>
                 </div>
@@ -307,13 +364,35 @@
                       value=""
                       class="form-control form-control-lg setting-form-custom"
                       placeholder="Enter Email Address"
+                      disabled
                     >
                   </div>
                 </div>
               </div>
             </div>
 
-            <%= link_to 'Edit Tenant', '#', class: 'edit_tenant_inner_link' %>
+            <%= link_to 'Edit Tenant', '#', class: 'edit_tenant_inner_link', data: { 'toggle': 'modal',
+                                                                                     'target': '#exampleModalCenterThree' } %>
+          </div>
+        </div>
+      </div>
+    </div>
+    <!-- Modal -->
+    <div class="modal fade" id="exampleModalCenterThree" tabindex="-1" role="dialog" aria-labelledby="exampleModalCenterThreeTitle" aria-hidden="true">
+      <div class="modal-dialog modal-dialog-centered" role="document">
+        <div class="modal-content">
+          <div class="modal-header">
+            <h5 class="modal-title" id="exampleModalLongTitle">Modal title Three</h5>
+            <button type="button" class="close" data-dismiss="modal" aria-label="Close">
+              <span aria-hidden="true">×</span>
+            </button>
+          </div>
+          <div class="modal-body">
+            ...
+          </div>
+          <div class="modal-footer">
+            <button type="button" class="btn btn-secondary" data-dismiss="modal">Close</button>
+            <button type="button" class="btn btn-primary">Save changes</button>
           </div>
         </div>
       </div>
