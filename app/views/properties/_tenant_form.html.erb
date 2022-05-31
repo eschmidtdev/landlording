@@ -19,7 +19,6 @@
           </div>
         </h5>
       </div>
-
       <div id="collapseOne" class="collapse" aria-labelledby="headingOne" data-parent="#accordion">
         <div class="card-body">
           <div class="container p-5 mb-5 col-12 new_tenant_container_rectangle">
@@ -101,6 +100,8 @@
                 </div>
               </div>
             </div>
+
+            <%= link_to 'Edit Tenant', '#', class: 'edit_tenant_inner_link' %>
           </div>
         </div>
       </div>
@@ -205,6 +206,8 @@
                 </div>
               </div>
             </div>
+
+            <%= link_to 'Edit Tenant', '#', class: 'edit_tenant_inner_link' %>
           </div>
         </div>
       </div>
@@ -309,20 +312,32 @@
                 </div>
               </div>
             </div>
+
+            <%= link_to 'Edit Tenant', '#', class: 'edit_tenant_inner_link' %>
           </div>
         </div>
       </div>
     </div>
 
     <div class="card">
-      <div class="card-header_header" id="headingThree">
+      <div class="card-header_header" id="headingFour">
         <h5 class="mb-0">
-          <a class="btn btn-link collapsed" data-toggle="collapse" data-target="#collapseThree" aria-expanded="false" aria-controls="collapseThree">
-            <span class="new_tenant_form_text">Add New Tenant</span>
-          </a>
+          <div class="d-flex justify-content-between">
+            <div>
+              <a class="btn btn-link collapsed" data-toggle="collapse" data-target="#collapseFour" aria-expanded="false" aria-controls="collapseFour">
+                <span class="new_tenant_form_text">Add New Tenant</span>
+              </a>
+            </div>
+            <div class="p-2">
+              <%= image_tag 'properties/add_new_tenant_icon.svg',
+                            data: { 'toggle': "collapse", 'target': '#collapseFour' },
+                            aria: { 'expanded': 'true', 'controls': 'collapseFour' },
+                            class: 'btn btn-link' %>
+            </div>
+          </div>
         </h5>
       </div>
-      <div id="collapseThree" class="collapse" aria-labelledby="headingThree" data-parent="#accordion">
+      <div id="collapseFour" class="collapse" aria-labelledby="headingFour" data-parent="#accordion">
         <div class="card-body">
           <div class="container p-5 mb-5 col-12 new_tenant_container_rectangle">
             <!-- Tenant Name -->
@@ -407,5 +422,6 @@
         </div>
       </div>
     </div>
+
   </div>
 </div>

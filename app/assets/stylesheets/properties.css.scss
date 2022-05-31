@@ -42,7 +42,20 @@
   text-decoration: none !important;
   color: black;
 }
-.new_tenant_form_text{
+
+.new_tenant_form_text {
   font-weight: 700;
   font-size: 13px;
+}
+
+.edit_tenant_inner_link {
+  text-decoration: underline;
+  font-weight: 700;
+  font-size: 15px;
+  line-height: 23px;
+  color: #FF8F00;
+}
+
+.edit_tenant_inner_link:hover {
+  color: #FF8F00;
 }
