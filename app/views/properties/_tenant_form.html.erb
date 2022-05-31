@@ -115,19 +115,18 @@
     <!-- Modal -->
     <div class="modal fade" id="exampleModalCenterOne" tabindex="-1" role="dialog" aria-labelledby="exampleModalCenterOneTitle" aria-hidden="true">
       <div class="modal-dialog modal-dialog-centered" role="document">
-        <div class="modal-content">
-          <div class="modal-header">
-            <h5 class="modal-title" id="exampleModalLongTitle">Modal title One</h5>
-            <button type="button" class="close" data-dismiss="modal" aria-label="Close">
-              <span aria-hidden="true">×</span>
+        <div class="modal-content custom_modal_size">
+          <div class="modal-header no_border">
+            <button type="button" class="close" data-dismiss="modal" aria-label="Close" style="">
+              <%= image_tag 'properties/close_property_modal.svg' %>
             </button>
           </div>
           <div class="modal-body">
             ...
           </div>
-          <div class="modal-footer">
-            <button type="button" class="btn btn-secondary" data-dismiss="modal">Close</button>
-            <button type="button" class="btn btn-primary">Save changes</button>
+          <div class="modal-footer no_border d-flex justify-content-start">
+            <button type="button" class="save_personal_info">Save</button>
+            <button type="button" class="cancel_personal_info ml-3" data-dismiss="modal">Cancel</button>
           </div>
         </div>
       </div>
@@ -248,8 +247,8 @@
     <!-- Modal -->
     <div class="modal fade" id="exampleModalCenterTwo" tabindex="-1" role="dialog" aria-labelledby="exampleModalCenterTwoTitle" aria-hidden="true">
       <div class="modal-dialog modal-dialog-centered" role="document">
-        <div class="modal-content">
-          <div class="modal-header">
+        <div class="modal-content custom_modal_size">
+          <div class="modal-header no_border">
             <h5 class="modal-title" id="exampleModalLongTitle">Modal title Two</h5>
             <button type="button" class="close" data-dismiss="modal" aria-label="Close">
               <span aria-hidden="true">×</span>
@@ -258,7 +257,7 @@
           <div class="modal-body">
             ...
           </div>
-          <div class="modal-footer">
+          <div class="modal-footer no_border">
             <button type="button" class="btn btn-secondary" data-dismiss="modal">Close</button>
             <button type="button" class="btn btn-primary">Save changes</button>
           </div>
@@ -380,8 +379,8 @@
     <!-- Modal -->
     <div class="modal fade" id="exampleModalCenterThree" tabindex="-1" role="dialog" aria-labelledby="exampleModalCenterThreeTitle" aria-hidden="true">
       <div class="modal-dialog modal-dialog-centered" role="document">
-        <div class="modal-content">
-          <div class="modal-header">
+        <div class="modal-content custom_modal_size">
+          <div class="modal-header no_border">
             <h5 class="modal-title" id="exampleModalLongTitle">Modal title Three</h5>
             <button type="button" class="close" data-dismiss="modal" aria-label="Close">
               <span aria-hidden="true">×</span>
@@ -390,7 +389,7 @@
           <div class="modal-body">
             ...
           </div>
-          <div class="modal-footer">
+          <div class="modal-footer no_border">
             <button type="button" class="btn btn-secondary" data-dismiss="modal">Close</button>
             <button type="button" class="btn btn-primary">Save changes</button>
           </div>
