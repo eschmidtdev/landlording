@@ -52,7 +52,9 @@
     <div class="row">
       <%= render 'layouts/sidebar' %>
       <div class="col-10" style="height: 90vh;">
-        <%= yield %>
+        <div class="container">
+          <%= yield %>
+        </div>
       </div>
     </div>
   <% else %>
