@@ -26,7 +26,12 @@
   padding: 25px 0;
 }
 
-.progress_rectangle {
+.document-status span {
+  color: #FF4C4C;
+  text-transform: uppercase;
+}
+
+.document-status .rectangle {
   background: #FFEAEA !important;
   border-radius: 4px;
   padding: 5px;

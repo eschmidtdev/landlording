@@ -6,7 +6,7 @@
   </tr>
   </thead>
   <tbody>
-  <% @documents.each do |document| %>
+  <% @documents.each_with_index do |document, index| %>
     <tr>
       <td>
         <div class="document-name-cell-container">
@@ -16,7 +16,7 @@
       </td>
       <td>
         <div class="document-status">
-          <span class="progress_rectangle">In Progress (78%)</span>
+          <span class="<%= 'rectangle' unless index.zero? %>">In Progress (78%)</span>
         </div>
       </td>
       <td>
