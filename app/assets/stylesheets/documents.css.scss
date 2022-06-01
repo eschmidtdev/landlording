@@ -31,16 +31,40 @@
   text-transform: uppercase;
 }
 
-.document-status .rectangle {
-  background: #FFEAEA !important;
-  border-radius: 4px;
-  padding: 5px;
-  color: #FF4C4C;
-  font-size: 13px;
+.document-status .signed {
+  color: #999999;
+  font-size: 12px;
+  border-radius: 5px;
+  font-weight: bold;
+  padding: 5px 10px;
+  background: #EEEEEE;
 }
 
-.doc_header {
-  padding: 0 25px;
+.document-status .completed {
+  color: #00B167;
+  font-size: 12px;
+  border-radius: 5px;
+  font-weight: bold;
+  padding: 5px 10px;
+  background: #DFF8EB;
+}
+
+.document-status .ready_to_sign {
+  color: #1CA0FF;
+  font-size: 12px;
+  border-radius: 5px;
+  font-weight: bold;
+  padding: 5px 10px;
+  background: #E9F4FF;
+}
+
+.document-status .waiting_for_signature {
+  color: #DDA900;
+  font-size: 12px;
+  border-radius: 5px;
+  font-weight: bold;
+  padding: 5px 10px;
+  background: #FCF6E1;
 }
 
 .dropdown-menu {

@@ -16,7 +16,9 @@
       </td>
       <td>
         <div class="document-status">
-          <span class="<%= 'rectangle' unless index.zero? %>">In Progress (78%)</span>
+          <span class="<%= document.status %>">
+            <%= document.status %>
+          </span>
         </div>
       </td>
       <td>

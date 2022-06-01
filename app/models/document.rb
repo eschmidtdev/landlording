@@ -4,5 +4,12 @@ class Document < ApplicationRecord
   # Association
   belongs_to :user
 
+  enum status: { in_progress: 0,
+                 signed: 1,
+                 completed: 2,
+                 ready_to_sign: 3,
+                 waiting_for_signature: 4
+  }
+
   self.per_page = 5
 end
