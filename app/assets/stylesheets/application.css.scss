@@ -14,6 +14,11 @@
  *= require_self
  */
 
+.page_heading {
+  font-weight: 700;
+  font-size: 30px;
+}
+
 form .error {
   font-weight: 400;
   font-size: 12px;
@@ -37,9 +42,4 @@ form .error {
 
 .secondary_active {
   color: #000000;
-}
-
-.page_heading {
-  font-weight: 700;
-  font-size: 28px;
 }
