@@ -1,49 +1,57 @@
-<div class="d-flex justify-content-around document-status">
+<div class="d-flex justify-content-around dropdown-padding">
 
-  <a href="#2">
+  <%= link_to '#' do %>
     <%= image_tag 'documents/downlaod_icon.svg' %>
-  </a>
+  <% end %>
 
-  <a href="#1">
+  <%= link_to '#' do %>
     <%= image_tag 'documents/edit_icon.svg' %>
-  </a>
+  <% end %>
 
   <!-- Dropdown Link -->
-  <div class="dropdown">
-    <a type="button" id="dropdownMenuButton" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
+
+  <div class="dropdown my-auto">
+    <%= link_to '',
+                id: 'documentDropdown',
+                data: { toggle: 'dropdown' },
+                input_html: { type: 'button' },
+                aria: { haspopup: 'true', expanded: 'false' } do %>
       <%= image_tag 'documents/more.svg' %>
-    </a>
-    <div class="dropdown-menu" aria-labelledby="dropdownMenuButton">
-      <a class="dropdown-item" href="#">
-        <div class="d-flex justify-content-start">
-          <%= image_tag 'documents/view_icon.svg', class: 'm-0' %>
-          <span class="ml-2">View</span>
-        </div>
-      </a>
-      <a class="dropdown-item" href="#">
-        <div class="d-flex justify-content-start">
-          <%= image_tag 'documents/print_icon.svg', class: 'm-0' %>
-          <span class="ml-2">Print</span>
-        </div>
-      </a>
-      <a class="dropdown-item" href="#">
-        <div class="d-flex justify-content-start">
-          <%= image_tag 'documents/share_icon.svg', class: 'm-0' %>
-          <span class="ml-2">Share</span>
-        </div>
-      </a>
-      <a class="dropdown-item" href="#">
-        <div class="d-flex justify-content-start">
-          <%= image_tag 'documents/rename_icon.svg', class: 'm-0' %>
-          <span class="ml-2">Rename</span>
-        </div>
-      </a>
-      <a class="dropdown-item" href="#">
-        <div class="d-flex justify-content-start">
-          <%= image_tag 'documents/delete_icon.svg', class: 'm-0' %>
-          <span class="ml-2">Delete</span>
-        </div>
-      </a>
+    <% end %>
+
+    <div class="dropdown-menu" aria-labelledby="documentDropdown">
+      <ul>
+        <li><%= link_to '#', class: 'dropdown-item' do %>
+            <div class="d-flex justify-content-start">
+              <%= image_tag 'documents/view_icon.svg', class: 'm-0' %>
+              <span>View</span>
+            </div>
+          <% end %></li>
+        <li><%= link_to '#', class: 'dropdown-item' do %>
+            <div class="d-flex justify-content-start">
+              <%= image_tag 'documents/print_icon.svg', class: 'm-0' %>
+              <span>Print</span>
+            </div>
+          <% end %></li>
+        <li><%= link_to '#', class: 'dropdown-item' do %>
+            <div class="d-flex justify-content-start">
+              <%= image_tag 'documents/share_icon.svg', class: 'm-0', width: '20' %>
+              <span>Share</span>
+            </div>
+          <% end %></li>
+        <li><%= link_to '#', class: 'dropdown-item ml-2' do %>
+            <div class="d-flex justify-content-start">
+              <%= image_tag 'documents/rename_icon.svg', class: 'm-0' %>
+              <span>Rename</span>
+            </div>
+          <% end %></li>
+        <li><%= link_to '#', class: 'dropdown-item ml-2' do %>
+            <div class="d-flex justify-content-start">
+              <%= image_tag 'documents/delete_icon.svg', class: 'm-0' %>
+              <span>Delete</span>
+            </div>
+          <% end %></li>
+      </ul>
     </div>
   </div>
 
