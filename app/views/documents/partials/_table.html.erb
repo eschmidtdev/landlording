@@ -1,0 +1,28 @@
+<table class="table documents-table">
+  <thead>
+  <tr>
+    <th>NAME</th>
+    <th>STATUS</th>
+  </tr>
+  </thead>
+  <tbody>
+  <% @documents.each do |document| %>
+    <tr>
+      <td>
+        <div class="document-name-cell-container">
+          <span class="name"><%= document.name %></span><br>
+          <span class="date opacity-0-6">Created on <%= document.created_at %></span>
+        </div>
+      </td>
+      <td>
+        <div class="document-status">
+          <span class="progress_rectangle">In Progress (78%)</span>
+        </div>
+      </td>
+      <td>
+        <%= render partial: 'dropdown' %>
+      </td>
+    </tr>
+  <% end %>
+  </tbody>
+</table>
