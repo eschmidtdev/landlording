@@ -31,7 +31,10 @@
             <span class="plan_month">/month</span>
           </div>
           <div class="ml-2 my-auto">
-            <button type="button" class="change_subscription_btn">Change Subscription</button>
+            <button type="button" class="change_subscription_btn"
+                    onclick="window.location.href='<%= cancel_subscription_path(1) %>'">
+              Change Subscription
+            </button>
           </div>
         </div>
       </div>
