@@ -47,6 +47,5 @@ module ApplicationHelper
     elsif params[:controller] == 'payments' && params[:action] == 'index'
       'Enter Payment Details'
     end
-
   end
 end
