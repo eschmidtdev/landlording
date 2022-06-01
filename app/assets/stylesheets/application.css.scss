@@ -13,33 +13,3 @@
  *= require_tree .
  *= require_self
  */
-
-.page_heading {
-  font-weight: 700;
-  font-size: 30px;
-}
-
-form .error {
-  font-weight: 400;
-  font-size: 12px;
-  color: #FF0011;
-}
-
-.error {
-  font-weight: 400;
-  font-size: 12px;
-  color: #FF0011;
-}
-
-.active {
-  color: #FF8F00;
-}
-
-.active_border {
-  border-right: 3px solid #FF8F00 !important;
-  background-color: white !important;
-}
-
-.secondary_active {
-  color: #000000;
-}

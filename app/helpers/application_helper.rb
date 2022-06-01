@@ -23,16 +23,30 @@ module ApplicationHelper
     key.to_s if current_page? path
   end
 
-  def heading
-    headings = {
-      'documents' => 'My Documents',
-      'properties' => 'My Properties',
-      'visitors' => 'Account Overview',
-      'subscriptions' => 'My Subscription',
-      'account_settings' => 'Account Settings',
-      'rental_applications' => 'Rental Applications'
-    }
-    headings[params[:controller]]
+  def heading(params)
+    if params[:controller] == 'visitors' && params[:action] == 'index'
+      'Account Overview'
+    elsif params[:controller] == 'documents' && params[:action] == 'index'
+      'My Documents'
+    elsif params[:controller] == 'rental_applications' && params[:action] == 'index'
+      'Rental Applications'
+    elsif params[:controller] == 'properties' && params[:action] == 'index'
+      'My Properties'
+    elsif params[:controller] == 'properties' && params[:action] == 'new'
+      'Add Rental Property'
+    elsif params[:controller] == 'properties' && params[:action] == 'edit'
+      'Edit Rental Property'
+    elsif params[:controller] == 'account_settings' && params[:action] == 'index'
+      'Account Settings'
+    elsif params[:controller] == 'account_settings' && params[:action] == 'change_password'
+      'Change Password'
+    elsif params[:controller] == 'subscriptions' && params[:action] == 'index'
+      'My Subscription'
+    elsif params[:controller] == 'subscriptions' && params[:action] == 'cancel_subscription'
+      'Cancel Subscription'
+    elsif params[:controller] == 'payments' && params[:action] == 'index'
+      'Enter Payment Details'
+    end
 
   end
 end
