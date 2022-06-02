@@ -1,109 +1,111 @@
-<div class="my-5">
-  <div class="row">
-    <div class="col-md-12">
+<% 3.times do |index| %>
+  <div class="my-5">
+    <div class="row">
+      <div class="col-md-12">
 
-      <div class="col-md-6 properties-index-card">
+        <div class="col-md-6 properties-index-card">
 
-        <div class="d-flex justify-content-between">
+          <div class="d-flex justify-content-between">
 
-          <!-- Property Home Image -->
-          <div>
-            <%= image_tag 'properties/my_properties_home.svg', width: '40' %>
+            <!-- Property Home Image -->
+            <div>
+              <%= show_home_image(index) %>
+            </div>
+
+            <!-- DropDown Menu -->
+            <div class="dropdown">
+              <a type="button" id="dropdownMenuButton" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
+                <%= image_tag 'global_images/more.svg', width: '20' %>
+              </a>
+              <div class="dropdown-menu" aria-labelledby="dropdownMenuButton">
+                <a class="dropdown-item" href="<%= edit_property_path(1) %>">
+                  <div class="d-flex justify-content-start">
+                    <%= image_tag 'properties/edit_svg.svg', class: 'm-0', width: '15' %>
+                    <span class="ml-2">Edit</span>
+                  </div>
+                </a>
+                <a class="dropdown-item" href="#">
+                  <div class="d-flex justify-content-start">
+                    <%= image_tag 'properties/delete_icon.svg', class: 'm-0', width: '15' %>
+                    <span class="ml-2">Delete</span>
+                  </div>
+                </a>
+              </div>
+            </div>
           </div>
 
-          <!-- DropDown Menu -->
-          <div class="dropdown">
-            <a type="button" id="dropdownMenuButton" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
-              <%= image_tag 'global_images/more.svg', width: '20' %>
-            </a>
-            <div class="dropdown-menu" aria-labelledby="dropdownMenuButton">
-              <a class="dropdown-item" href="<%= edit_property_path(1) %>">
-                <div class="d-flex justify-content-start">
-                  <%= image_tag 'properties/edit_svg.svg', class: 'm-0', width: '15' %>
-                  <span class="ml-2">Edit</span>
-                </div>
-              </a>
-              <a class="dropdown-item" href="#">
-                <div class="d-flex justify-content-start">
-                  <%= image_tag 'properties/delete_icon.svg', class: 'm-0', width: '15' %>
-                  <span class="ml-2">Delete</span>
-                </div>
-              </a>
+          <!-- Property Name -->
+          <h3 class="name font-bold"><%= show_property_name(index) %></h3>
+
+          <hr>
+
+          <!-- Card Footer -->
+          <div class="d-flex justify-content-between">
+
+            <!-- Tenant Label -->
+            <div>
+              <span class="opacity-0-5">Tenant: </span><span class="font-bold"><%= show_tenant_name(index) %></span>
+            </div>
+
+            <!-- Tenant Name -->
+            <div>
+              <%= image_tag 'properties/property_go_active_arrow.svg', width: '20' %>
             </div>
           </div>
         </div>
 
-        <!-- Property Name -->
-        <h3 class="name font-bold">123 Apple Street</h3>
+        <div class="col-md-6 properties-index-card pull-right">
 
-        <hr>
+          <div class="d-flex justify-content-between">
 
-        <!-- Card Footer -->
-        <div class="d-flex justify-content-between">
+            <!-- Property Home Image -->
+            <div>
+              <%= show_home_image(index) %>
+            </div>
 
-          <!-- Tenant Label -->
-          <div>
-            <span class="opacity-0-5">Tenant: </span><b>Rashed Kabir</b>
-          </div>
-
-          <!-- Tenant Name -->
-          <div>
-            <%= image_tag 'properties/property_go_active_arrow.svg', width: '20' %>
-          </div>
-        </div>
-      </div>
-
-      <div class="col-md-6 properties-index-card pull-right">
-
-        <div class="d-flex justify-content-between">
-
-          <!-- Property Home Image -->
-          <div>
-            <%= image_tag 'properties/my_properties_home.svg', width: '40' %>
-          </div>
-
-          <!-- DropDown Menu -->
-          <div class="dropdown">
-            <a type="button" id="dropdownMenuButton" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
-              <%= image_tag 'global_images/more.svg', width: '20' %>
-            </a>
-            <div class="dropdown-menu" aria-labelledby="dropdownMenuButton">
-              <a class="dropdown-item" href="<%= edit_property_path(1) %>">
-                <div class="d-flex justify-content-start">
-                  <%= image_tag 'properties/edit_svg.svg', class: 'm-0', width: '15' %>
-                  <span class="ml-2">Edit</span>
-                </div>
+            <!-- DropDown Menu -->
+            <div class="dropdown">
+              <a type="button" id="dropdownMenuButton" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
+                <%= image_tag 'global_images/more.svg', width: '20' %>
               </a>
-              <a class="dropdown-item" href="#">
-                <div class="d-flex justify-content-start">
-                  <%= image_tag 'properties/delete_icon.svg', class: 'm-0', width: '15' %>
-                  <span class="ml-2">Delete</span>
-                </div>
-              </a>
+              <div class="dropdown-menu" aria-labelledby="dropdownMenuButton">
+                <a class="dropdown-item" href="<%= edit_property_path(1) %>">
+                  <div class="d-flex justify-content-start">
+                    <%= image_tag 'properties/edit_svg.svg', class: 'm-0', width: '15' %>
+                    <span class="ml-2">Edit</span>
+                  </div>
+                </a>
+                <a class="dropdown-item" href="#">
+                  <div class="d-flex justify-content-start">
+                    <%= image_tag 'properties/delete_icon.svg', class: 'm-0', width: '15' %>
+                    <span class="ml-2">Delete</span>
+                  </div>
+                </a>
+              </div>
+            </div>
+          </div>
+
+          <!-- Property Name -->
+          <h3 class="name font-bold"><%= show_property_name(index) %></h3>
+
+          <hr>
+
+          <!-- Card Footer -->
+          <div class="d-flex justify-content-between">
+
+            <!-- Tenant Label -->
+            <div>
+              <span class="opacity-0-5">Tenant: </span><span class="font-bold"><%= show_tenant_name(index) %></span>
+            </div>
+
+            <!-- Tenant Name -->
+            <div>
+              <%= image_tag 'properties/property_go_active_arrow.svg', width: '20' %>
             </div>
           </div>
         </div>
 
-        <!-- Property Name -->
-        <h3 class="name font-bold">123 Apple Street</h3>
-
-        <hr>
-
-        <!-- Card Footer -->
-        <div class="d-flex justify-content-between">
-
-          <!-- Tenant Label -->
-          <div>
-            <span class="opacity-0-5">Tenant: </span><b>Rashed Kabir</b>
-          </div>
-
-          <!-- Tenant Name -->
-          <div>
-            <%= image_tag 'properties/property_go_active_arrow.svg', width: '20' %>
-          </div>
-        </div>
       </div>
-
     </div>
   </div>
-</div>
+<% end %>
