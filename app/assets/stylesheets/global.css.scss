@@ -27,9 +27,9 @@ html * {
 
 .create-button {
   border: none;
-  padding: 12px 15px;
   color: #FFFFFF;
   font-size: 15px;
+  padding: 10px 15px;
   font-weight: bold;
   border-radius: 7px;
   background: #FF8F00;
@@ -37,6 +37,12 @@ html * {
 
 .create-button img {
   margin: 0 10px 0 0;
+}
+
+.cancel-button {
+  border: none;
+  font-weight: bold;
+  background: transparent;
 }
 
 //Global Font

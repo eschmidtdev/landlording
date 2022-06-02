@@ -1,5 +1,5 @@
 <!-- Personal Information Form -->
-<form name="property_form" class="mt-4 new-property-form">
+<form name="property_form" class="new-property-form">
 
   <!-- Property Type Dropdown -->
   <div class="form-group">
@@ -155,7 +155,7 @@
   </div>
 
   <!-- Radio Buttons -->
-  <span class="radio_label">Currently Leased?</span>
+  <span class="radio-label">Currently Leased?</span>
   <label class="radio-inline">
     <input type="radio" name="property[LeasedYes]" checked>Yes
   </label>
@@ -167,20 +167,20 @@
   <%= render partial: 'properties/tenant_form' %>
 
   <div class="mt-4">
-    <span class="radio_label">Will the property address also be used for notices sent to the tenant?</span><br>
+    <span class="radio-label font-bold">Will the property address also be used for notices sent to the tenant?</span><br>
     <label class="radio-inline">
-      <input type="radio" name="" checked>Yes
+      <input type="radio" name="property[AskPropertyAddressYes]" checked>Yes
     </label>
     <label class="radio-inline">
-      <input type="radio" name="">No
+      <input type="radio" name="property[AskPropertyAddressNo]">No
     </label><br>
   </div>
 
   <hr>
 
-  <div class="d-flex justify-content-start">
-    <button type="button" class="save_personal_info">Save</button>
-    <button type="button" class="cancel_personal_info ml-3">Cancel</button>
+  <div class="d-flex justify-content-start mb-5">
+    <button type="button" class="create-button">Save</button>
+    <button type="button" class="cancel-button ml-3">Cancel</button>
   </div>
 
 
