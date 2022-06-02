@@ -34,6 +34,12 @@
   line-height: 36px;
 }
 
+.plan-rectangle {
+  padding: 15px;
+  border-radius: 7px;
+  border: 1px solid #E5E5E5;
+}
+
 .plan-rectangle .name {
   font-weight: 700;
   font-size: 18px;
@@ -43,24 +49,22 @@
   font-size: 18px;
 }
 
-
-
-
-.plan_renewal_desc {
-  opacity: 0.5;
+.plan-rectangle .description {
   font-size: 12px;
 }
 
-.plan_till_valid {
+.plan-rectangle .validity {
   font-size: 12px;
-  font-weight: 700;
 }
 
-.plan-rectangle {
-  border: 1px solid #E5E5E5;
-  border-radius: 7px;
-  padding: 15px;
+
+.subscription-rectangle .cancel-subscription {
+  color: #FF8F00;
+  font-size: 12px;
+  margin-top: 5px;
+  margin-right: 17px;
 }
+
 
 .card_brand {
   width: 30px;
@@ -112,13 +116,6 @@
 .parent > .child {
   display: table-cell;
   vertical-align: middle;
-}
-
-.cancel_subscription {
-  font-size: 12px;
-  font-weight: 600;
-  color: #FF8F00;
-
 }
 
 
