@@ -1,4 +1,3 @@
-<!-- Personal Information Form -->
 <form name="property_form" class="new-property-form">
 
   <!-- Property Type Dropdown -->
@@ -155,7 +154,7 @@
   </div>
 
   <!-- Radio Buttons -->
-  <span class="radio-label">Currently Leased?</span>
+  <span class="radio-label font-bold">Currently Leased?</span>
   <label class="radio-inline">
     <input type="radio" name="property[LeasedYes]" checked>Yes
   </label>
@@ -164,7 +163,7 @@
   </label><br>
 
   <!-- Add New Tenant -->
-  <%= render partial: 'properties/tenant_form' %>
+  <%= render partial: 'properties/partials/tenant_form' %>
 
   <div class="mt-4">
     <span class="radio-label font-bold">Will the property address also be used for notices sent to the tenant?</span><br>

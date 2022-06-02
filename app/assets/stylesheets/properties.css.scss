@@ -19,14 +19,34 @@
   letter-spacing: -0.01em;
 }
 
+.new-property-form .card-header {
+  background: transparent;
+}
+
+.new-property-form .edit-tenant-modal {
+  min-width: 700px !important;
+  min-height: 500px !important;
+}
+
+.edit-tenant-modal .close {
+  padding: 5px;
+}
+
+.edit-tenant-modal .body {
+  padding: 30px;
+}
+
+.edit-tenant-modal .heading {
+  font-size: 18px;
+}
 
 .new_tenant {
   font-weight: 700;
 }
 
-.new_tenant_container_rectangle {
-  border: 1px solid #E5E5E5;
+.new-property-form .rectangle {
   border-radius: 7px;
+  border: 1px solid #E5E5E5;
 }
 
 .custom_card_header {
@@ -36,11 +56,6 @@
 .btn-link {
   text-decoration: none !important;
   color: black;
-}
-
-.new_tenant_form_text {
-  font-weight: 700;
-  font-size: 13px;
 }
 
 .edit_tenant_inner_link {
@@ -55,26 +70,8 @@
   color: #FF8F00;
 }
 
-.custom_modal_size {
-  min-width: 700px !important;
-  min-height: 500px !important;
-}
-
 .no_border {
   border: none !important;
-}
-
-.edit_modal_tenant {
-  font-weight: 700;
-  font-size: 18px;
-}
-
-.modal_body_container {
-  padding: 20px;
-}
-
-.close_icon_container {
-  padding: 5px;
 }
 
 .save_tenant_info {
