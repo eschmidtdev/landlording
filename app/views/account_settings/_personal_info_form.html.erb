@@ -1,65 +1,66 @@
-<div class="personal_info_rectangle">
+<div class="personal-info-rectangle">
+
   <!-- Personal Information -->
-  <span class="section_heading">Personal Information</span>
+  <span class="heading font-bold">Personal Information</span>
 
   <!-- Personal Information Form -->
   <form name="personal_info" class="mt-4">
 
     <!-- First Name -->
     <div class="form-group">
-      <label for="FirstName" class="normal_font"><span class="setting_label">First Name</span></label>
+      <label for="accountSettingFirstName">First Name</label>
       <input
         type="text"
-        id="FirstName"
-        name="user[name]"
-        autofocus="autofocus"
+        id="accountSettingFirstName"
         value="<%= user_name.first %>"
+        name="account[SettingFirstName]"
         class="form-control form-control-lg input-45"
       >
     </div>
 
     <!-- Last Name -->
     <div class="form-group">
-      <label for="LastName" class="normal_font"><span class="setting_label">Last Name</span></label>
+      <label for="accountSettingLastName">Last Name</label>
       <input
         type="text"
-        id="LastName"
-        name="user[name]"
-        autofocus="autofocus"
+        id="accountSettingLastName"
         value="<%= user_name.last %>"
+        name="accountSetting[LastName]"
         class="form-control form-control-lg input-45"
       >
     </div>
 
     <!-- Email -->
     <div class="form-group">
-      <label for="Email" class="normal_font"><span class="setting_label">Email</span></label>
+      <label for="accountSettingEmail">Email</label>
       <input
         readonly
-        id="Email"
         type="email"
+        id="accountSettingEmail"
         value="<%= current_user.email %>"
         class="form-control form-control-lg input-45"
       >
-      <span class="email_instructions">Email address cannot be changed</span>
+      <span class="instruction opacity-0-5">Email address cannot be changed</span>
     </div>
 
     <!-- Password -->
     <div class="form-group">
-      <label for="Password" class="normal_font"><span class="setting_label">Password</span></label>
+      <label for="accountSettingPassword">Password</label>
       <input
         type="password"
-        id="Password"
-        name="user[name]"
-        autofocus="autofocus"
+        id="accountSettingPassword"
+        name="accountSetting[Password]"
         class="form-control form-control-lg input-45"
       >
-      <span class="email_instructions">Want to change the password?</span>
-      <a href="<%= change_password_account_setting_path(1) %>" class="text-body-as ml-1">Click here</a>
+      <span class="instruction opacity-0-5">Want to change the password?</span>
+      <%= link_to 'Click here',
+                  change_password_account_setting_path(1),
+                  class: 'password-link font-bold ml-1'
+      %>
     </div>
 
     <div class="d-flex justify-content-start">
-      <button type="button" class="save_personal_info">Save</button>
+      <button type="button" class="create-button">Save</button>
       <button type="button" class="cancel-button ml-3">Cancel</button>
     </div>
 

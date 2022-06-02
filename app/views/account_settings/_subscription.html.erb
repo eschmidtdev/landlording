@@ -1,13 +1,17 @@
-<div class="subscription_rectangle">
+<div class="subscription-rectangle">
+
   <!-- My Subscription Row -->
   <div class="row">
     <div class="col-md-12">
+
       <div class="col-md-6">
-        <span class="pull-left section_heading">My Subscription</span>
+        <span class="pull-left heading font-bold">My Subscription</span>
       </div>
+
       <div class="col-md-6">
         <%= image_tag 'account_settings/account_setting_tooltip.svg', class: 'pull-right', width: '20' %>
       </div>
+
     </div>
   </div>
 
@@ -15,18 +19,21 @@
   <div class="row mt-4">
     <div class="col-md-12">
       <div class="col-md-6">
-        <span class="pull-left account_name">Premium Account</span><br>
-        <p class="premium_acc_des">
+        <span class="pull-left account-name">Premium Account</span><br>
+        <p class="account-description opacity-0-75 pull-left">
           Unlimited access to our legal document library and online rental application tool, billed monthly.
         </p>
       </div>
+
       <div class="col-md-6">
-        <div class="plan_box pull-right plan_rectangle">
-          <span>Monthly Plan</span> <span class="plan_price">($39)</span><br>
+        <div class="pull-right my-auto plan-rectangle">
+          <span class="name">Monthly Plan</span>
+          <span class="price">($39)</span><br>
           <span class="plan_renewal_desc">Your subscription renews</span>
           <span class="plan_till_valid">July 12th, 2023</span>
         </div>
       </div>
+
       <span class="pull-right mr-4 mt-2 cancel_subscription">
         <a href="<%= subscriptions_path %>" class="text-body-as ml-1">
           Change or Cancel Subscription
