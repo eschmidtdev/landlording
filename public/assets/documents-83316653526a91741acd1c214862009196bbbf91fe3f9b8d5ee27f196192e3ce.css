@@ -1,0 +1,127 @@
+/* line 1, app/assets/stylesheets/documents.css.scss */
+.documents-table {
+  margin: 20px 0;
+}
+
+/* line 5, app/assets/stylesheets/documents.css.scss */
+.document-name-cell-container {
+  padding: 10px 0;
+}
+
+/* line 9, app/assets/stylesheets/documents.css.scss */
+.document-name-cell-container .name {
+  padding: 5px;
+  font-size: 20px;
+  font-weight: 600;
+  line-height: 31px;
+  letter-spacing: -0.01em;
+}
+
+/* line 17, app/assets/stylesheets/documents.css.scss */
+.document-name-cell-container .date {
+  font-size: 13px;
+  font-weight: 400;
+  line-height: 21px;
+  margin-left: 7px;
+  letter-spacing: -0.01em;
+}
+
+/* line 25, app/assets/stylesheets/documents.css.scss */
+.document-status {
+  padding: 25px 0;
+}
+
+/* line 29, app/assets/stylesheets/documents.css.scss */
+.document-status span {
+  color: #FF4C4C;
+  text-transform: uppercase;
+}
+
+/* line 34, app/assets/stylesheets/documents.css.scss */
+.document-status .signed {
+  color: #999999;
+  font-size: 12px;
+  border-radius: 5px;
+  font-weight: bold;
+  padding: 5px 10px;
+  background: #EEEEEE;
+}
+
+/* line 43, app/assets/stylesheets/documents.css.scss */
+.document-status .completed {
+  color: #00B167;
+  font-size: 12px;
+  border-radius: 5px;
+  font-weight: bold;
+  padding: 5px 10px;
+  background: #DFF8EB;
+}
+
+/* line 52, app/assets/stylesheets/documents.css.scss */
+.document-status .ready_to_sign {
+  color: #1CA0FF;
+  font-size: 12px;
+  border-radius: 5px;
+  font-weight: bold;
+  padding: 5px 10px;
+  background: #E9F4FF;
+}
+
+/* line 61, app/assets/stylesheets/documents.css.scss */
+.document-status .waiting_for_signature {
+  color: #DDA900;
+  font-size: 12px;
+  border-radius: 5px;
+  font-weight: bold;
+  padding: 5px 10px;
+  background: #FCF6E1;
+}
+
+/* line 71, app/assets/stylesheets/documents.css.scss */
+.dropdown-padding {
+  padding: 25px 25px;
+}
+
+/* line 75, app/assets/stylesheets/documents.css.scss */
+.dropdown-menu {
+  min-width: 110px !important;
+}
+
+/* line 79, app/assets/stylesheets/documents.css.scss */
+.dropdown-menu ul {
+  list-style: none;
+  padding: 0;
+}
+
+/* line 84, app/assets/stylesheets/documents.css.scss */
+.dropdown-menu ul li span {
+  margin-left: 10px;
+}
+
+/* line 88, app/assets/stylesheets/documents.css.scss */
+.dropdown-item {
+  margin: 5px 0;
+}
+
+/* line 96, app/assets/stylesheets/documents.css.scss */
+.page-item.active .page-link {
+  background-color: #FF8F00 !important;
+  border-color: #FF8F00 !important;
+  color: white !important;
+}
+
+/* line 102, app/assets/stylesheets/documents.css.scss */
+.pagination > li > a, .pagination > li > span {
+  color: #000000 !important;
+}
+
+/* line 106, app/assets/stylesheets/documents.css.scss */
+.documents-table > tbody {
+  border: 1px solid #ddd;
+  border-radius: 15px !important;
+}
+
+/* line 111, app/assets/stylesheets/documents.css.scss */
+.documents-table > thead > tr > th {
+  border: none !important;
+}

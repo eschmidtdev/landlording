@@ -1,0 +1,9 @@
+/* line 1, app/assets/stylesheets/visitors.css.scss */
+.card {
+  border-radius: 5px;
+}
+
+/* line 5, app/assets/stylesheets/visitors.css.scss */
+.card .arrow-icon {
+  margin-top: 10%;
+}

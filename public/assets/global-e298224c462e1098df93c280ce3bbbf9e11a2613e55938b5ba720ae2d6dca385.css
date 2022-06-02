@@ -1,0 +1,112 @@
+/* line 1, app/assets/stylesheets/global.css.scss */
+html * {
+  font-style: normal !important;
+  font-family: 'Gordita', sans-serif !important;
+}
+
+/* line 7, app/assets/stylesheets/global.css.scss */
+.page-heading-container {
+  margin: 30px 0;
+}
+
+/* line 11, app/assets/stylesheets/global.css.scss */
+.page-heading-container .page-heading {
+  font-size: 30px;
+  font-weight: 700;
+}
+
+/* line 17, app/assets/stylesheets/global.css.scss */
+.filter-button {
+  border: none;
+  padding: 12px 15px;
+  border-radius: 7px;
+  opacity: 0.75 !important;
+}
+
+/* line 24, app/assets/stylesheets/global.css.scss */
+.filter-button img {
+  margin: 5px 10px 0 0;
+}
+
+/* line 28, app/assets/stylesheets/global.css.scss */
+.create-button {
+  border: none;
+  color: #FFFFFF;
+  font-size: 15px;
+  padding: 10px 15px;
+  font-weight: bold;
+  border-radius: 7px;
+  background: #FF8F00;
+}
+
+/* line 38, app/assets/stylesheets/global.css.scss */
+.create-button img {
+  margin: 0 10px 0 0;
+}
+
+/* line 42, app/assets/stylesheets/global.css.scss */
+.cancel-button {
+  border: none;
+  font-weight: bold;
+  background: transparent;
+}
+
+/* line 49, app/assets/stylesheets/global.css.scss */
+.font-15 {
+  font-size: 15px;
+}
+
+/* line 53, app/assets/stylesheets/global.css.scss */
+.font-bold {
+  font-weight: bold;
+}
+
+/* line 58, app/assets/stylesheets/global.css.scss */
+.opacity-0-5 {
+  opacity: 0.5;
+}
+
+/* line 62, app/assets/stylesheets/global.css.scss */
+.opacity-0-6 {
+  opacity: 0.6;
+}
+
+/* line 65, app/assets/stylesheets/global.css.scss */
+.opacity-0-75 {
+  opacity: 0.75;
+}
+
+/* line 71, app/assets/stylesheets/global.css.scss */
+.input-45 {
+  height: 45px !important;
+}
+
+/* line 75, app/assets/stylesheets/global.css.scss */
+form .error {
+  color: #FF0011;
+  font-size: 12px;
+  font-weight: 400;
+}
+
+/* line 81, app/assets/stylesheets/global.css.scss */
+.error {
+  color: #FF0011;
+  font-size: 12px;
+  font-weight: 400;
+}
+
+/* line 87, app/assets/stylesheets/global.css.scss */
+.active {
+  color: #FF8F00;
+}
+
+/* line 91, app/assets/stylesheets/global.css.scss */
+.active_border {
+  background-color: white !important;
+  border-right: 3px solid #FF8F00 !important;
+}
+
+/* line 96, app/assets/stylesheets/global.css.scss */
+.secondary_active {
+  color: #000000;
+}

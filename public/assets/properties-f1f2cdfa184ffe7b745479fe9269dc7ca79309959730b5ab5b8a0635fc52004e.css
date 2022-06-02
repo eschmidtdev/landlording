@@ -1,0 +1,71 @@
+/* line 1, app/assets/stylesheets/properties.css.scss */
+.properties-index-card {
+  height: 180px;
+  padding: 15px;
+  border-radius: 7px;
+  border: 1px solid #E5E5E5;
+  max-width: 520px !important;
+}
+
+/* line 9, app/assets/stylesheets/properties.css.scss */
+.properties-index-card .name {
+  letter-spacing: -0.01em !important;
+}
+
+/* line 13, app/assets/stylesheets/properties.css.scss */
+.new-property-form .property-checkbox {
+  margin-left: 25px;
+}
+
+/* line 17, app/assets/stylesheets/properties.css.scss */
+.new-property-form .radio-label {
+  font-size: 13px;
+  letter-spacing: -0.01em;
+}
+
+/* line 22, app/assets/stylesheets/properties.css.scss */
+.new-property-form .card-header {
+  background: transparent;
+}
+
+/* line 26, app/assets/stylesheets/properties.css.scss */
+.new-property-form .edit-tenant-modal {
+  min-width: 700px !important;
+  min-height: 500px !important;
+}
+
+/* line 31, app/assets/stylesheets/properties.css.scss */
+.new-property-form .edit {
+  text-decoration: underline;
+  font-weight: 700;
+  font-size: 15px;
+  line-height: 23px;
+  color: #FF8F00;
+}
+
+/* line 39, app/assets/stylesheets/properties.css.scss */
+.edit-tenant-modal .close {
+  padding: 5px;
+}
+
+/* line 43, app/assets/stylesheets/properties.css.scss */
+.edit-tenant-modal .body {
+  padding: 30px;
+}
+
+/* line 47, app/assets/stylesheets/properties.css.scss */
+.edit-tenant-modal .heading {
+  font-size: 18px;
+}
+
+/* line 51, app/assets/stylesheets/properties.css.scss */
+.new-property-form .rectangle {
+  border-radius: 7px;
+  border: 1px solid #E5E5E5;
+}
+
+/* line 56, app/assets/stylesheets/properties.css.scss */
+.btn-link {
+  color: black;
+  text-decoration: none !important;
+}
