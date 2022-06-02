@@ -14,7 +14,7 @@
         name="user[name]"
         autofocus="autofocus"
         value="<%= user_name.first %>"
-        class="form-control form-control-lg setting-form-custom"
+        class="form-control form-control-lg input-45"
       >
     </div>
 
@@ -27,7 +27,7 @@
         name="user[name]"
         autofocus="autofocus"
         value="<%= user_name.last %>"
-        class="form-control form-control-lg setting-form-custom"
+        class="form-control form-control-lg input-45"
       >
     </div>
 
@@ -39,7 +39,7 @@
         id="Email"
         type="email"
         value="<%= current_user.email %>"
-        class="form-control form-control-lg setting-form-custom"
+        class="form-control form-control-lg input-45"
       >
       <span class="email_instructions">Email address cannot be changed</span>
     </div>
@@ -52,7 +52,7 @@
         id="Password"
         name="user[name]"
         autofocus="autofocus"
-        class="form-control form-control-lg setting-form-custom"
+        class="form-control form-control-lg input-45"
       >
       <span class="email_instructions">Want to change the password?</span>
       <a href="<%= change_password_account_setting_path(1) %>" class="text-body-as ml-1">Click here</a>

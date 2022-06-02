@@ -1,10 +1,10 @@
 <!-- Personal Information Form -->
-<form name="property_form" class="mt-4">
+<form name="property_form" class="mt-4 new-property-form">
 
-  <!-- Property Type -->
+  <!-- Property Type Dropdown -->
   <div class="form-group">
-    <label for="PropertyType" class="normal_font"><span class="setting_label">Property Type*</span></label>
-    <select name="" id="PropertyType" class="form-control form-control-lg setting-form-custom">
+    <label for="propertyPropertyType">Property Type*</label>
+    <select name="" id="propertyPropertyType" class="form-control form-control-lg input-45">
       <option value="" disabled selected>Select Property</option>
       <option value="">Property Type 1</option>
       <option value="">Property Type 2</option>
@@ -15,27 +15,25 @@
 
   <!-- Street Address Line 1 -->
   <div class="form-group">
-    <label for="ForAddress1" class="normal_font"><span class="setting_label">Street Address Line 1*</span></label>
+    <label for="propertySAL1">Street Address Line 1*</label>
     <input
       type="text"
-      id="ForAddress1"
-      name=""
-      value=""
-      class="form-control form-control-lg setting-form-custom"
+      id="propertySAL1"
+      name="property[SAL1]"
       placeholder="You Address"
+      class="form-control form-control-lg input-45"
     >
   </div>
 
   <!-- Street Address Line 2 -->
   <div class="form-group">
-    <label for="ForAddress2" class="normal_font"><span class="setting_label">Street Address Line 2</span></label>
+    <label for="propertySAL2">Street Address Line 2</label>
     <input
       type="text"
-      id="ForAddress2"
-      name=""
-      value=""
-      class="form-control form-control-lg setting-form-custom"
+      id="propertySAL2"
+      name="property[SAL2]"
       placeholder="You Address"
+      class="form-control form-control-lg input-45"
     >
   </div>
 
@@ -45,35 +43,33 @@
       <!-- Postal Code -->
       <div class="col-md-3 pl-0">
         <div class="form-group">
-          <label for="PostalCode" class="normal_font"><span class="setting_label">Postal Code*</span></label>
+          <label for="propertyPostalCode">Postal Code*</label>
           <input
             type="text"
-            id="PostalCode"
-            name=""
-            value=""
-            class="form-control form-control-lg setting-form-custom"
             placeholder="Zip Code"
+            id="propertyPostalCode"
+            name="property[PostalCode]"
+            class="form-control form-control-lg input-45"
           >
         </div>
       </div>
       <!-- City -->
       <div class="col-md-5 pl-0 pr-0">
         <div class="form-group">
-          <label for="City" class="normal_font"><span class="setting_label">City*</span></label>
+          <label for="propertyCity">City*</label>
           <input
             type="text"
-            id="City"
-            name=""
-            value=""
-            class="form-control form-control-lg setting-form-custom"
+            id="propertyCity"
             placeholder="City"
+            name="property[City]"
+            class="form-control form-control-lg input-45"
           >
         </div>
       </div>
       <!-- State -->
       <div class="col-md-4 pr-0">
-        <label for="State" class="normal_font"><span class="setting_label">State*</span></label>
-        <select name="" id="State" class="form-control form-control-lg setting-form-custom">
+        <label for="propertyState">State*</label>
+        <select name="property[State]" id="propertyState" class="form-control form-control-lg input-45">
           <option value="" disabled selected>State</option>
           <option value="">State 1</option>
           <option value="">State 2</option>
@@ -89,8 +85,8 @@
     <div class="col-md-12">
       <!-- Bedrooms -->
       <div class="col-md-6 pl-0">
-        <label for="BedroomA" class="normal_font"><span class="setting_label">Bedroom</span></label>
-        <select name="" id="BedroomA" class="form-control form-control-lg setting-form-custom">
+        <label for="propertyBedroomA">Bedroom</label>
+        <select name="property[BedroomA]" id="propertyBedroomA" class="form-control form-control-lg input-45">
           <option value="" disabled selected>0</option>
           <option value="">1</option>
           <option value="">2</option>
@@ -100,8 +96,8 @@
       </div>
       <!-- Bedrooms -->
       <div class="col-md-6 pr-0">
-        <label for="BedroomB" class="normal_font"><span class="setting_label">Bedroom</span></label>
-        <select name="" id="BedroomB" class="form-control form-control-lg setting-form-custom">
+        <label for="propertyBedroomB">Bedroom</label>
+        <select name="property[BedroomB]" id="propertyBedroomB" class="form-control form-control-lg input-45">
           <option value="" disabled selected>0</option>
           <option value="">1</option>
           <option value="">2</option>
@@ -114,9 +110,9 @@
 
   <!-- Checkbox -->
   <div class="my-5">
-    <div class="form-check">
-      <input class="form-check-input" type="checkbox" value="" id="flexCheckChecked" checked>
-      <label class="form-check-label property_checkbox" for="flexCheckChecked">
+    <div class="form-check pl-0">
+      <input class="form-check-input" type="checkbox" value="property[LandlordInfo]" id="propertyLandlordInfo" checked>
+      <label class="form-check-label property-checkbox" for="propertyLandlordInfo">
         Same landlord contact info as found in your Account Settings?
       </label>
     </div>
@@ -124,50 +120,47 @@
 
   <!-- Landlord Contact Name -->
   <div class="form-group">
-    <label for="LandlordContactName" class="normal_font"><span class="setting_label">Landlord Contact Name*</span></label>
+    <label for="propertyLandlordContactName">Landlord Contact Name*</label>
     <input
       type="text"
-      id="LandlordContactName"
-      name=""
-      value=""
-      class="form-control form-control-lg setting-form-custom"
       placeholder="Landlord Full Name"
+      id="propertyLandlordContactName"
+      name="property[LandlordContactName]"
+      class="form-control form-control-lg input-45"
     >
   </div>
 
   <!-- Landlord Contact Phone -->
   <div class="form-group">
-    <label for="LandlordContactPhone" class="normal_font"><span class="setting_label">Landlord Contact Phone*</span></label>
+    <label for="propertyLandlordContactPhone">Landlord Contact Phone*</label>
     <input
       type="text"
-      id="LandlordContactPhone"
-      name=""
-      value=""
-      class="form-control form-control-lg setting-form-custom"
       placeholder="Phone Number"
+      id="propertyLandlordContactPhone"
+      name="property[LandlordContactPhone]"
+      class="form-control form-control-lg input-45"
     >
   </div>
 
   <!-- Landlord Contact Email -->
   <div class="form-group">
-    <label for="LandlordContactEmail" class="normal_font"><span class="setting_label">Landlord Contact Email*</span></label>
+    <label for="propertyLandlordContactEmail">Landlord Contact Email*</label>
     <input
       type="email"
-      id="LandlordContactEmail"
-      name=""
-      value=""
-      class="form-control form-control-lg setting-form-custom"
       placeholder="Enter Email Address"
+      id="propertyLandlordContactEmail"
+      name="property[LandlordContactEmail]"
+      class="form-control form-control-lg input-45"
     >
   </div>
 
   <!-- Radio Buttons -->
   <span class="radio_label">Currently Leased?</span>
   <label class="radio-inline">
-    <input type="radio" name="" checked>Yes
+    <input type="radio" name="property[LeasedYes]" checked>Yes
   </label>
   <label class="radio-inline">
-    <input type="radio" name="">No
+    <input type="radio" name="property[LeasedNo]">No
   </label><br>
 
   <!-- Add New Tenant -->
