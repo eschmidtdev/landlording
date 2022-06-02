@@ -16,7 +16,7 @@ html * {
 // Buttons
 .filter-button {
   border: none;
-  padding: 15px;
+  padding: 12px 15px;
   border-radius: 7px;
   opacity: 0.75 !important;
 }
@@ -27,7 +27,7 @@ html * {
 
 .create-button {
   border: none;
-  padding: 15px;
+  padding: 12px 15px;
   color: #FFFFFF;
   font-size: 15px;
   font-weight: bold;
@@ -42,6 +42,14 @@ html * {
 //===================================
 .font-15 {
   font-size: 15px;
+}
+
+.font-bold {
+  font-weight: bold;
+}
+
+.opacity-0-5 {
+  opacity: 0.5;
 }
 
 .opacity-0-6 {
