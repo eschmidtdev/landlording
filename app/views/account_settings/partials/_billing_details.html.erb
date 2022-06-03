@@ -1,10 +1,10 @@
-<div class="billing_rectangle mb-5">
+<div class="billing-rectangle mb-5">
 
   <!-- Billing Details Heading -->
   <div class="row">
     <div class="col-md-12">
       <div class="col-md-6">
-        <span class="pull-left heading">Billing Details</span>
+        <span class="heading font-bold pull-left">Billing Details</span>
       </div>
     </div>
   </div>
@@ -13,19 +13,20 @@
   <div class="mt-5">
     <div class="row">
       <div class="col-md-12">
-        <div class="col-md-6 billing_details_edit_card">
+
+        <div class="col-md-6 card-rectangle">
           <div class="row">
             <div class="col-md-12">
               <div class="col-md-6">
-                <div class="card_brand_container">
-                  <%= image_tag 'account_settings/master_card_logo.svg', class: 'card_brand pull-left mt-1', width: '20' %>
+                <div class="brand-container">
+                  <%= image_tag 'account_settings/master_card_logo.svg', class: ' pull-left mt-1', width: '30' %>
                   <br>
                 </div>
-                <span class="card_number">************4099</span>
-                <span class="card_expiry">Expires 05/2024</span><br>
-                <span class="card_expiry">123 Apple Street, Unit 101, Austin, TX 78741</span><br>
+                <span class="number">************4099</span>
+                <span class="expiry opacity-0-75">Expires 05/2024</span><br>
+                <span class="expiry opacity-0-75">123 Apple Street, Unit 101, Austin, TX 78741</span><br>
                 <div class="mt-4">
-                  <span class="last_used">LAST USED 11/04/2021</span>
+                  <span class="last-used font-bold">LAST USED 11/04/2021</span>
                 </div>
               </div>
 
@@ -56,9 +57,12 @@
 
           </div>
         </div>
-        <div class="col-md-6 billing_details_edit_card pull-right">
+
+        <div class="col-md-6 card-rectangle pull-right">
           <div class="parent">
-            <span class="child"><b><%= link_to 'Add Payment Method', payments_path, class: 'decide_latter' %></b></span>
+            <span class="child">
+              <b><%= link_to 'Add Payment Method', payments_path, class: 'add-payment-btn font-bold' %></b>
+            </span>
           </div>
         </div>
       </div>

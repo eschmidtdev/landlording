@@ -60,26 +60,25 @@
 
 .subscription-rectangle .cancel-subscription {
   color: #FF8F00;
-  font-size: 12px;
   margin-top: 5px;
+  font-size: 12px;
   margin-right: 17px;
 }
 
-
-.card_brand {
-  width: 30px;
-  height: 15px;
+.billing-rectangle {
+  padding: 20px 20px;
+  border: 1.3px solid #E5E5E5;
+  border-top: none !important;
+  border-bottom-left-radius: 10px;
+  border-bottom-right-radius: 10px;
 }
 
-.card_brand_container {
-  border: 1px solid #E5E5E5;
-  border-radius: 2px;
-  padding: 2px;
-  width: 35px;
-  height: 20px;
+.billing-rectangle .heading {
+  font-size: 20px;
 }
 
-.billing_details_edit_card {
+
+.billing-rectangle .card-rectangle {
   border: 1px solid #E5E5E5;
   border-radius: 7px;
   padding: 15px;
@@ -87,23 +86,37 @@
   max-width: 500px !important;
 }
 
-.card_number {
-  font-weight: 400;
+.billing-rectangle .brand-container {
+  border: 1px solid #E5E5E5;
+  border-radius: 2px;
+  padding: 2px;
+  width: 35px;
+  height: 20px;
+}
+
+.billing-rectangle .number {
   font-size: 25px;
   line-height: 40px;
   letter-spacing: 0.05em;
 }
 
-.card_expiry {
-  opacity: 0.75;
+.billing-rectangle .expiry {
   font-size: 12px;
 }
 
-.last_used {
-  font-weight: 600;
+.billing-rectangle .last-used {
+  padding: 5px;
   font-size: 11px;
   background: rgba(255, 143, 0, 0.15);
-  padding: 5px;
+}
+
+.billing-rectangle .add-payment-btn {
+  color: black;
+  text-decoration: none !important;
+}
+
+.billing-rectangle .add-payment-btn:hover {
+  color: black;
 }
 
 .parent {
@@ -116,13 +129,4 @@
 .parent > .child {
   display: table-cell;
   vertical-align: middle;
-}
-
-
-.billing_rectangle {
-  padding: 20px 20px;
-  border: 1.3px solid #E5E5E5;
-  border-top: none !important;
-  border-bottom-left-radius: 10px;
-  border-bottom-right-radius: 10px;
 }
