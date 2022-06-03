@@ -28,7 +28,7 @@ Rails.application.routes.draw do
   resources :rental_applications, only: :index
   resources :subscriptions do
     member do
-      get '/cancel', to: 'subscriptions#cancel-subscription'
+      get '/cancel', to: 'subscriptions#cancel_subscription'
     end
   end
 
