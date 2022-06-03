@@ -119,14 +119,14 @@
   color: black;
 }
 
-.parent {
+.billing-rectangle .parent {
   width: 100%;
   height: 100%;
   display: table;
   text-align: center;
 }
 
-.parent > .child {
+.billing-rectangle .parent > .child {
   display: table-cell;
   vertical-align: middle;
 }
