@@ -1,0 +1,1 @@
+$(document).ready(function(){$("#LoginBtn").on("click",function(){const s=$("#InputEmail").val(),n=$("#InputPassword").val();$.ajax({url:"/users/sign_in",type:"POST",data:{user:{email:s,password:n}},success:function(s){!0===s.success&&(window.location.href=s.url),!1===s.success&&$(".error_alert").removeClass("display_none").text("").append(s.message)},error:function(){}})})});
