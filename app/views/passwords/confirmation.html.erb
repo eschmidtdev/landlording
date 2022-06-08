@@ -2,24 +2,22 @@
   <div class="col-md-9 col-lg-6 col-xl-5 bg-light_red">
     <%= image_tag('users/SingleIllustration.png', class: 'set_login_ill') %>
   </div>
+
   <div class="col-md-8 col-lg-6 col-xl-4 offset-xl-1">
 
     <!-- Heading -->
-    <div class="d-flex flex-row align-items-center justify-content-center justify-content-lg-start">
-      <p class="login_text">Mail Sent</p>
+    <div class="row confirm-email-heading">
+      <div class="col-md-12">
+        <span class="login_text">Mail Sent</span>
+        <h5>If there is an account under that address, we have sent an email to reset your password.</h5>
+      </div>
     </div>
 
-    <h5>If there is an account under that address, we have sent an email to reset your password.”</h5>
-
-
-    <div class="d-flex align-items-center my-4"></div>
-
-
     <!-- Buttons -->
-    <div class="text-center text-lg-start mt-4 pt-2">
+    <div class="my-4">
       <button type="button"
               onclick="window.location.href='<%= user_session_path %>'"
-              class="btn login_btn got_it_btn pull-left"
+              class="btn login_btn got-it-btn got-it-mob"
       >
         GOT IT
       </button>
