@@ -1,5 +1,5 @@
 <div class="row d-flex justify-content-center align-items-center">
-  <div class="col-md-9 col-lg-6 col-xl-5 bg-light_red" id="HomeImage">
+  <div class="col-md-9 col-lg-6 col-xl-5 bg-light_red">
     <%= image_tag('users/SingleIllustration.png', class: 'set_login_ill') %>
   </div>
 
@@ -17,11 +17,9 @@
       <span class="error_alert display_none"></span>
       <span class="success_alert display_none"></span>
 
-      <div class="d-flex align-items-center my-4"></div>
-
       <!-- Full Name -->
       <div class="form-group">
-        <label for="UserName" class="normal_font">Full Name*</label>
+        <label for="UserName" class="font-normal">Full Name*</label>
         <input
           type="text"
           id="UserName"
@@ -34,7 +32,7 @@
 
       <!-- Email input -->
       <div class="form-outline mt-4">
-        <label class="form-label normal_font" for="RegEmail">Email*</label>
+        <label class="form-label font-normal" for="RegEmail">Email*</label>
         <input
           type="email"
           id="RegEmail"
@@ -48,7 +46,7 @@
 
       <!-- Password input -->
       <div class="form-outline mt-4">
-        <label class="form-label normal_font" for="RegPass">Password*</label>
+        <label class="form-label font-normal" for="RegPass">Password*</label>
         <input
           id="RegPass"
           type="password"
@@ -60,26 +58,24 @@
       <span class="error display_none" id="PasswordError"></span>
 
       <!-- Terms + PP + Checkbox -->
-      <div class="d-flex justify-content-between align-items-center">
-        <div class="mb-0 my-2">
-          <input class="form-check-input" type="checkbox" name="user[tos]" id="TOS"/>
-          <label class="form-check-label remember_text" for="TOS">
-            I have read and understand the
-            <a href="#!" class="text-body">Terms of Use</a>
-            and
-            <a href="#!" class="text-body">Privacy Policy</a>
-          </label>
-        </div>
+      <div class="d-flex justify-content-between align-items-start my-4">
+        <input class="form-check-input" type="checkbox" name="user[tos]" id="TOS"/>
+        <label class="form-check-label remember_text" for="TOS">
+          I have read and understand the
+          <a href="#!" class="text-body">Terms of Use</a>
+          and
+          <a href="#!" class="text-body">Privacy Policy</a>
+        </label>
       </div>
 
       <!-- Buttons -->
-      <div class="text-center text-lg-start mt-4 pt-2">
+      <div class="text-center text-lg-start">
 
         <!-- Sign Up Button -->
         <button type="submit" class="btn w-100 login_btn" id="SignupBtn">Sign Up</button>
 
-        <div class="divider d-flex align-items-center my-4">
-          <p class="text-center mx-3 mb-0 remember_text">OR</p>
+        <div class="divider d-flex align-items-center mtb-20">
+          <p class="text-center remember_text mx-3 my-auto">OR</p>
         </div>
 
         <!-- OmniOuth Button -->
@@ -95,7 +91,7 @@
         </div>
 
         <!-- Login Link -->
-        <p class="mt-2 pt-1 mb-0 c">Have an account?
+        <p class="my-4">Have an account?
           <a href="<%= root_path %>" class="link-danger">Login</a></p>
       </div>
     </form>
