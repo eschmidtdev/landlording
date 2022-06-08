@@ -4,24 +4,20 @@
   margin-left: 20px;
   font-size: 15px !important;
 }
+
 @media only screen and (max-width: 600px) {
   .session-mobile {
     padding: 0 10px;
-  }
-  .set_login_ill {
-    display: none !important;
   }
   .session-mobile .login_text {
     margin-top: 20px;
     font-size: 40px;
   }
-  .text-deco-none{
+  .text-deco-none {
     text-decoration: none !important;
   }
 }
 
 @media only screen and (max-width: 992px) {
-  .set_login_ill {
-    display: none !important;
-  }
+  
 }

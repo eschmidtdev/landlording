@@ -101,3 +101,10 @@ form .error {
 .secondary_active {
   color: #000000;
 }
+
+//Global Login Image
+@media only screen and (max-width: 600px) {
+  .set_login_ill {
+    display: none !important;
+  }
+}
