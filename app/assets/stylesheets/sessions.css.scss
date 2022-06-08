@@ -1,0 +1,25 @@
+.remember_text {
+  color: #7D7D7D !important;
+  font-weight: normal;
+  margin-left: 20px;
+  font-size: 15px !important;
+}
+
+@media only screen and (max-width: 600px) {
+  .session-mobile {
+    padding: 0 10px;
+  }
+  .set_login_ill {
+    display: none !important;
+  }
+  .session-mobile .login_text {
+    margin-top: 20px;
+    font-size: 40px;
+  }
+}
+
+@media only screen and (max-width: 992px) {
+  .set_login_ill {
+    display: none !important;
+  }
+}

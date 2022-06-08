@@ -1,4 +1,4 @@
-<div class="row d-flex justify-content-center align-items-center">
+<div class="row d-flex justify-content-center align-items-center session-mobile">
   <div class="col-md-9 col-lg-6 col-xl-5 bg-light_red">
     <%= image_tag('users/SingleIllustration.png', class: 'set_login_ill') %>
   </div>
@@ -19,7 +19,7 @@
 
       <!-- Email input -->
       <div class="form-outline mb-4">
-        <label class="form-label normal_font" for="InputEmail">Email*</label>
+        <label class="form-label font-normal" for="InputEmail">Email*</label>
         <input
           type="email"
           id="InputEmail"
@@ -32,7 +32,7 @@
 
       <!-- Password input -->
       <div class="form-outline mb-3">
-        <label class="form-label normal_font" for="InputPassword">Password*</label>
+        <label class="form-label font-normal" for="InputPassword">Password*</label>
         <input type="password"
                id="InputPassword"
                name="user[password]"
@@ -42,22 +42,24 @@
       </div>
 
       <!-- Checkbox -->
-      <div class="d-flex justify-content-between align-items-center">
-        <div class="mb-0">
+      <div class="d-flex justify-content-between align-items-center my-4">
+        <div>
           <input class="form-check-input" type="checkbox" value="" id="form2Example3"/>
           <label class="form-check-label remember_text" for="form2Example3">Remember me </label>
         </div>
-        <a href="/users/password/new" class="text-body">Forgot password?</a>
+        <div>
+          <a href="/users/password/new" class="text-body">Forget password?</a>
+        </div>
       </div>
 
       <!-- Buttons -->
-      <div class="text-center text-lg-start mt-4 pt-2">
+      <div class="text-center text-lg-start">
 
         <!-- Login Button -->
         <button type="button" class="btn w-100 login_btn" id="LoginBtn">Login</button>
 
         <div class="divider d-flex align-items-center my-4">
-          <p class="text-center fw-bold mx-3 mb-0 remember_text">OR</p>
+          <p class="text-center remember_text mx-3 my-auto"> OR </p>
         </div>
 
         <!-- OmniOuth Button -->
@@ -68,12 +70,12 @@
             class="btn w-100 btn-google-sign-in"
             onclick="window.location.href='/auth/google_oauth2'">
             <div></div>
-            Sign in with Google
+            Signup with google account
           </button>
         </div>
 
         <!-- SignUp Link -->
-        <p class="fw-bold mt-2 pt-1 mb-0 c">
+        <p class="my-4">
           Don't have an account?
           <a href="<%= signup_path %>" class="link-danger">Sign Up</a>
         </p>
