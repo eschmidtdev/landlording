@@ -2,6 +2,7 @@
   <div class="col-md-9 col-lg-6 col-xl-5 bg-light_red">
     <%= image_tag('users/SingleIllustration.png', class: 'set_login_ill') %>
   </div>
+
   <div class="col-md-8 col-lg-6 col-xl-4 offset-xl-1">
     <!-- Sign in form -->
     <%= form_for(resource, as: resource_name, url: password_path(resource_name), html: { method: :put }) do |f| %>
@@ -9,39 +10,35 @@
       <%= f.hidden_field :reset_password_token %>
 
       <!-- Heading -->
-      <div class="d-flex flex-row align-items-center justify-content-center justify-content-lg-start">
-        <p class="login_text">Reset Password</p>
+      <div class="row reset-pass-heading">
+        <div class="col-md-12">
+          <span class="login_text">Reset Password</span>
+          <h4>Create a new password</h4>
+        </div>
       </div>
 
-      <h5>Create a new password</h5>
-
-      <div class="d-flex align-items-center my-4"></div>
-
       <!-- Password input -->
-      <div class="form-outline mb-4">
-        <label class="form-label normal_font" for="InputEmail">New Password*</label>
+      <div class="form-outline mt-4">
+        <label class="form-label font-normal" for="InputEmail">New Password*</label>
         <%= f.password_field :password, autofocus: true, autocomplete: 'off', class: 'form-control form-control-lg', placeholder: "Enter your password", required: true %>
       </div>
 
       <!-- Password conformation -->
-      <div class="form-outline mb-4">
-        <label class="form-label normal_font" for="InputEmail">Confirm Password*</label>
+      <div class="form-outline mt-4">
+        <label class="form-label font-normal" for="InputEmail">Confirm Password*</label>
         <%= f.password_field :password_confirmation, autocomplete: 'off', class: 'form-control form-control-lg', placeholder: "confirm your new password", required: true %>
       </div>
 
       <!-- Buttons -->
-      <div class="text-center text-lg-start mt-4 pt-2">
+      <div class="my-4">
         <%= f.submit 'Save', class: 'btn w-100 login_btn', onclick: "return;" %>
 
         <!-- Login Link -->
-        <div class="d-flex justify-content-center mt-2">
-          <%= image_tag('users/BackIcon.svg', class: 'set_back_icon') %>
-          <p class="mt-2 pt-1 mb-0">
-            Go back to
-            <a href="<%= user_session_path %>" class="link-danger">
-              Login
-            </a>
-          </p>
+        <div class="d-flex justify-content-center my-4">
+          <div>
+            <%= image_tag('users/BackIcon.svg', class: 'set_back_icon') %>
+          </div>
+          Go back to&nbsp;<a href="<%= user_session_path %>" class="link-danger text-deco-none">Login</a>
         </div>
       </div>
     <% end %>
