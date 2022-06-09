@@ -1,5 +1,5 @@
 <nav class="navbar navbar-expand-lg navbar-light bg-white">
-  <a href="#" class="nav-img-container">
+  <a href="<%= root_path %>" class="nav-img-container">
     <%= image_tag 'navbar/app_logo.png' %>
   </a>
   <div class="collapse navbar-collapse" id="navbarNavAltMarkup">
@@ -7,7 +7,12 @@
       <a class="nav-item nav-link font-16 bold my-auto" href="#">Help & Support</a>
       <%= image_tag 'navbar/single_pipe.svg', class: 'nav-item nav-link single-pipe' %>
       <a class="nav-item nav-link font-16 mr-4 my-auto" href="#">Hi, Rashed Kabir</a>
-      <%= image_tag 'navbar/user_image.png', class: 'nav-item nav-link my-auto' %>
+      <div class="dropdown">
+        <%= image_tag 'navbar/user_image.png', class: 'nav-item nav-link my-auto' %>
+        <div class="dropdown-content">
+          <a href="/users/sign_out" class="nav-item nav-link font-16 my-auto" data-method="delete">Sign Out</a>
+        </div>
+      </div>
     </div>
   </div>
 </nav>
