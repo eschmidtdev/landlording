@@ -1,8 +1,6 @@
-html * {
-  font-style: normal !important;
-  font-family: 'Gordita', sans-serif !important;
+.img-responsive, img {
+  display: inline-flex;
 }
-
 // Heading
 .page-heading-container {
   margin: 30px 0;
@@ -50,11 +48,15 @@ html * {
   font-size: 15px;
 }
 
+.font-16 {
+  font-size: 16px;
+}
+
 .font-normal {
   font-weight: normal !important;
 }
 
-.font-bold {
+.bold {
   font-weight: bold;
 }
 

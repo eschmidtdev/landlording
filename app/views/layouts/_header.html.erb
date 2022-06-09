@@ -1,27 +1,13 @@
-<div class="row">
-  <div class="col-12 partial_cover">
-    <div class="row">
-      <div class="col-md-12">
-
-        <!-- Nav Logo -->
-        <div class="col-md-6">
-          <%= image_tag 'navbar/app_logo.png', class: 'nav_logo mt-2' %>
-        </div>
-
-        <!-- Links & Image -->
-        <div class="col-md-6">
-          <div class="d-flex justify-content-end line_height">
-            <div class="p-2"><b>Help & Support</b></div>
-            <div class="p-2 nav_vector">&emsp;|&emsp;</div>
-            <div class="p-2">Hi, <%= current_user.name %></div>
-            <div class="p-2">
-              <%= image_tag 'navbar/user_image.png' %>
-            </div>
-            <div class="p-2"><a rel="nofollow" data-method="delete" href="/users/sign_out">Sign Out</a></div>
-          </div>
-        </div>
-
-      </div>
+<nav class="navbar navbar-expand-lg navbar-light bg-white">
+  <a href="#" class="nav-img-container">
+    <%= image_tag 'navbar/app_logo.png' %>
+  </a>
+  <div class="collapse navbar-collapse" id="navbarNavAltMarkup">
+    <div class="navbar-nav pull-right">
+      <a class="nav-item nav-link font-16 bold my-auto" href="#">Help & Support</a>
+      <%= image_tag 'navbar/single_pipe.svg', class: 'nav-item nav-link single-pipe' %>
+      <a class="nav-item nav-link font-16 mr-4 my-auto" href="#">Hi, Rashed Kabir</a>
+      <%= image_tag 'navbar/user_image.png', class: 'nav-item nav-link my-auto' %>
     </div>
   </div>
-</div>
+</nav>
