@@ -80,13 +80,13 @@ Rails.application.configure do
 
   # SMTP configurations
   config.action_mailer.smtp_settings = {
+    address: 'smtp.gmail.com',
     port: 587,
     domain: host,
-    authentication: 'plain',
-    address: 'smtp.gmail.com',
-    enable_starttls_auto: true,
+    user_name: ENV['SMTP_USERNAME'],
     password: ENV['SMTP_PASSWORD'],
-    user_name: ENV['SMTP_USERNAME']
+    authentication: 'login',
+    enable_starttls_auto: true
   }
 
   # Use default logging formatter so that PID and timestamp are not suppressed.
