@@ -1,3 +1,5 @@
+<%= javascript_include_tag 'forgot_password' %>
+
 <div class="row d-flex justify-content-center align-items-center">
   <div class="col-md-9 col-lg-6 col-xl-5 bg-light_red">
     <%= image_tag('users/SingleIllustration.png', class: 'set_login_ill') %>
@@ -5,7 +7,7 @@
 
   <div class="col-md-8 col-lg-6 col-xl-4 offset-xl-1">
     <!-- Recover password form -->
-    <%= form_for(resource, as: resource_name, url: sent_email_path(resource_name), html: { method: :post, role: 'form' }) do |f| %>
+    <%= form_for(resource, as: resource_name, url: sent_email_path(resource_name), html: { method: :post, role: 'form', name: 'forgot_password' }) do |f| %>
 
       <!-- Heading -->
       <div class="row recover-pass-heading">
@@ -22,12 +24,16 @@
 
       <!-- Email input -->
       <div class="form-outline">
-        <label class="form-label font-normal" for="InputEmail">Email*</label>
-        <%= f.email_field :email, autofocus: true, class: 'form-control form-control-lg', placeholder: "Enter you email", required: true %>
+        <label class="form-label font-normal" for="ForgotPasswordEmail">Email*</label>
+        <%= f.email_field :email,
+                          id: 'ForgotPasswordEmail',
+                          placeholder: "Enter you email",
+                          class: 'form-control form-control-lg'
+        %>
       </div>
 
       <!-- Buttons -->
-      <%= f.submit 'SEND RESET LINK', class: 'btn w-100 login_btn my-5', onclick: "return;" %>
+      <%= f.submit 'SEND RESET LINK', class: 'btn w-100 login_btn my-5', id: 'ForgotPassword' %>
 
       <!-- Login Link -->
       <div class="d-flex justify-content-center">
