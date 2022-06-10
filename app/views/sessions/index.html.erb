@@ -5,7 +5,7 @@
 
   <div class="col-md-8 col-lg-6 col-xl-4 offset-xl-1">
     <!-- Sign in form -->
-    <form>
+    <form name="session" id="SessionForm">
 
       <!-- Heading -->
       <div class="d-flex flex-row align-items-center justify-content-center justify-content-lg-start">
@@ -24,7 +24,6 @@
           type="email"
           id="InputEmail"
           name="user[email]"
-          autofocus="autofocus"
           placeholder="eg. john@doe.com"
           class="form-control form-control-lg"
         >
@@ -33,11 +32,12 @@
       <!-- Password input -->
       <div class="form-outline mb-3">
         <label class="form-label font-normal" for="InputPassword">Password*</label>
-        <input type="password"
-               id="InputPassword"
-               name="user[password]"
-               placeholder="Enter password"
-               class="form-control form-control-lg"
+        <input
+          type="password"
+          id="InputPassword"
+          name="user[password]"
+          placeholder="Enter password"
+          class="form-control form-control-lg"
         >
       </div>
 
@@ -56,7 +56,7 @@
       <div class="text-center text-lg-start">
 
         <!-- Login Button -->
-        <button type="button" class="btn w-100 login_btn" id="LoginBtn">Login</button>
+        <button type="submit" class="btn w-100 login_btn" id="LoginBtn">Login</button>
 
         <div class="divider d-flex align-items-center mtb-20">
           <p class="text-center remember_text mx-3 my-auto"> OR </p>

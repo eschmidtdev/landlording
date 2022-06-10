@@ -20,7 +20,9 @@ class SessionsController < Devise::SessionsController
                      message: I18n.t('devise.registrations.signed_up_but_inactive') }
     elsif user.blank? || !user.valid_password?(params[:user][:password])
       render json: { success: false,
-                     message: 'Wrong email or password. Try again or click Forgot password to reset it.' }
+                     message: 'Wrong email or password.
+                               Try again or click Forgot password to reset it.'
+      }
     else
       self.resource = warden.authenticate!(auth_options)
       sign_in(resource_name, resource)

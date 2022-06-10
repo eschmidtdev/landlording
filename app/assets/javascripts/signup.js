@@ -16,7 +16,6 @@ $(document).ready(function () {
             }, submitHandler: function (form, e) {
                 ajaxRequest(e);
             }
-            // other options
         });
     });
 
@@ -32,7 +31,7 @@ $(document).ready(function () {
             data: {user: {name: name, email: email, password: password}},
             success: function (data) {
                 if (data.success === true) {
-                    clearErrors()
+                    clearErrors();
                     $('.success_alert').text('').removeClass('display_none').text(data.message);
                     enableButton();
                     $('#RegistrationForm')[0].reset();
