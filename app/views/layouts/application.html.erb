@@ -2,24 +2,6 @@
 <html lang="en">
 <head>
 
-  <style>
-      html * {
-          font-style: normal !important;
-          font-family: 'Gordita', sans-serif !important;
-      }
-
-      body {
-          margin: 0;
-      }
-
-      div.content {
-          height: 80vh;
-          padding: 1px 16px;
-          margin-left: 200px;
-      }
-      
-  </style>
-
   <!-- Latest compiled and minified CSS -->
   <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/bootstrap@4.6.1/dist/css/bootstrap.min.css">
 
@@ -55,8 +37,8 @@
 </head>
 
 <!-- Application Body -->
-<body>
-
+<body onload="myFunction()" style="margin:0;">
+<div id="loader"></div>
 <% if user_signed_in? %>
   <%= render 'layouts/header' %>
   <%= render 'layouts/sidebar' %>
