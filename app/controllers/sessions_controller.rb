@@ -14,22 +14,15 @@ class SessionsController < Devise::SessionsController
   end
 
   def create
-    user = set_user
-    if user && user.confirmed_at.nil?
-      render json: { success: false,
-                     message: I18n.t('devise.registrations.signed_up_but_inactive') }
-    elsif user.blank? || !user.valid_password?(params[:user][:password])
-      render json: { success: false,
-                     message: 'Wrong email or password.
-                               Try again or click Forgot password to reset it.'
-      }
-    else
-      self.resource = warden.authenticate!(auth_options)
-      sign_in(resource_name, resource)
-      render json: { success: true, message: I18n.t('devise.sessions.signed_in'),
-                     url: redirect_url }
-      session[:return_to] = nil unless session[:return_to].blank?
-    end
+    response = SessionValidatorService.call(params)
+    return render_response(response) unless response.nil?
+
+    self.resource = warden.authenticate!(auth_options)
+    sign_in(resource_name, resource)
+    render json: { success: true,
+                   message: I18n.t('devise.sessions.signed_in'),
+                   url: redirect_url }
+    session[:return_to] = nil unless session[:return_to].blank?
   end
 
   def google_auth
@@ -41,15 +34,16 @@ class SessionsController < Devise::SessionsController
 
   private
 
-  def set_user
-    User.find_by(email: params[:user][:email])
-  end
-
   def auth
     request.env['omniauth.auth']
   end
 
   def redirect_url
     request.base_url
+  end
+
+  def render_response(response)
+    render json: { success: false,
+                   message: response[:message] }
   end
 end

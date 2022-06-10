@@ -10,8 +10,8 @@ class RegistrationValidatorService < ApplicationService
 
   def call
     params_missing?(user_params) ||
-      user_exists?(user_params) ||
-      password_clashing?(password_params)
+    user_exists?(user_params) ||
+    password_clashing?(password_params)
   end
 
   private
