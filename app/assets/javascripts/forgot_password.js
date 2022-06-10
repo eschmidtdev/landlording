@@ -17,7 +17,7 @@ $(document).ready(function () {
         disableButton();
         const email = $('#ForgotPasswordEmail').val();
         $.ajax({
-            url: '/sent/email.user',
+            url: '/sent/email',
             type: 'POST',
             data: {user: {email: email}},
             success: function (data) {
