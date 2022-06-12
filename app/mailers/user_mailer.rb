@@ -2,6 +2,8 @@
 
 # This klass is responsible for handling email methods
 class UserMailer < ApplicationMailer
+  default from: 'isoquick217@gmail.com'
+  
   def send_verification_email(user)
     @user = user
 
