@@ -7,27 +7,34 @@
   <form name="personal_info" class="mt-4">
 
     <!-- First Name -->
+
     <div class="form-group">
       <label for="accountSettingFirstName">First Name</label>
-      <input
-        type="text"
-        id="accountSettingFirstName"
-        value="<%= user_name.first %>"
-        name="account[SettingFirstName]"
-        class="form-control form-control-lg input-45"
-      >
+      <div class="fake-input">
+        <input
+          type="text"
+          id="accountSettingFirstName"
+          value="<%= user_name.first %>"
+          name="account[SettingFirstName]"
+          class="form-control form-control-lg input-45"
+        >
+        <%= image_tag 'account_settings/acc_setting_edit_icon.svg', width: '20', id: 'FirstNameEdit' %>
+      </div>
     </div>
 
     <!-- Last Name -->
     <div class="form-group">
       <label for="accountSettingLastName">Last Name</label>
-      <input
-        type="text"
-        id="accountSettingLastName"
-        value="<%= user_name.last %>"
-        name="accountSetting[LastName]"
-        class="form-control form-control-lg input-45"
-      >
+      <div class="fake-input">
+        <input
+          type="text"
+          id="accountSettingLastName"
+          value="<%= user_name.last %>"
+          name="accountSetting[LastName]"
+          class="form-control form-control-lg input-45"
+        >
+        <%= image_tag 'account_settings/acc_setting_edit_icon.svg', width: '20' %>
+      </div>
     </div>
 
     <!-- Email -->
@@ -59,6 +66,7 @@
       %>
     </div>
 
+    <!-- Buttons -->
     <div class="d-flex justify-content-start">
       <button type="button" class="create-button">Save</button>
       <button type="button" class="cancel-button ml-3">Cancel</button>
@@ -67,3 +75,4 @@
   </form>
 
 </div>
+
