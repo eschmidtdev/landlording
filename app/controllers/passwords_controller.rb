@@ -7,7 +7,7 @@ class PasswordsController < Devise::PasswordsController
     yield resource if block_given?
 
     if successfully_sent?(resource)
-      render json: { success: false,
+      render json: { success: true,
                      url: confirmation_url }
     else
       render json: { success: false,

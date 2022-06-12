@@ -37,7 +37,6 @@ $(document).ready(function () {
                 }
             },
             error: function (exception) {
-                debugger;
             }
         });
         return false;

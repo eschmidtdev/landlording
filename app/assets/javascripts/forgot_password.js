@@ -22,7 +22,6 @@ $(document).ready(function () {
             data: {user: {email: email}},
             success: function (data) {
                 if (data.success === true) {
-                    clearErrors();
                     window.location.href = data.url;
                 }
                 if (data.success === false) {
