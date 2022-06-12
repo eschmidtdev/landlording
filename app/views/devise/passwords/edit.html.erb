@@ -5,7 +5,7 @@
 
   <div class="col-md-8 col-lg-6 col-xl-4 offset-xl-1">
     <!-- Sign in form -->
-    <%= form_for(resource, as: resource_name, url: password_path(resource_name), html: { method: :put }) do |f| %>
+    <%= form_for(resource, as: resource_name, url: password_path(resource_name), html: { method: :put, name: 'reset_password' }) do |f| %>
       <%= devise_error_messages! %>
       <%= f.hidden_field :reset_password_token %>
 
@@ -18,20 +18,31 @@
       </div>
 
       <!-- Password input -->
-      <div class="form-outline mt-4">
-        <label class="form-label font-normal" for="InputEmail">New Password*</label>
-        <%= f.password_field :password, autofocus: true, autocomplete: 'off', class: 'form-control form-control-lg', placeholder: "Enter your password", required: true %>
+      <div class="form-outline my-4">
+        <label class="form-label font-normal" for="ResetNewPassword">New Password*</label>
+        <%= f.password_field :password,
+                             autofocus: true,
+                             autocomplete: 'off',
+                             id: 'ResetNewPassword',
+                             placeholder: "Enter your password",
+                             class: 'form-control form-control-lg'
+        %>
       </div>
 
       <!-- Password conformation -->
-      <div class="form-outline mt-4">
-        <label class="form-label font-normal" for="InputEmail">Confirm Password*</label>
-        <%= f.password_field :password_confirmation, autocomplete: 'off', class: 'form-control form-control-lg', placeholder: "confirm your new password", required: true %>
+      <div class="form-outline">
+        <label class="form-label font-normal" for="ResetConfirmPassword">Confirm Password*</label>
+        <%= f.password_field :password_confirmation,
+                             autocomplete: 'off',
+                             id: 'ResetConfirmPassword',
+                             class: 'form-control form-control-lg',
+                             placeholder: "confirm your new password"
+        %>
       </div>
 
       <!-- Buttons -->
       <div class="my-4">
-        <%= f.submit 'Save', class: 'btn w-100 login_btn', onclick: "return;" %>
+        <%= f.submit 'Save', class: 'btn w-100 login_btn my-4', id: 'ResetPassword' %>
 
         <!-- Login Link -->
         <div class="d-flex justify-content-center my-4">
