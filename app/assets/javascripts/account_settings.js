@@ -16,6 +16,28 @@ $(document).ready(function () {
         });
     });
 
+    $(function () {
+        $("form[name='account_change_password']").validate({
+            rules: {
+                'Setting[CP]': {required: true, minlength: 8},
+                'Setting[NP]': {required: true, minlength: 8},
+                'Setting[CNP]': {required: true, equalTo: "#SettingCP"},
+            }, messages: {
+                'Setting[CP]': {
+                    required: 'Current Password is required',
+                    minlength: 'Password is too short (minimum is 8 characters)'
+                },
+                'Setting[NP]': {
+                    required: 'New Password is required',
+                    minlength: 'Password is too short (minimum is 8 characters)'
+                },
+                'Setting[CNP]': {required: 'Confirm New Password is required'},
+            }, submitHandler: function (form, e) {
+                // ajaxRequest(e);
+            }
+        });
+    });
+
     function ajaxRequest(e) {
         e.preventDefault();
         disableButton();
