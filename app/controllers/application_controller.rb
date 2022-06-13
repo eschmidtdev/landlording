@@ -17,7 +17,7 @@ class ApplicationController < ActionController::Base
   private
 
   def desired_controller?
-    params[:controller] == 'passwords'
+    params[:controller] == 'passwords' || params[:controller] == 'account_settings'
   end
 
 end

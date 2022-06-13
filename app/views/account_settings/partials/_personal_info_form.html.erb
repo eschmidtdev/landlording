@@ -5,16 +5,17 @@
 
   <!-- Personal Information Form -->
   <form name="personal_info" class="mt-4">
+    <input type="hidden" value="<%= current_user.id %>" id="accountSettingUserID">
 
     <!-- First Name -->
     <div class="form-group">
-      <label for="accountSettingFirstName" class="font-bold">First Name</label>
+      <label for="accountSettingFirstName" class="font-bold">First Name*</label>
       <div class="fake-input">
         <input
           type="text"
           id="accountSettingFirstName"
           value="<%= current_user.first_name %>"
-          name="account[SettingFirstName]"
+          name="accountSetting[FirstName]"
           class="form-control form-control-lg input-45"
         >
         <%= image_tag 'account_settings/acc_setting_edit_icon.svg', width: '20', id: 'FirstNameEdit' %>
@@ -23,7 +24,7 @@
 
     <!-- Last Name -->
     <div class="form-group">
-      <label for="accountSettingLastName" class="font-bold">Last Name</label>
+      <label for="accountSettingLastName" class="font-bold">Last Name*</label>
       <div class="fake-input">
         <input
           type="text"
@@ -43,8 +44,8 @@
         <input
           type="text"
           id="accountSettingCompanyName"
-          value=""
           name="accountSetting[CompanyName]"
+          value="<%= current_user.company_name %>"
           class="form-control form-control-lg input-45"
         >
         <%= image_tag 'account_settings/acc_setting_edit_icon.svg', width: '20' %>
@@ -66,13 +67,13 @@
 
     <!-- Phone Number -->
     <div class="form-group">
-      <label for="accountSettingPhoneNumber" class="font-bold">Phone Number</label>
+      <label for="accountSettingPhoneNumber" class="font-bold">Phone Number*</label>
       <div class="fake-input">
         <input
           type="text"
           id="accountSettingPhoneNumber"
-          value=""
           name="accountSetting[PhoneNumber]"
+          value="<%= current_user.phone_number %>"
           class="form-control form-control-lg input-45"
         >
         <%= image_tag 'account_settings/acc_setting_edit_icon.svg', width: '20' %>
@@ -97,6 +98,7 @@
     <!--    </div>-->
     <!--    Removed as per doc requirements -->
 
+    <!--    Change Password -->
     <div class="my-4">
       <%= link_to 'Change Password',
                   change_password_account_setting_path(1),
@@ -106,9 +108,15 @@
 
     <!-- Buttons -->
     <div class="d-flex justify-content-start">
-      <button type="button" class="create-button">Save</button>
+      <button type="submit" class="create-button" id="SavePersonalInfo">Save</button>
       <button type="button" class="cancel-button ml-3">Cancel</button>
     </div>
+
+    <!-- ErrorAlert -->
+    <div class="d-flex justify-content-center">
+      <div class="error_alert display_none mt-4 text-center"></div>
+    </div>
+
 
   </form>
 
