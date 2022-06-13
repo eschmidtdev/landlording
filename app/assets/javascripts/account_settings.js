@@ -42,13 +42,14 @@ $(document).ready(function () {
                         .append(data.message)
                         .delay(2000)
                         .fadeOut(300);
+                    enableButton();
                 }
                 if (data.success === false) {
-                    enableButton();
                     $('.error_alert').removeClass('display_none').text('')
                         .append(data.message)
                         .delay(2000)
                         .fadeOut(300);
+                    enableButton();
                 }
             },
             error: function (exception) {
