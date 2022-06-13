@@ -37,6 +37,21 @@
       </div>
     </div>
 
+    <!-- Company Name -->
+    <div class="form-group">
+      <label for="accountSettingCompanyName">Company Name</label>
+      <div class="fake-input">
+        <input
+          type="text"
+          id="accountSettingCompanyName"
+          value=""
+          name="accountSetting[CompanyName]"
+          class="form-control form-control-lg input-45"
+        >
+        <%= image_tag 'account_settings/acc_setting_edit_icon.svg', width: '20' %>
+      </div>
+    </div>
+
     <!-- Email -->
     <div class="form-group">
       <label for="accountSettingEmail">Email</label>
@@ -50,17 +65,43 @@
       <span class="instruction opacity-0-5">Email address cannot be changed</span>
     </div>
 
-    <!-- Password -->
+    <!-- Phone Number -->
     <div class="form-group">
-      <label for="accountSettingPassword">Password</label>
-      <input
-        type="password"
-        id="accountSettingPassword"
-        name="accountSetting[Password]"
-        class="form-control form-control-lg input-45"
-      >
-      <span class="instruction opacity-0-5">Want to change the password?</span>
-      <%= link_to 'Click here',
+      <label for="accountSettingPhoneNumber">Phone Number</label>
+      <div class="fake-input">
+        <input
+          type="text"
+          id="accountSettingPhoneNumber"
+          value=""
+          name="accountSetting[PhoneNumber]"
+          class="form-control form-control-lg input-45"
+        >
+        <%= image_tag 'account_settings/acc_setting_edit_icon.svg', width: '20' %>
+      </div>
+    </div>
+
+    <!--    Removed as per doc requirements -->
+
+    <!-- Password -->
+    <!--    <div class="form-group">-->
+    <!--      <label for="accountSettingPassword">Password</label>-->
+    <!--      <input-->
+    <!--        type="password"-->
+    <!--        id="accountSettingPassword"-->
+    <!--        name="accountSetting[Password]"-->
+    <!--        class="form-control form-control-lg input-45"-->
+    <!--      >-->
+    <!--      <span class="instruction opacity-0-5">Want to change the password?</span>-->
+    <%#= link_to 'Change Password',
+                  change_password_account_setting_path(1),
+                  class: 'password-link bold ml-1'
+    %>
+    <!--    </div>-->
+
+    <!--    Removed as per doc requirements -->
+
+    <div class="my-4">
+      <%= link_to 'Change Password',
                   change_password_account_setting_path(1),
                   class: 'password-link bold ml-1'
       %>
