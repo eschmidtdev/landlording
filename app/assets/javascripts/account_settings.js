@@ -68,5 +68,6 @@ $(document).ready(function () {
     function clearErrors() {
         $('.error_alert').text('').addClass('display_none');
     }
+
 });
 

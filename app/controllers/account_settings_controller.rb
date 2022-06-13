@@ -22,6 +22,7 @@ class AccountSettingsController < ApplicationController
   def set_user = @user = User.find(params[:id])
 
   def account_settings_params
-    params.require(:account_setting).permit(:first_name, :last_name, :phone_number, :company_name)
+    params.require(:account_setting).permit(:first_name, :last_name, :phone_number,
+                                            :company_name)
   end
 end
