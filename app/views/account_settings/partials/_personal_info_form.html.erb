@@ -7,14 +7,13 @@
   <form name="personal_info" class="mt-4">
 
     <!-- First Name -->
-
     <div class="form-group">
-      <label for="accountSettingFirstName">First Name</label>
+      <label for="accountSettingFirstName" class="font-bold">First Name</label>
       <div class="fake-input">
         <input
           type="text"
           id="accountSettingFirstName"
-          value="<%= user_name.first %>"
+          value="<%= current_user.first_name %>"
           name="account[SettingFirstName]"
           class="form-control form-control-lg input-45"
         >
@@ -24,12 +23,12 @@
 
     <!-- Last Name -->
     <div class="form-group">
-      <label for="accountSettingLastName">Last Name</label>
+      <label for="accountSettingLastName" class="font-bold">Last Name</label>
       <div class="fake-input">
         <input
           type="text"
           id="accountSettingLastName"
-          value="<%= user_name.last %>"
+          value="<%= current_user.last_name %>"
           name="accountSetting[LastName]"
           class="form-control form-control-lg input-45"
         >
@@ -39,7 +38,7 @@
 
     <!-- Company Name -->
     <div class="form-group">
-      <label for="accountSettingCompanyName">Company Name</label>
+      <label for="accountSettingCompanyName" class="font-bold">Company Name</label>
       <div class="fake-input">
         <input
           type="text"
@@ -54,7 +53,7 @@
 
     <!-- Email -->
     <div class="form-group">
-      <label for="accountSettingEmail">Email</label>
+      <label for="accountSettingEmail" class="font-bold">Email</label>
       <input
         readonly
         type="email"
@@ -67,7 +66,7 @@
 
     <!-- Phone Number -->
     <div class="form-group">
-      <label for="accountSettingPhoneNumber">Phone Number</label>
+      <label for="accountSettingPhoneNumber" class="font-bold">Phone Number</label>
       <div class="fake-input">
         <input
           type="text"
@@ -81,7 +80,6 @@
     </div>
 
     <!--    Removed as per doc requirements -->
-
     <!-- Password -->
     <!--    <div class="form-group">-->
     <!--      <label for="accountSettingPassword">Password</label>-->
@@ -97,7 +95,6 @@
                   class: 'password-link bold ml-1'
     %>
     <!--    </div>-->
-
     <!--    Removed as per doc requirements -->
 
     <div class="my-4">

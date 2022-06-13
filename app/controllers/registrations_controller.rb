@@ -23,12 +23,15 @@ class RegistrationsController < Devise::RegistrationsController
     user.confirmed_at = nil
     user.confirmation_sent_at = DateTime.now
     user.password_confirmation = user.password
+    construct_name(user)
     user.save!
     user
   end
 
   def user_params
-    params.require(:user).permit(:name, :email, :password, :password_confirmation)
+    params.require(:user).permit(:first_name,
+                                 :last_name, :email, :password,
+                                 :password_confirmation)
   end
 
   def render_response(response)
@@ -39,5 +42,11 @@ class RegistrationsController < Devise::RegistrationsController
 
   def redirect_url
     request.base_url + signup_path
+  end
+
+  def construct_name(user)
+    name = params[:user][:full_name].split
+    user.first_name = name.shift
+    user.last_name = name.join(' ')
   end
 end
