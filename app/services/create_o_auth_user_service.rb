@@ -15,9 +15,9 @@ class CreateOAuthUserService
 
   def call
     User.find_or_create_by(uid: @auth['uid']) do |u|
-      u.first_name                 = @name
       u.email                      = @email
       u.password                   = @password
+      u.first_name                 = @name
       u.google_token               = @token
       u.confirmed_at               = DateTime.now
       u.google_refresh_token       = @refresh_token if @refresh_token.present?
