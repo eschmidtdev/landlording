@@ -55,10 +55,7 @@ $(document).ready(function () {
     }
 
     function response_handler(data) {
-        if (data.success === true) {
-            render_message(data);
-        }
-        if (data.success === false) {
+        if (data.success === true || data.success === false) {
             render_message(data);
         }
     }

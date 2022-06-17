@@ -75,6 +75,7 @@
           name="accountSetting[PhoneNumber]"
           value="<%= current_user.phone_number %>"
           class="form-control form-control-lg input-45"
+          onkeypress="return event.charCode >= 48 && event.charCode <= 57"
         >
         <%= image_tag 'account_settings/acc_setting_edit_icon.svg', width: '20' %>
       </div>
