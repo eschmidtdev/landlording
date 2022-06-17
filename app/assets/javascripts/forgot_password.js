@@ -4,7 +4,8 @@ $(document).ready(function () {
         $("form[name='forgot_password']").validate({
             rules: {
                 'user[email]': {required: true, email: true}
-            }, messages: {
+            },
+            messages: {
                 'user[email]': 'Please enter a valid email address'
             }, submitHandler: function (form, e) {
                 ajaxRequest(e);
