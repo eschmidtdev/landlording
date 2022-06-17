@@ -1,7 +1,7 @@
 # frozen_string_literal: true
 
 class AccountSettingsController < ApplicationController
-  before_action :set_user, only: :update
+  before_action :set_user, only: %i[update destroy]
 
   def index; end
 
@@ -37,6 +37,13 @@ class AccountSettingsController < ApplicationController
                        message: 'Personal Information can not be updated successfully.' }
       end
     end
+  end
+
+  def destroy
+    @user.payment_detail.destroy
+    render json: { success: true,
+                   message: 'Billing Details has been deleted successfully' }
+
   end
 
   private

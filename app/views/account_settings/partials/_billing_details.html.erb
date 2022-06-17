@@ -9,6 +9,11 @@
     </div>
   </div>
 
+  <!-- ErrorAlert -->
+  <div class="d-flex justify-content-start error_alert_container display_none mt-5">
+    <div class="error_alert display_none mb-4" id="BillingDetailNotice"></div>
+  </div>
+
   <!-- Billing Details Cards -->
   <div class="mt-5">
     <div class="row">
@@ -37,20 +42,27 @@
                       <%= image_tag 'global_images/more.svg', width: '20' %>
                     </a>
                     <div class="dropdown-menu" aria-labelledby="dropdownMenuButton">
-                      <a class="dropdown-item" href="<%= payment_details_path %>">
-                        <div class="d-flex justify-content-start">
-                          <%= image_tag 'account_settings/edit_svg.svg', class: 'm-0', width: '15' %>
-                          <span class="ml-2">Edit</span>
-                        </div>
-                      </a>
                       <% if current_user.payment_detail.present? %>
-                        <a class="dropdown-item" href="#">
+                        <a class="dropdown-item" href="<%= payment_details_path %>">
+                          <div class="d-flex justify-content-start">
+                            <%= image_tag 'account_settings/edit_svg.svg', class: 'm-0', width: '15' %>
+                            <span class="ml-2">Edit</span>
+                          </div>
+                        </a>
+                        <a class="dropdown-item" id="DeleteBillingDetails" data-user-id="<%= current_user.id %>">
                           <div class="d-flex justify-content-start">
                             <%= image_tag 'account_settings/delete_icon.svg', class: 'm-0', width: '15' %>
                             <span class="ml-2">Delete</span>
                           </div>
                         </a>
-                      <% end %>
+                        <% else %>
+                        <a class="dropdown-item" href="<%= payment_details_path %>">
+                          <div class="d-flex justify-content-start">
+                            <%= image_tag 'account_settings/edit_svg.svg', class: 'm-0', width: '15' %>
+                            <span class="ml-2">Add</span>
+                          </div>
+                        </a>
+                        <% end %>
                     </div>
                   </div>
                 </div>

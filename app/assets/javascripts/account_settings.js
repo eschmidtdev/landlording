@@ -18,6 +18,11 @@ $(document).ready(function () {
         });
     });
 
+    $( "#DeleteBillingDetails" ).click(function() {
+        const userID = $(this).data('user-id');
+        ajaxDeleteReq(userID);
+    });
+
     function ajaxRequest(e) {
         e.preventDefault();
         disableButton();
@@ -44,6 +49,30 @@ $(document).ready(function () {
             }
         });
         return false;
+    }
+
+    function ajaxDeleteReq(id) {
+        $.ajax({
+            url: `/account_settings/${id}`,
+            type: 'DELETE',
+            data: {
+                account_setting: {
+                    id: id
+                }
+            },
+            success: function (data) {
+                if (data.success === true) {
+                    $('#BillingDetailNotice')
+                        .show()
+                        .append(data.message)
+                        .delay(2000)
+                        .fadeOut(300);
+                }
+                location.reload();
+            },
+            error: function (exception) {
+            }
+        });
     }
 
     function enableButton() {
