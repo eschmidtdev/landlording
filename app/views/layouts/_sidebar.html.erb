@@ -28,10 +28,10 @@
       </a>
     </li>
 
-    <li class="<%= 'active_border' if (params[:controller] == 'account_settings' || params[:controller] == 'subscriptions' || params[:controller] == 'payments') %>">
+    <li class="<%= 'active_border' if (params[:controller] == 'account_settings' || params[:controller] == 'subscriptions' || params[:controller] == 'payment_details') %>">
       <a href="<%= account_settings_path %>">
-        <%= image_tag (params[:controller] == 'account_settings' || params[:controller] == 'subscriptions' || params[:controller] == 'payments') ? 'sidebar/active_account_setting.svg' : 'sidebar/inactive_account_setting.svg', width: '25' %>
-        <span class="<%= 'active' if (params[:controller] == 'account_settings' || params[:controller] == 'subscriptions' || params[:controller] == 'payments') %>">Account Settings</span>
+        <%= image_tag (params[:controller] == 'account_settings' || params[:controller] == 'subscriptions' || params[:controller] == 'payment_details') ? 'sidebar/active_account_setting.svg' : 'sidebar/inactive_account_setting.svg', width: '25' %>
+        <span class="<%= 'active' if (params[:controller] == 'account_settings' || params[:controller] == 'subscriptions' || params[:controller] == 'payment_details') %>">Account Settings</span>
       </a>
     </li>
   </ul>

@@ -37,18 +37,20 @@
                       <%= image_tag 'global_images/more.svg', width: '20' %>
                     </a>
                     <div class="dropdown-menu" aria-labelledby="dropdownMenuButton">
-                      <a class="dropdown-item" href="#">
+                      <a class="dropdown-item" href="<%= payment_details_path %>">
                         <div class="d-flex justify-content-start">
                           <%= image_tag 'account_settings/edit_svg.svg', class: 'm-0', width: '15' %>
                           <span class="ml-2">Edit</span>
                         </div>
                       </a>
-                      <a class="dropdown-item" href="#">
-                        <div class="d-flex justify-content-start">
-                          <%= image_tag 'account_settings/delete_icon.svg', class: 'm-0', width: '15' %>
-                          <span class="ml-2">Delete</span>
-                        </div>
-                      </a>
+                      <% if current_user.payment_detail.present? %>
+                        <a class="dropdown-item" href="#">
+                          <div class="d-flex justify-content-start">
+                            <%= image_tag 'account_settings/delete_icon.svg', class: 'm-0', width: '15' %>
+                            <span class="ml-2">Delete</span>
+                          </div>
+                        </a>
+                      <% end %>
                     </div>
                   </div>
                 </div>
@@ -60,13 +62,13 @@
 
         <!--    Removed as per doc requirements -->
 
-<!--        <div class="col-md-6 card-rectangle pull-right">-->
-<!--          <div class="parent">-->
-<!--            <span class="child">-->
-<!--              <b><%#= link_to 'Add Payment Method', payments_path, class: 'add-payment-btn bold' %></b>-->
-<!--            </span>-->
-<!--          </div>-->
-<!--        </div>-->
+        <!--        <div class="col-md-6 card-rectangle pull-right">-->
+        <!--          <div class="parent">-->
+        <!--            <span class="child">-->
+        <!--              <b><%#= link_to 'Add Payment Method', payments_path, class: 'add-payment-btn bold' %></b>-->
+        <!--            </span>-->
+        <!--          </div>-->
+        <!--        </div>-->
 
         <!--    Removed as per doc requirements -->
       </div>

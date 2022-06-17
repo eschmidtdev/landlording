@@ -17,7 +17,7 @@ Rails.application.routes.draw do
       get :confirm_email
     end
   end
-  resources :payments, only: :index
+  resources :payment_details, only: %i[index update]
   resources :visitors, only: :index
   resources :properties
   resources :account_settings do

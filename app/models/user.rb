@@ -9,9 +9,10 @@ class User < ApplicationRecord
          :recoverable, :rememberable, :trackable, :validatable
 
   # Associations
-  has_many :documents, dependent: :destroy
-  has_many :cards, dependent: :destroy
   has_one :subscription, dependent: :destroy
+  has_one :payment_detail, dependent: :destroy
+
+  has_many :documents, dependent: :destroy
 
   # Activerecord callbacks
   after_create :set_subscription

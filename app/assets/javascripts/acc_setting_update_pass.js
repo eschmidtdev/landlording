@@ -93,4 +93,5 @@ $(document).ready(function () {
     $('#SettingCP').keyup(function () {
         $('#PassIncorrect').hide();
     });
+
 });

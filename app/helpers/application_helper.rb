@@ -3,21 +3,6 @@
 # This module is responsible for method that is (mostly) used in your Rails
 # views to share reusable code
 module ApplicationHelper
-  def from_e_form_tab?
-    params[:controller] == 'subscriptions' ||
-      params[:controller] == 'documents' ||
-      params[:controller] == 'payments' ||
-      params[:controller] == 'registrations' ||
-      params[:controller] == 'visitors'
-  end
-
-  def check_for(value)
-    value.present? ? value : ''
-  end
-
-  def check_for_home_path
-    user_signed_in? ? documents_path : root_path
-  end
 
   def current?(key, path)
     key.to_s if current_page? path
@@ -44,7 +29,7 @@ module ApplicationHelper
       'My Subscription'
     elsif params[:controller] == 'subscriptions' && params[:action] == 'cancel-subscription'
       'Cancel Subscription'
-    elsif params[:controller] == 'payments' && params[:action] == 'index'
+    elsif params[:controller] == 'payment_details' && params[:action] == 'index'
       'Enter Payment Details'
     end
   end
