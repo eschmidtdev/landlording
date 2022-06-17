@@ -4,6 +4,10 @@
 # views to share reusable code
 module ApplicationHelper
 
+  def check_for(value)
+    value.present? ? value : ''
+  end
+
   def current?(key, path)
     key.to_s if current_page? path
   end

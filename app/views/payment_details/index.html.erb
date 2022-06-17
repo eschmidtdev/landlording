@@ -18,7 +18,8 @@
 
         <form name="billing_information">
           <input type="hidden" value="<%= current_user.id %>" id="BillingUserID">
-          <% payment_detail = current_user.payment_detail %>
+          <input type="hidden" value="<%= @from %>" id="BillingFrom">
+          <% payment_detail = current_user&.payment_detail %>
 
           <!-- First & Last Name -->
           <div class="row">
@@ -32,7 +33,7 @@
                     name="Billing[FN]"
                     autofocus="autofocus"
                     placeholder="Enter First Name"
-                    value="<%= payment_detail.first_name %>"
+                    value="<%= check_for(payment_detail&.first_name) %>"
                     class="form-control form-control-lg input-45"
                   >
                 </div>
@@ -46,7 +47,7 @@
                     name="Billing[LN]"
                     autofocus="autofocus"
                     placeholder="Enter Last Name"
-                    value="<%= payment_detail.last_name %>"
+                    value="<%= check_for(payment_detail&.last_name) %>"
                     class="form-control form-control-lg input-45"
                   >
                 </div>
@@ -62,7 +63,7 @@
               id="BillingCN"
               name="Billing[CN]"
               autofocus="autofocus"
-              value="<%= payment_detail.company %>"
+              value="<%= check_for(payment_detail&.company) %>"
               class="form-control form-control-lg input-45"
             >
           </div>
@@ -75,7 +76,7 @@
               id="BillingAL1"
               name="Billing[AL1]"
               autofocus="autofocus"
-              value="<%= payment_detail.address_line_one %>"
+              value="<%= check_for(payment_detail&.address_line_one) %>"
               class="form-control form-control-lg input-45"
             >
           </div>
@@ -88,7 +89,7 @@
               id="BillingAL2"
               name="Billing[AL2]"
               autofocus="autofocus"
-              value="<%= payment_detail.address_line_two %>"
+              value="<%= check_for(payment_detail&.address_line_two) %>"
               class="form-control form-control-lg input-45"
             >
           </div>
@@ -105,7 +106,7 @@
                     name="Billing[PC]"
                     autofocus="autofocus"
                     placeholder="Zip Code"
-                    value="<%= payment_detail.postal_code %>"
+                    value="<%= check_for(payment_detail&.postal_code) %>"
                     class="form-control form-control-lg input-45"
                   >
                 </div>
@@ -119,7 +120,7 @@
                     placeholder="City"
                     name="Billing[City]"
                     autofocus="autofocus"
-                    value="<%= payment_detail.city %>"
+                    value="<%= check_for(payment_detail&.city) %>"
                     class="form-control form-control-lg input-45"
                   >
                 </div>
@@ -139,7 +140,7 @@
                     placeholder="State"
                     name="Billing[State]"
                     autofocus="autofocus"
-                    value="<%= payment_detail.state %>"
+                    value="<%= check_for(payment_detail&.state) %>"
                     class="form-control form-control-lg input-45"
                   >
                 </div>
@@ -173,9 +174,10 @@
               id="BillingCardNumber"
               name="Billing[CardNumber]"
               placeholder="Your Card Number"
-              value="<%= payment_detail.card_number %>"
+              value="<%= check_for(payment_detail&.card_number) %>"
               class="form-control form-control-lg input-45"
               onkeypress="return event.charCode >= 48 && event.charCode <= 57"
+              oncopy="return false" oncut="return false" onpaste="return false"
             >
           </div>
 
@@ -191,8 +193,10 @@
                     name="Billing[EXP]"
                     placeholder="MM/YY"
                     autofocus="autofocus"
-                    value="<%= payment_detail.exp %>"
+                    value="<%= check_for(payment_detail&.exp) %>"
                     class="form-control form-control-lg input-45"
+                    onkeypress="return event.charCode >= 48 && event.charCode <= 57"
+                    oncopy="return false" oncut="return false" onpaste="return false"
                   >
                 </div>
               </div>
@@ -205,8 +209,10 @@
                     placeholder="CVC"
                     name="Billing[CVC]"
                     autofocus="autofocus"
-                    value="<%= payment_detail.cvc %>"
+                    value="<%= check_for(payment_detail&.cvc) %>"
                     class="form-control form-control-lg input-45"
+                    onkeypress="return event.charCode >= 48 && event.charCode <= 57"
+                    oncopy="return false" oncut="return false" onpaste="return false"
                   >
                 </div>
               </div>
