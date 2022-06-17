@@ -3,14 +3,16 @@ $(document).ready(function () {
     $(function () {
         $("form[name='personal_info']").validate({
             rules: {
-                'accountSetting[FirstName]': {required: true},
                 'accountSetting[LastName]': {required: true},
+                'accountSetting[FirstName]': {required: true},
                 'accountSetting[PhoneNumber]': {required: true},
-            }, messages: {
-                'accountSetting[FirstName]': 'First name is required',
+            },
+            messages: {
                 'accountSetting[LastName]': 'Last name is required',
+                'accountSetting[FirstName]': 'First name is required',
                 'accountSetting[PhoneNumber]': 'Phone number is required'
-            }, submitHandler: function (form, e) {
+            },
+            submitHandler: function (form, e) {
                 ajaxRequest(e);
             }
         });
@@ -19,8 +21,8 @@ $(document).ready(function () {
     function ajaxRequest(e) {
         e.preventDefault();
         disableButton();
-        const first_name = $('#accountSettingFirstName').val();
         const last_name = $('#accountSettingLastName').val();
+        const first_name = $('#accountSettingFirstName').val();
         const phone_number = $('#accountSettingPhoneNumber').val();
         const company_name = $('#accountSettingCompanyName').val();
         const user_id = $('#accountSettingUserID').val();
@@ -31,26 +33,12 @@ $(document).ready(function () {
                 account_setting: {
                     last_name: last_name,
                     first_name: first_name,
-                    company_name: company_name,
-                    phone_number: phone_number
+                    phone_number: phone_number,
+                    company_name: company_name
                 }
             },
             success: function (data) {
-                if (data.success === true) {
-                    clearErrors();
-                    $('.error_alert').removeClass('display_none').text('')
-                        .append(data.message)
-                        .delay(2000)
-                        .fadeOut(300);
-                    enableButton();
-                }
-                if (data.success === false) {
-                    $('.error_alert').removeClass('display_none').text('')
-                        .append(data.message)
-                        .delay(2000)
-                        .fadeOut(300);
-                    enableButton();
-                }
+                response_handler(data);
             },
             error: function (exception) {
             }
@@ -58,18 +46,38 @@ $(document).ready(function () {
         return false;
     }
 
-    function disableButton() {
-        $('#AccSettingUpdatePassBtn').prop('disabled', true);
+    function clearErrors() {
+        $('.error_alert').empty().addClass('display_none');
     }
 
     function enableButton() {
         $('#AccSettingUpdatePassBtn').prop('disabled', false);
     }
 
-    function clearErrors() {
-        $('.error_alert').text('').addClass('display_none');
-        $('#PassIncorrect').text('').addClass('display_none');
+    function disableButton() {
+        $('#AccSettingUpdatePassBtn').prop('disabled', true);
+    }
+
+    function render_message(data) {
+        clearErrors();
+        $('.error_alert')
+            .removeClass('display_none')
+            .append(data.message)
+            .delay(2000)
+            .fadeOut(300);
+        enableButton();
+    }
+
+    function response_handler(data) {
+        if (data.success === true) {
+            render_message(data);
+        }
+        if (data.success === false) {
+            render_message(data);
+        }
     }
 
 });
+
+
 
