@@ -78,11 +78,18 @@ $(document).ready(function () {
     }
 
     function clearErrors() {
-        $('.error_alert').text('').addClass('display_none');
-        $('.success_alert').text('').addClass('display_none');
-        $('#UserExists').text('').addClass('display_none');
-        $('#PasswordError').text('').addClass('display_none');
+        $('.error_alert').text('').hide();
+        $('.success_alert').text('').hide();
+        $('#UserExists').text('').hide();
+        $('#PasswordError').text('').hide();
     }
+
+    $('#RegEmail').keyup(function () {
+        $('#UserExists').hide();
+    });
+    $('#RegPass').keyup(function () {
+        $('#PasswordError').hide();
+    });
 
 });
 
