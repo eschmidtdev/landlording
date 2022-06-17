@@ -6,7 +6,8 @@ $(document).ready(function () {
                 'Setting[CP]': {required: true, minlength: 8},
                 'Setting[NP]': {required: true, minlength: 8},
                 'Setting[CNP]': {required: true, equalTo: "#SettingNP"},
-            }, messages: {
+            },
+            messages: {
                 'Setting[CP]': {
                     required: 'Current Password is required',
                     minlength: 'Password is too short (minimum is 8 characters)'
@@ -16,7 +17,8 @@ $(document).ready(function () {
                     minlength: 'Password is too short (minimum is 8 characters)'
                 },
                 'Setting[CNP]': {required: 'Confirm New Password is required'},
-            }, submitHandler: function (form, e) {
+            },
+            submitHandler: function (form, e) {
                 ajaxReqUpdatePassword(e);
             }
         });
@@ -25,8 +27,8 @@ $(document).ready(function () {
     function ajaxReqUpdatePassword(e) {
         e.preventDefault();
         disableButton();
-        const current_password = $('#SettingCP').val();
         const new_password = $('#SettingNP').val();
+        const current_password = $('#SettingCP').val();
         const confirm_password = $('#SettingCNP').val();
         const user_id = $('#AccSettingPassUpdateUID').val();
         $.ajax({
@@ -34,33 +36,14 @@ $(document).ready(function () {
             type: 'PUT',
             data: {
                 account_setting: {
-                    current_password: current_password,
                     new_password: new_password,
+                    current_password: current_password,
                     confirm_password: confirm_password,
                     from: 'ChangePassword'
                 }
             },
             success: function (data) {
-                if (data.success === true) {
-                    clearErrors();
-                    $("#ChangePassword").trigger("reset");
-                    $('.error_alert').removeClass('display_none').text('')
-                        .append(data.message)
-                        .delay(2000)
-                        .fadeOut(300);
-                    enableButton();
-                }
-                if (data.success === false) {
-                    clearErrors();
-                    if (data.error === 'current_password') {
-                        $('#PassIncorrect').text('').removeClass('display_none').text(data.message);
-                    }
-                    // $('.error_alert').removeClass('display_none').text('')
-                    //     .append(data.message)
-                    //     .delay(2000)
-                    //     .fadeOut(300);
-                    // enableButton();
-                }
+                response_handler(data);
             },
             error: function (exception) {
             }
@@ -68,12 +51,38 @@ $(document).ready(function () {
         return false;
     }
 
+    function enableButton() {
+        $('#SavePersonalInfo').prop('disabled', false);
+    }
+
     function disableButton() {
         $('#SavePersonalInfo').prop('disabled', true);
     }
 
-    function enableButton() {
-        $('#SavePersonalInfo').prop('disabled', false);
+    function response_handler(data) {
+        clearErrors();
+        if (data.success === true) {
+            render_response(data);
+        }
+        if (data.success === false) {
+            render_conditional_response(data);
+        }
+        enableButton();
+    }
+
+    function render_response(data) {
+        $("#ChangePassword").trigger("reset");
+        $('.error_alert')
+            .show()
+            .append(data.message)
+            .delay(2000)
+            .fadeOut(300);
+    }
+
+    function render_conditional_response(data) {
+        if (data.error === 'current_password') {
+            $('#PassIncorrect').show().text(data.message);
+        }
     }
 
     function clearErrors() {
@@ -81,4 +90,7 @@ $(document).ready(function () {
         $('#PassIncorrect').text('').addClass('display_none');
     }
 
+    $('#SettingCP').keyup(function () {
+        $('#PassIncorrect').hide();
+    });
 });
