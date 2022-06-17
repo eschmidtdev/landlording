@@ -46,26 +46,12 @@ $(document).ready(function () {
         return false;
     }
 
-    function clearErrors() {
-        $('.error_alert').empty().addClass('display_none');
-    }
-
     function enableButton() {
         $('#AccSettingUpdatePassBtn').prop('disabled', false);
     }
 
     function disableButton() {
         $('#AccSettingUpdatePassBtn').prop('disabled', true);
-    }
-
-    function render_message(data) {
-        clearErrors();
-        $('.error_alert')
-            .removeClass('display_none')
-            .append(data.message)
-            .delay(2000)
-            .fadeOut(300);
-        enableButton();
     }
 
     function response_handler(data) {
@@ -75,6 +61,20 @@ $(document).ready(function () {
         if (data.success === false) {
             render_message(data);
         }
+    }
+
+    function render_message(data) {
+        clearErrors();
+        $('.error_alert')
+            .show()
+            .append(data.message)
+            .delay(2000)
+            .fadeOut(300);
+        enableButton();
+    }
+
+    function clearErrors() {
+        $('.error_alert').text('').addClass('display_none');
     }
 
 });
