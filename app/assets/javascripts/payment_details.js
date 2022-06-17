@@ -11,7 +11,7 @@ $(document).ready(function () {
                 'Billing[CVC]':        {required: true},
                 'Billing[City]':       {required: true},
                 'Billing[State]':      {required: true},
-                'Billing[Country]':    {required: true},
+                // 'Billing[Country]':    {required: true},
                 'Billing[CardNumber]': {required: true},
             },
             messages: {
@@ -22,7 +22,7 @@ $(document).ready(function () {
                 'Billing[LN]':         {required: 'Last Name is required'},
                 'Billing[FN]':         {required: 'First Name is required'},
                 'Billing[PC]':         {required: 'Postal Code is required'},
-                'Billing[Country]':    {required: 'Country Name is required'},
+                // 'Billing[Country]':    {required: 'Country Name is required'},
                 'Billing[CVC]':        {required: 'Security Code is required'},
                 'Billing[CardNumber]': {required: 'Card Number is required'}
             },
@@ -72,6 +72,7 @@ $(document).ready(function () {
                 clearErrors();
                 response_handler(data);
                 enableButton();
+                $('html, body').animate({ scrollTop: 0 }, 'slow');
             },
             error: function (exception) {
             }
@@ -87,7 +88,7 @@ $(document).ready(function () {
         $('#SaveBillingInfo').prop('disabled', true);
     }
 
-    function  response_handler(data){
+    function response_handler(data){
         if (data.success === true){
             render_response(data)
         }
@@ -97,7 +98,7 @@ $(document).ready(function () {
         $('.error_alert')
             .show()
             .append(data.message)
-            .delay(2000)
+            .delay(5000)
             .fadeOut(300);
     }
 

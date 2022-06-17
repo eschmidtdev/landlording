@@ -10,12 +10,15 @@
       <div class="col-md-12">
 
         <!-- ErrorAlert -->
-        <div class="error_alert display_none"></div>
+        <div class="d-flex justify-content-start error_alert_container display_none">
+          <div class="error_alert display_none mb-4"></div>
+        </div>
 
         <h4 class="billing_form_heading mb-4">Billing Information</h4>
 
         <form name="billing_information">
           <input type="hidden" value="<%= current_user.id %>" id="BillingUserID">
+          <% payment_detail = current_user.payment_detail %>
 
           <!-- First & Last Name -->
           <div class="row">
@@ -29,6 +32,7 @@
                     name="Billing[FN]"
                     autofocus="autofocus"
                     placeholder="Enter First Name"
+                    value="<%= payment_detail.first_name %>"
                     class="form-control form-control-lg input-45"
                   >
                 </div>
@@ -42,6 +46,7 @@
                     name="Billing[LN]"
                     autofocus="autofocus"
                     placeholder="Enter Last Name"
+                    value="<%= payment_detail.last_name %>"
                     class="form-control form-control-lg input-45"
                   >
                 </div>
@@ -57,6 +62,7 @@
               id="BillingCN"
               name="Billing[CN]"
               autofocus="autofocus"
+              value="<%= payment_detail.company %>"
               class="form-control form-control-lg input-45"
             >
           </div>
@@ -69,6 +75,7 @@
               id="BillingAL1"
               name="Billing[AL1]"
               autofocus="autofocus"
+              value="<%= payment_detail.address_line_one %>"
               class="form-control form-control-lg input-45"
             >
           </div>
@@ -81,6 +88,7 @@
               id="BillingAL2"
               name="Billing[AL2]"
               autofocus="autofocus"
+              value="<%= payment_detail.address_line_two %>"
               class="form-control form-control-lg input-45"
             >
           </div>
@@ -97,6 +105,7 @@
                     name="Billing[PC]"
                     autofocus="autofocus"
                     placeholder="Zip Code"
+                    value="<%= payment_detail.postal_code %>"
                     class="form-control form-control-lg input-45"
                   >
                 </div>
@@ -110,6 +119,7 @@
                     placeholder="City"
                     name="Billing[City]"
                     autofocus="autofocus"
+                    value="<%= payment_detail.city %>"
                     class="form-control form-control-lg input-45"
                   >
                 </div>
@@ -129,6 +139,7 @@
                     placeholder="State"
                     name="Billing[State]"
                     autofocus="autofocus"
+                    value="<%= payment_detail.state %>"
                     class="form-control form-control-lg input-45"
                   >
                 </div>
@@ -162,7 +173,9 @@
               id="BillingCardNumber"
               name="Billing[CardNumber]"
               placeholder="Your Card Number"
+              value="<%= payment_detail.card_number %>"
               class="form-control form-control-lg input-45"
+              onkeypress="return event.charCode >= 48 && event.charCode <= 57"
             >
           </div>
 
@@ -178,6 +191,7 @@
                     name="Billing[EXP]"
                     placeholder="MM/YY"
                     autofocus="autofocus"
+                    value="<%= payment_detail.exp %>"
                     class="form-control form-control-lg input-45"
                   >
                 </div>
@@ -188,9 +202,10 @@
                   <input
                     type="text"
                     id="BillingCVC"
+                    placeholder="CVC"
                     name="Billing[CVC]"
                     autofocus="autofocus"
-                    placeholder="CVC"
+                    value="<%= payment_detail.cvc %>"
                     class="form-control form-control-lg input-45"
                   >
                 </div>
@@ -200,7 +215,11 @@
 
           <div class="d-flex justify-content-start mb-5">
             <button type="submit" class="create-button" id="SaveBillingInfo">Save</button>
-            <button type="button" class="cancel-button ml-3">Cancel</button>
+            <button type="button"
+                    onclick="window.location.href='<%= account_settings_path %>'"
+                    class="cancel-button ml-3">
+              Cancel
+            </button>
           </div>
         </form>
       </div>

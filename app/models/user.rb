@@ -16,10 +16,15 @@ class User < ApplicationRecord
 
   # Activerecord callbacks
   after_create :set_subscription
+  after_create :set_payment_detail
   after_create :send_change_password_email
 
   def set_subscription
-    create_subscription
+    create_subscription!
+  end
+
+  def set_payment_detail
+    create_payment_detail!
   end
 
   def send_change_password_email
