@@ -1,4 +1,4 @@
-<%= javascript_include_tag 'signup' %>
+<%= javascript_include_tag 'registrations' %>
 
 <div class="row d-flex justify-content-center align-items-center">
   <div class="col-md-9 col-lg-6 col-xl-5 bg-light_red">
@@ -61,14 +61,15 @@
 
       <!-- Terms + PP + Checkbox -->
       <div class="d-flex justify-content-between align-items-start my-4">
-        <input class="form-check-input" type="checkbox" name="user[tos]" id="TOS"/>
         <label class="form-check-label remember_text" for="TOS">
           I have read and understand the
           <a href="#!" class="text-body">Terms of Use</a>
           and
           <a href="#!" class="text-body">Privacy Policy</a>
         </label>
+        <input class="form-check-input" type="checkbox" name="user[TOS]" id="TOS"/>
       </div>
+
 
       <!-- Buttons -->
       <div class="text-center text-lg-start">
