@@ -5,7 +5,7 @@
     <%= image_tag('users/SingleIllustration.png', class: 'set_login_ill') %>
   </div>
 
-  <div class="col-md-8 col-lg-6 col-xl-4 offset-xl-1">
+  <div class="col-md-8 col-lg-6 col-xl-4 ml-5">
     <!-- Sign in form -->
     <%= form_for(resource, as: resource_name, url: password_path(resource_name), html: { method: :put, name: 'reset_password' }) do |f| %>
       <%= devise_error_messages! %>
@@ -44,7 +44,7 @@
 
       <!-- Buttons -->
       <div class="my-4">
-        <%= f.submit 'Save', class: 'btn w-100 login_btn my-4', onclick: "return;" %>
+        <%= f.submit 'Save', class: 'btn w-100 login_btn', onclick: "return;" %>
 
         <!-- Login Link -->
         <div class="d-flex justify-content-center my-4">

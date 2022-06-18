@@ -3,13 +3,13 @@
     <%= image_tag('users/SingleIllustration.png', class: 'set_login_ill') %>
   </div>
 
-  <div class="col-md-8 col-lg-6 col-xl-4 offset-xl-1">
+  <div class="col-md-8 col-lg-6 col-xl-4 ml-5">
 
     <!-- Heading -->
     <div class="row confirm-email-heading">
       <div class="col-md-12">
         <span class="login_text">Mail Sent</span>
-        <h5>If there is an account under that address, we have sent an email to reset your password.</h5>
+        <p style="font-size: 18px;">If there is an account under that address, we have sent an email to reset your password.</p>
       </div>
     </div>
 
@@ -17,7 +17,7 @@
     <div class="my-4">
       <button type="button"
               onclick="window.location.href='<%= user_session_path %>'"
-              class="btn login_btn got-it-btn got-it-mob"
+              class="btn create-button got-it-btn got-it-mob"
       >
         GOT IT
       </button>

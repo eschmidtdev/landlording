@@ -1,38 +1,40 @@
-<div class="sidebar">
-  <ul>
-    <li class="<%= 'active_border' if current_page? visitors_path %>">
-      <a href="<%= visitors_url %>">
-        <%= image_tag current_page?(visitors_url) ? 'sidebar/active_category.svg' : 'sidebar/inactive_category.svg', width: '25' %>
-        <span class="<%= current? 'active', visitors_url %>">Overview</span>
-      </a>
-    </li>
+<nav id="nav-sidebar" class="bg-faded">
+  <div class="sidebar-content hidden-sm-down">
+    <ul>
+      <li class="<%= 'active_border' if current_page? visitors_path %>">
+        <a href="<%= visitors_url %>">
+          <%= image_tag current_page?(visitors_url) ? 'sidebar/active_category.svg' : 'sidebar/inactive_category.svg', width: '25' %>
+          <span class="<%= current? 'active', visitors_url %>">Overview</span>
+        </a>
+      </li>
 
-    <li class="<%= 'active_border' if current_page? documents_path %>">
-      <a href="<%= documents_path %>">
-        <%= image_tag current_page?(documents_path) ? 'sidebar/active_doc.svg' : 'sidebar/inactive_doc.svg', width: '25' %>
-        <span class="<%= current? 'active', documents_path %>">My Documents</span>
-      </a>
-    </li>
+      <li class="<%= 'active_border' if current_page? documents_path %>">
+        <a href="<%= documents_path %>">
+          <%= image_tag current_page?(documents_path) ? 'sidebar/active_doc.svg' : 'sidebar/inactive_doc.svg', width: '25' %>
+          <span class="<%= current? 'active', documents_path %>">My Documents</span>
+        </a>
+      </li>
 
-    <li class="<%= 'active_border' if current_page? rental_applications_path %>">
-      <a href="<%= rental_applications_path %>">
-        <%= image_tag current_page?(rental_applications_path) ? 'sidebar/active_rental_application.svg' : 'sidebar/inactive_rental_application.svg', width: '25' %>
-        <span class="<%= current? 'active', rental_applications_path %>">Rental Applications</span>
-      </a>
-    </li>
+      <li class="<%= 'active_border' if current_page? rental_applications_path %>">
+        <a href="<%= rental_applications_path %>">
+          <%= image_tag current_page?(rental_applications_path) ? 'sidebar/active_rental_application.svg' : 'sidebar/inactive_rental_application.svg', width: '25' %>
+          <span class="<%= current? 'active', rental_applications_path %>">Rental Applications</span>
+        </a>
+      </li>
 
-    <li class="<%= 'active_border' if params[:controller] == 'properties' %>">
-      <a href="<%= properties_path %>">
-        <%= image_tag params[:controller] == 'properties' ? 'sidebar/active_home.svg' : 'sidebar/inactive_home.svg', width: '25' %>
-        <span class="<%= 'active' if params[:controller] == 'properties' %>">My Properties</span>
-      </a>
-    </li>
+      <li class="<%= 'active_border' if params[:controller] == 'properties' %>">
+        <a href="<%= properties_path %>">
+          <%= image_tag params[:controller] == 'properties' ? 'sidebar/active_home.svg' : 'sidebar/inactive_home.svg', width: '25' %>
+          <span class="<%= 'active' if params[:controller] == 'properties' %>">My Properties</span>
+        </a>
+      </li>
 
-    <li class="<%= 'active_border' if (params[:controller] == 'account_settings' || params[:controller] == 'subscriptions' || params[:controller] == 'payment_details') %>">
-      <a href="<%= account_settings_path %>">
-        <%= image_tag (params[:controller] == 'account_settings' || params[:controller] == 'subscriptions' || params[:controller] == 'payment_details') ? 'sidebar/active_account_setting.svg' : 'sidebar/inactive_account_setting.svg', width: '25' %>
-        <span class="<%= 'active' if (params[:controller] == 'account_settings' || params[:controller] == 'subscriptions' || params[:controller] == 'payment_details') %>">Account Settings</span>
-      </a>
-    </li>
-  </ul>
-</div>
+      <li class="<%= 'active_border' if (params[:controller] == 'account_settings' || params[:controller] == 'subscriptions' || params[:controller] == 'payment_details') %>">
+        <a href="<%= account_settings_path %>">
+          <%= image_tag (params[:controller] == 'account_settings' || params[:controller] == 'subscriptions' || params[:controller] == 'payment_details') ? 'sidebar/active_account_setting.svg' : 'sidebar/inactive_account_setting.svg', width: '25' %>
+          <span class="<%= 'active' if (params[:controller] == 'account_settings' || params[:controller] == 'subscriptions' || params[:controller] == 'payment_details') %>">Account Settings</span>
+        </a>
+      </li>
+    </ul>
+  </div>
+</nav>

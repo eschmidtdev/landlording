@@ -1,6 +1,6 @@
 // import the CSS framework
-@import "bootstrap-sprockets";
-@import "bootstrap";
+//@import "bootstrap-sprockets";
+//@import "bootstrap";
 
 //--------------------------------------------------- Global css ------------------------------------------------------
 
@@ -14,20 +14,24 @@ body {
 }
 
 .form-control {
-  height: 60px;
+  height: 50px;
+}
+
+input, input::placeholder {
+  font: 15px/3 sans-serif;
 }
 
 //--------------------------------------------------- Make all images responsive by default ---------------------------
-img {
-  @extend .img-responsive;
-  margin: 0 auto;
-}
+//img {
+//  @extend .img-responsive;
+//  margin: 0 auto;
+//}
 
 //--------------------------------------------------- Section default css ---------------------------------------------
-section {
-  @extend .row;
-  margin-top: 20px;
-}
+//section {
+//  @extend .row;
+//  margin-top: 20px;
+//}
 
 //--------------------------------------------------- Login ----------------------------------------------------------
 

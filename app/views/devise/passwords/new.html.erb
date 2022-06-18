@@ -5,7 +5,7 @@
     <%= image_tag('users/SingleIllustration.png', class: 'set_login_ill') %>
   </div>
 
-  <div class="col-md-8 col-lg-6 col-xl-4 offset-xl-1">
+  <div class="col-md-8 col-lg-6 col-xl-4 ml-5">
     <!-- Recover password form -->
     <%= form_for(resource, as: resource_name, url: sent_email_path(resource_name), html: { method: :post, role: 'form', name: 'forgot_password' }) do |f| %>
 
@@ -33,7 +33,7 @@
       </div>
 
       <!-- Buttons -->
-      <%= f.submit 'SEND RESET LINK', class: 'btn w-100 login_btn my-5', id: 'ForgotPassword' %>
+      <%= f.submit 'SEND RESET LINK', class: 'btn w-100 login_btn my-4', id: 'ForgotPassword' %>
 
       <!-- Login Link -->
       <div class="d-flex justify-content-center">

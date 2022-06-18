@@ -4,13 +4,21 @@ module VisitorsHelper
 
   def visitor_card_image(index)
     if index.zero?
-      image_tag 'visitors/my_doc_icon.svg', class: 'card_image pull-left', width: '85'
+      image_tag 'visitors/my_doc_icon.svg',
+                width: '100%',
+                class: 'card_image pull-left'
     elsif index == 1
-      image_tag 'visitors/rental_app_icon.svg', class: 'card_image pull-left', width: '90'
+      image_tag 'visitors/rental_app_icon.svg',
+                width: '100%',
+                class: 'card_image pull-left'
     elsif index == 2
-      image_tag 'visitors/my_prop_icon.svg', class: 'card_image pull-left', width: '90'
+      image_tag 'visitors/my_prop_icon.svg',
+                width: '100%',
+                class: 'card_image pull-left'
     elsif index == 3
-      image_tag 'visitors/acc_set_icon.svg', class: 'card_image pull-left', width: '90'
+      image_tag 'visitors/acc_set_icon.svg',
+                width: '100%',
+                class: 'card_image pull-left'
     end
   end
 
@@ -40,9 +48,9 @@ module VisitorsHelper
 
   def visitor_card_arrow(index)
     if index.zero?
-      image_tag image_path, class: 'arrow-icon'
+      image_tag image_path
     elsif [1, 2, 3].include?(index)
-      image_tag 'visitors/inactive_arrow.svg', class: 'arrow-icon'
+      image_tag 'visitors/inactive_arrow.svg'
     end
   end
 

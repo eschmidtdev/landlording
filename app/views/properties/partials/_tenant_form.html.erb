@@ -6,7 +6,7 @@
           <%= link_to 'Add New Tenant', nil,
                       class: 'btn btn-link collapsed mt-2 bold',
                       data: { toggle: 'collapse', target: '#propertyCollapseOne' },
-                      aria: { expanded: 'false', controls: 'propertyCollapseOne' }
+                      aria: { expanded: 'true', controls: 'propertyCollapseOne' }
 
           %>
         </div>
@@ -38,64 +38,60 @@
 
           <!-- Tenant Phone & Email -->
           <div class="row">
-            <div class="col-md-12">
-              <div class="col-md-6 pl-0">
-                <!-- Phone -->
-                <div class="form-group">
-                  <label for="propertyNewTenantPhone">Tenant Phone</label>
-                  <input
-                    type="text"
-                    id="propertyNewTenantPhone"
-                    placeholder="Enter Full Name"
-                    name="property[NewTenantPhone]"
-                    class="form-control form-control-lg input-45"
-                  >
-                </div>
+            <!-- Phone -->
+            <div class="col">
+              <div class="form-group">
+                <label for="propertyNewTenantPhone">Tenant Phone</label>
+                <input
+                  type="text"
+                  id="propertyNewTenantPhone"
+                  placeholder="Enter Full Name"
+                  name="property[NewTenantPhone]"
+                  class="form-control form-control-lg input-45"
+                >
               </div>
-              <!-- Email -->
-              <div class="col-md-6 pr-0">
-                <div class="form-group">
-                  <label for="propertyNewTenantEmail">Tenant Email</label>
-                  <input
-                    type="email"
-                    id="propertyNewTenantEmail"
-                    name="property[NewTenantEmail]"
-                    placeholder="Enter Email Address"
-                    class="form-control form-control-lg input-45"
-                  >
-                </div>
+            </div>
+            <!-- Email -->
+            <div class="col">
+              <div class="form-group">
+                <label for="propertyNewTenantEmail">Tenant Email</label>
+                <input
+                  type="email"
+                  id="propertyNewTenantEmail"
+                  name="property[NewTenantEmail]"
+                  placeholder="Enter Email Address"
+                  class="form-control form-control-lg input-45"
+                >
               </div>
             </div>
           </div>
 
           <!-- Lease Start & End Date -->
           <div class="row">
-            <div class="col-md-12">
-              <!-- Start Date -->
-              <div class="col-md-6 pl-0">
-                <div class="form-group">
-                  <label for="propertyNewLeaseStartDate">Lease Start Date</label>
-                  <input
-                    type="date"
-                    placeholder="Enter Full Name"
-                    id="propertyNewLeaseStartDate"
-                    name="property[NewLeaseStartDate]"
-                    class="form-control form-control-lg input-45"
-                  >
-                </div>
+            <!-- Start Date -->
+            <div class="col">
+              <div class="form-group">
+                <label for="propertyNewLeaseStartDate">Lease Start Date</label>
+                <input
+                  type="date"
+                  placeholder="Enter Full Name"
+                  id="propertyNewLeaseStartDate"
+                  name="property[NewLeaseStartDate]"
+                  class="form-control form-control-lg input-45"
+                >
               </div>
-              <!-- End Date -->
-              <div class="col-md-6 pr-0">
-                <div class="form-group">
-                  <label for="propertyNewLeaseEndDate">Lease End Date</label>
-                  <input
-                    type="date"
-                    id="propertyNewLeaseEndDate"
-                    name="property[NewLeaseEndDate]"
-                    placeholder="Enter Email Address"
-                    class="form-control form-control-lg input-45"
-                  >
-                </div>
+            </div>
+            <!-- Start Date -->
+            <div class="col">
+              <div class="form-group">
+                <label for="propertyNewLeaseEndDate">Lease End Date</label>
+                <input
+                  type="date"
+                  id="propertyNewLeaseEndDate"
+                  name="property[NewLeaseEndDate]"
+                  placeholder="Enter Email Address"
+                  class="form-control form-control-lg input-45"
+                >
               </div>
             </div>
           </div>
@@ -150,64 +146,61 @@
 
                 <!-- Tenant Phone & Email -->
                 <div class="row">
-                  <div class="col-md-12">
-                    <!-- Phone -->
-                    <div class="col-md-6 pl-0">
-                      <div class="form-group">
-                        <label for="propertyTenantPhoneRO">Tenant Phone</label>
-                        <input
-                          disabled
-                          type="text"
-                          id="propertyTenantPhoneRO"
-                          placeholder="Enter Full Name"
-                          class="form-control form-control-lg input-45"
-                        >
-                      </div>
+                  <!-- Phone -->
+                  <div class="col">
+                    <div class="form-group">
+                      <label for="propertyTenantPhoneRO">Tenant Phone</label>
+                      <input
+                        disabled
+                        type="text"
+                        id="propertyTenantPhoneRO"
+                        placeholder="Enter Full Name"
+                        class="form-control form-control-lg input-45"
+                      >
                     </div>
-                    <!-- Email -->
-                    <div class="col-md-6 pr-0">
-                      <div class="form-group">
-                        <label for="propertyTenantEmailRO">Tenant Email</label>
-                        <input
-                          disabled
-                          type="email"
-                          id="propertyTenantEmailRO"
-                          placeholder="Enter Email Address"
-                          class="form-control form-control-lg input-45"
-                        >
-                      </div>
+                  </div>
+                  <!-- Email -->
+                  <div class="col">
+                    <div class="form-group">
+                      <label for="propertyTenantEmailRO">Tenant Email</label>
+                      <input
+                        disabled
+                        type="email"
+                        id="propertyTenantEmailRO"
+                        placeholder="Enter Email Address"
+                        class="form-control form-control-lg input-45"
+                      >
                     </div>
                   </div>
                 </div>
 
                 <!-- Lease Start & End Date -->
+
                 <div class="row">
-                  <div class="col-md-12">
-                    <!-- Start Date -->
-                    <div class="col-md-6 pl-0">
-                      <div class="form-group">
-                        <label for="propertyLeaseStartDateRO">Lease Start Date</label>
-                        <input
-                          disabled
-                          type="date"
-                          id="propertyLeaseStartDateRO"
-                          placeholder="Enter Full Name"
-                          class="form-control form-control-lg input-45"
-                        >
-                      </div>
+                  <!-- Start Date -->
+                  <div class="col">
+                    <div class="form-group">
+                      <label for="propertyLeaseStartDateRO">Lease Start Date</label>
+                      <input
+                        disabled
+                        type="date"
+                        id="propertyLeaseStartDateRO"
+                        placeholder="Enter Full Name"
+                        class="form-control form-control-lg input-45"
+                      >
                     </div>
-                    <!-- End Date -->
-                    <div class="col-md-6 pr-0">
-                      <div class="form-group">
-                        <label for="propertyLeaseEndDateRO">Lease End Date</label>
-                        <input
-                          disabled
-                          type="date"
-                          id="propertyLeaseEndDateRO"
-                          placeholder="Enter Email Address"
-                          class="form-control form-control-lg input-45"
-                        >
-                      </div>
+                  </div>
+                  <!-- End Date -->
+                  <div class="col">
+                    <div class="form-group">
+                      <label for="propertyLeaseEndDateRO">Lease End Date</label>
+                      <input
+                        disabled
+                        type="date"
+                        id="propertyLeaseEndDateRO"
+                        placeholder="Enter Email Address"
+                        class="form-control form-control-lg input-45"
+                      >
                     </div>
                   </div>
                 </div>
@@ -235,82 +228,79 @@
               </div>
               <div class="modal-body">
                 <div class="body">
-                  <span class="heading bold">Edit Tenant</span>
+                  <div class="mb-3">
+                    <span class="heading bold">Edit Tenant</span>
+                  </div>
+                  <form>
 
-                  <div class="my-5">
-                    <form>
+                    <!-- Tenant Name -->
+                    <div class="form-group">
+                      <label for="propertyEditTenantName">Tenant Name</label>
+                      <input
+                        type="text"
+                        id="propertyEditTenantName"
+                        name="property[EditTenantName]"
+                        class="form-control form-control-lg input-45"
+                      >
+                    </div>
 
-                      <!-- Tenant Name -->
-                      <div class="form-group">
-                        <label for="propertyEditTenantName">Tenant Name</label>
-                        <input
-                          type="text"
-                          id="propertyEditTenantName"
-                          name="property[EditTenantName]"
-                          class="form-control form-control-lg input-45"
-                        >
-                      </div>
+                    <!-- Tenant Phone -->
+                    <div class="form-group">
+                      <label for="propertyEditTenantPhone">Tenant Phone</label>
+                      <input
+                        type="text"
+                        id="propertyEditTenantPhone"
+                        name="property[EditTenantPhone]"
+                        class="form-control form-control-lg input-45"
+                      >
+                    </div>
 
-                      <!-- Tenant Phone -->
-                      <div class="form-group">
-                        <label for="propertyEditTenantPhone">Tenant Phone</label>
-                        <input
-                          type="text"
-                          id="propertyEditTenantPhone"
-                          name="property[EditTenantPhone]"
-                          class="form-control form-control-lg input-45"
-                        >
-                      </div>
+                    <!-- Tenant Email -->
+                    <div class="form-group">
+                      <label for="propertyEditTenantEmail">Tenant Email</label>
+                      <input
+                        type="email"
+                        id="propertyEditTenantEmail"
+                        name="property[EditTenantEmail]"
+                        class="form-control form-control-lg input-45"
+                      >
+                    </div>
 
-                      <!-- Tenant Email -->
-                      <div class="form-group">
-                        <label for="propertyEditTenantEmail">Tenant Email</label>
-                        <input
-                          type="email"
-                          id="propertyEditTenantEmail"
-                          name="property[EditTenantEmail]"
-                          class="form-control form-control-lg input-45"
-                        >
-                      </div>
+                    <!-- Lease Start & End Date -->
 
-                      <!-- Lease Start & End Date -->
-                      <div class="row">
-                        <div class="col-md-12">
-                          <!-- Start Date -->
-                          <div class="col-md-6 pl-0">
-                            <div class="form-group">
-                              <label for="propertyEditTenantLSD">Lease Start Date</label>
-                              <input
-                                type="date"
-                                id="propertyEditTenantLSD"
-                                name="property[EditTenantLSD]"
-                                class="form-control form-control-lg input-45"
-                              >
-                            </div>
-                          </div>
-
-                          <!-- End Date -->
-                          <div class="col-md-6 pr-0">
-                            <div class="form-group">
-                              <label for="propertyEditTenantLED">Lease End Date</label>
-                              <input
-                                type="date"
-                                id="propertyEditTenantLED"
-                                name="property[EditTenantLED]"
-                                class="form-control form-control-lg input-45"
-                              >
-                            </div>
-                          </div>
+                    <div class="row">
+                      <!-- Start Date -->
+                      <div class="col">
+                        <div class="form-group">
+                          <label for="propertyEditTenantLSD">Lease Start Date</label>
+                          <input
+                            type="date"
+                            id="propertyEditTenantLSD"
+                            name="property[EditTenantLSD]"
+                            class="form-control form-control-lg input-45"
+                          >
                         </div>
                       </div>
-
-                      <!-- Save & Cancel Buttons -->
-                      <div class="d-flex justify-content-start">
-                        <button type="button" class="create-button">Save & Update</button>
-                        <button type="button" class="cancel-button ml-3" data-dismiss="modal">Cancel</button>
+                      <!-- End Date -->
+                      <div class="col">
+                        <div class="form-group">
+                          <label for="propertyEditTenantLED">Lease End Date</label>
+                          <input
+                            type="date"
+                            id="propertyEditTenantLED"
+                            name="property[EditTenantLED]"
+                            class="form-control form-control-lg input-45"
+                          >
+                        </div>
                       </div>
-                    </form>
-                  </div>
+                    </div>
+
+                    <!-- Save & Cancel Buttons -->
+                    <div class="d-flex justify-content-start">
+                      <button type="button" class="create-button">Save & Update</button>
+                      <button type="button" class="cancel-button ml-3" data-dismiss="modal">Cancel</button>
+                    </div>
+                  </form>
                 </div>
               </div>
             </div>

@@ -38,80 +38,75 @@
 
   <!-- Postal, City, State -->
   <div class="row">
-    <div class="col-md-12">
-      <!-- Postal Code -->
-      <div class="col-md-3 pl-0">
-        <div class="form-group">
-          <label for="propertyPostalCode">Postal Code*</label>
-          <input
-            type="text"
-            placeholder="Zip Code"
-            id="propertyPostalCode"
-            name="property[PostalCode]"
-            class="form-control form-control-lg input-45"
-          >
-        </div>
+    <!-- Postal -->
+    <div class="col">
+      <div class="form-group">
+        <label for="propertyPostalCode">Postal Code*</label>
+        <input
+          type="text"
+          placeholder="Zip Code"
+          id="propertyPostalCode"
+          name="property[PostalCode]"
+          class="form-control form-control-lg input-45"
+        >
       </div>
-      <!-- City -->
-      <div class="col-md-5 pl-0 pr-0">
-        <div class="form-group">
-          <label for="propertyCity">City*</label>
-          <input
-            type="text"
-            id="propertyCity"
-            placeholder="City"
-            name="property[City]"
-            class="form-control form-control-lg input-45"
-          >
-        </div>
+    </div>
+    <!-- City -->
+    <div class="col">
+      <div class="form-group">
+        <label for="propertyCity">City*</label>
+        <input
+          type="text"
+          id="propertyCity"
+          placeholder="City"
+          name="property[City]"
+          class="form-control form-control-lg input-45"
+        >
       </div>
-      <!-- State -->
-      <div class="col-md-4 pr-0">
-        <label for="propertyState">State*</label>
-        <select name="property[State]" id="propertyState" class="form-control form-control-lg input-45">
-          <option value="" disabled selected>State</option>
-          <option value="">State 1</option>
-          <option value="">State 2</option>
-          <option value="">State 3</option>
-          <option value="">State 4</option>
-        </select>
-      </div>
+    </div>
+    <!-- State -->
+    <div class="col">
+      <label for="propertyState">State*</label>
+      <select name="property[State]" id="propertyState" class="form-control form-control-lg input-45">
+        <option value="" disabled selected>State</option>
+        <option value="">State 1</option>
+        <option value="">State 2</option>
+        <option value="">State 3</option>
+        <option value="">State 4</option>
+      </select>
     </div>
   </div>
 
-  <!-- Bedrooms -->
   <div class="row">
-    <div class="col-md-12">
-      <!-- Bedrooms -->
-      <div class="col-md-6 pl-0">
-        <label for="propertyBedroomA">Bedroom</label>
-        <select name="property[BedroomA]" id="propertyBedroomA" class="form-control form-control-lg input-45">
-          <option value="" disabled selected>0</option>
-          <option value="">1</option>
-          <option value="">2</option>
-          <option value="">3</option>
-          <option value="">4</option>
-        </select>
-      </div>
-      <!-- Bedrooms -->
-      <div class="col-md-6 pr-0">
-        <label for="propertyBedroomB">Bedroom</label>
-        <select name="property[BedroomB]" id="propertyBedroomB" class="form-control form-control-lg input-45">
-          <option value="" disabled selected>0</option>
-          <option value="">1</option>
-          <option value="">2</option>
-          <option value="">3</option>
-          <option value="">4</option>
-        </select>
-      </div>
+    <!-- Bed Room -->
+    <div class="col">
+      <label for="propertyBedroomA">Bedroom</label>
+      <select name="property[BedroomA]" id="propertyBedroomA" class="form-control form-control-lg input-45">
+        <option value="" disabled selected>0</option>
+        <option value="">1</option>
+        <option value="">2</option>
+        <option value="">3</option>
+        <option value="">4</option>
+      </select>
+    </div>
+    <!-- Bed Room -->
+    <div class="col">
+      <label for="propertyBedroomB">Bedroom</label>
+      <select name="property[BedroomB]" id="propertyBedroomB" class="form-control form-control-lg input-45">
+        <option value="" disabled selected>0</option>
+        <option value="">1</option>
+        <option value="">2</option>
+        <option value="">3</option>
+        <option value="">4</option>
+      </select>
     </div>
   </div>
 
   <!-- Checkbox -->
-  <div class="my-5">
+  <div class="my-3">
     <div class="form-check pl-0">
-      <input class="form-check-input" type="checkbox" value="property[LandlordInfo]" id="propertyLandlordInfo" checked>
-      <label class="form-check-label property-checkbox" for="propertyLandlordInfo">
+      <input type="checkbox" value="property[LandlordInfo]" id="propertyLandlordInfo" checked>
+      <label class="form-check-label" for="propertyLandlordInfo">
         Same landlord contact info as found in your Account Settings?
       </label>
     </div>
@@ -156,10 +151,10 @@
   <!-- Radio Buttons -->
   <span class="radio-label bold">Currently Leased?</span>
   <label class="radio-inline">
-    <input type="radio" name="property[LeasedYes]" checked>Yes
+    <input type="radio" class="ml-2" name="property[LeasedYes]" checked><span class="ml-1">Yes</span>
   </label>
   <label class="radio-inline">
-    <input type="radio" name="property[LeasedNo]">No
+    <input type="radio" class="ml-2" name="property[LeasedNo]"><span class="ml-1">No</span>
   </label><br>
 
   <!-- Add New Tenant -->
@@ -168,10 +163,10 @@
   <div class="mt-4">
     <span class="radio-label bold">Will the property address also be used for notices sent to the tenant?</span><br>
     <label class="radio-inline">
-      <input type="radio" name="property[AskPropertyAddressYes]" checked>Yes
+      <input type="radio" class="ml-2" name="property[AskPropertyAddressYes]" checked><span class="ml-1">Yes</span>
     </label>
     <label class="radio-inline">
-      <input type="radio" name="property[AskPropertyAddressNo]">No
+      <input type="radio" class="ml-2" name="property[AskPropertyAddressNo]"><span class="ml-1">No</span>
     </label><br>
   </div>
 

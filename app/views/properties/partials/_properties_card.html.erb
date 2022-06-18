@@ -1,10 +1,8 @@
 <% 3.times do |index| %>
-  <div class="my-5">
-    <div class="row">
-      <div class="col-md-12">
-
-        <div class="col-md-6 properties-index-card">
-
+  <div class="row mb-5">
+    <div class="col-sm-6">
+      <div class="card">
+        <div class="card-body">
           <div class="d-flex justify-content-between">
 
             <!-- Property Home Image -->
@@ -33,12 +31,10 @@
               </div>
             </div>
           </div>
-
           <!-- Property Name -->
           <h3 class="name bold"><%= show_property_name(index) %></h3>
 
           <hr>
-
           <!-- Card Footer -->
           <div class="d-flex justify-content-between">
 
@@ -53,9 +49,12 @@
             </div>
           </div>
         </div>
+      </div>
+    </div>
 
-        <div class="col-md-6 properties-index-card pull-right">
-
+    <div class="col-sm-6">
+      <div class="card">
+        <div class="card-body">
           <div class="d-flex justify-content-between">
 
             <!-- Property Home Image -->
@@ -84,7 +83,6 @@
               </div>
             </div>
           </div>
-
           <!-- Property Name -->
           <h3 class="name bold"><%= show_property_name(index) %></h3>
 
@@ -104,7 +102,6 @@
             </div>
           </div>
         </div>
-
       </div>
     </div>
   </div>

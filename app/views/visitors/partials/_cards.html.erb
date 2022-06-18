@@ -3,23 +3,27 @@
     <div class="card-body">
       <div class="row">
         <div class="col-md-12">
-
-          <div class="col-md-2">
-            <%= visitor_card_image(index) %>
-          </div>
-
-          <div class="col-md-7">
-            <h3><b><%= visitor_card_heading(index) %></b></h3>
-            <span class="pull-left font-15 opacity-0-6">
-              <%= visitor_card_description(index) %>
-            </span>
-          </div>
-
-          <div class="col-md-3">
-            <%= visitor_card_arrow(index) %>
+          <div class="row">
+            <div class="col-md-2">
+              <div class="card-img-logo">
+                <%= visitor_card_image(index) %>
+              </div>
+            </div>
+            <div class="col-md-8 card-content-text">
+              <div class="card-content">
+                <h3 class="bold"><%= visitor_card_heading(index) %></h3>
+                <p class="pull-left font-15 opacity-0-6"><%= visitor_card_description(index) %></p>
+              </div>
+            </div>
+            <div class="col-md-2 d-flex justify-content-center align-items-center">
+              <div class="card-icon-img">
+                <%= visitor_card_arrow(index) %>
+              </div>
+            </div>
           </div>
         </div>
       </div>
     </div>
   </div>
 <% end %>
+
