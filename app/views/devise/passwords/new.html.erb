@@ -5,7 +5,7 @@
     <%= image_tag('users/SingleIllustration.png', class: 'set_login_ill') %>
   </div>
 
-  <div class="col-md-8 col-lg-6 col-xl-4 ml-5">
+  <div class="col-md-8 col-lg-6 col-xl-4 ml-5" id="PasswordSection">
     <!-- Recover password form -->
     <%= form_for(resource, as: resource_name, url: sent_email_path(resource_name), html: { method: :post, role: 'form', name: 'forgot_password' }) do |f| %>
 

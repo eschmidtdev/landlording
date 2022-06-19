@@ -5,9 +5,9 @@
     <%= image_tag('users/SingleIllustration.png', class: 'set_login_ill') %>
   </div>
 
-  <div class="col-md-8 col-lg-6 col-xl-4 ml-5">
+  <div class="col-md-8 col-lg-6 col-xl-4 ml-5" id="PasswordSectionEdit">
     <!-- Sign in form -->
-    <%= form_for(resource, as: resource_name, url: password_path(resource_name), html: { method: :put, name: 'reset_password' }) do |f| %>
+    <%= form_for(resource, as: resource_name, url: password_path(resource_name), html: { method: :put, name: 'reset_password', class: 'edit-form-padding' }) do |f| %>
       <%= devise_error_messages! %>
       <%= f.hidden_field :reset_password_token %>
 
