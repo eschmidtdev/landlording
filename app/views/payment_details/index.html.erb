@@ -23,37 +23,38 @@
 
           <!-- First & Last Name -->
           <div class="row">
-            <div class="col-md-12">
-              <div class="col-md-6 pl-0">
-                <div class="form-group">
-                  <label for="BillingFN" class="font-normal"><span class="setting_label">First Name*</span></label>
-                  <input
-                    type="text"
-                    id="BillingFN"
-                    name="Billing[FN]"
-                    autofocus="autofocus"
-                    placeholder="Enter First Name"
-                    value="<%= check_for(payment_detail&.first_name) %>"
-                    class="form-control form-control-lg input-45"
-                  >
-                </div>
+            <!-- First Name -->
+            <div class="col">
+              <div class="form-group">
+                <label for="BillingFN" class="font-normal"><span class="setting_label">First Name*</span></label>
+                <input
+                  type="text"
+                  id="BillingFN"
+                  name="Billing[FN]"
+                  autofocus="autofocus"
+                  placeholder="Enter First Name"
+                  value="<%= check_for(payment_detail&.first_name) %>"
+                  class="form-control form-control-lg input-45"
+                >
               </div>
-              <div class="col-md-6 pr-0">
-                <div class="form-group">
-                  <label for="BillingLN" class="font-normal"><span class="setting_label">Last Name*</span></label>
-                  <input
-                    type="text"
-                    id="BillingLN"
-                    name="Billing[LN]"
-                    autofocus="autofocus"
-                    placeholder="Enter Last Name"
-                    value="<%= check_for(payment_detail&.last_name) %>"
-                    class="form-control form-control-lg input-45"
-                  >
-                </div>
+            </div>
+            <!-- Last Name -->
+            <div class="col">
+              <div class="form-group">
+                <label for="BillingLN" class="font-normal"><span class="setting_label">Last Name*</span></label>
+                <input
+                  type="text"
+                  id="BillingLN"
+                  name="Billing[LN]"
+                  autofocus="autofocus"
+                  placeholder="Enter Last Name"
+                  value="<%= check_for(payment_detail&.last_name) %>"
+                  class="form-control form-control-lg input-45"
+                >
               </div>
             </div>
           </div>
+
 
           <!-- Company Name -->
           <div class="form-group">
@@ -96,66 +97,67 @@
 
           <!-- Postal Code & City -->
           <div class="row">
-            <div class="col-md-12">
-              <div class="col-md-6 pl-0">
-                <div class="form-group">
-                  <label for="BillingPC" class="font-normal"><span class="setting_label">Postal Code*</span></label>
-                  <input
-                    type="text"
-                    id="BillingPC"
-                    name="Billing[PC]"
-                    autofocus="autofocus"
-                    placeholder="Zip Code"
-                    value="<%= check_for(payment_detail&.postal_code) %>"
-                    class="form-control form-control-lg input-45"
-                  >
-                </div>
+            <!-- Postal Code -->
+            <div class="col">
+              <div class="form-group">
+                <label for="BillingPC" class="font-normal"><span class="setting_label">Postal Code*</span></label>
+                <input
+                  type="text"
+                  id="BillingPC"
+                  name="Billing[PC]"
+                  autofocus="autofocus"
+                  placeholder="Zip Code"
+                  value="<%= check_for(payment_detail&.postal_code) %>"
+                  class="form-control form-control-lg input-45"
+                >
               </div>
-              <div class="col-md-6 pr-0">
-                <div class="form-group">
-                  <label for="BillingCity" class="font-normal"><span class="setting_label">City*</span></label>
-                  <input
-                    type="text"
-                    id="BillingCity"
-                    placeholder="City"
-                    name="Billing[City]"
-                    autofocus="autofocus"
-                    value="<%= check_for(payment_detail&.city) %>"
-                    class="form-control form-control-lg input-45"
-                  >
-                </div>
+            </div>
+            <!-- City -->
+            <div class="col">
+              <div class="form-group">
+                <label for="BillingCity" class="font-normal"><span class="setting_label">City*</span></label>
+                <input
+                  type="text"
+                  id="BillingCity"
+                  placeholder="City"
+                  name="Billing[City]"
+                  autofocus="autofocus"
+                  value="<%= check_for(payment_detail&.city) %>"
+                  class="form-control form-control-lg input-45"
+                >
               </div>
             </div>
           </div>
 
+
           <!-- State & Country -->
           <div class="row">
-            <div class="col-md-12">
-              <div class="col-md-6 pl-0">
-                <div class="form-group">
-                  <label for="BillingState" class="font-normal"><span class="setting_label">State *</span></label>
-                  <input
-                    type="text"
-                    id="BillingState"
-                    placeholder="State"
-                    name="Billing[State]"
-                    autofocus="autofocus"
-                    value="<%= check_for(payment_detail&.state) %>"
-                    class="form-control form-control-lg input-45"
-                  >
-                </div>
+            <!-- First Name -->
+            <div class="col">
+              <div class="form-group">
+                <label for="BillingState" class="font-normal"><span class="setting_label">State *</span></label>
+                <input
+                  type="text"
+                  id="BillingState"
+                  placeholder="State"
+                  name="Billing[State]"
+                  autofocus="autofocus"
+                  value="<%= check_for(payment_detail&.state) %>"
+                  class="form-control form-control-lg input-45"
+                >
               </div>
-              <div class="col-md-6 pr-0">
-                <div class="form-group">
-                  <label for="BillingCountry" class="font-normal"><span class="setting_label">Country*</span></label>
-                  <select name="Billing[Country]" id="BillingCountry" class="form-control form-control-lg input-45">
-                    <option value="" disabled selected>Country</option>
-                    <option value="">Property Type 1</option>
-                    <option value="">Property Type 2</option>
-                    <option value="">Property Type 3</option>
-                    <option value="">Property Type 4</option>
-                  </select>
-                </div>
+            </div>
+            <!-- Last Name -->
+            <div class="col">
+              <div class="form-group">
+                <label for="BillingCountry" class="font-normal"><span class="setting_label">Country*</span></label>
+                <select name="Billing[Country]" id="BillingCountry" class="form-control form-control-lg input-45">
+                  <option value="" disabled selected>Country</option>
+                  <option value="">Property Type 1</option>
+                  <option value="">Property Type 2</option>
+                  <option value="">Property Type 3</option>
+                  <option value="">Property Type 4</option>
+                </select>
               </div>
             </div>
           </div>
@@ -183,38 +185,38 @@
 
           <!-- Expiration & CVC -->
           <div class="row">
-            <div class="col-md-12">
-              <div class="col-md-6 pl-0">
-                <div class="form-group">
-                  <label for="BillingEXP" class="font-normal"><span class="setting_label">Expiration*</span></label>
-                  <input
-                    type="text"
-                    id="BillingEXP"
-                    name="Billing[EXP]"
-                    placeholder="MM/YY"
-                    autofocus="autofocus"
-                    value="<%= check_for(payment_detail&.exp) %>"
-                    class="form-control form-control-lg input-45"
-                    onkeypress="return event.charCode >= 48 && event.charCode <= 57"
-                    oncopy="return false" oncut="return false" onpaste="return false"
-                  >
-                </div>
+            <!-- Expiration -->
+            <div class="col">
+              <div class="form-group">
+                <label for="BillingEXP" class="font-normal"><span class="setting_label">Expiration*</span></label>
+                <input
+                  type="text"
+                  id="BillingEXP"
+                  name="Billing[EXP]"
+                  placeholder="MM/YY"
+                  autofocus="autofocus"
+                  value="<%= check_for(payment_detail&.exp) %>"
+                  class="form-control form-control-lg input-45"
+                  onkeypress="return event.charCode >= 48 && event.charCode <= 57"
+                  oncopy="return false" oncut="return false" onpaste="return false"
+                >
               </div>
-              <div class="col-md-6 pr-0">
-                <div class="form-group">
-                  <label for="BillingCVC" class="font-normal"><span class="setting_label">Security Code*</span></label>
-                  <input
-                    type="text"
-                    id="BillingCVC"
-                    placeholder="CVC"
-                    name="Billing[CVC]"
-                    autofocus="autofocus"
-                    value="<%= check_for(payment_detail&.cvc) %>"
-                    class="form-control form-control-lg input-45"
-                    onkeypress="return event.charCode >= 48 && event.charCode <= 57"
-                    oncopy="return false" oncut="return false" onpaste="return false"
-                  >
-                </div>
+            </div>
+            <!-- CVC -->
+            <div class="col">
+              <div class="form-group">
+                <label for="BillingCVC" class="font-normal"><span class="setting_label">Security Code*</span></label>
+                <input
+                  type="text"
+                  id="BillingCVC"
+                  placeholder="CVC"
+                  name="Billing[CVC]"
+                  autofocus="autofocus"
+                  value="<%= check_for(payment_detail&.cvc) %>"
+                  class="form-control form-control-lg input-45"
+                  onkeypress="return event.charCode >= 48 && event.charCode <= 57"
+                  oncopy="return false" oncut="return false" onpaste="return false"
+                >
               </div>
             </div>
           </div>
@@ -322,8 +324,7 @@
       <!-- Ignoring for now -->
     </div>
   </div>
-
-
 </div>
+
 
 

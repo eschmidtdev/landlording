@@ -62,7 +62,6 @@
   color: #FF8F00;
   margin-top: 5px;
   font-size: 12px;
-  margin-right: 17px;
 }
 
 .billing-rectangle {
@@ -101,7 +100,7 @@
 }
 
 .billing-rectangle .expiry {
-  font-size: 12px;
+  font-size: 13px;
 }
 
 .billing-rectangle .last-used {
@@ -133,6 +132,10 @@
 
 .billing-rectangle a {
   cursor: pointer;
+}
+
+.link-font-size {
+  font-size: 15px;
 }
 
 .fake-input {
