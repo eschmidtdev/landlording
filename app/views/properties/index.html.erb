@@ -1,10 +1,7 @@
-<div class="container">
+<%= render partial: 'layouts/page_heading' %>
 
-  <%= render partial: 'layouts/page_heading' %>
+<!-- Properties Index Card -->
+<%= render partial: 'properties/partials/properties_card' %>
 
-  <!-- Properties Index Card -->
-  <%= render partial: 'properties/partials/properties_card' %>
-
-  <!-- Pagination -->
-  <%#= will_paginate @documents, renderer: WillPaginate::ActionView::BootstrapLinkRenderer %>
-</div>
+<!-- Pagination -->
+<%#= will_paginate @documents, renderer: WillPaginate::ActionView::BootstrapLinkRenderer %>
