@@ -5,8 +5,8 @@
 
       <!-- Add Rental Property Button -->
       <% if property_index?(params) %>
-        <button type="button" class="create-button pull-right" onclick="window.location.href='<%= new_property_path %>'">
-          <%= image_tag 'global_images/plus_icon.svg', class: 'pull-left', width: '20' %>Add Rental Property
+        <button type="button" class="create-button pull-right" id="AddRentalPropertyBtnMob" onclick="window.location.href='<%= new_property_path %>'">
+          <%= image_tag 'global_images/plus_icon.svg', class: 'pull-left', width: '20', id: 'AddRentalPropImg' %>Add Rental Property
         </button>
       <% end %>
     </div>

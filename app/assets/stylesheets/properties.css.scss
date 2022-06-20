@@ -53,3 +53,24 @@
   color: black;
   text-decoration: none !important;
 }
+
+#CustomMobileMenu{
+  transform: translate3d(-45px, 24px, 0px) !important;
+}
+
+@media only screen and (max-width: 600px) {
+  #MyPropertyCardMargin{
+    margin-top: 3rem!important;
+  }
+  #AddRentalPropertyBtnMob{
+    width: 100%;
+    margin-top: 1.5rem!important;
+  }
+  #AddRentalPropImg{
+    float: none !important;
+  }
+  .property-nam-mob{
+    margin-top: 1.5rem;
+    font-size: 20px;
+  }
+}
