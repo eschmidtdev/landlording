@@ -100,7 +100,21 @@
 .end_subscription_date {
   font-weight: 700;
 }
-.loose_feature_waring{
+
+.loose_feature_waring {
   font-weight: 700;
   font-size: 15px;
+}
+
+#PlanRectangleMob {
+  display: none;
+}
+
+@media only screen and (max-width: 600px) {
+  .plan-rectangle {
+    display: none;
+  }
+  #PlanRectangleMob {
+    display: block;
+  }
 }
