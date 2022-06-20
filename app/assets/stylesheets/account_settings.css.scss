@@ -158,14 +158,21 @@
 @media only screen and (max-width: 600px) {
   .personal-info-rectangle {
     padding: 0;
-    border: none;
+    border-top: none;
+    border-right: none;
+    border-left: none;
+    border-bottom: 1.3px solid #E5E5E5;
   }
   .container-fluid {
     padding: 10px;
   }
   .subscription-rectangle {
     padding: 0;
-    border: none;
+    border-top: none;
+    border-right: none;
+    border-left: none;
+    border-bottom: 1.3px solid #E5E5E5;
+    padding-bottom: 15px;
   }
   .subscription-rectangle .container {
     padding: 0;
