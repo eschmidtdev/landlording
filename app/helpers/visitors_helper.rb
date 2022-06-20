@@ -5,19 +5,15 @@ module VisitorsHelper
   def visitor_card_image(index)
     if index.zero?
       image_tag 'visitors/my_doc_icon.svg',
-                width: '100%',
                 class: 'card_image pull-left'
     elsif index == 1
       image_tag 'visitors/rental_app_icon.svg',
-                width: '100%',
                 class: 'card_image pull-left'
     elsif index == 2
       image_tag 'visitors/my_prop_icon.svg',
-                width: '100%',
                 class: 'card_image pull-left'
     elsif index == 3
       image_tag 'visitors/acc_set_icon.svg',
-                width: '100%',
                 class: 'card_image pull-left'
     end
   end
