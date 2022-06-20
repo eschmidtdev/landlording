@@ -154,3 +154,38 @@
   cursor: pointer;
   position: absolute;
 }
+
+@media only screen and (max-width: 600px) {
+  .personal-info-rectangle {
+    padding: 0;
+    border: none;
+  }
+  .container-fluid {
+    padding: 10px;
+  }
+  .subscription-rectangle {
+    padding: 0;
+    border: none;
+  }
+  .subscription-rectangle .container {
+    padding: 0;
+    margin: 0;
+  }
+  .subscription-rectangle .col {
+    flex-basis: 12em !important;
+    margin-right: 40px;
+  }
+  .plan-rectangle{
+    width: 100%;
+  }
+  .cancel-subscription {
+    float: left;
+  }
+  .billing-rectangle {
+    padding: 0;
+    border: none;
+  }
+  #BillingDetailDropdown{
+    transform: translate3d(-80px, 24px, 0px) !important;
+  }
+}

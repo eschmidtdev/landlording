@@ -1,16 +1,12 @@
 <%= javascript_include_tag 'account_settings' %>
 
-<div class="container">
+<%= render partial: 'layouts/page_heading' %>
 
-  <%= render partial: 'layouts/page_heading' %>
+<%= render partial: 'account_settings/partials/personal_info_form' %>
 
-  <%= render partial: 'account_settings/partials/personal_info_form' %>
+<%= render partial: 'account_settings/partials/subscription' %>
 
-  <%= render partial: 'account_settings/partials/subscription' %>
+<%= render partial: 'account_settings/partials/billing_details' %>
 
-  <%= render partial: 'account_settings/partials/billing_details' %>
-
-
-</div>
 
 
