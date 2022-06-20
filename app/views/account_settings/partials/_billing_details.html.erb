@@ -53,9 +53,9 @@
               </div>
             </div>
             <!-- Card Number -->
-            <span class="number">************4099</span><br>
-            <span class="expiry opacity-0-75">Expires 05/2024</span><br>
-            <span class="expiry opacity-0-75">123 Apple Street, Unit 101, Austin, TX 78741</span><br>
+            <span class="number"><%= card_number(current_user) %></span><br>
+            <span class="expiry opacity-0-75"><%= expiry_date(current_user) %></span><br>
+            <span class="expiry opacity-0-75"><%= billing_address(current_user) %></span><br>
             <div class="mt-4">
               <span class="last-used bold">LAST USED 11/04/2021</span>
             </div>
