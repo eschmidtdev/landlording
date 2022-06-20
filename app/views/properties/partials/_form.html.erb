@@ -5,10 +5,8 @@
     <label for="propertyPropertyType">Property Type*</label>
     <select name="" id="propertyPropertyType" class="form-control form-control-lg input-45">
       <option value="" disabled selected>Select Property</option>
-      <option value="">Property Type 1</option>
-      <option value="">Property Type 2</option>
-      <option value="">Property Type 3</option>
-      <option value="">Property Type 4</option>
+      <option value="">Single-Family Home</option>
+      <option value="">Apartment/Condo</option>
     </select>
   </div>
 
@@ -77,9 +75,10 @@
     </div>
   </div>
 
+  <!-- Bed Rooms -->
   <div class="row">
-    <!-- Bed Room -->
-    <div class="col">
+    <!-- Bed Room 1 -->
+    <div class="col margin-top-mob">
       <label for="propertyBedroomA">Bedroom</label>
       <select name="property[BedroomA]" id="propertyBedroomA" class="form-control form-control-lg input-45">
         <option value="" disabled selected>0</option>
@@ -89,8 +88,8 @@
         <option value="">4</option>
       </select>
     </div>
-    <!-- Bed Room -->
-    <div class="col">
+    <!-- Bed Room 2 -->
+    <div class="col margin-top-mob">
       <label for="propertyBedroomB">Bedroom</label>
       <select name="property[BedroomB]" id="propertyBedroomB" class="form-control form-control-lg input-45">
         <option value="" disabled selected>0</option>
@@ -102,18 +101,14 @@
     </div>
   </div>
 
-  <!-- Checkbox -->
-  <div class="my-3">
-    <div class="form-check pl-0">
-      <input type="checkbox" value="property[LandlordInfo]" id="propertyLandlordInfo" checked>
-      <label class="form-check-label" for="propertyLandlordInfo">
-        Same landlord contact info as found in your Account Settings?
-      </label>
-    </div>
+  <div class="form-check form-check-inline desktop-margin">
+    <input class="form-check-input" type="checkbox" id="propertyLandlordInfo" value="property[LandlordInfo]">
+    <label class="form-check-label mt-mob-22" for="propertyLandlordInfo">Same landlord contact info as found in your
+      Account Settings?</label>
   </div>
 
   <!-- Landlord Contact Name -->
-  <div class="form-group">
+  <div class="form-group mt-3">
     <label for="propertyLandlordContactName">Landlord Contact Name*</label>
     <input
       type="text"
@@ -163,10 +158,10 @@
   <div class="mt-4">
     <span class="radio-label bold">Will the property address also be used for notices sent to the tenant?</span><br>
     <label class="radio-inline">
-      <input type="radio" class="ml-2" name="property[AskPropertyAddressYes]" checked><span class="ml-1">Yes</span>
+      <input type="radio" name="property[AskPropertyAddressYes]" checked><span class="ml-1">Yes</span>
     </label>
     <label class="radio-inline">
-      <input type="radio" class="ml-2" name="property[AskPropertyAddressNo]"><span class="ml-1">No</span>
+      <input type="radio" name="property[AskPropertyAddressNo]"><span class="ml-1">No</span>
     </label><br>
   </div>
 

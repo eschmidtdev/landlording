@@ -1,97 +1,105 @@
 <% if User.count.even? %>
-  <div class="card mt-3">
-    <div class="card-header" id="propertyTenantOne">
-      <div class="d-flex justify-content-between">
-        <div>
-          <%= link_to 'Add New Tenant', nil,
-                      class: 'btn btn-link collapsed mt-2 bold',
-                      data: { toggle: 'collapse', target: '#propertyCollapseOne' },
-                      aria: { expanded: 'true', controls: 'propertyCollapseOne' }
+  <div class="accordion" id="accordionExample">
+    <div class="card mt-3">
+      <div class="card-header" id="headingOne">
+        <div class="d-flex justify-content-between">
+          <div>
+            <h2 class="mb-0">
+              <%= link_to 'Add New Tenant', nil,
+                          class: 'btn btn-link mt-2 bold',
+                          id: 'AddTenantHeading',
+                          data: { toggle: 'collapse', target: '#collapseOne' },
+                          aria: { expanded: 'true', controls: 'collapseOne' }
 
-          %>
-        </div>
-        <div>
-          <%= image_tag 'properties/add_new_tenant_icon.svg',
-                        class: 'btn btn-link',
-                        data: { 'toggle': "collapse", 'target': '#propertyCollapseOne' },
-                        aria: { 'expanded': 'true', 'controls': 'propertyCollapseOne' }
-          %>
+              %>
+            </h2>
+          </div>
+          <div>
+            <h2 class="mb-0">
+              <%= image_tag 'properties/add_new_tenant_icon.svg',
+                            class: 'btn btn-link',
+                            id: 'collapse-by-img',
+                            data: { 'toggle': "collapse", 'target': '#collapseOne' },
+                            aria: { 'expanded': 'true', 'controls': 'collapseOne' }
+              %>
+            </h2>
+          </div>
         </div>
       </div>
-    </div>
 
-    <div id="propertyCollapseOne" class="collapse" aria-labelledby="propertyTenantOne" data-parent="#accordion">
-      <div class="card-body">
-        <div class="container p-3 col-12">
+      <div id="collapseOne" class="collapse show" aria-labelledby="headingOne" data-parent="#accordionExample">
+        <div class="card-body" id="CardBodyMob">
+          <div class="container p-3 col-12" id="TenantFormMob">
 
-          <!-- Tenant Name -->
-          <div class="form-group">
-            <label for="propertyNewTenantName">Tenant Name</label>
-            <input
-              type="text"
-              id="propertyNewTenantName"
-              placeholder="Enter Full Name"
-              name="property[NewTenantName]"
-              class="form-control form-control-lg input-45"
-            >
-          </div>
+            <!-- Tenant Name -->
+            <div class="form-group">
+              <label for="propertyNewTenantName">Tenant Name</label>
+              <input
+                type="text"
+                id="propertyNewTenantName"
+                placeholder="Enter Full Name"
+                name="property[NewTenantName]"
+                class="form-control form-control-lg input-45"
+              >
+            </div>
 
-          <!-- Tenant Phone & Email -->
-          <div class="row">
-            <!-- Phone -->
-            <div class="col">
-              <div class="form-group">
-                <label for="propertyNewTenantPhone">Tenant Phone</label>
-                <input
-                  type="text"
-                  id="propertyNewTenantPhone"
-                  placeholder="Enter Full Name"
-                  name="property[NewTenantPhone]"
-                  class="form-control form-control-lg input-45"
-                >
+            <!-- Tenant Phone & Email -->
+            <div class="row">
+              <!-- Phone -->
+              <div class="col">
+                <div class="form-group">
+                  <label for="propertyNewTenantPhone">Tenant Phone</label>
+                  <input
+                    type="text"
+                    id="propertyNewTenantPhone"
+                    placeholder="Enter Full Name"
+                    name="property[NewTenantPhone]"
+                    class="form-control form-control-lg input-45"
+                  >
+                </div>
+              </div>
+              <!-- Email -->
+              <div class="col">
+                <div class="form-group">
+                  <label for="propertyNewTenantEmail">Tenant Email</label>
+                  <input
+                    type="email"
+                    id="propertyNewTenantEmail"
+                    name="property[NewTenantEmail]"
+                    placeholder="Enter Email Address"
+                    class="form-control form-control-lg input-45"
+                  >
+                </div>
               </div>
             </div>
-            <!-- Email -->
-            <div class="col">
-              <div class="form-group">
-                <label for="propertyNewTenantEmail">Tenant Email</label>
-                <input
-                  type="email"
-                  id="propertyNewTenantEmail"
-                  name="property[NewTenantEmail]"
-                  placeholder="Enter Email Address"
-                  class="form-control form-control-lg input-45"
-                >
-              </div>
-            </div>
-          </div>
 
-          <!-- Lease Start & End Date -->
-          <div class="row">
-            <!-- Start Date -->
-            <div class="col">
-              <div class="form-group">
-                <label for="propertyNewLeaseStartDate">Lease Start Date</label>
-                <input
-                  type="date"
-                  placeholder="Enter Full Name"
-                  id="propertyNewLeaseStartDate"
-                  name="property[NewLeaseStartDate]"
-                  class="form-control form-control-lg input-45"
-                >
+            <!-- Lease Start & End Date -->
+            <div class="row">
+              <!-- Start Date -->
+              <div class="col">
+                <div class="form-group">
+                  <label for="propertyNewLeaseStartDate">Lease Start Date</label>
+                  <input
+                    type="date"
+                    placeholder="Enter Full Name"
+                    id="propertyNewLeaseStartDate"
+                    name="property[NewLeaseStartDate]"
+                    class="form-control form-control-lg input-45"
+                  >
+                </div>
               </div>
-            </div>
-            <!-- Start Date -->
-            <div class="col">
-              <div class="form-group">
-                <label for="propertyNewLeaseEndDate">Lease End Date</label>
-                <input
-                  type="date"
-                  id="propertyNewLeaseEndDate"
-                  name="property[NewLeaseEndDate]"
-                  placeholder="Enter Email Address"
-                  class="form-control form-control-lg input-45"
-                >
+              <!-- Start Date -->
+              <div class="col">
+                <div class="form-group">
+                  <label for="propertyNewLeaseEndDate">Lease End Date</label>
+                  <input
+                    type="date"
+                    id="propertyNewLeaseEndDate"
+                    name="property[NewLeaseEndDate]"
+                    placeholder="Enter Email Address"
+                    class="form-control form-control-lg input-45"
+                  >
+                </div>
               </div>
             </div>
           </div>

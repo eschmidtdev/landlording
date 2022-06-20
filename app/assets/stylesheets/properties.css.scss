@@ -54,23 +54,64 @@
   text-decoration: none !important;
 }
 
-#CustomMobileMenu{
+.desktop-margin {
+  margin-top: 20px;
+}
+.add-tenant-form-mob{
+  display: none;
+}
+#CustomMobileMenu {
   transform: translate3d(-45px, 24px, 0px) !important;
 }
 
 @media only screen and (max-width: 600px) {
-  #MyPropertyCardMargin{
-    margin-top: 3rem!important;
+  #MyPropertyCardMargin {
+    margin-top: 3rem !important;
   }
-  #AddRentalPropertyBtnMob{
+  #AddRentalPropertyBtnMob {
     width: 100%;
-    margin-top: 1.5rem!important;
+    margin-top: 1.5rem !important;
   }
-  #AddRentalPropImg{
+  #AddRentalPropImg {
     float: none !important;
   }
-  .property-nam-mob{
+  .property-nam-mob {
     margin-top: 1.5rem;
     font-size: 20px;
+  }
+  .new-property-form .col {
+    flex-basis: 12em !important;
+  }
+  .margin-top-mob {
+    margin-top: 15px;
+  }
+  .card{
+    border: none;
+  }
+  #collapse-by-img{
+    display: none;
+  }
+  #headingOne{
+    border-bottom: none;
+    margin: 0;
+    padding: 0;
+  }
+  #AddTenantHeading{
+    font-size: 20px;
+    padding: 0 !important;
+    margin: 0 !important;
+  }
+  #CardBodyMob{
+    padding: 0;
+  }
+  #TenantFormMob{
+    padding: 0 !important;
+    margin-top: 10px;
+  }
+  .radio-inline{
+    margin: 0 !important;
+  }
+  .ml-mob-0{
+    margin-left: 0 !important;
   }
 }
