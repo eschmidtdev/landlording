@@ -11,5 +11,15 @@ $(document).ready(function () {
         });
     });
 
+    $('#resetEyeNP').click(function () {
+        const input = $('.toggle-password-new-pass');
+        input.attr('type') === 'password' ? input.attr('type', 'text') : input.attr('type', 'password')
+    });
+
+    $('#resetEyeCP').click(function () {
+        const input = $('.toggle-password-confirm-pass');
+        input.attr('type') === 'password' ? input.attr('type', 'text') : input.attr('type', 'password')
+    });
+
 });
 

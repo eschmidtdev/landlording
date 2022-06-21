@@ -69,5 +69,10 @@ $(document).ready(function () {
         clearErrors();
     })
 
+    $('#sessionEye').click(function () {
+        const input = $('.toggle-password-session');
+        input.attr('type') === 'password' ? input.attr('type', 'text') : input.attr('type', 'password')
+    });
+
 });
 

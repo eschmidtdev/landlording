@@ -3,12 +3,12 @@ $(document).ready(function () {
         $("form[name='registration']").validate({
             rules: {
                 'user[FullName]': {required: true},
-                'user[email]':    {required: true, email: true},
+                'user[email]': {required: true, email: true},
                 'user[password]': {required: true, minlength: 8}
             },
             messages: {
                 'user[FullName]': {required: 'Full Name is required.'},
-                'user[email]':    'Please enter a valid email address',
+                'user[email]': 'Please enter a valid email address',
                 'user[password]': {
                     required: 'Please provide a password', minlength: 'Password is too short (minimum is 8 characters)'
                 }
@@ -22,16 +22,16 @@ $(document).ready(function () {
     function ajaxRequest(e) {
         e.preventDefault();
         disableButton();
-        const email     = $('#RegEmail').val();
-        const password  = $('#RegPass').val();
+        const email = $('#RegEmail').val();
+        const password = $('#RegPass').val();
         const full_name = $('#FullName').val();
         $.ajax({
             url: '/users',
             type: 'POST',
             data: {
                 user: {
-                    email:     email,
-                    password:  password,
+                    email: email,
+                    password: password,
                     full_name: full_name
                 }
             },
@@ -95,6 +95,11 @@ $(document).ready(function () {
     });
     $('#RegPass').keyup(function () {
         $('#PasswordError').hide();
+    });
+
+    $('#registrationEye').click(function () {
+        const input = $('.toggle-password-registration');
+        input.attr('type') === 'password' ? input.attr('type', 'text') : input.attr('type', 'password')
     });
 
 });

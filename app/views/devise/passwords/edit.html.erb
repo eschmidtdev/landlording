@@ -23,24 +23,30 @@
       <!-- Password input -->
       <div class="form-outline my-4">
         <label class="form-label font-normal" for="ResetNewPassword">New Password*</label>
-        <%= f.password_field :password,
-                             autofocus: true,
-                             autocomplete: 'off',
-                             id: 'ResetNewPassword',
-                             placeholder: "Enter your password",
-                             class: 'form-control form-control-lg'
-        %>
+        <div class="fake-input">
+          <%= f.password_field :password,
+                               autofocus: true,
+                               autocomplete: 'off',
+                               id: 'ResetNewPassword',
+                               placeholder: "Enter your password",
+                               class: 'form-control form-control-lg toggle-password-new-pass'
+          %>
+          <%= image_tag 'global_images/eye_icon.svg', width: '20', id: 'resetEyeNP' %>
+        </div>
       </div>
 
       <!-- Password conformation -->
       <div class="form-outline">
         <label class="form-label font-normal" for="ResetConfirmPassword">Confirm Password*</label>
-        <%= f.password_field :password_confirmation,
-                             autocomplete: 'off',
-                             id: 'ResetConfirmPassword',
-                             class: 'form-control form-control-lg',
-                             placeholder: "confirm your new password"
-        %>
+        <div class="fake-input">
+          <%= f.password_field :password_confirmation,
+                               autocomplete: 'off',
+                               id: 'ResetConfirmPassword',
+                               placeholder: "Confirm your new password",
+                               class: 'form-control form-control-lg toggle-password-confirm-pass'
+          %>
+          <%= image_tag 'global_images/eye_icon.svg', width: '20', id: 'resetEyeCP' %>
+        </div>
       </div>
 
       <!-- Buttons -->

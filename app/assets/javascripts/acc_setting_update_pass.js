@@ -98,6 +98,21 @@ $(document).ready(function () {
 
     $(":input").on("keyup change", function (e) {
         clearErrors();
-    })
+    });
+
+    $('#accSettingCP').click(function () {
+        const input = $('.toggle-password-acc-set-cp');
+        input.attr('type') === 'password' ? input.attr('type', 'text') : input.attr('type', 'password')
+    });
+
+    $('#accSettingNP').click(function () {
+        const input = $('.toggle-password-acc-set-np');
+        input.attr('type') === 'password' ? input.attr('type', 'text') : input.attr('type', 'password')
+    });
+
+    $('#accSettingCNP').click(function () {
+        const input = $('.toggle-password-acc-set-cnp');
+        input.attr('type') === 'password' ? input.attr('type', 'text') : input.attr('type', 'password')
+    });
 
 });
