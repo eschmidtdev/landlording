@@ -20,7 +20,7 @@ module AccountSettingsHelper
 
   def billing_address(user)
     if user.payment_detail.present? && (user.payment_detail&.address_line_one.present? && user.payment_detail&.address_line_two.present?)
-      user.payment_detail&.address_line_one + user.payment_detail&.address_line_two
+      user.payment_detail&.address_line_one + ' ' + user.payment_detail&.address_line_two
     else
       '123 Apple Street, Unit 101, Austin, TX 78741'
     end
