@@ -32,13 +32,16 @@
       <!-- Password input -->
       <div class="form-outline mb-3">
         <label class="form-label font-normal" for="InputPassword">Password*</label>
-        <input
-          type="password"
-          id="InputPassword"
-          name="user[password]"
-          placeholder="Enter your password"
-          class="form-control form-control-lg"
-        >
+        <div class="fake-input">
+          <input
+            type="password"
+            id="InputPassword"
+            name="user[password]"
+            placeholder="Enter your password"
+            class="form-control form-control-lg toggle-password"
+          >
+          <%= image_tag 'global_images/eye_icon.svg', width: '20', class: 'password-eye' %>
+        </div>
       </div>
 
       <!-- Checkbox -->

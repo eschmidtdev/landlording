@@ -22,3 +22,11 @@ $(document).on('turbolinks:load', function () {
         });
 });
 
+$(document).on('click', '.password-eye', function () {
+    const input = $('.toggle-password');
+    input.attr('type') === 'password' ? input.attr('type', 'text') : input.attr('type', 'password')
+
+});
+
+
+
