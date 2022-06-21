@@ -1,12 +1,67 @@
-// import the CSS framework
-//@import "bootstrap-sprockets";
-//@import "bootstrap";
-
-//--------------------------------------------------- Global css ------------------------------------------------------
-
 body {
-  color: #000000 !important;
+  color: #000000;
 }
+
+label {
+  font-size: 14px;
+}
+
+.custom-long-btn {
+  height: 50px;
+  color: white;
+  padding-left: 2.5rem;
+  padding-right: 2.5rem;
+  font-size: 20px !important;
+  border-radius: 7px !important;
+  background: #FF8F00 !important;
+}
+
+.custom-long-btn:hover {
+  color: white;
+}
+
+.omni-auth-btn {
+  left: 941px;
+  height: 60px;
+  top: 771.3px;
+  font-size: 18px;
+  border-radius: 7px;
+  text-align: center;
+  border: 1.3px solid #EBEBEB;
+}
+
+.omni-auth-btn div {
+  top: -1px;
+  width: 23px;
+  height: 39px;
+  position: relative;
+  display: inline-block;
+  vertical-align: middle;
+  background: transparent url('GoogleOmniAuth.png') no-repeat;
+  background-size: 191px 47px;
+  background-position: -14px -3px;
+}
+
+.or-text {
+  color: rgba(0, 0, 0, 0.45);
+  font-size: 15px !important;
+}
+
+.error_alert {
+  color: #FF2C3A;
+  font-size: 14px;
+  padding: 5px 10px;
+  border-radius: 5px;
+  background: rgba(255, 44, 58, 0.07);
+}
+
+.success_alert {
+  background: rgba(255, 44, 58, 0.07);
+  border-radius: 5px;
+  padding: 5px 10px;
+  color: #008000;
+}
+
 
 .form-control:focus {
   border-color: #FF8F00;
@@ -43,19 +98,6 @@ input, input::placeholder {
   background: #eee;
 }
 
-.login_btn {
-  height: 65px;
-  background: #FF8F00 !important;
-  border-radius: 7px !important;
-  font-size: 20px !important;
-  padding-left: 2.5rem;
-  padding-right: 2.5rem;
-  color: white;
-}
-
-.login_btn:hover {
-  color: white;
-}
 
 .got-it-btn {
   width: 120px;
@@ -78,48 +120,10 @@ input, input::placeholder {
   color: #FF8F00 !important;
 }
 
-.btn-google-sign-in {
-  height: 60px;
-  left: 941px;
-  top: 771.3px;
-  border: 1.3px solid #EBEBEB;
-  box-sizing: border-box;
-  border-radius: 7px;
-  font-weight: 400;
-  font-size: 18px;
-  line-height: 31px;
-  text-align: center;
-}
-
-.btn-google-sign-in div {
-  background: transparent url('GoogleOmniAuth.png') no-repeat;
-  background-size: 191px 47px;
-  background-position: -14px -3px;
-  width: 23px;
-  height: 39px;
-  display: inline-block;
-  vertical-align: middle;
-  position: relative;
-  top: -1px;
-}
-
 .bg-light_red {
   background-color: #F6F6F6;
 }
 
-.error_alert {
-  background: rgba(255, 44, 58, 0.07);
-  border-radius: 5px;
-  padding: 5px 10px;
-  color: #FF2C3A;
-}
-
-.success_alert {
-  background: rgba(255, 44, 58, 0.07);
-  border-radius: 5px;
-  padding: 5px 10px;
-  color: #008000;
-}
 
 .display_none {
   display: none;
