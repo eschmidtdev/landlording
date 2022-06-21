@@ -1,38 +1,46 @@
 <div class="subscription-rectangle">
   <div class="container mb-4">
-    <!-- My Subscription Row -->
+    <!-- Subscription Heading -->
     <div class="d-flex justify-content-between mt-3">
       <span class="pull-left heading bold">My Subscription</span>
-      <%= image_tag 'account_settings/account_setting_tooltip.svg', class: 'pull-right', width: '20' %>
+      <%#= image_tag 'account_settings/account_setting_tooltip.svg', class: 'pull-right', width: '20' %>
     </div>
 
+    <!-- Plan Name & Description -->
     <div class="row mt-3">
+      <!-- Name -->
       <div class="col">
         <div>
-          <span class="pull-left account-name">Premium Account</span><br>
+          <span class="pull-left account-name"><%= process_plan(current_user)[:name] %></span><br>
           <p class="account-description opacity-0-75 pull-left">
-            Unlimited access to our legal document library and online rental application tool, billed monthly.
+            <%= process_plan(current_user)[:description] %>
           </p>
         </div>
       </div>
-      <div class="col">
-        <div id="PlanRectangle">
-          <div class="pull-right my-auto plan-rectangle">
-            <span class="name">Monthly Plan</span>
-            <span class="price">($39)</span><br>
-            <span class="description opacity-0-5">Your subscription renews</span>
-            <span class="validity bold">July 12th, 2023</span>
+      <!-- Description -->
+      <div class="col my-auto">
+        <% if current_user.subscription&.plan == 'free' %>
+          <div class="pull-right my-auto">
+            <button type="button" class="btn btn-outline-success">Switch to Premium</button>
           </div>
-        </div>
+        <% else %>
+          <div id="PlanRectangle">
+            <div class="pull-right my-auto plan-rectangle">
+              <span class="name">Monthly Plan</span>
+              <span class="price">($39)</span><br>
+              <span class="description opacity-0-5">Your subscription renews</span>
+              <span class="validity bold">July 12th, 2023</span>
+            </div>
+          </div>
+        <% end %>
       </div>
     </div>
-
-    <%= link_to 'Change or Cancel Subscription',
-                subscriptions_path,
-                class: 'cancel-subscription bold pull-right'
-    %>
+    <% unless current_user.subscription&.plan == 'free' %>
+      <%= link_to 'Change or Cancel Subscription',
+                  subscriptions_path,
+                  class: 'cancel-subscription bold pull-right'
+      %>
+    <% end %>
 
   </div>
 </div>
-
-

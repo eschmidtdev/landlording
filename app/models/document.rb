@@ -4,6 +4,7 @@ class Document < ApplicationRecord
   # Association
   belongs_to :user
 
+  # Enums
   enum status: { in_progress: 0,
                  signed: 1,
                  completed: 2,
