@@ -1,4 +1,5 @@
-<%= javascript_include_tag 'reset_password' %>
+<%= stylesheet_link_tag 'passwords' %>
+<%= stylesheet_link_tag 'forgot_passwords' %>
 
 <div class="row d-flex justify-content-center align-items-center">
   <div class="col-md-9 col-lg-6 col-xl-5 bg-light_red">
@@ -7,7 +8,7 @@
 
   <div class="col-md-8 col-lg-6 col-xl-4 ml-5" id="PasswordSectionEdit">
     <!-- Sign in form -->
-    <%= form_for(resource, as: resource_name, url: password_path(resource_name), html: { method: :put, name: 'reset_password', class: 'edit-form-padding' }) do |f| %>
+    <%= form_for(resource, as: resource_name, url: password_path(resource_name), html: { method: :put, name: 'reset_password' }) do |f| %>
       <%= devise_error_messages! %>
       <%= f.hidden_field :reset_password_token %>
 
@@ -57,3 +58,5 @@
     <% end %>
   </div>
 </div>
+
+<%= javascript_include_tag 'reset_password' %>
