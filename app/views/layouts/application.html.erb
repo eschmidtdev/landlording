@@ -46,11 +46,10 @@
   <!-- In page CSS -->
   <style type="text/css">
       .main-content-div-section {
-          margin-left: 225px;
-          /* Should match width of #nav-sidebar. */
-          padding: 1rem 40px;
           width: 100%;
           margin-top: 75px;
+          margin-left: 225px;
+          padding: 1rem 40px;
       }
 
       /*---TopBar---*/
@@ -65,18 +64,16 @@
       * Sidebar
       */
       #nav-sidebar {
-          position: fixed;
-          width: 240px;
-          top: 80px;
-          bottom: 0;
           left: 0;
+          bottom: 0;
+          top: 80px;
+          width: 240px;
           z-index: 1000;
-          /*padding: 1rem 0;*/
-          overflow-x: hidden;
+          position: fixed;
           overflow-y: auto;
-          border-right: 1px solid #eee;
-          /*box-shadow: 2px 0 5px 0 rgba(0, 0, 0, .16), 2px 0 10px 0 rgba(0, 0, 0, .12);*/
+          overflow-x: hidden;
           white-space: nowrap;
+          border-right: 1px solid #eee;
           transition: all 0.5s ease;
           background-color: #F8F8F8;;
       }
@@ -87,23 +84,23 @@
       }
 
       .sidebar-expand button {
-          font-size: 2.5rem;
-          line-height: 1.1;
           color: #000;
-          background: 0 0;
-          border-width: 0;
-          border-color: rgba(255, 255, 255, .1);
           cursor: pointer;
+          border-width: 0;
+          background: 0 0;
+          line-height: 1.1;
+          font-size: 2.5rem;
           transition: all 0.5s ease;
-          -webkit-transition: all 0.5s ease;
-          -moz-transition: all 0.5s ease;
           -o-transition: all 0.5s ease;
+          -moz-transition: all 0.5s ease;
+          -webkit-transition: all 0.5s ease;
+          border-color: rgba(255, 255, 255, .1);
       }
 
       @media (max-width: 768px) {
           #nav-topbar .brand-container,
           #nav-sidebar {
-              width: 0px;
+              width: 0;
           }
 
           #nav-topbar .brand-container.active,
@@ -118,17 +115,17 @@
           }
 
           .main-content-div-section {
-              margin-left: 0px;
+              margin-left: 0;
           }
 
           .card-img-logo {
               width: 80px !important;
-              margin: 0px auto !important;
+              margin: 0 auto !important;
           }
 
           .card-content-text {
-              display: block !important;
               align-items: center;
+              display: block !important;
               text-align: center !important;
           }
 
@@ -140,7 +137,7 @@
       @media (max-width: 600px) {
           #nav-topbar .brand-container,
           #nav-sidebar {
-              width: 0px;
+              width: 0;
           }
 
           #nav-topbar .brand-container.active,
@@ -155,13 +152,13 @@
           }
 
           .main-content-div-section {
-              margin-left: 0px;
+              margin-left: 0;
               padding: 1rem 20px;
           }
 
           .card-img-logo {
               width: 60px !important;
-              margin: 0px auto !important;
+              margin: 0 auto !important;
           }
 
           .card-content {
@@ -169,12 +166,12 @@
           }
 
           .card-content h3 {
-              text-align: center;
               font-size: 18px;
+              text-align: center;
           }
 
           .card-content {
-              padding: 20px 0px 0px 0px;
+              padding: 20px 0 0 0;
           }
 
           .logo-img-container {
@@ -191,59 +188,59 @@
       */
       .rotate-90cw {
           transform: rotate(90deg);
-          -webkit-transform: rotate(90deg);
-          -moz-transform: rotate(90deg);
           -ms-transform: rotate(90deg);
+          -moz-transform: rotate(90deg);
+          -webkit-transform: rotate(90deg);
       }
 
       .rotate-180cw {
           transform: rotate(180deg);
-          -webkit-transform: rotate(180deg);
-          -moz-transform: rotate(180deg);
           -ms-transform: rotate(180deg);
+          -moz-transform: rotate(180deg);
+          -webkit-transform: rotate(180deg);
       }
 
       .rotate-90ccw {
           transform: rotate(-90deg);
-          -webkit-transform: rotate(-90deg);
           -moz-transform: rotate(-90deg);
           -ms-transform: rotate(-90deg);
+          -webkit-transform: rotate(-90deg);
       }
 
       .rotate-180ccw {
           transform: rotate(-180deg);
-          -webkit-transform: rotate(-180deg);
-          -moz-transform: rotate(-180deg);
           -ms-transform: rotate(-180deg);
+          -moz-transform: rotate(-180deg);
+          -webkit-transform: rotate(-180deg);
       }
 
       .flip-y {
           transform: perspective(100px) rotateY(180deg);
-          -webkit-transform: perspective(100px) rotateY(180deg);
-          -moz-transform: perspective(100px) rotateY(180deg);
           -ms-transform: perspective(100px) rotateY(180deg);
+          -moz-transform: perspective(100px) rotateY(180deg);
+          -webkit-transform: perspective(100px) rotateY(180deg);
       }
 
       .flip-x {
           transform: perspective(100px) rotateX(180deg);
-          -webkit-transform: perspective(100px) rotateX(180deg);
-          -moz-transform: perspective(100px) rotateX(180deg);
           -ms-transform: perspective(100px) rotateX(180deg);
+          -moz-transform: perspective(100px) rotateX(180deg);
+          -webkit-transform: perspective(100px) rotateX(180deg);
       }
 
       /*-------------------------------*/
       /*--------- Custom css-----------*/
       /*-------------------------------*/
       .sidebar-content a {
-          display: block;
           color: black;
           padding: 16px;
+          display: block;
           text-decoration: none;
       }
 
       .sidebar-content a.active {
-          background-color: #04AA6D;
           color: white;
+          background-color: #04AA6D;
       }
 
       .sidebar-content ul {
@@ -259,8 +256,8 @@
       }
 
       .sidebar-content ul li a span {
-          margin-left: 10px;
           color: #000;
+          margin-left: 10px;
       }
 
       .card-icon-img {
@@ -270,7 +267,7 @@
 
       .card-img-logo {
           width: 100px;
-          margin: 0px auto;
+          margin: 0 auto;
       }
 
       .card-img-logo img {
@@ -280,32 +277,31 @@
       }
 
       .nav-item-text {
+          margin: 0 10px;
+          font-size: 16px;
           padding-top: 5px;
-          margin: 0px 10px;
           font-weight: 500;
           color: #000000 !important;
-          font-size: 16px;
           text-transform: capitalize;
       }
 
       /*.user-nameshow{
       }*/
       .user-nameshow::before {
-          position: absolute;
           left: -1px;
-          /*top: 50%;*/
-          background: #dee2e6;
           width: 1px;
+          content: '';
           height: 15px;
           margin-top: 20px;
-          content: '';
+          position: absolute;
+          background: #dee2e6;
       }
 
       .user-name {
-          margin: 0px 10px;
+          margin: 0 10px;
           color: #000000;
-          text-transform: capitalize;
           font-size: 16px;
+          text-transform: capitalize;
       }
 
       .logo-img-container {
@@ -328,7 +324,7 @@
       }
 
       .page-heading-container {
-          padding: 30px 0px;
+          padding: 30px 0;
       }
 
       .page-heading-container .page-heading {
@@ -358,9 +354,7 @@
       }
 
       .user-nameshow .dropdown-toggle::after {
-
           display: none;
-
       }
   </style>
 
