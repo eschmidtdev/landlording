@@ -21,7 +21,12 @@
       <div class="col my-auto">
         <% if current_user.subscription&.plan == 'free' %>
           <div class="pull-right my-auto">
-            <button type="button" class="btn btn-outline-success">Switch to Premium</button>
+            <button
+              type="button"
+              class="btn btn-outline-success"
+              onclick="window.location.href='<%= subscriptions_path %>'">
+              Switch to Premium
+            </button>
           </div>
         <% else %>
           <div id="PlanRectangle">

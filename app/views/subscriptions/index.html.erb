@@ -31,7 +31,8 @@
           </div>
         <% end %>
         <div class="ml-2 my-auto">
-          <button type="button" class="change_subscription_btn"
+          <button type="button"
+                  class="change_subscription_btn"
                   onclick="window.location.href='<%= cancel_subscription_path(1) %>'">
             Change Subscription
           </button>
@@ -46,5 +47,10 @@
   <span class="amount">($39</span>/<span class="opacity-0-6">month)</span><br>
   <p><span class="opacity-0-6 font-14">Your subscription renews</span>
     <span class="bold font-14">July 12th, 2023</span></p>
-  <button type="button" class="create-button w-100">Change Subscription</button>
+  <button
+    type="button"
+    class="create-button w-100"
+    onclick="window.location.href='<%= cancel_subscription_path(1) %>'">
+    Change Subscription
+  </button>
 </div>
