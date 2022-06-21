@@ -57,9 +57,11 @@
 .desktop-margin {
   margin-top: 20px;
 }
-.add-tenant-form-mob{
+
+.add-tenant-form-mob {
   display: none;
 }
+
 #CustomMobileMenu {
   transform: translate3d(-45px, 24px, 0px) !important;
 }
@@ -85,33 +87,33 @@
   .margin-top-mob {
     margin-top: 15px;
   }
-  #CardBorderMob{
+  #CardBorderMob {
     border: none;
   }
-  #collapse-by-img{
+  #collapse-by-img {
     display: none;
   }
-  #headingOne{
+  #headingOne {
     border-bottom: none;
     margin: 0;
     padding: 0;
   }
-  #AddTenantHeading{
+  #AddTenantHeading {
     font-size: 20px;
     padding: 0 !important;
     margin: 0 !important;
   }
-  #CardBodyMob{
+  #CardBodyMob {
     padding: 0;
   }
-  #TenantFormMob{
+  #TenantFormMob {
     padding: 0 !important;
     margin-top: 10px;
   }
-  .radio-inline{
+  .radio-inline {
     margin: 0 !important;
   }
-  .ml-mob-0{
+  .ml-mob-0 {
     margin-left: 0 !important;
   }
 }

@@ -1,12 +1,11 @@
-<div class="container">
+<%= stylesheet_link_tag 'documents' %>
 
-  <%= render partial: 'layouts/page_heading' %>
+<%= render partial: 'layouts/page_heading' %>
 
-  <%= render partial: 'documents/partials/buttons' %>
+<%= render partial: 'documents/partials/buttons' %>
 
-  <%= render partial: 'documents/partials/table' %>
+<%= render partial: 'documents/partials/table' %>
 
 
-  <!-- Pagination -->
-  <%= will_paginate @documents, renderer: WillPaginate::ActionView::BootstrapLinkRenderer %>
-</div>
+<!-- Pagination -->
+<%= will_paginate @documents, renderer: WillPaginate::ActionView::BootstrapLinkRenderer %>
