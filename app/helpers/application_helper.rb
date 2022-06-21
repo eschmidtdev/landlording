@@ -31,7 +31,7 @@ module ApplicationHelper
       'Change Password'
     elsif params[:controller] == 'subscriptions' && params[:action] == 'index'
       'My Subscription'
-    elsif params[:controller] == 'subscriptions' && params[:action] == 'cancel-subscription'
+    elsif params[:controller] == 'subscriptions' && params[:action] == 'cancel_subscription'
       'Cancel Subscription'
     elsif params[:controller] == 'payment_details' && params[:action] == 'index'
       'Enter Payment Details'
