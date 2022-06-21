@@ -77,7 +77,7 @@ $(document).ready(function () {
             $('#PasswordError').show().text(data.message);
         }
         if (data.method === 'params_missing?') {
-            $('.error_alert').show().text(data.message);
+            $('.error_alert').text('').show().text(data.message);
         }
 
         enableButton();
