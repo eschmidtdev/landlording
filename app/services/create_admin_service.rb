@@ -2,14 +2,15 @@
 
 # Service for create Admin User
 class CreateAdminService < ApplicationService
-  attr_reader :first_name, :email, :password, :confirmation_token,
-              :current_datetime
+  attr_reader :first_name, :last_name, :email, :password,
+              :confirmation_token, :current_datetime
 
-  def initialize(first_name, email, password, confirmation_token, current_datetime)
-    @email = email
-    @password = password
-    @first_name = first_name
-    @datetime = current_datetime
+  def initialize(first_name, last_name, email, password, confirmation_token, current_datetime)
+    @email              = email
+    @password           = password
+    @last_name          = last_name
+    @first_name         = first_name
+    @datetime           = current_datetime
     @confirmation_token = confirmation_token
   end
 
@@ -22,6 +23,7 @@ class CreateAdminService < ApplicationService
     user = User.create(
       email:,
       password:,
+      last_name:,
       first_name:,
       confirmation_token:,
       confirmed_at: current_datetime,
