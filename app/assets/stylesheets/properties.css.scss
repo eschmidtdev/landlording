@@ -3,18 +3,13 @@
   transform: translate3d(-70px, 24px, 0px) !important;
 }
 
-.new-property-form .radio-label {
-  font-size: 13px;
-  letter-spacing: -0.01em;
+.btn-link {
+  color: black;
+  text-decoration: none !important;
 }
 
-.new-property-form .card-header {
-  background: transparent;
-}
-
-.new-property-form .edit-tenant-modal {
-  max-width: 600px !important;
-  max-height: 600px !important;
+.desktop-margin {
+  margin-top: 20px;
 }
 
 .new-property-form .edit {
@@ -25,12 +20,12 @@
   text-decoration: underline;
 }
 
-.edit-tenant-modal .close {
-  padding: 5px;
-}
-
 .edit-tenant-modal .body {
   padding: 20px;
+}
+
+.edit-tenant-modal .close {
+  padding: 5px;
 }
 
 .edit-tenant-modal .heading {
@@ -42,25 +37,72 @@
   border: 1px solid #E5E5E5;
 }
 
-.btn-link {
-  color: black;
-  text-decoration: none !important;
+.new-property-form .card-header {
+  background: transparent;
 }
 
-.desktop-margin {
-  margin-top: 20px;
+.new-property-form .radio-label {
+  font-size: 13px;
+  letter-spacing: -0.01em;
 }
+
+.new-property-form .edit-tenant-modal {
+  max-width: 600px !important;
+  max-height: 600px !important;
+}
+
 
 @media only screen and (max-width: 600px) {
+  #headingOne {
+    border-bottom: none;
+    margin: 0;
+    padding: 0;
+  }
+  #CardBodyMob {
+    padding: 0;
+  }
+  #TenantNameMob{
+    padding: 0 !important;
+  }
+  #TenantEditMob{
+    padding-right: 0 !important;
+  }
+  #CardBorderMob {
+    border: none;
+  }
+  #TenantFormMob {
+    padding: 0 !important;
+    margin-top: 10px;
+  }
+  #collapse-by-img {
+    display: none;
+  }
+  #AddRentalPropImg {
+    float: none !important;
+  }
+  #AddTenantHeading {
+    font-size: 20px;
+    padding: 0 !important;
+    margin: 0 !important;
+  }
   #MyPropertyCardMargin {
     margin-top: 3rem !important;
+  }
+  #propertyLandlordInfo {
+    margin-bottom: 20px;
   }
   #AddRentalPropertyBtnMob {
     width: 100%;
     margin-top: 1.5rem !important;
   }
-  #AddRentalPropImg {
-    float: none !important;
+  .ml-mob-0 {
+    margin-left: 0 !important;
+  }
+  .radio-inline {
+    margin: 0 !important;
+  }
+  .margin-top-mob {
+    margin-top: 15px;
   }
   .property-nam-mob {
     margin-top: 1.5rem;
@@ -68,37 +110,5 @@
   }
   .new-property-form .col {
     flex-basis: 12em !important;
-  }
-  .margin-top-mob {
-    margin-top: 15px;
-  }
-  #CardBorderMob {
-    border: none;
-  }
-  #collapse-by-img {
-    display: none;
-  }
-  #headingOne {
-    border-bottom: none;
-    margin: 0;
-    padding: 0;
-  }
-  #AddTenantHeading {
-    font-size: 20px;
-    padding: 0 !important;
-    margin: 0 !important;
-  }
-  #CardBodyMob {
-    padding: 0;
-  }
-  #TenantFormMob {
-    padding: 0 !important;
-    margin-top: 10px;
-  }
-  .radio-inline {
-    margin: 0 !important;
-  }
-  .ml-mob-0 {
-    margin-left: 0 !important;
   }
 }
