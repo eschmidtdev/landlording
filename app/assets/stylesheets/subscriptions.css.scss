@@ -102,11 +102,28 @@
   display: none;
 }
 
+.decide-mob-container {
+  display: none;
+}
+
 @media only screen and (max-width: 600px) {
   .plan-rectangle {
     display: none;
   }
   #PlanRectangleMob {
     display: block;
+  }
+  #DecideLaterWeb {
+    display: none !important;
+  }
+  .decide-mob-container {
+    display: block;
+    text-align: center !important;
+  }
+  #DecideLaterMob {
+    margin-bottom: 10px;
+  }
+  #CancelSubMob {
+    margin-bottom: 40px;
   }
 }

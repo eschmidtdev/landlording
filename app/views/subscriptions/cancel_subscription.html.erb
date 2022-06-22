@@ -12,13 +12,24 @@
         <span>You will lose access to all the existing features. You can still think before cancel it.</span>
       </div>
       <div class="cancellation_warning">
-        <div class="d-flex justify-content-start">
+        <div class="d-flex justify-content-start" id="DecideLaterWeb">
           <button type="button" class="change_subscription_btn">Cancel my subscription</button>
           <%= link_to 'Ok I’ll decide latter.', account_settings_path, class: 'my-auto ml-3 decide_latter' %>
         </div>
+        <div class="decide-mob-container">
+          <div class="row">
+            <div class="col-md-12" id="DecideLaterMob">
+              <%= link_to 'Ok I’ll decide latter.', account_settings_path, class: 'decide_latter' %>
+            </div>
+          </div>
+          <div class="row">
+            <div class="col-md-12" id="CancelSubMob">
+              <button type="button" class="change_subscription_btn w-100">Cancel my subscription</button>
+            </div>
+          </div>
+        </div>
       </div>
     </div>
-
 
     <div class="col">
       <div class="cancel_plan-rectangle pull-right">
