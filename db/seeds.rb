@@ -3,7 +3,7 @@
 # Create Admin User
 CreateAdminService.call(
   'Admin User',
-  'admin@ipm.com',
+  'autr@ipm.com',
   'Test@123',
   SecureRandom.hex(10),
   DateTime.now
