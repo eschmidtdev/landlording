@@ -1,5 +1,16 @@
+.image-mob {
+  display: none;
+}
+
 @media only screen and (max-width: 600px) {
-  #nav-sidebar {
-    //top: 108px !important;
+  .image-mob {
+    display: block;
+  }
+  .user-logout-mob {
+    padding: 0 !important;
+  }
+  .user-logout-mob-container {
+    min-width: 80px !important;
+    transform: translate3d(90px, 48px, 0px) !important;
   }
 }

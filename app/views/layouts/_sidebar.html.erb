@@ -3,6 +3,29 @@
 <nav id="nav-sidebar" class="bg-faded">
   <div class="sidebar-content hidden-sm-down">
     <ul>
+      <!-- Image & Name -->
+      <li class="image-mob">
+        <a
+          role="button"
+          aria-haspopup="true"
+          aria-expanded="false"
+          data-toggle="dropdown"
+          id="dropdownMenuButtonMob"
+        >
+          <!-- Image -->
+          <%= image_tag 'navbar/user_image.png',
+                        width: '40',
+                        height: '40',
+                        class: 'rounded-circle'
+          %>
+          <!-- Name -->
+          <span><%= current_user&.first_name + ' ' + current_user&.last_name %></span>
+        </a>
+        <div class="dropdown-menu user-logout-mob-container" aria-labelledby="dropdownMenuButtonMob">
+          <a class="dropdown-item user-logout-mob" href="/users/sign_out" data-method="delete">Log Out</a>
+        </div>
+      </li>
+
       <li class="<%= 'active_border' if current_page? visitors_path %>">
         <a href="<%= visitors_url %>">
           <%= image_tag current_page?(visitors_url) ? 'sidebar/active_category.svg' : 'sidebar/inactive_category.svg', width: '25' %>
