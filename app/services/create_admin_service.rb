@@ -16,8 +16,7 @@ class CreateAdminService < ApplicationService
   def call
     prev_user = User.find_by email: @email
     if prev_user.present?
-      raise StandardError,
-            I18n.t('EForm.Messages.Error.AlreadyExists')
+      raise StandardError, I18n.t('EForm.Messages.Error.AlreadyExists')
     end
 
     user = User.create(
