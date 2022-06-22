@@ -188,6 +188,7 @@
     border: none;
   }
   #BillingDetailDropdown {
+    min-width: 130px !important;
     transform: translate3d(-80px, 24px, 0px) !important;
   }
 }
