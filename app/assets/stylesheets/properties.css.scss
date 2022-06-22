@@ -61,10 +61,10 @@
   #CardBodyMob {
     padding: 0;
   }
-  #TenantNameMob{
+  #TenantNameMob {
     padding: 0 !important;
   }
-  #TenantEditMob{
+  #TenantEditMob {
     padding-right: 0 !important;
   }
   #CardBorderMob {
@@ -73,6 +73,9 @@
   #TenantFormMob {
     padding: 0 !important;
     margin-top: 10px;
+  }
+  #TenantModalMob {
+    padding: 0 !important;
   }
   #collapse-by-img {
     display: none;
@@ -110,5 +113,8 @@
   }
   .new-property-form .col {
     flex-basis: 12em !important;
+  }
+  .edit-tenant-modal .body {
+    padding: 0 !important;
   }
 }
