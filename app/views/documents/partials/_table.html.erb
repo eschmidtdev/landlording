@@ -11,7 +11,7 @@
       <td>
         <div class="document-name-cell-container">
           <span class="name"><%= document.name %></span><br>
-          <span class="date opacity-0-6">Created on <%= document.created_at %></span>
+          <span class="date opacity-0-6">Created on <%= document.created_at.strftime('%B %-dth, %Y') %></span>
         </div>
       </td>
       <td>
@@ -22,9 +22,33 @@
         </div>
       </td>
       <td>
-        <%= render partial: 'documents/partials/dropdown', locals: {document: document} %>
+        <%= render partial: 'documents/partials/dropdown', locals: { document: document } %>
       </td>
     </tr>
   <% end %>
   </tbody>
 </table>
+
+<div class="documents-table-mob my-4">
+  <% @documents.each_with_index do |document, index| %>
+    <div class="doc-content-container">
+      <div class="card">
+        <div class="card-body">
+          <h5 class="card-title"><span class="name"><%= document.name %></span></h5>
+          <h6 class="card-subtitle mb-2 text-muted">
+            <span class="date opacity-0-6">Created on <%= document.created_at.strftime('%B %-dth, %Y') %></span></h6>
+          <div class="row">
+            <div class="col">
+              <div class="document-status">
+                <span class="<%= document.status %>">
+                  <%= document.status %>
+                </span>
+              </div>
+            </div>
+            <div class="col"><%= render partial: 'documents/partials/dropdown', locals: { document: document } %></div>
+          </div>
+        </div>
+      </div>
+    </div>
+  <% end %>
+</div>

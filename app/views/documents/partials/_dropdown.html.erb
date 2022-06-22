@@ -5,7 +5,7 @@
   <% end %>
 
   <%= link_to '#' do %>
-    <%= image_tag 'documents/edit_icon.svg' %>
+    <%= image_tag 'documents/edit_icon.svg', class: 'mob-margin' %>
   <% end %>
 
   <!-- Dropdown Link -->
@@ -19,7 +19,7 @@
       <%= image_tag 'documents/more.svg' %>
     <% end %>
 
-    <div class="dropdown-menu" aria-labelledby="documentDropdown">
+    <div class="dropdown-menu" aria-labelledby="documentDropdown" id="DocDropMob">
       <ul>
         <li><%= link_to '#', class: 'dropdown-item' do %>
             <div class="d-flex justify-content-start">

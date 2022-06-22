@@ -1,13 +1,5 @@
-.properties-index-card {
-  height: 180px;
-  padding: 15px;
-  border-radius: 7px;
-  border: 1px solid #E5E5E5;
-  max-width: 520px !important;
-}
-
-.properties-index-card .name {
-  letter-spacing: -0.01em !important;
+#CustomMobileMenu {
+  transform: translate3d(-45px, 24px, 0px) !important;
 }
 
 .new-property-form .radio-label {
@@ -25,11 +17,11 @@
 }
 
 .new-property-form .edit {
-  text-decoration: underline;
-  font-weight: 700;
-  font-size: 15px;
-  line-height: 23px;
   color: #FF8F00;
+  font-size: 15px;
+  font-weight: 700;
+  line-height: 23px;
+  text-decoration: underline;
 }
 
 .edit-tenant-modal .close {
@@ -56,14 +48,6 @@
 
 .desktop-margin {
   margin-top: 20px;
-}
-
-.add-tenant-form-mob {
-  display: none;
-}
-
-#CustomMobileMenu {
-  transform: translate3d(-45px, 24px, 0px) !important;
 }
 
 @media only screen and (max-width: 600px) {

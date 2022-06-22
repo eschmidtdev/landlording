@@ -81,11 +81,11 @@
   padding: 0;
 }
 
-.dropdown-menu ul li span{
+.dropdown-menu ul li span {
   margin-left: 10px;
 }
 
-.dropdown-item{
+.dropdown-item {
   margin: 5px 0;
 }
 
@@ -110,4 +110,63 @@
 
 .documents-table > thead > tr > th {
   border: none !important;
+}
+
+.documents-table-mob {
+  display: none;
+}
+
+@media only screen and (max-width: 600px) {
+  .documents-table {
+    display: none;
+  }
+  .documents-table-mob {
+    display: block;
+    border-radius: 5px;
+    background: #FFFFFF;
+    border: 1.3px solid #E5E5E5;
+  }
+  .doc-content-container {
+    border-bottom: 1.3px solid #E5E5E5;
+  }
+
+  .doc-content-container .card {
+    padding: 0;
+    float: none;
+    border: none;
+  }
+
+  .doc-content-container .card-body {
+    padding: 1.25rem 1.25rem 0 1.25rem;
+  }
+
+  .doc-content-container .name {
+    font-size: 20px;
+    line-height: 31px;
+    letter-spacing: -0.01em;
+    font-weight: 600 !important;
+  }
+
+  .doc-content-container .document-status {
+    padding: 20px 0 !important;
+  }
+
+  .doc-content-container .date {
+    font-size: 15px !important;
+  }
+
+  .doc-content-container .dropdown-padding {
+    padding: 20px 25px !important;
+  }
+
+  .mob-margin {
+    margin: 0 10px;
+  }
+  .no-mob-name {
+    display: none;
+  }
+
+  #DocDropMob {
+    transform: translate3d(-95px, 30px, 0px) !important;
+  }
 }
