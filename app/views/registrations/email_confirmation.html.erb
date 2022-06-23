@@ -10,15 +10,16 @@
     <!-- Heading -->
     <div class="row confirm-email-heading">
       <div class="col-md-12">
-        <span class="login_text">Mail Sent</span>
-        <p class="font-16">If there is an account under that address, we have sent an email to reset your password.</p>
+        <span class="login_text">Confirm Email</span>
+        <p class="font-16">To verify the email address for your account, a confirmation email has been sent.</p>
+        <p class="font-16">Please click the link in the email to login.</p>
       </div>
     </div>
 
     <!-- Buttons -->
     <div class="my-4">
       <button type="button"
-              onclick="window.location.href='<%= user_session_path %>'"
+              onclick="window.location.href='<%= signup_path %>'"
               class="btn create-button got-it-btn got-it-mob"
       >
         GOT IT

@@ -10,6 +10,7 @@ Rails.application.routes.draw do
     post '/sent/email', to: 'passwords#create'
     get '/confirmation', to: 'passwords#confirmation'
     get '/auth/google_oauth2/callback', to: 'sessions#google_auth'
+    get '/email_confirmation', to: 'registrations#email_confirmation'
   end
 
   resources :users do

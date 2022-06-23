@@ -68,7 +68,7 @@ $(document).ready(function () {
     function render_response(data) {
         clearErrors();
         enableButton();
-        $('.success_alert').show().text(data.message);
+        window.location.href = data.url;
     }
 
     function render_conditional_response(data) {

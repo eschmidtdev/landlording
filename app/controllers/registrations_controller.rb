@@ -12,8 +12,10 @@ class RegistrationsController < Devise::RegistrationsController
     resource = create_resource
     UserMailer.send_verification_email(resource).deliver_now!
     render json: { success: true,
-                   message: I18n.t('devise.registrations.signed_up_but_inactive') }
+                   url: email_confirmation_url }
   end
+
+  def email_confirmation; end
 
   private
 
