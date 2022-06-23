@@ -13,25 +13,25 @@ Rails.application.routes.draw do
     get '/email_confirmation', to: 'registrations#email_confirmation'
   end
 
+  resources :properties
   resources :users do
     member do
       get :confirm_email
     end
   end
-  resources :payment_details, only: %i[index update]
   resources :visitors, only: :index
-  resources :properties
+  resources :subscriptions do
+    member do
+      get '/cancel', to: 'subscriptions#cancel_subscription'
+    end
+  end
   resources :account_settings do
     member do
       get '/change/password', to: 'account_settings#change_password'
     end
   end
   resources :rental_applications, only: :index
-  resources :subscriptions do
-    member do
-      get '/cancel', to: 'subscriptions#cancel_subscription'
-    end
-  end
+  resources :payment_details, only: %i[index update]
 
   get '/documents', to: 'documents#index'
   get '/create/interview', to: 'documents#create_interview'

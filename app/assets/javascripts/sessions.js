@@ -3,7 +3,7 @@ $(document).ready(function () {
     $(function () {
         $("form[name='session']").validate({
             rules: {
-                'user[email]': {required: true, email: true},
+                'user[email]':    {required: true, email: true},
                 'user[password]': {required: true, minlength: 8}
             },
             messages: {

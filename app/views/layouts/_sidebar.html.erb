@@ -40,19 +40,14 @@
         </a>
       </li>
 
+      <!-- Ignore for now as per document -->
       <!--      <li class="<%#= 'active_border' if current_page? rental_applications_path %>">-->
       <!--        <a href="<%#= rental_applications_path %>">-->
       <%#= image_tag current_page?(rental_applications_path) ? 'sidebar/active_rental_application.svg' : 'sidebar/inactive_rental_application.svg', width: '25' %>
       <!--          <span class="<%#= current? 'active', rental_applications_path %>">Rental Applications</span>-->
       <!--        </a>-->
       <!--      </li>-->
-
-      <li>
-        <a href="#">
-          <%= image_tag 'sidebar/inactive_rental_application.svg', width: '25' %>
-          <span>Rental Applications</span>
-        </a>
-      </li>
+      <!-- Ignore for now as per document -->
 
       <li class="<%= 'active_border' if params[:controller] == 'properties' %>">
         <a href="<%= properties_path %>">

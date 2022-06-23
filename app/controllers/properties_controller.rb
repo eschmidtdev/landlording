@@ -1,9 +1,13 @@
 # frozen_string_literal: true
 
 class PropertiesController < ApplicationController
-  def index; end
+  def index
+    @properties = Property.paginate(page: params[:page]).order('id DESC')
+  end
 
-  def new; end
+  def create; end
 
-  def edit; end
+  def update; end
+
+  def destroy; end
 end
