@@ -3,10 +3,11 @@
   <!-- Property Type Dropdown -->
   <div class="form-group">
     <label for="propertyPropertyType">Property Type*</label>
-    <select name="" id="propertyPropertyType" class="form-control form-control-lg input-45">
+    <select name="property[property_type]" id="propertyPropertyType" class="form-control form-control-lg input-45">
       <option value="" disabled selected>Select Property</option>
-      <option value="">Single-Family Home</option>
-      <option value="">Apartment/Condo</option>
+      <% Property.property_types.keys.each do |property_type| %>
+        <option><%= property_type %></option>
+      <% end %>
     </select>
   </div>
 
@@ -168,8 +169,10 @@
   <hr>
 
   <div class="d-flex justify-content-start mb-5">
-    <button type="button" class="create-button">Save</button>
+    <button type="submit" class="create-button">Save</button>
     <button type="button" class="cancel-button ml-3">Cancel</button>
   </div>
 
 </form>
+
+<%= javascript_include_tag 'properties' %>
