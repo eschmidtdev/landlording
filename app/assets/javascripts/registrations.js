@@ -2,16 +2,19 @@ $(document).ready(function () {
     $(function () {
         $("form[name='registration']").validate({
             rules: {
+                'user-TOS'     : {required: true},
                 'user[FullName]': {required: true},
-                'user[email]': {required: true, email: true},
+                'user[email]'   : {required: true, email: true},
                 'user[password]': {required: true, minlength: 8}
             },
             messages: {
+                'user[email]':    'Please enter a valid email address',
                 'user[FullName]': {required: 'Full Name is required.'},
-                'user[email]': 'Please enter a valid email address',
                 'user[password]': {
-                    required: 'Please provide a password', minlength: 'Password is too short (minimum is 8 characters)'
-                }
+                    required: 'Please provide a password',
+                    minlength: 'Password is too short (minimum is 8 characters)'
+                },
+                'user-TOS':       'Please indicate that you have accepted Terms and Conditions'
             },
             submitHandler: function (form, e) {
                 ajaxRequest(e);
