@@ -14,7 +14,6 @@ class RegistrationsController < Devise::RegistrationsController
     # render json: { success: true,
     #                url: email_confirmation_url }
     render json: { success: true,
-                   url: root_path,
                    message: 'Signed up successfully.' }
   end
 

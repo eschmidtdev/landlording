@@ -23,7 +23,7 @@ $(document).ready(function () {
                 'property[LandlordContactPhone]': {required: 'Landlord Contact Phone is required'}
             },
             submitHandler: function (form, e) {
-                ajaxRequest(e);
+                // ajaxRequest(e);
             }
         });
     });
