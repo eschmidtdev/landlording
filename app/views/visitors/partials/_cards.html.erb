@@ -1,29 +1,33 @@
+<%= stylesheet_link_tag 'visitors' %>
+
 <% 4.times do |index| %>
-  <div class="card <%= 'mt-3' if index > 0 %>">
-    <div class="card-body">
-      <div class="row">
-        <div class="col-md-12">
-          <div class="row">
-            <div class="col-md-2">
-              <div class="card-img-logo">
-                <%= visitor_card_image(index) %>
+  <a href="<%= documents_url %>" class="card-link-style">
+    <div class="card <%= 'mt-3' if index > 0 %>">
+      <div class="card-body">
+        <div class="row">
+          <div class="col-md-12">
+            <div class="row">
+              <div class="col-md-2">
+                <div class="card-img-logo">
+                  <%= visitor_card_image(index) %>
+                </div>
               </div>
-            </div>
-            <div class="col-md-8 card-content-text">
-              <div class="card-content">
-                <h3 class="bold"><%= visitor_card_heading(index) %></h3>
-                <p class="pull-left font-15 opacity-0-6"><%= visitor_card_description(index) %></p>
+              <div class="col-md-8 card-content-text">
+                <div class="card-content">
+                  <h3 class="bold"><%= visitor_card_heading(index) %></h3>
+                  <p class="pull-left font-15 opacity-0-6"><%= visitor_card_description(index) %></p>
+                </div>
               </div>
-            </div>
-            <div class="col-md-2 d-flex justify-content-center align-items-center">
-              <div class="card-icon-img">
-                <%= visitor_card_arrow(index) %>
+              <div class="col-md-2 d-flex justify-content-center align-items-center">
+                <div class="card-icon-img">
+                  <%= visitor_card_arrow(index) %>
+                </div>
               </div>
             </div>
           </div>
         </div>
       </div>
     </div>
-  </div>
+  </a>
 <% end %>
 
