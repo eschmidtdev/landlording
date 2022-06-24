@@ -19,7 +19,7 @@
                         class: 'rounded-circle'
           %>
           <!-- Name -->
-          <span><%= current_user&.first_name + ' ' + current_user&.last_name %></span>
+          <span><%= current_user&.first_name.present? ? current_user&.first_name : '' + ' ' + current_user&.last_name.present? ? current_user&.last_name : '' %></span>
         </a>
         <div class="dropdown-menu user-logout-mob-container" aria-labelledby="dropdownMenuButtonMob">
           <a class="dropdown-item user-logout-mob" href="/users/sign_out" data-method="delete">Log Out</a>

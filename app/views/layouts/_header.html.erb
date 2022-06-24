@@ -52,7 +52,7 @@
 
             <!-- Name -->
             <span class="user-name">
-              Hi, <%= current_user&.first_name + ' ' + current_user&.last_name %>
+              Hi, <%= current_user&.first_name.present? ? current_user&.first_name : '' + ' ' + current_user&.last_name.present? ? current_user&.last_name : '' %>
             </span>
 
             <!-- Image -->
