@@ -17,6 +17,7 @@ class User < ApplicationRecord
 
   # Activerecord callbacks
   after_create :set_subscription
+  after_create :update_confirmed_at
   after_create :set_payment_detail
   after_create :send_change_password_email
 
@@ -30,5 +31,9 @@ class User < ApplicationRecord
 
   def send_change_password_email
     UserMailer.change_password(self, password).deliver_now! unless uid.nil?
+  end
+
+  def update_confirmed_at
+    update(confirmed_at: DateTime.now)
   end
 end

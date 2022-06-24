@@ -10,9 +10,12 @@ class RegistrationsController < Devise::RegistrationsController
     return render_response(response) unless response.nil?
 
     resource = create_resource
-    UserMailer.send_verification_email(resource).deliver_now!
+    # UserMailer.send_verification_email(resource).deliver_now!
+    # render json: { success: true,
+    #                url: email_confirmation_url }
     render json: { success: true,
-                   url: email_confirmation_url }
+                   url: root_path,
+                   message: 'Signed up successfully.' }
   end
 
   def email_confirmation; end
