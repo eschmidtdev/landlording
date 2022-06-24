@@ -169,8 +169,19 @@
   <hr>
 
   <div class="d-flex justify-content-start mb-5">
-    <button type="submit" class="create-button" id="SavePropertyBtn">Save</button>
-    <button type="button" class="cancel-button ml-3">Cancel</button>
+    <button
+      type="submit"
+      class="create-button" id="SavePropertyBtn"
+    >
+      Save
+    </button>
+    <button
+      type="button"
+      class="cancel-button ml-3"
+      onclick="window.location.href='<%= properties_path %>'"
+    >
+      Cancel
+    </button>
   </div>
 
 </form>
