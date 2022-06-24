@@ -13,7 +13,9 @@ class RegistrationsController < Devise::RegistrationsController
     # UserMailer.send_verification_email(resource).deliver_now!
     # render json: { success: true,
     #                url: email_confirmation_url }
+    sign_in(resource)
     render json: { success: true,
+                   url: visitors_path,
                    message: 'Signed up successfully.' }
   end
 
