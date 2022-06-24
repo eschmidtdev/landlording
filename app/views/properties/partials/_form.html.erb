@@ -146,11 +146,11 @@
 
   <!-- Radio Buttons -->
   <span class="radio-label bold">Currently Leased?</span>
-  <label class="radio-inline">
-    <input type="radio" class="ml-2" name="property[LeasedYes]" checked><span class="ml-1">Yes</span>
+  <label class="radio-inline" for="CLY">
+    <input type="radio" class="ml-2" id="CLY" name="property[LeasedYes]" value="1" checked><span class="ml-1">Yes</span>
   </label>
   <label class="radio-inline">
-    <input type="radio" class="ml-2" name="property[LeasedNo]"><span class="ml-1">No</span>
+    <input type="radio" class="ml-2" name="property[LeasedNo]" value="0"><span class="ml-1">No</span>
   </label><br>
 
   <!-- Add New Tenant -->
@@ -169,7 +169,7 @@
   <hr>
 
   <div class="d-flex justify-content-start mb-5">
-    <button type="submit" class="create-button">Save</button>
+    <button type="submit" class="create-button" id="SavePropertyBtn">Save</button>
     <button type="button" class="cancel-button ml-3">Cancel</button>
   </div>
 

@@ -32,8 +32,20 @@ $(document).ready(function () {
         return
         e.preventDefault();
         disableButton();
-        const email = $('#InputEmail').val();
-        const password = $('#InputPassword').val();
+        const property_type = $('#propertyPropertyType').val();
+        const address_line_one = $('#propertySAL1').val();
+        const address_line_two = $('#propertySAL2').val();
+        const postal_code = $('#propertyPostalCode').val();
+        const city = $('#propertyCity').val();
+        const state = $('#propertyState').val();
+        const bed_one = $('#propertyBedroomA').val();
+        const bed_two = $('#propertyBedroomB').val();
+        const landlord_contact_name = $('#propertyLandlordContactName').val();
+        const landlord_contact_phone = $('#propertyLandlordContactPhone').val();
+        const landlord_contact_email = $('#propertyLandlordContactEmail').val();
+        const saved_landlord = $('#propertyLandlordInfo').val();
+        const currently_leased = $('#InputEmail').val();
+        const property_for_notice = $('#InputEmail').val();
         $.ajax({
             url: '/users/sign_in',
             type: 'POST',
@@ -53,11 +65,11 @@ $(document).ready(function () {
     }
 
     function enableButton() {
-        $('#LoginBtn').prop('disabled', false);
+        $('#SavePropertyBtn').prop('disabled', false);
     }
 
     function disableButton() {
-        $('#LoginBtn').prop('disabled', true);
+        $('#SavePropertyBtn').prop('disabled', true);
     }
 
     function response_handler(data) {
