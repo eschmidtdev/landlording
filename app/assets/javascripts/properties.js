@@ -73,9 +73,9 @@ $(document).ready(function () {
                     landlord_contact_email: landlord_contact_email
                 },
                 tenant: {
-                    tenant_name:      tenant_name,
-                    tenant_phone:     tenant_phone,
-                    tenant_email:     tenant_email,
+                    name:      name,
+                    phone_number:     phone_number,
+                    email:     email,
                     lease_end_date:   lease_end_date,
                     lease_start_date: lease_start_date
                 }

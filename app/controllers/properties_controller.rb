@@ -22,7 +22,7 @@ class PropertiesController < ApplicationController
   end
 
   def tenant_params
-    params.require(:tenant).permit(required_property_params)
+    params.require(:tenant).permit(required_tenant_params)
   end
 
   def required_property_params

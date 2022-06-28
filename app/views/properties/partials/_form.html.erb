@@ -5,7 +5,7 @@
   <div class="form-group">
     <label for="propertyPropertyType">Property Type*</label>
     <select name="property[property_type]" id="propertyPropertyType" class="form-control form-control-lg input-45">
-      <option value="" disabled selected>Select Property</option>
+      <option disabled selected>Select Property</option>
       <% Property.property_types.keys.each do |property_type| %>
         <option><%= property_type %></option>
       <% end %>
@@ -68,11 +68,10 @@
     <div class="col">
       <label for="propertyState">State*</label>
       <select name="property[State]" id="propertyState" class="form-control form-control-lg input-45">
-        <option value="" disabled selected>State</option>
-        <option value="">State 1</option>
-        <option value="">State 2</option>
-        <option value="">State 3</option>
-        <option value="">State 4</option>
+        <option disabled selected>State</option>
+        <%= CS.states(:us).values.each do |state| %>
+          <option><%= state %></option>
+        <% end %>
       </select>
     </div>
   </div>
