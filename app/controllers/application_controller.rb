@@ -19,7 +19,8 @@ class ApplicationController < ActionController::Base
   def desired_controller?
     params[:controller] == 'passwords' ||
       params[:controller] == 'payment_details' ||
-      params[:controller] == 'account_settings'
+      params[:controller] == 'account_settings' ||
+      params[:controller] == 'properties'
   end
 
 end
