@@ -33,6 +33,8 @@
                   placeholder="Enter Full Name"
                   name="property[NewTenantPhone]"
                   class="form-control form-control-lg input-45"
+                  onkeypress="return event.charCode >= 48 && event.charCode <= 57"
+                  oncopy="return false" oncut="return false" onpaste="return false"
                 >
               </div>
             </div>

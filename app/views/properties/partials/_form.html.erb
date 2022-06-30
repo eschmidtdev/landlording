@@ -82,28 +82,28 @@
     <div class="col margin-top-mob">
       <label for="propertyBedroomA">Bedroom</label>
       <select name="property[BedroomA]" id="propertyBedroomA" class="form-control form-control-lg input-45">
-        <option value="" disabled selected>0</option>
-        <option value="">1</option>
-        <option value="">2</option>
-        <option value="">3</option>
-        <option value="">4</option>
+        <option value="0" disabled selected>0</option>
+        <option value="1">1</option>
+        <option value="2">2</option>
+        <option value="3">3</option>
+        <option value="4">4</option>
       </select>
     </div>
     <!-- Bed Room 2 -->
     <div class="col margin-top-mob">
       <label for="propertyBedroomB">Bedroom</label>
       <select name="property[BedroomB]" id="propertyBedroomB" class="form-control form-control-lg input-45">
-        <option value="" disabled selected>0</option>
-        <option value="">1</option>
-        <option value="">2</option>
-        <option value="">3</option>
-        <option value="">4</option>
+        <option value="0" disabled selected>0</option>
+        <option value="1">1</option>
+        <option value="2">2</option>
+        <option value="3">3</option>
+        <option value="4">4</option>
       </select>
     </div>
   </div>
 
   <div class="form-check form-check-inline desktop-margin">
-    <input class="form-check-input" type="checkbox" id="propertyLandlordInfo" name="property[LandlordInfo]">
+    <input type="checkbox" class="form-check-input" id="propertyLandlordInfo">
     <label class="form-check-label mt-mob-22" for="propertyLandlordInfo">Same landlord contact info as found in your
       Account Settings?</label>
   </div>
@@ -129,6 +129,8 @@
       id="propertyLandlordContactPhone"
       name="property[LandlordContactPhone]"
       class="form-control form-control-lg input-45"
+      onkeypress="return event.charCode >= 48 && event.charCode <= 57"
+      oncopy="return false" oncut="return false" onpaste="return false"
     >
   </div>
 
