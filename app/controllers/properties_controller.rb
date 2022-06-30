@@ -9,10 +9,9 @@ class PropertiesController < ApplicationController
     response = PropertyValidatorService.call(property_params.to_h)
     return render_response(response) unless response.nil?
 
-    property = TransactPropertyService.call(merged_property_params, tenant_params)
-    redirect_to properties_path
-    # render json: { success: true,
-    #                message: 'Property has been created successfully.' }
+    TransactPropertyService.call(merged_property_params, tenant_params)
+    render json: { success: true,
+                   message: 'Property has been created successfully.' }
 
   end
 

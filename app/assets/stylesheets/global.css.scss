@@ -49,6 +49,13 @@ body {
   background: transparent;
 }
 
+.center {
+  height: auto;
+  margin: 0 auto;
+  padding: 10px;
+  position: relative;
+}
+
 //Global Font
 .font-14 {
   font-size: 14px;
@@ -96,6 +103,21 @@ body {
 //Global Input
 .input-45 {
   height: 45px !important;
+}
+
+//Pagination Style
+.pagination .page-item .active {
+  //background-color: #FF8F00 !important;
+}
+
+.page-item.active .page-link {
+  background-color: #FF8F00 !important;
+  border-color: #FF8F00 !important;
+  color: white !important;
+}
+
+.pagination > li > a, .pagination > li > span {
+  color: #000000 !important;
 }
 
 select {

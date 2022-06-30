@@ -10,5 +10,5 @@ class Property < ApplicationRecord
   enum property_type: { 'Single-Family Home' => 0,
                         'Apartment/Condo' => 1 }
 
-  self.per_page = 5
+  self.per_page = 6
 end
