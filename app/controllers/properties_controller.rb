@@ -1,6 +1,8 @@
 # frozen_string_literal: true
 
 class PropertiesController < ApplicationController
+  before_action :set_property, only: %i[destroy]
+
   def index
     @properties = Property.paginate(page: params[:page]).order('id DESC')
   end
@@ -17,9 +19,16 @@ class PropertiesController < ApplicationController
 
   def update; end
 
-  def destroy; end
+  def destroy
+    @property.destroy
+    render json: { success: true,
+                   message: 'Property has been deleted successfully.' }
+
+  end
 
   private
+
+  def set_property = @property = Property.find(params[:id])
 
   def property_params
     params.require(:property).permit(required_property_params)

@@ -42,7 +42,7 @@ class AccountSettingsController < ApplicationController
   def destroy
     @user.payment_detail.destroy
     render json: { success: true,
-                   message: 'Billing Details has been deleted successfully' }
+                   message: 'Billing Details has been deleted successfully.' }
 
   end
 

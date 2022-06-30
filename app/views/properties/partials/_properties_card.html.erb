@@ -1,5 +1,5 @@
 <div class="row mb-4">
-  <% @properties.each_with_index do |property, index| %>
+  <% @properties.each_with_index do |property| %>
     <div class="col-sm-6 card-margin" id="MyPropertyCardMargin">
       <div class="card">
         <div class="card-body">
@@ -22,7 +22,7 @@
                     <span class="ml-2">Edit</span>
                   </div>
                 </a>
-                <a class="dropdown-item" href="#">
+                <a class="dropdown-item" onclick="deleteProperty(<%= property.id %>)" role="button" data-property-id="<%= property.id %>">
                   <div class="d-flex justify-content-start">
                     <%= image_tag 'properties/delete_icon.svg', class: 'm-0', width: '15' %>
                     <span class="ml-2">Delete</span>
@@ -54,4 +54,39 @@
   <% end %>
 
 </div>
+
+<%= javascript_include_tag 'properties' %>
+
+<script>
+    function deleteProperty(id) {
+        ajaxDeleteReq(id);
+    }
+
+    function ajaxDeleteReq(id) {
+        $.ajax({
+            url: `/properties/${id}`,
+            type: 'DELETE',
+            data: {
+                property: {
+                    id: id
+                }
+            },
+            success: function (data) {
+                if (data.success === true) {
+                    $('html, body').animate({scrollTop: 0}, 'slow');
+                    $('.success_alert')
+                        .show()
+                        .append(data.message)
+                        .delay(3000)
+                        .fadeOut(300);
+                }
+                setTimeout(function () {
+                    window.location.reload();
+                }, 3000);
+            },
+            error: function (exception) {
+            }
+        });
+    }
+</script>
 

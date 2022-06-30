@@ -1,7 +1,6 @@
 $(document).ready(function () {
 
     $(function () {
-        debugger;
         $("form[name='reset_password']").validate({
             rules: {
                 'user[password]':              {required: true, minlength: 8},
