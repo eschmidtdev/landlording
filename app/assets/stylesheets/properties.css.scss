@@ -51,6 +51,9 @@
   max-height: 600px !important;
 }
 
+.card-margin {
+  margin-bottom: 1.5rem;
+}
 
 @media only screen and (max-width: 600px) {
   #headingOne {
@@ -89,7 +92,7 @@
     margin: 0 !important;
   }
   #MyPropertyCardMargin {
-    margin-top: 1.50rem !important;
+    margin-top: 0.50rem !important;
   }
   #propertyLandlordInfo {
     margin-bottom: 20px;

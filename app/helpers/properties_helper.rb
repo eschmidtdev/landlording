@@ -6,27 +6,26 @@ module PropertiesHelper
     params[:controller] == 'properties' && params[:action] == 'index'
   end
 
-  def show_home_image(index)
-    if index.even? || index.zero?
+  def show_home_image(property_type)
+    case property_type
+    when 'Single-Family Home'
       image_tag 'properties/my_properties_home_1.svg', width: '40'
-    elsif index.odd?
+    when 'Apartment/Condo'
       image_tag 'properties/my_properties_home_2.svg', width: '40'
+    else
+      # type code here
     end
   end
 
-  def show_property_name(index)
-    if index.even? || index.zero?
-      '123 Apple Street'
-    elsif index.odd?
-      '376 W Magnolia Ave 100'
-    end
+  def show_property_name(address_line_one, address_line_two)
+    address_line_one.present? ? address_line_one : '' + ' ' + address_line_two.present? ? address_line_two : ''
   end
 
-  def show_tenant_name(index)
-    if index.even? || index.zero?
-      'Rashed Kabir'
-    elsif index.odd?
-      'Jon Cooper'
+  def show_tenant_name(property)
+    if property&.tenants&.any?
+      property.tenants.last&.name
+    else
+      'None'
     end
   end
 end

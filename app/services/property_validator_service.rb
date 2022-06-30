@@ -3,8 +3,8 @@
 class PropertyValidatorService < ApplicationService
   attr_reader :property_params
 
-  def initialize(params_hash)
-    @property_params = params_hash
+  def initialize(property_params)
+    @property_params = property_params
   end
 
   def call
@@ -13,7 +13,7 @@ class PropertyValidatorService < ApplicationService
 
   def params_missing?(property_params)
     if property_params.empty?
-      return { method: 'params_missing?',
+      return { method: 'missing_property_params',
                message: 'Params are missing or values are empty' }
     end
   end

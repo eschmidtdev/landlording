@@ -6,8 +6,13 @@ class PropertiesController < ApplicationController
   end
 
   def create
-    binding.pry
-    response = PropertyValidatorService.call(params_to_hash)
+    response = PropertyValidatorService.call(property_params.to_h)
+    return render_response(response) unless response.nil?
+
+    property = TransactPropertyService.call(merged_property_params, tenant_params)
+    redirect_to properties_path
+    # render json: { success: true,
+    #                message: 'Property has been created successfully.' }
 
   end
 
@@ -33,7 +38,11 @@ class PropertiesController < ApplicationController
     Tenant.column_names.reject { |k| ['id'].include?(k) }.map(&:to_sym)
   end
 
-  def params_to_hash
-    property_params.to_h
+  def merged_property_params = property_params.merge({ user_id: current_user.id })
+
+  def render_response(response)
+    render json: { success: false,
+                   message: response[:message] }
   end
+
 end

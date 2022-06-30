@@ -43,9 +43,9 @@ $(document).ready(function () {
         const property_for_notice    = $('.asked-for-property').val();
         const property_type          = $('#propertyPropertyType').val();
         const saved_landlord         = $('#propertyLandlordInfo').val();
-        const tenant_name            = $('#propertyNewTenantName').val();
-        const tenant_phone           = $('#propertyNewTenantPhone').val();
-        const tenant_email           = $('#propertyNewTenantEmail').val();
+        const name                   = $('#propertyNewTenantName').val();
+        const phone_number           = $('#propertyNewTenantPhone').val();
+        const email                  = $('#propertyNewTenantEmail').val();
         const lease_end_date         = $('#propertyNewLeaseEndDate').val();
         const lease_start_date       = $('#propertyNewLeaseStartDate').val();
         const landlord_contact_name  = $('#propertyLandlordContactName').val();
@@ -73,9 +73,9 @@ $(document).ready(function () {
                     landlord_contact_email: landlord_contact_email
                 },
                 tenant: {
-                    name:      name,
+                    name:             name,
+                    email:            email,
                     phone_number:     phone_number,
-                    email:     email,
                     lease_end_date:   lease_end_date,
                     lease_start_date: lease_start_date
                 }
