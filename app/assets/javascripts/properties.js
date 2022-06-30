@@ -31,27 +31,26 @@ $(document).ready(function () {
     function ajaxRequest(e) {
         e.preventDefault();
         disableButton();
-        debugger;
         const city = $('#propertyCity').val();
         const address_line_one       = $('#propertySAL1').val();
         const address_line_two       = $('#propertySAL2').val();
         const state                  = $('#propertyState').val();
         const user_id                = $('#PropertyUserID').val();
-        const currently_leased       = $('.currently-leased').val();
         const bed_one                = $('#propertyBedroomA').val();
         const bed_two                = $('#propertyBedroomB').val();
         const postal_code            = $('#propertyPostalCode').val();
-        const property_for_notice    = $('.asked-for-property').val();
         const property_type          = $('#propertyPropertyType').val();
-        const saved_landlord         = $('#propertyLandlordInfo').val();
         const name                   = $('#propertyNewTenantName').val();
         const phone_number           = $('#propertyNewTenantPhone').val();
         const email                  = $('#propertyNewTenantEmail').val();
         const lease_end_date         = $('#propertyNewLeaseEndDate').val();
+        const currently_leased       = $('.currently-leased:checked').val();
         const lease_start_date       = $('#propertyNewLeaseStartDate').val();
+        const property_for_notice    = $('.asked-for-property:checked').val();
         const landlord_contact_name  = $('#propertyLandlordContactName').val();
         const landlord_contact_phone = $('#propertyLandlordContactPhone').val();
         const landlord_contact_email = $('#propertyLandlordContactEmail').val();
+        const saved_landlord         = !!$('#propertyLandlordInfo').is(':checked')
         $.ajax({
             url: '/properties',
             type: 'POST',
