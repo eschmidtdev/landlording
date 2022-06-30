@@ -1,0 +1,193 @@
+<form name="property_form" class="new-property-form">
+  <input type="hidden" value="<%= current_user.id %>" id="PropertyUserID">
+
+  <!-- Property Type Dropdown -->
+  <div class="form-group">
+    <label for="propertyPropertyType">Property Type*</label>
+    <select name="property[property_type]" id="propertyPropertyType" class="form-control form-control-lg input-45">
+      <option disabled selected>Select Property</option>
+      <% Property.property_types.keys.each do |property_type| %>
+        <option><%= property_type %></option>
+      <% end %>
+    </select>
+  </div>
+
+  <!-- Street Address Line 1 -->
+  <div class="form-group">
+    <label for="propertySAL1">Street Address Line 1*</label>
+    <input
+      type="text"
+      id="propertySAL1"
+      name="property[SAL1]"
+      placeholder="You Address"
+      class="form-control form-control-lg input-45"
+    >
+  </div>
+
+  <!-- Street Address Line 2 -->
+  <div class="form-group">
+    <label for="propertySAL2">Street Address Line 2</label>
+    <input
+      type="text"
+      id="propertySAL2"
+      name="property[SAL2]"
+      placeholder="You Address"
+      class="form-control form-control-lg input-45"
+    >
+  </div>
+
+  <!-- Postal, City, State -->
+  <div class="row">
+    <!-- Postal -->
+    <div class="col">
+      <div class="form-group">
+        <label for="propertyPostalCode">Postal Code*</label>
+        <input
+          type="text"
+          placeholder="Zip Code"
+          id="propertyPostalCode"
+          name="property[PostalCode]"
+          class="form-control form-control-lg input-45"
+        >
+      </div>
+    </div>
+    <!-- City -->
+    <div class="col">
+      <div class="form-group">
+        <label for="propertyCity">City*</label>
+        <input
+          type="text"
+          id="propertyCity"
+          placeholder="City"
+          name="property[City]"
+          class="form-control form-control-lg input-45"
+        >
+      </div>
+    </div>
+    <!-- State -->
+    <div class="col">
+      <label for="propertyState">State*</label>
+      <select name="property[State]" id="propertyState" class="form-control form-control-lg input-45">
+        <option disabled selected>State</option>
+        <%= CS.states(:us).values.each do |state| %>
+          <option><%= state %></option>
+        <% end %>
+      </select>
+    </div>
+  </div>
+
+  <!-- Bed Rooms -->
+  <div class="row">
+    <!-- Bed Room 1 -->
+    <div class="col margin-top-mob">
+      <label for="propertyBedroomA">Bedroom</label>
+      <select name="property[BedroomA]" id="propertyBedroomA" class="form-control form-control-lg input-45">
+        <option value="0" disabled selected>0</option>
+        <option value="1">1</option>
+        <option value="2">2</option>
+        <option value="3">3</option>
+        <option value="4">4</option>
+      </select>
+    </div>
+    <!-- Bed Room 2 -->
+    <div class="col margin-top-mob">
+      <label for="propertyBedroomB">Bedroom</label>
+      <select name="property[BedroomB]" id="propertyBedroomB" class="form-control form-control-lg input-45">
+        <option value="0" disabled selected>0</option>
+        <option value="1">1</option>
+        <option value="2">2</option>
+        <option value="3">3</option>
+        <option value="4">4</option>
+      </select>
+    </div>
+  </div>
+
+  <div class="form-check form-check-inline desktop-margin">
+    <input type="checkbox" class="form-check-input" id="propertyLandlordInfo">
+    <label class="form-check-label mt-mob-22" for="propertyLandlordInfo">Same landlord contact info as found in your
+      Account Settings?</label>
+  </div>
+
+  <!-- Landlord Contact Name -->
+  <div class="form-group mt-3">
+    <label for="propertyLandlordContactName">Landlord Contact Name*</label>
+    <input
+      type="text"
+      placeholder="Landlord Full Name"
+      id="propertyLandlordContactName"
+      name="property[LandlordContactName]"
+      class="form-control form-control-lg input-45"
+    >
+  </div>
+
+  <!-- Landlord Contact Phone -->
+  <div class="form-group">
+    <label for="propertyLandlordContactPhone">Landlord Contact Phone*</label>
+    <input
+      type="text"
+      placeholder="Phone Number"
+      id="propertyLandlordContactPhone"
+      name="property[LandlordContactPhone]"
+      class="form-control form-control-lg input-45"
+      onkeypress="return event.charCode >= 48 && event.charCode <= 57"
+      oncopy="return false" oncut="return false" onpaste="return false"
+    >
+  </div>
+
+  <!-- Landlord Contact Email -->
+  <div class="form-group">
+    <label for="propertyLandlordContactEmail">Landlord Contact Email*</label>
+    <input
+      type="email"
+      placeholder="Enter Email Address"
+      id="propertyLandlordContactEmail"
+      name="property[LandlordContactEmail]"
+      class="form-control form-control-lg input-45"
+    >
+  </div>
+
+  <!-- Radio Buttons -->
+  <span class="radio-label bold">Currently Leased?</span>
+  <label class="radio-inline" for="CLY">
+    <input type="radio" class="ml-2 currently-leased" id="CLY" name="property[CurrentlyLeased]" value="true"><span class="ml-1">Yes</span>
+  </label>
+  <label class="radio-inline" for="CLN">
+    <input type="radio" class="ml-2 currently-leased" id="CLN" name="property[CurrentlyLeased]" value="false" checked><span class="ml-1">No</span>
+  </label><br>
+
+
+  <!-- Add New Tenant -->
+  <%= render partial: 'properties/partials/create_tenant_form' %>
+
+  <div class="mt-4">
+    <span class="radio-label bold">Will the property address also be used for notices sent to the tenant?</span><br>
+    <label class="radio-inline" for="APAY">
+      <input type="radio" class="asked-for-property" id="APAY" name="property[AskPropertyAddress]" value="true"><span class="ml-1">Yes</span>
+    </label>
+    <label class="radio-inline" for="APAN">
+      <input type="radio" class="asked-for-property" id="APAN" name="property[AskPropertyAddress]" value="false"><span class="ml-1">No</span>
+    </label><br>
+  </div>
+
+  <hr>
+
+  <div class="d-flex justify-content-start mb-5">
+    <button
+      type="submit"
+      class="create-button"
+      id="SavePropertyBtn"
+    >
+      Save
+    </button>
+    <button
+      type="button"
+      class="cancel-button ml-3"
+      onclick="window.location.href='<%= properties_path %>'"
+    >
+      Cancel
+    </button>
+  </div>
+
+</form>
+
+<%= javascript_include_tag 'properties' %>

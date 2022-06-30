@@ -1,7 +1,7 @@
 # frozen_string_literal: true
 
 class PropertiesController < ApplicationController
-  before_action :set_property, only: %i[destroy]
+  before_action :set_property, only: %i[edit destroy]
 
   def index
     @properties = Property.paginate(page: params[:page]).order('id DESC')
@@ -16,6 +16,8 @@ class PropertiesController < ApplicationController
                    message: 'Property has been created successfully.' }
 
   end
+
+  def edit; end
 
   def update; end
 
