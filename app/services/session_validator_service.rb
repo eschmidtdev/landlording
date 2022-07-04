@@ -4,7 +4,7 @@ class SessionValidatorService < ApplicationService
   attr_reader :password, :user
 
   MESSAGES = {
-    not_valid: I18n.t('Sessions.Messages.Success.NotValid'),
+    not_valid: I18n.t('Sessions.NotValid'),
     not_confirmed: I18n.t('devise.registrations.signed_up_but_inactive')
 
   }.freeze

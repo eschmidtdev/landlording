@@ -4,7 +4,7 @@ class RegistrationValidatorService < ApplicationService
   attr_reader :user_params, :password_params
 
   MESSAGES = {
-    params_missing: I18n.t('Registrations.ParamsMissing'),
+    params_missing: I18n.t('GeneralError.ParamsMissing'),
     email_taken: I18n.t('Registrations.EmailTaken'),
     short_password: I18n.t('Registrations.ShortPassword')
   }.freeze
