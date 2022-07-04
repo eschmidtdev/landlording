@@ -1,6 +1,8 @@
 <%= stylesheet_link_tag 'sessions' %>
 
 <div class="row d-flex justify-content-center align-items-center">
+
+  <!-- Illustration -->
   <div class="col-md-9 col-lg-6 col-xl-5 bg-light_red">
     <%= image_tag('users/SingleIllustration.png', class: 'set_login_ill') %>
   </div>
@@ -17,7 +19,7 @@
       <!-- ErrorAlert -->
       <div class="error_alert display_none mb-4"></div>
 
-      <!-- Email input -->
+      <!-- Email -->
       <div class="form-outline mb-4">
         <label class="form-label font-normal" for="InputEmail">Email*</label>
         <input
@@ -29,7 +31,7 @@
         >
       </div>
 
-      <!-- Password input -->
+      <!-- Password -->
       <div class="form-outline mb-3">
         <label class="form-label font-normal" for="InputPassword">Password*</label>
         <div class="fake-input">
@@ -46,10 +48,12 @@
 
       <!-- Checkbox -->
       <div class="d-flex justify-content-between align-items-center my-3">
+        <!-- Remember me -->
         <div>
           <input type="checkbox" value="" id="form2Example3"/>
           <label class="form-check-label remember-me" for="form2Example3">Remember me </label>
         </div>
+        <!-- Forget password -->
         <div>
           <a href="/users/password/new" class="text-body text-deco-none">Forget password?</a>
         </div>
@@ -59,8 +63,15 @@
       <div class="text-center text-lg-start">
 
         <!-- Login Button -->
-        <button type="submit" class="btn w-100 custom-long-btn" id="LoginBtn">Login</button>
+        <button
+          id="LoginBtn"
+          type="submit"
+          class="btn w-100 custom-long-btn"
+        >
+          Login
+        </button>
 
+        <!-- Separator -->
         <div class="divider d-flex align-items-center mtb-20">
           <p class="text-center or-text mx-3 my-auto"> OR </p>
         </div>
@@ -83,9 +94,9 @@
           <a href="<%= signup_path %>" class="link-danger text-deco-none">Sign Up</a>
         </p>
       </div>
+
     </form>
   </div>
 </div>
 
 <%= javascript_include_tag 'sessions' %>
-
