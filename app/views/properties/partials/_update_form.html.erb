@@ -114,6 +114,7 @@
   <div class="form-group mt-3">
     <label for="propertyLandlordContactName">Landlord Contact Name*</label>
     <input
+      <%= 'disabled' unless property.landlord_contact_name.blank? && property.saved_landlord == true %>
       type="text"
       placeholder="Landlord Full Name"
       id="propertyLandlordContactName"
@@ -127,6 +128,7 @@
   <div class="form-group">
     <label for="propertyLandlordContactPhone">Landlord Contact Phone*</label>
     <input
+      <%= 'disabled' unless property.landlord_contact_phone.blank? && property.saved_landlord == true %>
       type="text"
       placeholder="Phone Number"
       id="propertyLandlordContactPhone"
@@ -142,6 +144,7 @@
   <div class="form-group">
     <label for="propertyLandlordContactEmail">Landlord Contact Email*</label>
     <input
+      <%= 'disabled' unless property.landlord_contact_email.blank? && property.saved_landlord == true %>
       type="email"
       placeholder="Enter Email Address"
       id="propertyLandlordContactEmail"
