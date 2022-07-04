@@ -10,7 +10,7 @@ class SessionsController < Devise::SessionsController
 
   def new
     set_flash_message(:notice, :invalid)
-    redirect_to root_path
+    redirect_to root_url
   end
 
   def create

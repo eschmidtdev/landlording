@@ -1,5 +1,6 @@
 $(document).ready(function () {
 
+    // Form Validation
     $(function () {
         $("form[name='session']").validate({
             rules: {
@@ -19,10 +20,12 @@ $(document).ready(function () {
         });
     });
 
+    // ---------- Define Functions ----------
+
     function ajaxRequest(e) {
         e.preventDefault();
         disableButton();
-        const email = $('#InputEmail').val();
+        const email    = $('#InputEmail').val();
         const password = $('#InputPassword').val();
         $.ajax({
             url: '/users/sign_in',
@@ -61,13 +64,13 @@ $(document).ready(function () {
         }
     }
 
+    $(":input").on("keyup change", function (e) {
+        clearErrors();
+    });
+
     function clearErrors() {
         $('.error_alert').text('').hide();
     }
-
-    $(":input").on("keyup change", function (e) {
-        clearErrors();
-    })
 
     $('#sessionEye').click(function () {
         const input = $('.toggle-password-session');

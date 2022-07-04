@@ -1,11 +1,9 @@
 en:
-  EForm:
+  Sessions:
     Messages:
       Success:
         EmailSent: 'Email sent successfully.'
-        Created: 'Document was successfully saved.'
-        Updated: 'Document was successfully updated.'
-        Deleted: 'Document was successfully destroyed.'
+        NotValid:  'Wrong email or password. Try again or click Forgot password to reset it.'
       Error:
         AlreadyExists: 'User already exists'
         WentWrong: 'Oops, something went wrong! please try again.'
