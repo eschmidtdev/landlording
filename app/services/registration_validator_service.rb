@@ -3,15 +3,21 @@
 class RegistrationValidatorService < ApplicationService
   attr_reader :user_params, :password_params
 
+  MESSAGES = {
+    params_missing: I18n.t('Registrations.ParamsMissing'),
+    email_taken: I18n.t('Registrations.EmailTaken'),
+    short_password: I18n.t('Registrations.ShortPassword')
+  }.freeze
+
   def initialize(params)
-    @user_params = params[:user]
+    @user_params     = params[:user]
     @password_params = params[:user][:password]
   end
 
   def call
     params_missing?(user_params) ||
-    user_exists?(user_params) ||
-    password_clashing?(password_params)
+      user_exists?(user_params) ||
+      password_clashing?(password_params)
   end
 
   private
@@ -25,22 +31,22 @@ class RegistrationValidatorService < ApplicationService
     hash.values.any? do |i|
       if i.blank?
         return { method: 'params_missing?',
-                 message: 'Params are missing or values are empty' }
+                 message: MESSAGES[:params_missing] }
       end
     end
   end
 
   def user_exists?(params)
     if User.exists?(email: params[:email])
-      { method: 'user_exists?',
-        message: 'Email has already been taken. Try Another' }
+      return { method: 'user_exists?',
+               message: MESSAGES[:email_taken] }
     end
   end
 
   def password_clashing?(password)
     if password.length < 8
-      { method: 'password_clashing?',
-        message: 'Password is too short (minimum is 8 characters)' }
+      return { method: 'password_clashing?',
+               message: MESSAGES[:short_password] }
     end
   end
 end

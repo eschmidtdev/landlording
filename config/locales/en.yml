@@ -1,9 +1,8 @@
 en:
   Sessions:
-    Messages:
-      Success:
-        EmailSent: 'Email sent successfully.'
-        NotValid:  'Wrong email or password. Try again or click Forgot password to reset it.'
-      Error:
-        AlreadyExists: 'User already exists'
-        WentWrong: 'Oops, something went wrong! please try again.'
+    EmailSent: 'Email sent successfully.'
+    NotValid:  'Wrong email or password. Try again or click Forgot password to reset it.'
+  Registrations:
+    ParamsMissing: 'Params are missing or values are empty.'
+    EmailTaken:    'Email has already been taken. Try Another'
+    ShortPassword: 'Password is too short (minimum is 8 characters)'

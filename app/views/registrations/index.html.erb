@@ -1,6 +1,8 @@
 <%= stylesheet_link_tag 'registrations' %>
 
 <div class="row d-flex justify-content-center align-items-center">
+
+  <!-- Illustrations -->
   <div class="col-md-9 col-lg-6 col-xl-5 bg-light_red">
     <%= image_tag('users/SingleIllustration.png', class: 'set_login_ill') %>
   </div>
@@ -32,7 +34,7 @@
         >
       </div>
 
-      <!-- Email input -->
+      <!-- Email -->
       <div class="form-outline mt-3">
         <label class="form-label font-normal" for="RegEmail">Email*</label>
         <input
@@ -46,7 +48,7 @@
       </div>
       <span class="error display_none" id="UserExists"></span>
 
-      <!-- Password input -->
+      <!-- Password -->
       <div class="form-outline mt-3">
         <label class="form-label font-normal" for="RegPass">Password*</label>
         <div class="fake-input">
@@ -64,9 +66,13 @@
 
       <!-- Terms + PP + Checkbox -->
       <div class="d-flex justify-content-start align-items-start my-3">
+
+        <!-- Checkbox -->
         <div>
           <input type="checkbox" name="user-TOS" id="TOS"/>
         </div>
+
+        <!-- Understand -->
         <div class="ml-2">
           <label class="form-check-label agree-text" for="TOS">
             I have read and understand the
@@ -75,7 +81,6 @@
             <a href="#!" class="text-body">Privacy Policy</a>
           </label>
         </div>
-
       </div>
 
 
@@ -83,8 +88,15 @@
       <div class="text-center text-lg-start">
 
         <!-- Sign Up Button -->
-        <button type="submit" class="btn w-100 custom-long-btn" id="SignupBtn">signup</button>
+        <button
+          type="submit"
+          id="SignupBtn"
+          class="btn w-100 custom-long-btn"
+        >
+          signup
+        </button>
 
+        <!-- Separator -->
         <div class="divider d-flex align-items-center mtb-20">
           <p class="text-center or-text mx-3 my-auto">OR</p>
         </div>
@@ -105,6 +117,7 @@
         <p class="my-3">Have an account?
           <a href="<%= root_path %>" class="link-danger">Login</a></p>
       </div>
+
     </form>
   </div>
 </div>

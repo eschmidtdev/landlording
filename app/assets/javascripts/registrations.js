@@ -1,10 +1,12 @@
 $(document).ready(function () {
+
+    // Form Validation
     $(function () {
         $("form[name='registration']").validate({
             rules: {
-                'user-TOS'     : {required: true},
+                'user-TOS':       {required: true},
                 'user[FullName]': {required: true},
-                'user[email]'   : {required: true, email: true},
+                'user[email]':    {required: true, email: true},
                 'user[password]': {required: true, minlength: 8}
             },
             messages: {
@@ -14,7 +16,7 @@ $(document).ready(function () {
                     required: 'Please provide a password',
                     minlength: 'Password is too short (minimum is 8 characters)'
                 },
-                'user-TOS':       'Please indicate that you have accepted Terms and Conditions'
+                'user-TOS': 'Please indicate that you have accepted Terms and Conditions'
             },
             submitHandler: function (form, e) {
                 ajaxRequest(e);
@@ -22,19 +24,21 @@ $(document).ready(function () {
         });
     });
 
+    // ---------- Define Functions ----------
+
     function ajaxRequest(e) {
         e.preventDefault();
         disableButton();
-        const email = $('#RegEmail').val();
-        const password = $('#RegPass').val();
+        const password  = $('#RegPass').val();
+        const email     = $('#RegEmail').val();
         const full_name = $('#FullName').val();
         $.ajax({
             url: '/users',
             type: 'POST',
             data: {
                 user: {
-                    email: email,
-                    password: password,
+                    email:     email,
+                    password:  password,
                     full_name: full_name
                 }
             },
@@ -96,6 +100,7 @@ $(document).ready(function () {
     $('#RegEmail').keyup(function () {
         $('#UserExists').hide();
     });
+
     $('#RegPass').keyup(function () {
         $('#PasswordError').hide();
     });
