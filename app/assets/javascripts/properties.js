@@ -28,6 +28,22 @@ $(document).ready(function () {
         });
     });
 
+    $('#propertyLandlordInfo').change(function () {
+        const checkbox = $('#propertyLandlordInfo');
+
+        if (checkbox.is(":checked")) {
+            getLandLordInfo('true');
+        } else if (checkbox.not(":checked")) {
+            const landlord_contact_name = $('#propertyLandlordContactName');
+            const landlord_contact_phone = $('#propertyLandlordContactPhone');
+            const landlord_contact_email = $('#propertyLandlordContactEmail');
+            landlord_contact_name.prop( 'disabled', false ).attr('value', '');
+            landlord_contact_phone.prop( 'disabled', false ).attr('value', '');
+            landlord_contact_email.prop( 'disabled', false ).attr('value', '');
+        }
+
+    });
+
     function ajaxRequest(e) {
         e.preventDefault();
         disableButton();
@@ -87,6 +103,28 @@ $(document).ready(function () {
             }
         });
         return false;
+    }
+
+    function getLandLordInfo(state) {
+        const landlord_contact_name = $('#propertyLandlordContactName');
+        const landlord_contact_phone = $('#propertyLandlordContactPhone');
+        const landlord_contact_email = $('#propertyLandlordContactEmail');
+        $.ajax({
+            url: '/properties/get_landlord',
+            type: 'GET',
+            data: {
+                property: {
+                    saved_landlord: state
+                }
+            },
+            success: function (data) {
+                landlord_contact_name.prop('disabled', true).attr('value', data.user.name);
+                landlord_contact_phone.prop('disabled', true).attr('value', data.user.phone);
+                landlord_contact_email.prop('disabled', true).attr('value', data.user.email);
+            },
+            error: function (exception) {
+            }
+        });
     }
 
     function enableButton() {

@@ -28,6 +28,17 @@ class PropertiesController < ApplicationController
 
   end
 
+  def get_landlord
+    return unless params[:property][:saved_landlord] == 'true'
+
+    user = current_user
+    render json: {
+      user: { name: construct_user_name(user),
+              phone: user.phone_number,
+              email: user.email }
+    }
+  end
+
   private
 
   def set_property = @property = Property.find(params[:id])
@@ -53,6 +64,15 @@ class PropertiesController < ApplicationController
   def render_response(response)
     render json: { success: false,
                    message: response[:message] }
+  end
+
+  def construct_user_name(user)
+    last_name = ''
+    fist_name = ''
+    last_name = user.last_name  if user.last_name.present?
+    fist_name = user.first_name if user.first_name.present?
+
+    "#{fist_name} #{last_name}"
   end
 
 end

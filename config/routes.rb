@@ -13,7 +13,11 @@ Rails.application.routes.draw do
     get '/email_confirmation', to: 'registrations#email_confirmation'
   end
 
-  resources :properties
+  resources :properties do
+    collection do
+      get :get_landlord
+    end
+  end
   resources :users do
     member do
       get :confirm_email
