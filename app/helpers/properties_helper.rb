@@ -28,4 +28,8 @@ module PropertiesHelper
       'None'
     end
   end
+
+  def disabled?(property, value)
+    !property.send("landlord_contact_#{value}").blank? && property.saved_landlord == true ? 'disabled' : ''
+  end
 end
