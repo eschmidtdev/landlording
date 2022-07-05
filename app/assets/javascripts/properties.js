@@ -137,16 +137,14 @@ $(document).ready(function () {
 
     function response_handler(data) {
         enableButton();
-        if (data.success === true) {
-            $("form[name='property_form']")[0].reset();
-            $('html, body').animate({scrollTop: 0}, 'slow');
-            $('.success_alert')
-                .text('')
-                .show()
-                .append(data.message)
-                .delay(3000)
-                .fadeOut(300);
-        }
+        $("form[name='property_form']")[0].reset();
+        $('html, body').animate({scrollTop: 0}, 'slow');
+        $(data.success === true ? '.success_alert' : '.error_alert')
+            .text('')
+            .show()
+            .append(data.message)
+            .delay(3000)
+            .fadeOut(300);
     }
 
 });

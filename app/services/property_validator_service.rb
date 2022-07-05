@@ -8,13 +8,13 @@ class PropertyValidatorService < ApplicationService
   end
 
   def call
-    params_missing?(property_params)
+    params_missing?
   end
 
-  def params_missing?(property_params)
+  def params_missing?
     if property_params.empty?
-      return { method: 'missing_property_params',
-               message: 'Params are missing or values are empty' }
+      { method: 'missing_property_params',
+        message: 'Params are missing or values are empty' }
     end
   end
 

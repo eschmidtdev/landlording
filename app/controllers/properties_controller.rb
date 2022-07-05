@@ -69,7 +69,7 @@ class PropertiesController < ApplicationController
   def construct_user_name(user)
     last_name = ''
     fist_name = ''
-    last_name = user.last_name  if user.last_name.present?
+    last_name = user.last_name if user.last_name.present?
     fist_name = user.first_name if user.first_name.present?
 
     "#{fist_name} #{last_name}"
