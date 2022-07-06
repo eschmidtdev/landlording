@@ -31,10 +31,10 @@ class RegistrationsController < Devise::RegistrationsController
   private
 
   def create_resource
-    user = User.new(user_params)
-    user.confirmation_token = SecureRandom.hex(10)
-    user.confirmed_at = nil
-    user.confirmation_sent_at = DateTime.now
+    user                       = User.new(user_params)
+    user.confirmation_token    = SecureRandom.hex(10)
+    user.confirmed_at          = nil
+    user.confirmation_sent_at  = DateTime.now
     user.password_confirmation = user.password
     construct_name(user, params)
     user.save!
@@ -42,9 +42,8 @@ class RegistrationsController < Devise::RegistrationsController
   end
 
   def user_params
-    params.require(:user).permit(:first_name,
-                                 :last_name, :email, :password,
-                                 :password_confirmation)
+    params.require(:user).permit(:first_name, :last_name, :email,
+                                 :password, :password_confirmation)
   end
 
   def redirect_url
