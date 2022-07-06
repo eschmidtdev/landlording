@@ -1,15 +1,19 @@
 en:
+  Registrations:
+    SignedUp: 'Signed up successfully.'
+    EmailNotValid: 'Please enter a valid email address'
+    EmailTaken: 'Email has already been taken. Try Another'
+    ShortPassword: 'Password is too short (minimum is 8 characters)'
+
   Sessions:
     EmailSent: 'Email sent successfully.'
     NotValid:  'Wrong email or password. Try again or click Forgot password to reset it.'
-  Registrations:
-    EmailTaken:    'Email has already been taken. Try Another'
-    ShortPassword: 'Password is too short (minimum is 8 characters)'
+
   Properties:
     Created: 'Property has been created successfully.'
     deleted: 'Property has been deleted successfully.'
     AddPhone: 'Phone number is missing from account settings'
+
   GeneralError:
     ParamsMissing: 'Params are missing or values are empty.'
     WentWrong: 'Something went wrong. Please try again later.'
-

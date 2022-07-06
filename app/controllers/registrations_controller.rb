@@ -3,20 +3,27 @@
 class RegistrationsController < Devise::RegistrationsController
   skip_before_action :verify_authenticity_token
 
+  include Nameable
+  include Responseable
+
+  MESSAGES = {
+    signed_up: I18n.t('Registrations.SignedUp')
+  }.freeze
+
   def index; end
 
   def create
     response = RegistrationValidatorService.call(params)
-    return render_response(response) unless response.nil?
+    unless response.nil?
+      return render_response(false, response[:message], response[:method], nil)
+    end
 
     resource = create_resource
     # UserMailer.send_verification_email(resource).deliver_now!
     # render json: { success: true,
     #                url: email_confirmation_url }
     sign_in(resource)
-    render json: { success: true,
-                   url: visitors_path,
-                   message: 'Signed up successfully.' }
+    render_response(true, MESSAGES[:signed_up], nil, visitors_url)
   end
 
   def email_confirmation; end
@@ -29,7 +36,7 @@ class RegistrationsController < Devise::RegistrationsController
     user.confirmed_at = nil
     user.confirmation_sent_at = DateTime.now
     user.password_confirmation = user.password
-    construct_name(user)
+    construct_name(user, params)
     user.save!
     user
   end
@@ -40,19 +47,8 @@ class RegistrationsController < Devise::RegistrationsController
                                  :password_confirmation)
   end
 
-  def render_response(response)
-    render json: { success: false,
-                   method: response[:method],
-                   message: response[:message] }
-  end
-
   def redirect_url
-    request.base_url + signup_path
+    signup_url
   end
 
-  def construct_name(user)
-    name = params[:user][:full_name].split
-    user.first_name = name.shift
-    user.last_name = name.join(' ')
-  end
 end

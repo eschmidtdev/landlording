@@ -2,7 +2,13 @@
 
 class SessionsController < Devise::SessionsController
   skip_before_action :verify_authenticity_token
+
+  include Responseable
   include SessionsHelper
+
+  MESSAGES = {
+    signed_in: I18n.t('devise.sessions.signed_in')
+  }.freeze
 
   def index
     redirect_to visitors_url if user_signed_in?
@@ -15,13 +21,13 @@ class SessionsController < Devise::SessionsController
 
   def create
     response = SessionValidatorService.call(params)
-    return render_response(response) unless response.nil?
+    unless response.nil?
+      return render_response(false, response[:message], nil, nil)
+    end
 
     self.resource = warden.authenticate!(auth_options)
     sign_in(resource_name, resource)
-    render json: { success: true,
-                   message: I18n.t('devise.sessions.signed_in'),
-                   url: redirect_url }
+    render_response(true, MESSAGES[:signed_in], nil, root_url)
     session[:return_to] = nil unless session[:return_to].blank?
   end
 
@@ -38,12 +44,4 @@ class SessionsController < Devise::SessionsController
     request.env['omniauth.auth']
   end
 
-  def redirect_url
-    request.base_url
-  end
-
-  def render_response(response)
-    render json: { success: false,
-                   message: response[:message] }
-  end
 end

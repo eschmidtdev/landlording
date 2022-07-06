@@ -77,7 +77,7 @@ $(document).ready(function () {
 
     function render_conditional_response(data) {
         clearErrors();
-        if (data.method === 'user_exists?') {
+        if (data.method === 'user_exists?' || data.method === 'validate_email?') {
             $('#UserExists').show().text(data.message);
         }
         if (data.method === 'password_clashing?') {
