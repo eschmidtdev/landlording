@@ -15,7 +15,7 @@ Rails.application.routes.draw do
 
   resources :properties do
     collection do
-      get :get_landlord
+      get :fetch_landlord
     end
   end
   resources :users do

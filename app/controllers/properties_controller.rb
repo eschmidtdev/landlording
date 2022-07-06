@@ -3,6 +3,11 @@
 class PropertiesController < ApplicationController
   before_action :set_property, only: %i[edit destroy]
 
+  MESSAGES = {
+    created: I18n.t('Properties.Created'),
+    deleted: I18n.t('Properties.deleted')
+  }.freeze
+
   def index
     @properties = Property.paginate(page: params[:page]).order('id DESC')
   end
@@ -12,9 +17,7 @@ class PropertiesController < ApplicationController
     return render_response(response) unless response.nil?
 
     TransactPropertyService.call(merged_property_params, tenant_params)
-    render json: { success: true,
-                   message: 'Property has been created successfully.' }
-
+    render json: { success: true, message: MESSAGES[:created] }
   end
 
   def edit; end
@@ -23,16 +26,17 @@ class PropertiesController < ApplicationController
 
   def destroy
     @property.destroy
-    render json: { success: true,
-                   message: 'Property has been deleted successfully.' }
+    render json: { success: true, message: MESSAGES[:deleted] }
 
   end
 
-  def get_landlord
-    return unless params[:property][:saved_landlord] == 'true'
+  def fetch_landlord
+    response = PropertyValidatorService.call(property_params.to_h, current_user)
+    return render_response(response) unless response.nil?
 
     user = current_user
     render json: {
+      success: true,
       user: { name: construct_user_name(user),
               phone: user.phone_number,
               email: user.email }

@@ -110,7 +110,7 @@ $(document).ready(function () {
         const landlord_contact_phone = $('#propertyLandlordContactPhone');
         const landlord_contact_email = $('#propertyLandlordContactEmail');
         $.ajax({
-            url: '/properties/get_landlord',
+            url: '/properties/fetch_landlord',
             type: 'GET',
             data: {
                 property: {
@@ -118,9 +118,13 @@ $(document).ready(function () {
                 }
             },
             success: function (data) {
-                landlord_contact_name.prop('disabled', true).attr('value', data.user.name);
-                landlord_contact_phone.prop('disabled', true).attr('value', data.user.phone);
-                landlord_contact_email.prop('disabled', true).attr('value', data.user.email);
+                if (data.success === true) {
+                    landlord_contact_name.prop('disabled', true).attr('value', data.user.name);
+                    landlord_contact_phone.prop('disabled', true).attr('value', data.user.phone);
+                    landlord_contact_email.prop('disabled', true).attr('value', data.user.email);
+                } else if (data.success === false) {
+                    response_handler(data)
+                }
             },
             error: function (exception) {
             }
