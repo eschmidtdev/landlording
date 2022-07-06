@@ -82,22 +82,18 @@
     <div class="col margin-top-mob">
       <label for="propertyBedroomA">Bedroom</label>
       <select name="property[BedroomA]" id="propertyBedroomA" class="form-control form-control-lg input-45">
-        <option value="0" disabled selected>0</option>
-        <option value="1">1</option>
-        <option value="2">2</option>
-        <option value="3">3</option>
-        <option value="4">4</option>
+        <% (0..10).to_a.each do |room| %>
+          <option value="<%= room %>"><%= room %></option>
+        <% end %>
       </select>
     </div>
     <!-- Bed Room 2 -->
     <div class="col margin-top-mob">
       <label for="propertyBedroomB">Bedroom</label>
       <select name="property[BedroomB]" id="propertyBedroomB" class="form-control form-control-lg input-45">
-        <option value="0" disabled selected>0</option>
-        <option value="1">1</option>
-        <option value="2">2</option>
-        <option value="3">3</option>
-        <option value="4">4</option>
+        <% (0..10).to_a.each do |room| %>
+          <option value="<%= room %>"><%= room %></option>
+        <% end %>
       </select>
     </div>
   </div>

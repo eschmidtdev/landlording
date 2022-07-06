@@ -3,6 +3,8 @@
 class PropertiesController < ApplicationController
   before_action :set_property, only: %i[edit destroy]
 
+  include Responseable
+
   MESSAGES = {
     created: I18n.t('Properties.Created'),
     deleted: I18n.t('Properties.deleted')
@@ -13,11 +15,11 @@ class PropertiesController < ApplicationController
   end
 
   def create
-    response = PropertyValidatorService.call(property_params.to_h)
-    return render_response(response) unless response.nil?
+    response = PropertyValidatorService.call(property_params.to_h, current_user)
+    return render_response(false, response[:message], nil, nil) unless response.nil?
 
     TransactPropertyService.call(merged_property_params, tenant_params)
-    render json: { success: true, message: MESSAGES[:created] }
+    render_response(true, MESSAGES[:created], nil, nil)
   end
 
   def edit; end
@@ -26,21 +28,14 @@ class PropertiesController < ApplicationController
 
   def destroy
     @property.destroy
-    render json: { success: true, message: MESSAGES[:deleted] }
-
+    render_response(true, MESSAGES[:deleted], nil, nil)
   end
 
   def fetch_landlord
     response = PropertyValidatorService.call(property_params.to_h, current_user)
-    return render_response(response) unless response.nil?
+    return render_response(false, response[:message], nil, nil) unless response.nil?
 
-    user = current_user
-    render json: {
-      success: true,
-      user: { name: construct_user_name(user),
-              phone: user.phone_number,
-              email: user.email }
-    }
+    return_user current_user
   end
 
   private
@@ -65,9 +60,15 @@ class PropertiesController < ApplicationController
 
   def merged_property_params = property_params.merge({ user_id: current_user.id })
 
-  def render_response(response)
-    render json: { success: false,
-                   message: response[:message] }
+  def return_user(user)
+    render json: {
+      success: true,
+      user: {
+        email: user.email,
+        phone: user.phone_number,
+        name: construct_user_name(user)
+      }
+    }
   end
 
   def construct_user_name(user)

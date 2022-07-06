@@ -27,11 +27,7 @@ class PropertyValidatorService < ApplicationService
   end
 
   def check_user
-    { message: MESSAGES[:add_phone] } if attribute_fails?
-  end
-
-  def attribute_fails?
-    user.phone_number.blank?
+    { message: MESSAGES[:add_phone] } if user.phone_number.blank?
   end
 
 end
