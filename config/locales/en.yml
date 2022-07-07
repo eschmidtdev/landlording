@@ -17,3 +17,13 @@ en:
   GeneralError:
     ParamsMissing: 'Params are missing or values are empty.'
     WentWrong: 'Something went wrong. Please try again later.'
+
+  AccountSettings:
+    Incorrect: 'Password Incorrect.'
+    DoesntMatch: "Password confirmation doesn't match"
+    Updated: 'Password has been updated successfully.'
+    NotUpdated: 'Password can not be updated successfully.'
+    BillingDeleted: 'Billing Details has been deleted successfully.'
+    InfoUpdated: 'Personal Information has been updated successfully.'
+    InfoNotUpdated: 'Personal Information can not be updated successfully.'
+

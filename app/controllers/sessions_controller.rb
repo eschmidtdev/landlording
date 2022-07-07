@@ -21,9 +21,7 @@ class SessionsController < Devise::SessionsController
 
   def create
     response = SessionValidatorService.call(params)
-    unless response.nil?
-      return render_response(false, response[:message], nil, nil)
-    end
+    return render_response(false, response[:message], nil, nil) unless response.nil?
 
     self.resource = warden.authenticate!(auth_options)
     sign_in(resource_name, resource)
