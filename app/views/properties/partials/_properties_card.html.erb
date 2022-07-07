@@ -16,13 +16,25 @@
                 <%= image_tag 'global_images/more.svg', width: '20' %>
               </a>
               <div class="dropdown-menu" aria-labelledby="dropdownMenuButton" id="CustomMobileMenu">
-                <a class="dropdown-item" href="<%= edit_property_path(property.id) %>">
+
+                <!-- Edit -->
+                <a
+                  class="dropdown-item"
+                  href="<%= edit_property_path(property.id) %>"
+                >
                   <div class="d-flex justify-content-start">
                     <%= image_tag 'properties/edit_svg.svg', class: 'm-0', width: '15' %>
                     <span class="ml-2">Edit</span>
                   </div>
                 </a>
-                <a class="dropdown-item" onclick="deleteProperty(<%= property.id %>)" role="button" data-property-id="<%= property.id %>">
+
+                <!-- Delete -->
+                <a
+                  role="button"
+                  data-toggle="modal"
+                  class="dropdown-item"
+                  data-target="#deletePropModal<%= property.id %>"
+                >
                   <div class="d-flex justify-content-start">
                     <%= image_tag 'properties/delete_icon.svg', class: 'm-0', width: '15' %>
                     <span class="ml-2">Delete</span>
@@ -31,8 +43,13 @@
               </div>
             </div>
           </div>
-          <!-- Property Name -->
-          <h3 class="name bold property-nam-mob"><%= show_property_name(property.address_line_one, property.address_line_two) %></h3>
+
+          <!-- Property Address -->
+          <h3 class="name bold property-nam-mob">
+            <a href="<%= edit_property_path(property.id) %>" class="property-address-link">
+              <%= show_property_name(property.address_line_one, property.address_line_two) %>
+            </a>
+          </h3>
 
           <hr>
           <!-- Card Footer -->
@@ -47,10 +64,15 @@
             <div>
               <%= image_tag 'properties/property_go_active_arrow.svg', width: '20' %>
             </div>
+
           </div>
         </div>
       </div>
     </div>
+
+
+    <!-- Delete Property Modal -->
+    <%= render partial: 'properties/partials/delete_modal', locals: { property: property } %>
   <% end %>
 
 </div>

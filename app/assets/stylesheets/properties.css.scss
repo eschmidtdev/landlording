@@ -55,7 +55,15 @@
   margin-bottom: 1.5rem;
 }
 
+.property-address-link {
+  color: #000000;
+  text-decoration: none;
+}
 
+.property-address-link:hover {
+  color: #000000;
+  text-decoration: none;
+}
 
 @media only screen and (max-width: 600px) {
   #headingOne {
