@@ -3,7 +3,6 @@
 class RegistrationsController < Devise::RegistrationsController
   skip_before_action :verify_authenticity_token
 
-  include Nameable
   include Responseable
 
   MESSAGES = {
@@ -18,7 +17,7 @@ class RegistrationsController < Devise::RegistrationsController
       return render_response(false, response[:message], response[:method], nil)
     end
 
-    resource = create_resource
+    resource = RegistrationCreateUserService.call(user_params)
     # UserMailer.send_verification_email(resource).deliver_now!
     # render json: { success: true,
     #                url: email_confirmation_url }
@@ -29,17 +28,6 @@ class RegistrationsController < Devise::RegistrationsController
   def email_confirmation; end
 
   private
-
-  def create_resource
-    user                       = User.new(user_params)
-    user.confirmation_token    = SecureRandom.hex(10)
-    user.confirmed_at          = nil
-    user.confirmation_sent_at  = DateTime.now
-    user.password_confirmation = user.password
-    construct_name(user, params)
-    user.save!
-    user
-  end
 
   def user_params
     params.require(:user).permit(:first_name, :last_name, :email,

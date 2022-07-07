@@ -29,9 +29,9 @@ $(document).ready(function () {
     function ajaxRequest(e) {
         e.preventDefault();
         disableButton();
-        const password  = $('#RegPass').val();
-        const email     = $('#RegEmail').val();
-        const full_name = $('#FullName').val();
+        const password   = $('#RegPass').val();
+        const email      = $('#RegEmail').val();
+        const first_name = $('#FullName').val();
         $.ajax({
             url: '/users',
             type: 'POST',
@@ -39,7 +39,7 @@ $(document).ready(function () {
                 user: {
                     email:     email,
                     password:  password,
-                    full_name: full_name
+                    first_name: first_name
                 }
             },
             success: function (data) {
