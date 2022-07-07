@@ -3,13 +3,6 @@
 //= require turbolinks
 //= require bootstrap-sprockets
 
-// Auto hide notification div
-// $(document).on('turbolinks:load', function () {
-//     $('.alert').delay(2000).slideUp(500, function () {
-//         $('.alert').alert('close');
-//     });
-// });
-
 // Show loader on submit any ajaxRequest
 $(document).on('turbolinks:load', function () {
     const $loading = $('#loader').hide();

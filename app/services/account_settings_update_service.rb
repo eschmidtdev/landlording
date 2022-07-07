@@ -11,7 +11,7 @@ class AccountSettingsUpdateService < ApplicationService
   }.freeze
 
   def initialize(params, user)
-    @user = user
+    @user            = user
     @settings_params = params
   end
 
@@ -26,7 +26,7 @@ class AccountSettingsUpdateService < ApplicationService
   end
 
   def update_password
-    new_password = params[:account_setting][:new_password]
+    new_password  = settings_params['new_password']
     user.password = user.password_confirmation = new_password
     if user.save
       bypass_sign_in(user)

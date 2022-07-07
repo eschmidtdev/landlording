@@ -5,13 +5,17 @@ class AccountSettingsController < ApplicationController
 
   include Responseable
 
+  MESSAGES = {
+    deleted: I18n.t('AccountSettings.BillingDeleted')
+  }.freeze
+
   def index; end
 
   def change_password; end
 
   def update
     response = AccountSettingsValidatorService.call(account_settings_params.to_h, @user)
-    return render_response(false, response[:message], nil, nil) unless response.nil?
+    return render_response(false, response[:message], response[:method], nil) unless response.nil?
 
     resp = AccountSettingsUpdateService.call(account_settings_params.to_h, @user)
     render_response(resp[:success], resp[:message], nil, nil)
@@ -19,9 +23,7 @@ class AccountSettingsController < ApplicationController
 
   def destroy
     @user.payment_detail.destroy
-    render json: { success: true,
-                   message: 'Billing Details has been deleted successfully.' }
-
+    render_response(false, MESSAGES[:deleted], nil, nil)
   end
 
   private
@@ -33,7 +35,11 @@ class AccountSettingsController < ApplicationController
   end
 
   def required_params
-    User.column_names.reject { |k| ['id'].include?(k) }.map(&:to_sym)
+    User.column_names.reject { |k| [' id '].include?(k) }.map(&:to_sym) + (update_pass_params)
+  end
+
+  def update_pass_params
+    %i[new_password from current_password confirm_password]
   end
 
 end

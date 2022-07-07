@@ -3,8 +3,8 @@ $(document).ready(function () {
     $(function () {
         $("form[name='account_change_password']").validate({
             rules: {
-                'Setting[CP]': {required: true, minlength: 8},
-                'Setting[NP]': {required: true, minlength: 8},
+                'Setting[CP]':  {required: true, minlength: 8},
+                'Setting[NP]':  {required: true, minlength: 8},
                 'Setting[CNP]': {required: true, equalTo: "#SettingNP"},
             },
             messages: {
@@ -64,7 +64,7 @@ $(document).ready(function () {
         if (data.success === true) {
             render_response(data);
         }
-        if (data.success === false) {
+        else if (data.success === false) {
             render_conditional_response(data);
         }
         enableButton();
@@ -81,8 +81,11 @@ $(document).ready(function () {
     }
 
     function render_conditional_response(data) {
-        if (data.error === 'current_password') {
+        if (data.method === 'invalid?') {
             $('#PassIncorrect').text('').show().text(data.message);
+        }
+        else if(data.method === 'doesnt_match?'){
+            $('#PasswordError').text('').show().text(data.message);
         }
     }
 
