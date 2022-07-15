@@ -15,15 +15,11 @@ class PropertyValidatorService < ApplicationService
   end
 
   def call
-    params_missing? || check_granted || check_user
+    params_missing? || check_user
   end
 
   def params_missing?
     { message: MESSAGES[:missing_params] } if property_params.empty?
-  end
-
-  def check_granted
-    { message: MESSAGES[:went_wrong] } unless property_params['saved_landlord'] == 'true'
   end
 
   def check_user
