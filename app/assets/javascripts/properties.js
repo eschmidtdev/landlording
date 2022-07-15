@@ -50,6 +50,18 @@ $(document).ready(function () {
         getCityState(zipcode)
     });
 
+    // Enable Disable Tenant Area
+    $('.currently-leased').change(function () {
+        const value = $(this).val();
+        debugger;
+        if (value === 'true') {
+            $('#TenantSection').show();
+        } else if (value === 'false') {
+            $('#TenantSection').hide();
+        }
+
+    });
+
     function ajaxRequest(e) {
         e.preventDefault();
         disableButton();
