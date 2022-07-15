@@ -86,7 +86,7 @@
     <div class="col margin-top-mob">
       <label for="propertyBedroomA">Bedroom</label>
       <%= select_tag 'property[BedroomA]',
-                     options_for_select((1..10).map { |room| [room] }, selected: property.bed_one),
+                     options_for_select(bedrooms_a.map { |room| [room] }, selected: property.bed_one),
                      id: 'propertyBedroomA',
                      class: 'form-control form-control-lg input-45'
 
@@ -96,7 +96,7 @@
     <div class="col margin-top-mob">
       <label for="propertyBedroomB">Bedroom</label>
       <%= select_tag 'property[BedroomB]',
-                     options_for_select((1..10).map { |room| [room] }, selected: property.bed_two),
+                     options_for_select(bedrooms_b.map { |room| [room] }, selected: property.bed_two),
                      id: 'propertyBedroomB',
                      class: 'form-control form-control-lg input-45'
 

@@ -32,4 +32,12 @@ module PropertiesHelper
   def disabled?(property, value)
     !property.send("landlord_contact_#{value}").blank? && property.saved_landlord == true ? 'disabled' : ''
   end
+
+  def bedrooms_a
+    %w[Studio 1 2 3 4 5 6 7 8+]
+  end
+
+  def bedrooms_b
+    %w[1 1.5 2 2.5 3 3.5 4 4.5 5 5.5 6 6.5 7+]
+  end
 end

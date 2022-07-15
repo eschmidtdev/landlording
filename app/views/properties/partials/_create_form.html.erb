@@ -82,7 +82,8 @@
     <div class="col margin-top-mob">
       <label for="propertyBedroomA">Bedroom</label>
       <select name="property[BedroomA]" id="propertyBedroomA" class="form-control form-control-lg input-45">
-        <% (0..10).to_a.each do |room| %>
+        <option value="" disabled selected>Select Bedroom</option>
+        <% bedrooms_a.to_a.each do |room| %>
           <option value="<%= room %>"><%= room %></option>
         <% end %>
       </select>
@@ -91,7 +92,8 @@
     <div class="col margin-top-mob">
       <label for="propertyBedroomB">Bedroom</label>
       <select name="property[BedroomB]" id="propertyBedroomB" class="form-control form-control-lg input-45">
-        <% (0..10).to_a.each do |room| %>
+        <option value="" disabled selected>Select Bedroom</option>
+        <% bedrooms_b.to_a.each do |room| %>
           <option value="<%= room %>"><%= room %></option>
         <% end %>
       </select>
