@@ -1,12 +1,14 @@
+# frozen_string_literal: true
+
 require 'open-uri'
 require 'csv'
 
 namespace :zipcodes do
 
-  desc "Update states table"
-  task :update_states => :environment do
-    puts ">>> Begin update of states table..."
-    url = "all_us_states.csv"
+  desc 'Update states table'
+  task update_states: :environment do
+    puts '>>> Begin update of states table...'
+    url = 'all_us_states.csv'
     data = open(url)
     file = nil
     if data.is_a? StringIO
@@ -17,19 +19,19 @@ namespace :zipcodes do
     else
       file = data
     end
-    CSV.foreach(file.path, :headers => true) do |row|
+    CSV.foreach(file.path, headers: true) do |row|
       puts "Updating state: [#{row['name']}]"
       state = State.where(abbr: row['abbr']).first_or_initialize
       state.update_attribute(:name, row['name'])
     end
     data.close
-    puts ">>> End update of states table..."
+    puts '>>> End update of states table...'
   end
 
-  desc "Update counties table"
-  task :update_counties => :update_states do
-    puts ">>> Begin update of counties table..."
-    url = "all_us_counties.csv"
+  desc 'Update counties table'
+  task update_counties: :update_states do
+    puts '>>> Begin update of counties table...'
+    url = 'all_us_counties.csv'
     data = open(url)
     file = nil
     if data.is_a? StringIO
@@ -40,7 +42,7 @@ namespace :zipcodes do
     else
       file = data
     end
-    CSV.foreach(file.path, :headers => true) do |row|
+    CSV.foreach(file.path, headers: true) do |row|
       puts "Updating county: [#{row['name']}]"
       # lookup state
       state = State.find_by_abbr!(row['state'])
@@ -48,13 +50,13 @@ namespace :zipcodes do
       county.update_attribute(:county_seat, row['county_seat'])
     end
     data.close
-    puts ">>> End update of counties table..."
+    puts '>>> End update of counties table...'
   end
 
-  desc "Update zipcodes table"
-  task :update_zipcodes => :update_counties do
-    puts ">>> Begin update of zipcodes table..."
-    url = "all_us_zipcodes.csv"
+  desc 'Update zipcodes table'
+  task update_zipcodes: :update_counties do
+    puts '>>> Begin update of zipcodes table...'
+    url = 'all_us_zipcodes.csv'
     data = open(url)
     file = nil
     if data.is_a? StringIO
@@ -65,7 +67,7 @@ namespace :zipcodes do
     else
       file = data
     end
-    CSV.foreach(file.path, :headers => true) do |row|
+    CSV.foreach(file.path, headers: true) do |row|
       puts "Updating zipcode: [#{row['code']}], '#{row['city']}, #{row['state']}, #{row['county']}"
       # lookup state
       state = State.find_by_abbr!(row['state'])
@@ -78,25 +80,25 @@ namespace :zipcodes do
       end
       zipcode = Zipcode.where(code: row['code']).first_or_initialize
       zipcode.update(
-        :city => row['city'].titleize,
-        :state_id => state.to_param,
-        :county_id => county.to_param,
-        :lat => row['lat'],
-        :lon => row['lon']
+        city: row['city'].titleize,
+        state_id: state.to_param,
+        county_id: county.to_param,
+        lat: row['lat'],
+        lon: row['lon']
       )
     end
     data.close
-    puts ">>> End update of zipcodes table..."
+    puts '>>> End update of zipcodes table...'
   end
 
-  desc "Populate or update the zipcodes related tables"
-  task :update => :environment do
+  desc 'Populate or update the zipcodes related tables'
+  task update: :environment do
     Rake::Task['zipcodes:update_zipcodes'].invoke
   end
 
-  desc "Export US States to a .csv file"
-  task :export_states => :environment do
-    @states = State.order("name ASC")
+  desc 'Export US States to a .csv file'
+  task export_states: :environment do
+    @states = State.order('name ASC')
     csv_string = CSV.generate do |csv|
       csv << %w[abbr name]
       @states.each do |state|
@@ -106,15 +108,15 @@ namespace :zipcodes do
           ]
       end
     end
-    filename = "all_us_states.csv"
+    filename = 'all_us_states.csv'
     open("#{Rails.root}/db/#{filename}", 'w') do |f|
       f.write(csv_string)
     end
   end
 
-  desc "Export all US Counties to a .csv file"
-  task :export_counties => :environment do
-    @counties = County.order("name ASC")
+  desc 'Export all US Counties to a .csv file'
+  task export_counties: :environment do
+    @counties = County.order('name ASC')
     csv_string = CSV.generate do |csv|
       csv << %w[name state county_seat]
       @counties.each do |county|
@@ -125,15 +127,15 @@ namespace :zipcodes do
           ]
       end
     end
-    filename = "all_us_counties.csv"
+    filename = 'all_us_counties.csv'
     open("#{Rails.root}/db/#{filename}", 'w') do |f|
       f.write(csv_string)
     end
   end
 
-  desc "Export the zipcodes with county and state data"
-  task :export_zipcodes => :environment do
-    @zipcodes = Zipcode.order("code ASC")
+  desc 'Export the zipcodes with county and state data'
+  task export_zipcodes: :environment do
+    @zipcodes = Zipcode.order('code ASC')
     csv_string = CSV.generate do |csv|
       csv << %w[code city state county area_code lat lon]
       @zipcodes.each do |zip|
@@ -148,14 +150,14 @@ namespace :zipcodes do
           ]
       end
     end
-    filename = "all_us_zipcodes.csv"
+    filename = 'all_us_zipcodes.csv'
     open("#{Rails.root}/db/#{filename}", 'w') do |f|
       f.write(csv_string)
     end
   end
 
-  desc "Export zipcodes, states and counties tables"
-  task :export => :environment do
+  desc 'Export zipcodes, states and counties tables'
+  task export: :environment do
     Rake::Task['zipcodes:export_states'].invoke
     Rake::Task['zipcodes:export_counties'].invoke
     Rake::Task['zipcodes:export_zipcodes'].invoke
