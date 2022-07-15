@@ -371,6 +371,7 @@
       <main class="main main-content-div-section">
         <div class="main-content-section">
           <div class="container-fluid">
+            <%= render partial: 'layouts/messages' %>
             <%= yield %>
           </div>
         </div>
@@ -392,5 +393,6 @@
         $('.card-body').css('background-color', 'rgba(0,0,0,0.5)');
     });
 </script>
+
 </body>
 </html>

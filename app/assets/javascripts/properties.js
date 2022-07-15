@@ -53,7 +53,6 @@ $(document).ready(function () {
     // Enable Disable Tenant Area
     $('.currently-leased').change(function () {
         const value = $(this).val();
-        debugger;
         if (value === 'true') {
             $('#TenantSection').show();
         } else if (value === 'false') {
@@ -114,11 +113,8 @@ $(document).ready(function () {
                     lease_start_date: lease_start_date
                 }
             },
-            success: function (data) {
-                response_handler(data)
-            },
-            error: function (exception) {
-            }
+            success: function (data) {},
+            error: function (exception) {}
         });
         return false;
     }
@@ -169,18 +165,6 @@ $(document).ready(function () {
 
     function disableButton() {
         $('#SavePropertyBtn').prop('disabled', true);
-    }
-
-    function response_handler(data) {
-        enableButton();
-        $("form[name='property_form']")[0].reset();
-        $('html, body').animate({scrollTop: 0}, 'slow');
-        $(data.success === true ? '.success_alert' : '.error_alert')
-            .text('')
-            .show()
-            .append(data.message)
-            .delay(3000)
-            .fadeOut(300);
     }
 
 });

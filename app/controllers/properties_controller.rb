@@ -19,7 +19,8 @@ class PropertiesController < ApplicationController
     return render_response(false, response[:message], nil, nil) unless response.nil?
 
     TransactPropertyService.call(merged_property_params, tenant_params)
-    render_response(true, MESSAGES[:created], nil, nil)
+    flash[:notice] = 'New Rental Property was successfully added.'
+    redirect_to properties_url
   end
 
   def edit; end

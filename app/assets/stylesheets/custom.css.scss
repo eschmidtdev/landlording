@@ -62,6 +62,17 @@ label {
   color: #008000;
 }
 
+.alert-success {
+  color: green !important;
+  text-align: center !important;
+  background: rgba(255, 44, 58, 0.07) !important;
+}
+
+.alert-danger {
+  color: #FF2C3A;
+  text-align: center;
+  background: rgba(255, 44, 58, 0.07) !important;
+}
 
 .form-control:focus {
   border-color: #FF8F00;
