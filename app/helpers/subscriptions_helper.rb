@@ -29,8 +29,8 @@ module SubscriptionsHelper
   end
 
   def description
-    'Unlimited access to our legal document library and online rental application tool,
-     billed monthly.'
+    'Unlimited access to our legal document library, online document storage and digital
+     signing feature.'
   end
 
 end
