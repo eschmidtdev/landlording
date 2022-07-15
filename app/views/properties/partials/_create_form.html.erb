@@ -47,7 +47,7 @@
           placeholder="Zip Code"
           id="propertyPostalCode"
           name="property[PostalCode]"
-          class="form-control form-control-lg input-45"
+          class="form-control form-control-lg input-45 zipcode_interactive"
         >
       </div>
     </div>
@@ -56,6 +56,7 @@
       <div class="form-group">
         <label for="propertyCity">City*</label>
         <input
+          disabled
           type="text"
           id="propertyCity"
           placeholder="City"
@@ -66,13 +67,17 @@
     </div>
     <!-- State -->
     <div class="col">
-      <label for="propertyState">State*</label>
-      <select name="property[State]" id="propertyState" class="form-control form-control-lg input-45">
-        <option disabled selected>State</option>
-        <%= CS.states(:us).values.each do |state| %>
-          <option><%= state %></option>
-        <% end %>
-      </select>
+      <div class="form-group">
+        <label for="propertyState">State*</label>
+        <input
+          disabled
+          type="text"
+          id="propertyState"
+          placeholder="State"
+          name="property[State]"
+          class="form-control form-control-lg input-45"
+        >
+      </div>
     </div>
   </div>
 

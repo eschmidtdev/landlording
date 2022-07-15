@@ -44,6 +44,12 @@ $(document).ready(function () {
 
     });
 
+    // Interactive Zipcodes
+    $('input.zipcode_interactive').blur(function (data) {
+        const zipcode = $(this).val();
+        getCityState(zipcode)
+    });
+
     function ajaxRequest(e) {
         e.preventDefault();
         disableButton();
@@ -125,6 +131,20 @@ $(document).ready(function () {
                 } else if (data.success === false) {
                     response_handler(data)
                 }
+            },
+            error: function (exception) {
+            }
+        });
+    }
+
+    function getCityState(zipcode) {
+        $.ajax({
+            url: '/properties/get_zip_data/' + zipcode,
+            type: 'GET',
+            data: {},
+            success: function (data) {
+                $('#propertyCity').attr('value', data.object.city);
+                $('#propertyState').attr('value', data.object.state);
             },
             error: function (exception) {
             }

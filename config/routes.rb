@@ -40,6 +40,7 @@ Rails.application.routes.draw do
   get '/documents', to: 'documents#index'
   get '/create/interview', to: 'documents#create_interview'
   get '/complete/interview', to: 'documents#complete_interview'
+  get 'properties/get_zip_data/:code', controller: 'properties', action: 'get_zip_data'
 
   # resources :documents do
   #   member do

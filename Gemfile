@@ -26,6 +26,7 @@ gem 'uglifier'
 gem 'wicked_pdf'
 gem 'will_paginate-bootstrap4'
 gem 'wkhtmltopdf-binary'
+gem 'my_zipcode_gem'
 
 group :development do
   gem 'better_errors'
@@ -53,3 +54,4 @@ group :development, :test do
   gem 'faker'
   gem 'rspec-rails'
 end
+gem 'mocha', group: :test
