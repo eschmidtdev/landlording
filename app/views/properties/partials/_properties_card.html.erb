@@ -78,37 +78,3 @@
 </div>
 
 <%= javascript_include_tag 'properties' %>
-
-<script>
-    function deleteProperty(id) {
-        ajaxDeleteReq(id);
-    }
-
-    function ajaxDeleteReq(id) {
-        $.ajax({
-            url: `/properties/${id}`,
-            type: 'DELETE',
-            data: {
-                property: {
-                    id: id
-                }
-            },
-            success: function (data) {
-                if (data.success === true) {
-                    $('html, body').animate({scrollTop: 0}, 'slow');
-                    $('.success_alert')
-                        .show()
-                        .append(data.message)
-                        .delay(3000)
-                        .fadeOut(300);
-                }
-                setTimeout(function () {
-                    window.location.reload();
-                }, 3000);
-            },
-            error: function (exception) {
-            }
-        });
-    }
-</script>
-

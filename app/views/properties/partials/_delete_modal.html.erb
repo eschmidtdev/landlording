@@ -11,7 +11,10 @@
         Are you sure you want to delete?
       </div>
       <div class="modal-footer">
-        <button type="button" class="btn create-button" data-dismiss="modal" data-property-id="<%= property.id %>" onclick="deleteProperty(<%= property.id %>)">Delete</button>
+        <%= link_to 'Delete',
+                    "/properties/#{property.id}",
+                    method: :delete,
+                    class: 'btn create-button' %>
         <button type="button" class="btn cancel-button" data-dismiss="modal">Cancel</button>
       </div>
     </div>

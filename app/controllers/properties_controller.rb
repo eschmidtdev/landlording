@@ -29,7 +29,8 @@ class PropertiesController < ApplicationController
 
   def destroy
     @property.destroy
-    render_response(true, MESSAGES[:deleted], nil, nil)
+    flash[:notice] = MESSAGES[:deleted]
+    redirect_to properties_url
   end
 
   def fetch_landlord
