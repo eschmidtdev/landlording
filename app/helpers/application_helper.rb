@@ -37,4 +37,12 @@ module ApplicationHelper
       'Enter Payment Details'
     end
   end
+
+  def user_name(user)
+    if user&.first_name.present? && user&.last_name.blank?
+      user.first_name
+    elsif user&.first_name.present? && user&.last_name.present?
+      "#{user.first_name}  #{user.last_name}"
+    end
+  end
 end
