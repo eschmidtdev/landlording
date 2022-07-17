@@ -18,7 +18,11 @@ module PropertiesHelper
   end
 
   def show_property_name(address_line_one, address_line_two)
-    address_line_one.present? ? address_line_one : '' + ' ' + address_line_two.present? ? address_line_two : ''
+    if address_line_one.present? && address_line_two.blank?
+      address_line_one
+    elsif address_line_one.present? && address_line_two.present?
+      "#{address_line_one}  #{address_line_two}"
+    end
   end
 
   def show_tenant_name(property)
