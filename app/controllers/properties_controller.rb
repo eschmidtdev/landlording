@@ -51,7 +51,8 @@ class PropertiesController < ApplicationController
       else
         if params[:code].is_zipcode?
           data = {
-            'err' => "Could not find Zipcode [#{params[:code]}].  If this is a valid zipcode please notify support, so we can update our database."
+            'err' => "Could not find Zipcode [#{params[:code]}].  If this is a valid
+                      zipcode please notify support, so we can update our database."
           }
         else
           data = {
