@@ -56,7 +56,8 @@ $(document).ready(function () {
     // Interactive Zipcodes
     $('input.zipcode_interactive').blur(function (data) {
         const zipcode = $(this).val();
-        getCityState(zipcode)
+        const from = $(this).data('from');
+        getCityState(zipcode, from)
     });
 
     // Enable Disable Tenant Area
@@ -175,14 +176,20 @@ $(document).ready(function () {
         });
     }
 
-    function getCityState(zipcode) {
+    function getCityState(zipcode, from) {
         $.ajax({
             url: '/properties/get_zip_data/' + zipcode,
             type: 'GET',
             data: {},
             success: function (data) {
-                $('#propertyCity').attr('value', data.object.city);
-                $('#propertyState').attr('value', data.object.state);
+                if (from === 'tenant_notice') {
+                    $('#propertyTNCity').attr('value', data.object.city);
+                    $('#propertyTNState').attr('value', data.object.state);
+                } else {
+                    $('#propertyCity').attr('value', data.object.city);
+                    $('#propertyState').attr('value', data.object.state);
+                }
+
             },
             error: function (exception) {
             }

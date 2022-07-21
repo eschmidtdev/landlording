@@ -35,9 +35,10 @@ Rails.application.routes.draw do
     end
   end
   resources :rental_applications, only: :index
-  resources :payment_details, only: %i[index update]
+  resources :payment_details, only: %i[update]
 
   get '/documents', to: 'documents#index'
+  get '/billing', to: 'payment_details#billing'
   get '/account', to: 'account_settings#account_index'
   get '/create/interview', to: 'documents#create_interview'
   get '/complete/interview', to: 'documents#complete_interview'
