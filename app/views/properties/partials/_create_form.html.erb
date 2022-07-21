@@ -172,6 +172,79 @@
     </label><br>
   </div>
 
+  <div class="mt-4 display_none" id="TenantNoticeSection">
+
+    <!-- Street Address Line 1 -->
+    <div class="form-group">
+      <label for="propertyTSAL1">Tenant Notice Address Street Line 1*</label>
+      <input
+        type="text"
+        id="propertyTSAL1"
+        name="property[TSAL1]"
+        placeholder="Your Address"
+        class="form-control form-control-lg input-45"
+      >
+    </div>
+
+    <!-- Street Address Line 2 -->
+    <div class="form-group">
+      <label for="propertyTSAL2">Tenant Notice Address Street Line 2</label>
+      <input
+        type="text"
+        id="propertyTSAL2"
+        name="property[TSAL2]"
+        placeholder="Your Address"
+        class="form-control form-control-lg input-45"
+      >
+    </div>
+
+    <!-- Postal, City, State -->
+    <div class="row">
+      <!-- Postal -->
+      <div class="col">
+        <div class="form-group">
+          <label for="propertyTNPostalCode">Postal Code*</label>
+          <input
+            type="text"
+            placeholder="Zip Code"
+            id="propertyTNPostalCode"
+            name="property[TNPostalCode]"
+            class="form-control form-control-lg input-45 zipcode_interactive"
+          >
+        </div>
+      </div>
+      <!-- City -->
+      <div class="col">
+        <div class="form-group">
+          <label for="propertyTNCity">City*</label>
+          <input
+            disabled
+            type="text"
+            id="propertyTNCity"
+            placeholder="City"
+            name="property[TNCity]"
+            class="form-control form-control-lg input-45"
+          >
+        </div>
+      </div>
+      <!-- State -->
+      <div class="col">
+        <div class="form-group">
+          <label for="propertyTNState">State*</label>
+          <input
+            disabled
+            type="text"
+            id="propertyTNState"
+            placeholder="State"
+            name="property[TNState]"
+            class="form-control form-control-lg input-45"
+          >
+        </div>
+      </div>
+    </div>
+
+  </div>
+
   <hr>
 
   <div class="d-flex justify-content-start mb-5">

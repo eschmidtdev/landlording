@@ -61,6 +61,17 @@ $(document).ready(function () {
 
     });
 
+    // Enable Disable Tenant Notice Area
+    $('.asked-for-property').change(function () {
+        const value = $(this).val();
+        if (value === 'true') {
+            $('#TenantNoticeSection').hide();
+        } else if (value === 'false') {
+            $('#TenantNoticeSection').show();
+        }
+
+    });
+
     function ajaxRequest(e) {
         e.preventDefault();
         disableButton();
