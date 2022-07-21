@@ -29,7 +29,7 @@ Rails.application.routes.draw do
       get '/cancel', to: 'subscriptions#cancel_subscription'
     end
   end
-  resources :account_settings do
+  resources :account_settings, except: :index do
     member do
       get '/change/password', to: 'account_settings#change_password'
     end
@@ -38,6 +38,7 @@ Rails.application.routes.draw do
   resources :payment_details, only: %i[index update]
 
   get '/documents', to: 'documents#index'
+  get '/account', to: 'account_settings#account_index'
   get '/create/interview', to: 'documents#create_interview'
   get '/complete/interview', to: 'documents#complete_interview'
   get 'properties/get_zip_data/:code', controller: 'properties', action: 'get_zip_data'

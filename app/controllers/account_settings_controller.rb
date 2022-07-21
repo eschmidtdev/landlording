@@ -9,7 +9,7 @@ class AccountSettingsController < ApplicationController
     deleted: I18n.t('AccountSettings.BillingDeleted')
   }.freeze
 
-  def index; end
+  def account_index; end
 
   def change_password; end
 

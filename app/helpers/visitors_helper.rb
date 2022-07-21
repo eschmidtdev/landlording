@@ -65,7 +65,7 @@ module VisitorsHelper
     when 1
       properties_path
     when 2
-      account_settings_path
+      account_path
     end
   end
 
