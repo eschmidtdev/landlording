@@ -59,6 +59,7 @@
       <div class="form-group">
         <label for="propertyCity">City*</label>
         <input
+          disabled
           type="text"
           id="propertyCity"
           placeholder="City"
@@ -70,13 +71,18 @@
     </div>
     <!-- State -->
     <div class="col">
-      <label for="propertyState">State*</label>
-      <%= select_tag 'property[State]',
-                     options_for_select(CS.states(:us).values.map { |state| [state] }, selected: property.state),
-                     id: 'propertyState',
-                     class: 'form-control form-control-lg input-45'
-
-      %>
+      <div class="form-group">
+        <label for="propertyState">State*</label>
+        <input
+          disabled
+          type="text"
+          id="propertyState"
+          placeholder="State"
+          name="property[State]"
+          value="<%= check_for(property.state) %>"
+          class="form-control form-control-lg input-45"
+        >
+      </div>
     </div>
   </div>
 
@@ -85,21 +91,21 @@
     <!-- Bed Room 1 -->
     <div class="col margin-top-mob">
       <label for="propertyBedroomA">Bedroom</label>
-      <%= select_tag 'property[BedroomA]',
-                     options_for_select(bedrooms_a.map { |room| [room] }, selected: property.bed_one),
-                     id: 'propertyBedroomA',
-                     class: 'form-control form-control-lg input-45'
-
+      <%= select_tag('property[BedroomA]',
+                     options_for_select(map_bedrooms, selected: property.bed_one),
+                     { prompt: "Select Bedroom",
+                       id: 'propertyBedroomA',
+                       class: 'form-control form-control-lg input-45' })
       %>
     </div>
     <!-- Bed Room 2 -->
     <div class="col margin-top-mob">
-      <label for="propertyBedroomB">Bedroom</label>
-      <%= select_tag 'property[BedroomB]',
-                     options_for_select(bedrooms_b.map { |room| [room] }, selected: property.bed_two),
-                     id: 'propertyBedroomB',
-                     class: 'form-control form-control-lg input-45'
-
+      <label for="propertyBedroomB">Bathroom</label>
+      <%= select_tag('property[BedroomB]',
+                     options_for_select(map_bathrooms, selected: property.bed_two),
+                     { prompt: "Select Bathroom",
+                       id: 'propertyBedroomB',
+                       class: 'form-control form-control-lg input-45' })
       %>
     </div>
   </div>

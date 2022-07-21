@@ -1,7 +1,7 @@
 <%= stylesheet_link_tag 'visitors' %>
 
-<% 4.times do |index| %>
-  <a href="<%= documents_url %>" class="card-link-style">
+<% 3.times do |index| %>
+  <a href="<%= page_redirection(index) %>" class="card-link-style">
     <div class="card <%= 'mt-3' if index > 0 %>">
       <div class="card-body">
         <div class="row">
@@ -20,7 +20,7 @@
               </div>
               <div class="col-md-2 d-flex justify-content-center align-items-center">
                 <div class="card-icon-img">
-                  <%= visitor_card_arrow(index) %>
+                  <%= image_tag 'visitors/inactive_arrow.svg', class: "hover_able" %>
                 </div>
               </div>
             </div>
@@ -31,3 +31,4 @@
   </a>
 <% end %>
 
+<%= javascript_include_tag 'visitors' %>

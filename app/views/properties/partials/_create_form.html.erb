@@ -95,10 +95,10 @@
     </div>
     <!-- Bed Room 2 -->
     <div class="col margin-top-mob">
-      <label for="propertyBedroomB">Bedroom</label>
+      <label for="propertyBedroomB">Bathroom</label>
       <select name="property[BedroomB]" id="propertyBedroomB" class="form-control form-control-lg input-45">
-        <option value="" disabled selected>Select Bedroom</option>
-        <% bedrooms_b.to_a.each do |room| %>
+        <option value="" disabled selected>Select Bathroom</option>
+        <% bathrooms.to_a.each do |room| %>
           <option value="<%= room %>"><%= room %></option>
         <% end %>
       </select>

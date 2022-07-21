@@ -41,7 +41,15 @@ module PropertiesHelper
     %w[Studio 1 2 3 4 5 6 7 8+]
   end
 
-  def bedrooms_b
+  def map_bedrooms
+    bedrooms_a.map { |room| [room] }
+  end
+
+  def bathrooms
     %w[1 1.5 2 2.5 3 3.5 4 4.5 5 5.5 6 6.5 7+]
+  end
+
+  def map_bathrooms
+    bathrooms.map { |room| [room] }
   end
 end
