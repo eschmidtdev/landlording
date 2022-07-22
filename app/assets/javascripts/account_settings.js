@@ -23,6 +23,13 @@ $(document).ready(function () {
         ajaxDeleteReq(userID);
     });
 
+    // Interactive Zipcodes
+    $('input.zipcode_interactive').blur(function (data) {
+        const zipcode = $(this).val();
+        const from = $(this).data('from');
+        getCityState(zipcode, from)
+    });
+
     function ajaxRequest(e) {
         e.preventDefault();
         disableButton();
@@ -102,6 +109,31 @@ $(document).ready(function () {
 
     function clearErrors() {
         $('.error_alert').text('').addClass('display_none');
+    }
+
+    function getCityState(zipcode, from) {
+        $.ajax({
+            url: '/properties/get_zip_data/' + zipcode,
+            type: 'GET',
+            data: {},
+            success: function (data) {
+                if (from === 'tenant_notice') {
+                    $('#propertyTNCity').attr('value', data.object.city);
+                    $('#propertyTNState').attr('value', data.object.state);
+                }
+                if (from === 'account_settings') {
+                    $('#accountSettingCity').attr('value', data.object.city);
+                    $('#accountSettingState').attr('value', data.object.state);
+                    $('#accountSettingCountry').attr('value', data.object.country);
+                } else {
+                    $('#propertyCity').attr('value', data.object.city);
+                    $('#propertyState').attr('value', data.object.state);
+                }
+
+            },
+            error: function (exception) {
+            }
+        });
     }
 
 });

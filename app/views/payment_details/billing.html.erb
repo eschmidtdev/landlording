@@ -74,7 +74,10 @@
 
       <!-- Checkbox -->
       <div class="form-group">
-        <input type="checkbox" id="SameAsAccountAddress" <%= 'checked' if payment_detail.is_address == true %>/>
+        <input type="checkbox"
+               class="SameAsAccountAddress"
+               id="SameAsAccountAddress"
+               <%= 'checked' if payment_detail.is_address == true %>/>
         <label class="form-check-label remember-me" for="SameAsAccountAddress">Billing Address is same as Account
           Setting
           address</label>

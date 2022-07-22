@@ -8,7 +8,7 @@ CreateAdminService.call('Autr', 'Mesagutov',
                         'artur@ipm.com', 'Test@123',
                         SecureRandom.hex(10), DateTime.now)
 
-After running seed file run following command
+#After running seed file run following command
 
 #  1- For development env
      #  rake zipcodes:update

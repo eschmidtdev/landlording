@@ -72,6 +72,70 @@ $(document).ready(function () {
         return false;
     }
 
+    $('.SameAsAccountAddress').change(function () {
+        const checkbox = $(this);
+        if (checkbox.is(":checked")) {
+            getLandLordInfo();
+        }
+    });
+
+    function getLandLordInfo() {
+        const company = $('#BillingCN');
+        const last_name = $('#BillingFN');
+        const first_name = $('#BillingLN');
+        const postal_code = $('#BillingPC');
+        const address_line_one = $('#BillingAL1');
+        const address_line_two = $('#BillingAL2');
+        const city = $('#BillingCity');
+        const state = $('#BillingState');
+        const country = $('#BillingCountry');
+        debugger;
+        $.ajax({
+            url: '/fetch/landlord',
+            type: 'PUT',
+            data: {
+                payment_detail: {
+                    city: city,
+                    state: state,
+                    country: country,
+                    company: company,
+                    last_name: last_name,
+                    first_name: first_name,
+                    postal_code: postal_code,
+                    address_line_one: address_line_one,
+                    address_line_two: address_line_two
+                }
+            },
+            success: function (data) {
+                if (data.success === true) {
+                    city.prop('disabled', true).attr('value', data.user.city);
+                    state.prop('disabled', true).attr('value', data.user.state);
+                    country.prop('disabled', true).attr('value', data.user.country);
+                    company.prop('disabled', true).attr('value', data.user.company);
+                    last_name.prop('disabled', true).attr('value', data.user.last_name);
+                    first_name.prop('disabled', true).attr('value', data.user.first_name);
+                    postal_code.prop('disabled', true).attr('value', data.user.postal_code);
+                    address_line_one.prop('disabled', true).attr('value', data.user.address_line_one);
+                    address_line_two.prop('disabled', true).attr('value', data.user.address_line_two);
+                } else if (data.success === false) {
+                    alert('Need to handle errors')
+                    response_handler(data)
+                }
+            },
+            error: function (exception) {
+            }
+        });
+    }
+
+    $('#SameAsAccountAddress').change(function () {
+        if ($(this).prop('checked') === true) {
+            $('#BillingAddressSection').hide();
+        } else if ($(this).prop('checked') === false) {
+            $('#BillingAddressSection').show();
+        }
+
+    });
+
     // Interactive Zipcodes
     $('input.zipcode_interactive').blur(function (data) {
         const zipcode = $(this).val();
@@ -102,15 +166,5 @@ $(document).ready(function () {
             }
         });
     }
-
-    $('#SameAsAccountAddress').change(function () {
-        if ($(this).prop('checked') === true) {
-            $('#BillingAddressSection').hide();
-        } else if ($(this).prop('checked') === false) {
-            $('#BillingAddressSection').show();
-        }
-
-    });
-
 
 });

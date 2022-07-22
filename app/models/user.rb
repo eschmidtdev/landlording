@@ -16,17 +16,15 @@ class User < ApplicationRecord
   has_many :properties, dependent: :destroy
 
   # Activerecord callbacks
-  after_create :set_subscription
+  after_create :transact_service
   after_create :update_confirmed_at
-  after_create :set_payment_detail
   after_create :send_change_password_email
 
-  def set_subscription
-    create_subscription!
-  end
-
-  def set_payment_detail
-    create_payment_detail!
+  def transact_service
+    ActiveRecord::Base.transaction do
+      create_subscription!
+      create_payment_detail!
+    end
   end
 
   def send_change_password_email

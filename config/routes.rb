@@ -42,7 +42,9 @@ Rails.application.routes.draw do
   get '/billing', to: 'payment_details#billing'
   get '/account', to: 'account_settings#account_index'
   get '/create/interview', to: 'documents#create_interview'
+  put '/fetch/landlord', to: 'payment_details#fetch_landlord'
   get '/complete/interview', to: 'documents#complete_interview'
+
   get 'properties/get_zip_data/:code', controller: 'properties', action: 'get_zip_data'
 
   # resources :documents do

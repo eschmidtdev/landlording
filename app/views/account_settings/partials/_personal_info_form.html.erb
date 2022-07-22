@@ -7,34 +7,42 @@
   <form name="personal_info" class="mt-4">
     <input type="hidden" value="<%= current_user.id %>" id="accountSettingUserID">
 
-    <!-- First Name -->
-    <div class="form-group">
-      <label for="accountSettingFirstName" class="font-normal">First Name*</label>
-      <div class="fake-input">
-        <input
-          type="text"
-          id="accountSettingFirstName"
-          value="<%= current_user.first_name %>"
-          name="accountSetting[FirstName]"
-          class="form-control form-control-lg input-45"
-        >
-        <%= image_tag 'account_settings/acc_setting_edit_icon.svg', width: '20', id: 'FirstNameEdit' %>
+    <!-- First & Last Name -->
+    <div class="row">
+      <!-- First Name -->
+      <div class="col">
+        <div class="form-group">
+          <label for="accountSettingFirstName" class="font-normal">First Name*</label>
+          <div class="fake-input">
+            <input
+              type="text"
+              id="accountSettingFirstName"
+              value="<%= check_for(current_user.first_name) %>"
+              name="accountSetting[FirstName]"
+              class="form-control form-control-lg input-45"
+            >
+            <%= image_tag 'account_settings/acc_setting_edit_icon.svg', width: '20', id: 'FirstNameEdit' %>
+          </div>
+        </div>
       </div>
-    </div>
+      <!-- Last Name -->
+      <div class="col auto-flex-base">
+        <!-- Last Name -->
+        <div class="form-group">
+          <label for="accountSettingLastName" class="font-normal">Last Name*</label>
+          <div class="fake-input">
+            <input
+              type="text"
+              id="accountSettingLastName"
+              value="<%= check_for(current_user.last_name) %>"
+              name="accountSetting[LastName]"
+              class="form-control form-control-lg input-45"
+            >
+            <%= image_tag 'account_settings/acc_setting_edit_icon.svg', width: '20' %>
+          </div>
+        </div>
+      </div>
 
-    <!-- Last Name -->
-    <div class="form-group">
-      <label for="accountSettingLastName" class="font-normal">Last Name*</label>
-      <div class="fake-input">
-        <input
-          type="text"
-          id="accountSettingLastName"
-          value="<%= current_user.last_name %>"
-          name="accountSetting[LastName]"
-          class="form-control form-control-lg input-45"
-        >
-        <%= image_tag 'account_settings/acc_setting_edit_icon.svg', width: '20' %>
-      </div>
     </div>
 
     <!-- Company Name -->
@@ -45,7 +53,7 @@
           type="text"
           id="accountSettingCompanyName"
           name="accountSetting[CompanyName]"
-          value="<%= current_user.company_name %>"
+          value="<%= check_for(current_user.company_name) %>"
           class="form-control form-control-lg input-45"
         >
         <%= image_tag 'account_settings/acc_setting_edit_icon.svg', width: '20' %>
@@ -59,7 +67,7 @@
         readonly
         type="email"
         id="accountSettingEmail"
-        value="<%= current_user.email %>"
+        value="<%= check_for(current_user.email) %>"
         class="form-control form-control-lg input-45"
       >
       <span class="instruction opacity-0-5">Email address cannot be changed</span>
@@ -73,11 +81,103 @@
           type="text"
           id="accountSettingPhoneNumber"
           name="accountSetting[PhoneNumber]"
-          value="<%= current_user.phone_number %>"
+          value="<%= check_for(current_user.phone_number) %>"
           class="form-control form-control-lg input-45"
           onkeypress="return event.charCode >= 48 && event.charCode <= 57"
         >
         <%= image_tag 'account_settings/acc_setting_edit_icon.svg', width: '20' %>
+      </div>
+    </div>
+
+    <!-- Address Line 1 -->
+    <div class="form-group">
+      <label for="accountSettingAddressLine1" class="font-normal"><span class="setting_label">Address Line 1*</span></label>
+      <input
+        type="text"
+        id="accountSettingAddressLine1"
+        name="accountSetting[AddressLine1]"
+        value="<%= check_for(current_user.address_line_one) %>"
+        class="form-control form-control-lg input-45"
+      >
+    </div>
+
+    <!-- Address Line 2 -->
+    <div class="form-group">
+      <label for="accountSettingAddressLine2" class="font-normal"><span class="setting_label">Address Line 2*</span></label>
+      <input
+        type="text"
+        id="accountSettingAddressLine2"
+        name="accountSetting[AddressLine2]"
+        value="<%= check_for(current_user.address_line_two) %>"
+        class="form-control form-control-lg input-45"
+      >
+    </div>
+
+    <!-- Postal Code & City -->
+    <div class="row">
+      <!-- Postal Code -->
+      <div class="col">
+        <div class="form-group">
+          <label for="accountSettingPostalCode" class="font-normal"><span class="setting_label">Postal Code*</span></label>
+          <input
+            type="text"
+            placeholder="Zip Code"
+            id="accountSettingPostalCode"
+            name="accountSetting[PostalCode]"
+            data-from="account_settings"
+            value="<%= check_for(current_user.postal_code) %>"
+            class="form-control form-control-lg input-45 zipcode_interactive"
+          >
+        </div>
+      </div>
+      <!-- City -->
+      <div class="col auto-flex-base">
+        <div class="form-group">
+          <label for="accountSettingCity" class="font-normal"><span class="setting_label">City*</span></label>
+          <input
+            disabled
+            type="text"
+            placeholder="City"
+            id="accountSettingCity"
+            name="accountSetting[City]"
+            value="<%= check_for(current_user.city) %>"
+            class="form-control form-control-lg input-45"
+          >
+        </div>
+      </div>
+    </div>
+
+    <!-- State & Country -->
+    <div class="row">
+      <!-- State -->
+      <div class="col">
+        <div class="form-group">
+          <label for="accountSettingState" class="font-normal"><span class="setting_label">State*</span></label>
+          <input
+            disabled
+            type="text"
+            placeholder="State"
+            id="accountSettingState"
+            name="accountSetting[State]"
+            value="<%= check_for(current_user.state) %>"
+            class="form-control form-control-lg input-45"
+          >
+        </div>
+      </div>
+      <!-- Country -->
+      <div class="col auto-flex-base">
+        <div class="form-group">
+          <label for="accountSettingCountry" class="font-normal"><span class="setting_label">City*</span></label>
+          <input
+            disabled
+            type="text"
+            placeholder="Country"
+            id="accountSettingCountry"
+            name="accountSetting[Country]"
+            value="<%= check_for(current_user.country) %>"
+            class="form-control form-control-lg input-45"
+          >
+        </div>
       </div>
     </div>
 
@@ -124,3 +224,4 @@
 
 </div>
 
+<%= javascript_include_tag 'account_settings' %>
