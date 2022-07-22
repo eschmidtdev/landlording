@@ -8,7 +8,6 @@ class PaymentDetailsController < ApplicationController
   end
 
   def update
-    binding.pry
     if params[:payment_detail][:from].present?
       payment_detail = PaymentDetail.new(payment_detail_params)
       if payment_detail.save!

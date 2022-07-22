@@ -24,8 +24,13 @@ class SessionsController < Devise::SessionsController
     return render_response(false, response[:message], nil, nil) unless response.nil?
 
     self.resource = warden.authenticate!(auth_options)
-    sign_in(resource_name, resource)
-    render_response(true, MESSAGES[:signed_in], nil, root_url)
+    signed_in = sign_in(resource_name, resource)
+    if signed_in
+      flash[:notice] = 'Signed in successfully.'
+      redirect_to root_url
+    else
+      render_response(true, MESSAGES[:signed_in], nil, root_url)
+    end
     session[:return_to] = nil unless session[:return_to].blank?
   end
 

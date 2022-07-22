@@ -38,6 +38,7 @@ Rails.application.routes.draw do
   resources :payment_details, only: %i[update]
 
   get '/documents', to: 'documents#index'
+  get '/users/sign_out', to: 'sessions#destroy'
   get '/billing', to: 'payment_details#billing'
   get '/account', to: 'account_settings#account_index'
   get '/create/interview', to: 'documents#create_interview'
