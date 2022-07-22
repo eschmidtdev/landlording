@@ -5,13 +5,29 @@ html * {
 
 body {
   margin: 0;
-  font-family: 'Gordita';
+  color: #000000;
+  font-family: 'Gordita', serif;
 }
 
+input {
+  font-size: 15px !important;
+}
 
-.page-heading-container .page-heading {
-  font-size: 30px;
-  font-weight: 700 !important;
+label {
+  margin: 0;
+  font-size: 14px;
+  font-weight: 400;
+  font-style: normal;
+}
+
+select {
+  font-size: 15px !important;
+}
+
+form .error {
+  color: #FF0011;
+  font-size: 12px;
+  font-weight: 400;
 }
 
 // Buttons
@@ -50,14 +66,34 @@ body {
   background: transparent;
 }
 
-.center {
-  height: auto;
-  margin: 0 auto;
-  padding: 10px;
-  position: relative;
+.omni-auth-btn {
+  left: 941px;
+  height: 60px;
+  top: 771.3px;
+  font-size: 18px;
+  border-radius: 7px;
+  text-align: center;
+  border: 1.3px solid #EBEBEB;
 }
 
-//Global Font
+.omni-auth-btn div {
+  top: -1px;
+  width: 23px;
+  height: 39px;
+  position: relative;
+  display: inline-block;
+  vertical-align: middle;
+  background: transparent url('GoogleOmniAuth.png') no-repeat;
+  background-size: 191px 47px;
+  background-position: -14px -3px;
+}
+
+// Global Font
+
+.font-normal {
+  font-weight: normal !important;
+}
+
 .font-14 {
   font-size: 14px;
 }
@@ -74,15 +110,11 @@ body {
   font-size: 18px;
 }
 
-.font-normal {
-  font-weight: normal !important;
-}
-
 .bold {
   font-weight: bold;
 }
 
-//Global Opacity
+// Global Opacity
 .opacity-0-5 {
   opacity: 0.5;
 }
@@ -96,17 +128,17 @@ body {
 
 }
 
-//Global Margin
+// Global Margin
 .mtb-20 {
   padding: 20px 0;
 }
 
-//Global Input
+// Global Input
 .input-45 {
   height: 45px !important;
 }
 
-//Pagination Style
+// Pagination Style
 .pagination .page-item .active {
   //background-color: #FF8F00 !important;
 }
@@ -121,22 +153,38 @@ body {
   color: #000000 !important;
 }
 
-select {
-  font-size: 15px !important;
+// Page Heading
+.page-heading-container .page-heading {
+  font-size: 30px;
+  font-weight: 700 !important;
 }
 
-input {
-  font-size: 15px !important;
+// Error/Success
+.success_alert {
+  background: rgba(255, 44, 58, 0.07);
+  border-radius: 5px;
+  padding: 5px 10px;
+  color: #008000;
 }
 
-label {
-  margin: 0;
+.alert-success {
+  color: green !important;
+  text-align: center !important;
+  background: rgba(255, 44, 58, 0.07) !important;
 }
 
-form .error {
-  color: #FF0011;
-  font-size: 12px;
-  font-weight: 400;
+.alert-danger {
+  color: #FF2C3A;
+  text-align: center;
+  background: rgba(255, 44, 58, 0.07) !important;
+}
+
+.error_alert {
+  color: #FF2C3A;
+  font-size: 14px;
+  padding: 5px 10px;
+  border-radius: 5px;
+  background: rgba(255, 44, 58, 0.07);
 }
 
 .error {
@@ -150,14 +198,131 @@ form .error {
   color: #FF8F00;
 }
 
+.center {
+  height: auto;
+  padding: 10px;
+  margin: 0 auto;
+  position: relative;
+}
+
 .active_border {
   background-color: white !important;
   border-right: 3px solid #FF8F00 !important;
 }
 
-.secondary_active {
-  color: #000000;
+.custom-long-btn {
+  height: 50px;
+  color: white;
+  padding-left: 2.5rem;
+  padding-right: 2.5rem;
+  font-size: 20px !important;
+  border-radius: 7px !important;
+  background: #FF8F00 !important;
 }
+
+.custom-long-btn:hover {
+  color: white;
+}
+
+.or-text {
+  color: rgba(0, 0, 0, 0.45);
+  font-size: 15px !important;
+}
+
+.form-control:focus {
+  border-color: #FF8F00;
+  box-shadow: inset 0 1px 1px rgba(0, 0, 0, 0.075), 0 0 8px rgba(255, 0, 0, 0.6);
+}
+
+.form-control {
+  height: 50px;
+}
+
+input, input::placeholder {
+  font: 15px/3 sans-serif;
+}
+
+//--------------------------------------------------- Make all images responsive by default ---------------------------
+//img {
+//  @extend .img-responsive;
+//  margin: 0 auto;
+//}
+
+//--------------------------------------------------- Section default css ---------------------------------------------
+//section {
+//  @extend .row;
+//  margin-top: 20px;
+//}
+
+//--------------------------------------------------- Login ----------------------------------------------------------
+
+.divider:after,
+.divider:before {
+  content: "";
+  flex: 1;
+  height: 1px;
+  background: #eee;
+}
+
+
+.got-it-btn {
+  width: 120px;
+  height: 50px;
+  float: left;
+}
+
+.login_text {
+  color: #0E0E0E;
+  font-size: 42px;
+  font-weight: bold;
+}
+
+.text-body {
+  color: #FF8F00 !important;
+}
+
+.link-danger {
+  color: #FF8F00 !important;
+}
+
+.bg-light_red {
+  background-color: #F6F6F6;
+}
+
+
+.display_none {
+  display: none;
+}
+
+.display_block {
+  display: block;
+}
+
+.set_login_ill {
+  height: 100vh;
+}
+
+.set_back_icon {
+  margin: 0 8px 0 0;
+}
+
+.fake-input {
+  position: relative;
+}
+
+.fake-input input {
+  width: 100%;
+  display: block;
+  box-sizing: border-box;
+}
+
+.fake-input img {
+  top: 13px;
+  right: 10px;
+  cursor: pointer;
+  position: absolute;
+}
+
 
 //Global Login Image
 @media only screen and (max-width: 600px) {
