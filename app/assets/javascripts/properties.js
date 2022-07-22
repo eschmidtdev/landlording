@@ -166,9 +166,7 @@ $(document).ready(function () {
                     landlord_contact_name.prop('disabled', true).attr('value', data.user.name);
                     landlord_contact_phone.prop('disabled', true).attr('value', data.user.phone);
                     landlord_contact_email.prop('disabled', true).attr('value', data.user.email);
-                } else if (data.success === false) {
-                    response_handler(data)
-                }
+                } else if (data.success === false) {}
             },
             error: function (exception) {
             }

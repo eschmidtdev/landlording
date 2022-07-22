@@ -35,16 +35,18 @@ Rails.application.routes.draw do
     end
   end
   resources :rental_applications, only: :index
-  resources :payment_details, only: %i[update]
+  resources :payment_details, only: %i[update] do
+    collection do
+      get :fetch_landlord
+    end
+  end
 
   get '/documents', to: 'documents#index'
   get '/users/sign_out', to: 'sessions#destroy'
   get '/billing', to: 'payment_details#billing'
   get '/account', to: 'account_settings#account_index'
   get '/create/interview', to: 'documents#create_interview'
-  put '/fetch/landlord', to: 'payment_details#fetch_landlord'
   get '/complete/interview', to: 'documents#complete_interview'
-
   get 'properties/get_zip_data/:code', controller: 'properties', action: 'get_zip_data'
 
   # resources :documents do
