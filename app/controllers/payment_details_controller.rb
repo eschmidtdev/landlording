@@ -8,19 +8,20 @@ class PaymentDetailsController < ApplicationController
   end
 
   def update
+    binding.pry
     if params[:payment_detail][:from].present?
       payment_detail = PaymentDetail.new(payment_detail_params)
       if payment_detail.save!
-        render json: { success: true,
-                       message: 'Information has been added successfully.' }
+        flash[:notice] = 'Payment details were successfully added.'
+        redirect_to account_url
       else
-        render json: { success: false,
-                       message: payment_detail.error.full_messages }
+        flash[:error] = payment_detail.error.full_messages
+        redirect_to
       end
     else
       if @payment_detail.update(payment_detail_params)
-        render json: { success: true,
-                       message: 'Information has been updated successfully.' }
+        flash[:notice] = 'Payment details were successfully updated.'
+        redirect_to account_url
       end
     end
   end
@@ -33,6 +34,6 @@ class PaymentDetailsController < ApplicationController
     params.require(:payment_detail).permit(:exp, :cvc, :city, :state,
                                            :company, :country, :last_name, :first_name,
                                            :postal_code, :card_number, :address_line_one,
-                                           :address_line_two, :user_id)
+                                           :address_line_two, :user_id, :is_address)
   end
 end

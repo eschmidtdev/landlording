@@ -84,7 +84,6 @@ $(document).ready(function () {
 
     function ajaxRequest(e) {
         e.preventDefault();
-        disableButton();
         const city = $('#propertyCity').val();
         const address_line_one              = $('#propertySAL1').val();
         const address_line_two              = $('#propertySAL2').val();
@@ -194,14 +193,6 @@ $(document).ready(function () {
             error: function (exception) {
             }
         });
-    }
-
-    function enableButton() {
-        $('#SavePropertyBtn').prop('disabled', false);
-    }
-
-    function disableButton() {
-        $('#SavePropertyBtn').prop('disabled', true);
     }
 
 });

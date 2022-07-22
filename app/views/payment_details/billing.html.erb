@@ -5,158 +5,10 @@
 <div class="row">
   <div class="col-md-12">
 
-    <!-- ErrorAlert -->
-    <div class="d-flex justify-content-start error_alert_container display_none">
-      <div class="error_alert display_none mb-4"></div>
-    </div>
-
-    <h4 class="billing_form_heading mb-4">Billing Information</h4>
-
     <form name="billing_information">
       <input type="hidden" value="<%= current_user.id %>" id="BillingUserID">
       <input type="hidden" value="<%= @from %>" id="BillingFrom">
       <% payment_detail = current_user&.payment_detail %>
-
-      <!-- First & Last Name -->
-      <div class="row">
-        <!-- First Name -->
-        <div class="col">
-          <div class="form-group">
-            <label for="BillingFN" class="font-normal"><span class="setting_label">First Name*</span></label>
-            <input
-              type="text"
-              id="BillingFN"
-              name="Billing[FN]"
-              autofocus="autofocus"
-              placeholder="Enter First Name"
-              value="<%= check_for(payment_detail&.first_name) %>"
-              class="form-control form-control-lg input-45"
-            >
-          </div>
-        </div>
-        <!-- Last Name -->
-        <div class="col auto-flex-base">
-          <div class="form-group">
-            <label for="BillingLN" class="font-normal"><span class="setting_label">Last Name*</span></label>
-            <input
-              type="text"
-              id="BillingLN"
-              name="Billing[LN]"
-              autofocus="autofocus"
-              placeholder="Enter Last Name"
-              value="<%= check_for(payment_detail&.last_name) %>"
-              class="form-control form-control-lg input-45"
-            >
-          </div>
-        </div>
-      </div>
-
-
-      <!-- Company Name -->
-      <div class="form-group">
-        <label for="BillingCN" class="font-normal"><span class="setting_label">Company (Optional)</span></label>
-        <input
-          type="text"
-          id="BillingCN"
-          name="Billing[CN]"
-          autofocus="autofocus"
-          value="<%= check_for(payment_detail&.company) %>"
-          class="form-control form-control-lg input-45"
-        >
-      </div>
-
-      <!-- Address Line 1 -->
-      <div class="form-group">
-        <label for="BillingAL1" class="font-normal"><span class="setting_label">Address Line 1*</span></label>
-        <input
-          type="text"
-          id="BillingAL1"
-          name="Billing[AL1]"
-          autofocus="autofocus"
-          value="<%= check_for(payment_detail&.address_line_one) %>"
-          class="form-control form-control-lg input-45"
-        >
-      </div>
-
-      <!-- Address Line 2 -->
-      <div class="form-group">
-        <label for="BillingAL2" class="font-normal"><span class="setting_label">Address Line 2</span></label>
-        <input
-          type="text"
-          id="BillingAL2"
-          name="Billing[AL2]"
-          autofocus="autofocus"
-          value="<%= check_for(payment_detail&.address_line_two) %>"
-          class="form-control form-control-lg input-45"
-        >
-      </div>
-
-      <!-- Postal Code & City -->
-      <div class="row">
-        <!-- Postal Code -->
-        <div class="col">
-          <div class="form-group">
-            <label for="BillingPC" class="font-normal"><span class="setting_label">Postal Code*</span></label>
-            <input
-              type="text"
-              id="BillingPC"
-              name="Billing[PC]"
-              autofocus="autofocus"
-              placeholder="Zip Code"
-              value="<%= check_for(payment_detail&.postal_code) %>"
-              class="form-control form-control-lg input-45"
-            >
-          </div>
-        </div>
-        <!-- City -->
-        <div class="col auto-flex-base">
-          <div class="form-group">
-            <label for="BillingCity" class="font-normal"><span class="setting_label">City*</span></label>
-            <input
-              type="text"
-              id="BillingCity"
-              placeholder="City"
-              name="Billing[City]"
-              autofocus="autofocus"
-              value="<%= check_for(payment_detail&.city) %>"
-              class="form-control form-control-lg input-45"
-            >
-          </div>
-        </div>
-      </div>
-
-
-      <!-- State & Country -->
-      <div class="row">
-        <!-- State -->
-        <div class="col">
-          <div class="form-group">
-            <label for="BillingState" class="font-normal"><span class="setting_label">State *</span></label>
-            <input
-              type="text"
-              id="BillingState"
-              placeholder="State"
-              name="Billing[State]"
-              autofocus="autofocus"
-              value="<%= check_for(payment_detail&.state) %>"
-              class="form-control form-control-lg input-45"
-            >
-          </div>
-        </div>
-        <!-- Country -->
-        <div class="col auto-flex-base">
-          <div class="form-group">
-            <label for="BillingCountry" class="font-normal"><span class="setting_label">Country*</span></label>
-            <select name="Billing[Country]" id="BillingCountry" class="form-control form-control-lg input-45">
-              <option value="" disabled selected>Country</option>
-              <option value="">Property Type 1</option>
-              <option value="">Property Type 2</option>
-              <option value="">Property Type 3</option>
-              <option value="">Property Type 4</option>
-            </select>
-          </div>
-        </div>
-      </div>
 
       <div class="mb-4">
         <h4 class="billing_form_heading mb-0">Card Details</h4>
@@ -218,6 +70,166 @@
             >
           </div>
         </div>
+      </div>
+
+      <!-- Checkbox -->
+      <div class="form-group">
+        <input type="checkbox" id="SameAsAccountAddress" <%= 'checked' if payment_detail.is_address == true %>/>
+        <label class="form-check-label remember-me" for="SameAsAccountAddress">Billing Address is same as Account
+          Setting
+          address</label>
+      </div>
+
+      <div id="BillingAddressSection" class="<%= 'display_none' if payment_detail.is_address %>">
+        <h4 class="billing_form_heading my-4">Billing Address</h4>
+
+        <!-- First & Last Name -->
+        <div class="row">
+          <!-- First Name -->
+          <div class="col">
+            <div class="form-group">
+              <label for="BillingFN" class="font-normal"><span class="setting_label">First Name*</span></label>
+              <input
+                type="text"
+                id="BillingFN"
+                name="Billing[FN]"
+                autofocus="autofocus"
+                placeholder="Enter First Name"
+                value="<%= check_for(payment_detail&.first_name) %>"
+                class="form-control form-control-lg input-45"
+              >
+            </div>
+          </div>
+          <!-- Last Name -->
+          <div class="col auto-flex-base">
+            <div class="form-group">
+              <label for="BillingLN" class="font-normal"><span class="setting_label">Last Name*</span></label>
+              <input
+                type="text"
+                id="BillingLN"
+                name="Billing[LN]"
+                autofocus="autofocus"
+                placeholder="Enter Last Name"
+                value="<%= check_for(payment_detail&.last_name) %>"
+                class="form-control form-control-lg input-45"
+              >
+            </div>
+          </div>
+        </div>
+
+
+        <!-- Company Name -->
+        <div class="form-group">
+          <label for="BillingCN" class="font-normal"><span class="setting_label">Company (Optional)</span></label>
+          <input
+            type="text"
+            id="BillingCN"
+            name="Billing[CN]"
+            autofocus="autofocus"
+            value="<%= check_for(payment_detail&.company) %>"
+            class="form-control form-control-lg input-45"
+          >
+        </div>
+
+        <!-- Address Line 1 -->
+        <div class="form-group">
+          <label for="BillingAL1" class="font-normal"><span class="setting_label">Address Line 1*</span></label>
+          <input
+            type="text"
+            id="BillingAL1"
+            name="Billing[AL1]"
+            autofocus="autofocus"
+            value="<%= check_for(payment_detail&.address_line_one) %>"
+            class="form-control form-control-lg input-45"
+          >
+        </div>
+
+        <!-- Address Line 2 -->
+        <div class="form-group">
+          <label for="BillingAL2" class="font-normal"><span class="setting_label">Address Line 2</span></label>
+          <input
+            type="text"
+            id="BillingAL2"
+            name="Billing[AL2]"
+            autofocus="autofocus"
+            value="<%= check_for(payment_detail&.address_line_two) %>"
+            class="form-control form-control-lg input-45"
+          >
+        </div>
+
+        <!-- Postal Code & City -->
+        <div class="row">
+          <!-- Postal Code -->
+          <div class="col">
+            <div class="form-group">
+              <label for="BillingPC" class="font-normal"><span class="setting_label">Postal Code*</span></label>
+              <input
+                type="text"
+                id="BillingPC"
+                name="Billing[PC]"
+                autofocus="autofocus"
+                placeholder="Zip Code"
+                data-from="payment_details"
+                value="<%= check_for(payment_detail&.postal_code) %>"
+                class="form-control form-control-lg input-45 zipcode_interactive"
+              >
+            </div>
+          </div>
+          <!-- City -->
+          <div class="col auto-flex-base">
+            <div class="form-group">
+              <label for="BillingCity" class="font-normal"><span class="setting_label">City*</span></label>
+              <input
+                disabled
+                type="text"
+                id="BillingCity"
+                placeholder="City"
+                name="Billing[City]"
+                autofocus="autofocus"
+                value="<%= check_for(payment_detail&.city) %>"
+                class="form-control form-control-lg input-45"
+              >
+            </div>
+          </div>
+        </div>
+
+
+        <!-- State & Country -->
+        <div class="row">
+          <!-- State -->
+          <div class="col">
+            <div class="form-group">
+              <label for="BillingState" class="font-normal"><span class="setting_label">State *</span></label>
+              <input
+                disabled
+                type="text"
+                id="BillingState"
+                placeholder="State"
+                name="Billing[State]"
+                autofocus="autofocus"
+                value="<%= check_for(payment_detail&.state) %>"
+                class="form-control form-control-lg input-45"
+              >
+            </div>
+          </div>
+          <!-- Country -->
+          <div class="col">
+            <div class="form-group">
+              <label for="BillingCountry" class="font-normal"><span class="setting_label">Country *</span></label>
+              <input
+                disabled
+                type="text"
+                id="BillingCountry"
+                placeholder="Country"
+                name="Billing[Country]"
+                autofocus="autofocus"
+                value="<%= check_for(payment_detail&.state) %>"
+                class="form-control form-control-lg input-45"
+              >
+            </div>
+          </div>
+        </div>
+
       </div>
 
       <div class="d-flex justify-content-start mb-5">

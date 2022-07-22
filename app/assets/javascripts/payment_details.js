@@ -10,19 +10,15 @@ $(document).ready(function () {
                 'Billing[EXP]':        {required: true},
                 'Billing[CVC]':        {required: true},
                 'Billing[City]':       {required: true},
-                'Billing[State]':      {required: true},
-                // 'Billing[Country]':    {required: true},
                 'Billing[CardNumber]': {required: true},
             },
             messages: {
-                'Billing[State]':      {required: 'State is required'},
                 'Billing[AL1]':        {required: 'Address is required'},
                 'Billing[EXP]':        {required: 'Expiration required'},
                 'Billing[City]':       {required: 'City Name is required'},
                 'Billing[LN]':         {required: 'Last Name is required'},
                 'Billing[FN]':         {required: 'First Name is required'},
                 'Billing[PC]':         {required: 'Postal Code is required'},
-                // 'Billing[Country]':    {required: 'Country Name is required'},
                 'Billing[CVC]':        {required: 'Security Code is required'},
                 'Billing[CardNumber]': {required: 'Card Number is required'}
             },
@@ -33,8 +29,6 @@ $(document).ready(function () {
     });
 
     function ajaxRequest(e) {
-        e.preventDefault();
-        disableButton();
         const company        = $('#BillingCN').val();
         const lastName       = $('#BillingLN').val();
         const firstName      = $('#BillingFN').val();
@@ -49,6 +43,7 @@ $(document).ready(function () {
         const userID         = $('#BillingUserID').val();
         const country        = $('#BillingCountry').val();
         const cardNumber     = $('#BillingCardNumber').val();
+        const is_address     = $('#SameAsAccountAddress').val();
         $.ajax({
             url: `/payment_details/${userID}`,
             type: 'PUT',
@@ -66,46 +61,56 @@ $(document).ready(function () {
                     exp:              expiration,
                     postal_code:      postalCode,
                     card_number:      cardNumber,
+                    is_address:       is_address,
                     address_line_two: addressLineTwo,
                     address_line_one: addressLineOne
                 }
             },
-            success: function (data) {
-                clearErrors();
-                response_handler(data);
-                enableButton();
-                $('html, body').animate({ scrollTop: 0 }, 'slow');
-            },
-            error: function (exception) {
-            }
+            success: function (data) {},
+            error: function (exception) {}
         });
         return false;
     }
 
-    function enableButton() {
-        $('#SaveBillingInfo').prop('disabled', false);
+    // Interactive Zipcodes
+    $('input.zipcode_interactive').blur(function (data) {
+        const zipcode = $(this).val();
+        const from = $(this).data('from');
+        getCityState(zipcode, from)
+    });
+
+    function getCityState(zipcode, from) {
+        $.ajax({
+            url: '/properties/get_zip_data/' + zipcode,
+            type: 'GET',
+            data: {},
+            success: function (data) {
+                if (from === 'tenant_notice') {
+                    $('#propertyTNCity').attr('value', data.object.city);
+                    $('#propertyTNState').attr('value', data.object.state);
+                } else if (from === 'payment_details') {
+                    $('#BillingCity').attr('value', data.object.city);
+                    $('#BillingState').attr('value', data.object.state);
+                    $('#BillingCountry').attr('value', data.object.state);
+                } else {
+                    $('#propertyCity').attr('value', data.object.city);
+                    $('#propertyState').attr('value', data.object.state);
+                }
+
+            },
+            error: function (exception) {
+            }
+        });
     }
 
-    function disableButton() {
-        $('#SaveBillingInfo').prop('disabled', true);
-    }
-
-    function response_handler(data){
-        if (data.success === true){
-            render_response(data)
+    $('#SameAsAccountAddress').change(function () {
+        if ($(this).prop('checked') === true) {
+            $('#BillingAddressSection').hide();
+        } else if ($(this).prop('checked') === false) {
+            $('#BillingAddressSection').show();
         }
-    }
 
-    function render_response(data){
-        $('.error_alert')
-            .show()
-            .append(data.message)
-            .delay(5000)
-            .fadeOut(300);
-    }
+    });
 
-    function clearErrors(){
-        $('.error_alert').text('').addClass('display_none');
-    }
 
 });
