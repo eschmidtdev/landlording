@@ -15,7 +15,7 @@ class PasswordsController < Devise::PasswordsController
     yield resource if block_given?
 
     if successfully_sent?(resource)
-      return render_response(true, '', confirmation_url, nil)
+      return render_response(true, '', '', confirmation_url)
     end
 
     render_response(false, MESSAGES[:went_wrong], nil, nil)
