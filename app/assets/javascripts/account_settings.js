@@ -122,9 +122,10 @@ $(document).ready(function () {
                     $('#propertyTNState').attr('value', data.object.state);
                 }
                 if (from === 'account_settings') {
+                    debugger;
                     $('#accountSettingCity').attr('value', data.object.city);
                     $('#accountSettingState').attr('value', data.object.state);
-                    $('#accountSettingCountry').attr('value', data.object.country);
+                    $('#accountSettingCountry').attr('value', data.object.county);
                 } else {
                     $('#propertyCity').attr('value', data.object.city);
                     $('#propertyState').attr('value', data.object.state);

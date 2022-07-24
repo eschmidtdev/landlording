@@ -328,6 +328,23 @@ input, input::placeholder {
   position: absolute;
 }
 
+.fake-input-edit {
+  position: relative;
+}
+
+.fake-input-edit img {
+  top: 18px;
+  right: 10px;
+  cursor: pointer;
+  position: absolute;
+}
+
+.fake-input-edit img {
+  top: 12px;
+  right: 10px;
+  cursor: pointer;
+  position: absolute;
+}
 
 //Global Login Image
 @media only screen and (max-width: 600px) {
