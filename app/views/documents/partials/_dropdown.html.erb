@@ -1,15 +1,17 @@
 <div class="d-flex justify-content-around dropdown-padding">
-
+  <!-- Download -->
   <%= link_to '#' do %>
     <%= image_tag 'documents/downlaod_icon.svg' %>
   <% end %>
 
-  <%= link_to '#' do %>
-    <%= image_tag 'documents/edit_icon.svg', class: 'mob-margin' %>
+  <!-- Edit -->
+  <% if %w[completed ready_to_sign].include?(document.status) %>
+    <%= link_to '#' do %>
+      <%= image_tag 'documents/edit_icon.svg', class: 'mob-margin' %>
+    <% end %>
   <% end %>
 
   <!-- Dropdown Link -->
-
   <div class="dropdown my-auto">
     <%= link_to '',
                 id: 'documentDropdown',

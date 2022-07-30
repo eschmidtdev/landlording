@@ -39,7 +39,6 @@ class PropertiesController < ApplicationController
 
     return_user current_user
   end
-
   def get_zip_data
     @zipcode = Zipcode.find_by(code: params[:code])
     if @zipcode

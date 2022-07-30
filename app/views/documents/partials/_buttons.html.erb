@@ -4,11 +4,12 @@
 
       <!-- Export -->
       <button type="button" class="filter-button">
-        <%= image_tag 'documents/export_icon.svg', class: 'pull-left', width: '20' %> <span class="no-mob-name">Date Created</span>
+        <%= image_tag 'documents/export_icon.svg', class: 'pull-left', width: '20' %>
+        <span class="no-mob-name">Date Created</span>
       </button>
 
       <!-- Create Document -->
-      <button type="button" class="create-button">
+      <button type="button" class="create-button" onclick="window.location.href='<%= create_interview_path %>'">
         <%= image_tag 'global_images/plus_icon.svg', class: 'pull-left', width: '20' %> Create New
       </button>
     </div>

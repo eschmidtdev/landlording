@@ -1,6 +1,10 @@
-<a href="<%= complete_interview_path(interview_id: params[:interview_id], access_token: params[:access_token], download: 'pdf') %>">
+<button
+  type="button"
+  class="create-button pull-right"
+  href="<%= complete_interview_path(interview_id: params[:interview_id], access_token: params[:access_token]) %>"
+>
   Download as PDF
-</a>
+</button>
 
 <iframe
   id="rocketSignFrame"
@@ -10,16 +14,16 @@
 
 <script>
     function onResize() {
-        var h = window.innerHeight;
-        var frame = document.getElementById("rocketSignFrame");
+        const h = window.innerHeight;
+        const frame = document.getElementById("rocketSignFrame");
         frame.style.height = h + "px";
 
-        postObject = {
+        const postObject = {
             clientWidth: document.documentElement.clientWidth,
             zoomLevel: 1 / window.visualViewport.scale
         };
 
-        var message = JSON.stringify(postObject);
+        const message = JSON.stringify(postObject);
         frame.contentWindow.postMessage(message, "*");
     }
 

@@ -1,6 +1,7 @@
 # frozen_string_literal: true
 
 class DocumentsController < ApplicationController
+  before_action :authenticate_user!, except: :create_interview
   require 'json'
   require 'open-uri'
 
@@ -9,33 +10,28 @@ class DocumentsController < ApplicationController
   end
 
   def create_interview
-    @access_token = generate_access_token
-    response = generate_interview_id(@access_token)
-    @interview_id = response[:interview_id]
-    @rl_rdoc_service_token = response[:service_token]
+    access_token_response = Rocket::GenerateAccessTokenService.call
+    return redirect_to documents_url if access_token_response.nil?
+
+    @access_token      = access_token_response['access_token']
+    interview_response = Rocket::CreateInterviewService.call(@access_token, current_user)
+    return redirect_to documents_url if interview_response.nil?
+
+    @rl_rdoc_service_token = interview_response['service_token']
+    @interview_id = interview_response['interview_id']
   end
 
   def complete_interview
-    interview_completion_response = execute_interview_completion_request(
-      params[:interview_id],
-      params[:access_token]
-    )
-    unless interview_completion_response.code == '201'
-      return redirect_to documents_path,
-                         notice: I18n.t('EForm.Messages.Error.WentWrong')
-    end
+    completion_response = Rocket::CompleteInterviewService.call(params[:interview_id], params[:access_token])
+    return redirect_to documents_url if completion_response.nil?
 
-    interview_completion_data = JSON.parse(interview_completion_response.body)
-    @binder_id = interview_completion_data.dig('binder', 'binderId')
-    @document_id = interview_completion_data.dig('binder', 'documentId')
+    @binder_id   = completion_response['binder_id']
+    @document_id = completion_response['document_id']
 
-    retrieves_document_response = execute_retrieves_document_request(
-      @binder_id,
-      @document_id,
-      params[:access_token],
-      params[:download]
-    )
-    @url = get_response_with_redirect(retrieves_document_response)
+    retrieval_response = Rocket::RetrieveDocumentService.call(@binder_id, @document_id, params[:access_token])
+    return redirect_to documents_url if retrieval_response.nil?
+
+    @url = retrieval_response['url']
   end
 
   def export
@@ -58,86 +54,6 @@ class DocumentsController < ApplicationController
 
   private
 
-  def generate_access_token
-    access_token_response = execute_access_token_request
-    unless access_token_response.code == '200'
-      redirect_to documents_path,
-                  notice: I18n.t('EForm.Messages.Error.WentWrong')
-    end
-
-    access_token_data = JSON.parse(access_token_response.body)
-    access_token_data['access_token']
-  end
-
-  def generate_interview_id(access_token)
-    interview_response = execute_interview_request(access_token)
-    unless interview_response.code == '201'
-      return redirect_to documents_path,
-                         notice: I18n.t('EForm.Messages.Error.WentWrong')
-    end
-
-    interview_data = JSON.parse(interview_response.body)
-    {
-      interview_id: interview_data['interviewId'],
-      service_token: interview_response.each_header.to_h['rl-rdoc-servicetoken']
-    }
-  end
-
-  def execute_access_token_request
-    make_request(ENV.fetch('ACCESS_TOKEN_URL', nil), request_header, access_request_body,
-                 'Post')
-  end
-
-  def execute_interview_request(access_token)
-    headers = request_header.merge({ Authorization: "Bearer #{access_token}" })
-    make_request(ENV.fetch('INTERVIEW_URL', nil), headers, interview_request_body, 'Post')
-  end
-
-  def execute_service_token_request(response)
-    headers = request_header.merge({ Authorization: "Bearer #{response['access_token']}" })
-    make_request('https://api-sandbox.rocketlawyer.com/partners/v1/auth/servicetoken',
-                 headers, service_token_body, 'Post')
-  end
-
-  def execute_binder_request(interview_id, response)
-    headers = { Authorization: "Bearer #{response['access_token']}" }
-    make_request(
-      "https://api-sandbox.rocketlawyer.com/rocketdoc/v1/interviews/#{interview_id}", headers, nil, 'Get'
-    )
-  end
-
-  def execute_interview_completion_request(interview_id, access_token)
-    headers = request_header.merge({ Authorization: "Bearer #{access_token}" })
-    make_request(
-      "https://api-sandbox.rocketlawyer.com/rocketdoc/v1/interviews/#{interview_id}/completions", headers, nil, 'Post'
-    )
-  end
-
-  def execute_retrieves_document_request(binder_id, document_id, access_token, download)
-    download = if download == 'pdf'
-                 'application/pdf'
-               else
-                 'text/html'
-               end
-    headers = { Accept: download, Authorization: "Bearer #{access_token}" }
-    make_request(
-      "https://api-sandbox.rocketlawyer.com/document-manager/v1/binders/#{binder_id}/documents/#{document_id}", headers, nil, 'Get'
-    )
-  end
-
-  def make_request(uri, headers = {}, body = nil, type)
-    uri = URI.parse(uri.to_s)
-    request = "Net::HTTP::#{type}".constantize.new(uri)
-    headers.each_with_object(request) do |(k, v), req|
-      req[k] = v
-    end
-    # request.content_type = 'application/json'
-    request.body = body.to_json unless body.nil?
-    Net::HTTP.start(uri.hostname, uri.port, use_ssl: true) do |http|
-      http.request(request)
-    end
-  end
-
   def email_me_the_document(document)
     UserMailer.send_me_document(document).deliver_now!
     redirect_to documents_path, notice: I18n.t('EForm.Messages.Success.EmailSent')
@@ -145,42 +61,5 @@ class DocumentsController < ApplicationController
 
   def pdf_params
     params.permit(:id, :format).to_h
-  end
-
-  def access_request_body
-    {
-      client_id: ENV.fetch('CLIENT_ID', nil),
-      client_secret: ENV.fetch('CLIENT_SECRET', nil),
-      grant_type: ENV.fetch('CLIENT_CREDENTIALS', nil)
-    }
-  end
-
-  def interview_request_body
-    {
-      templateId: '04d9d0ba-3113-40d3-9a4e-e7b226a72154',
-      partyEmailAddress: current_user.email,
-      partnerEndUserId: current_user.id
-    }
-  end
-
-  def service_token_body
-    {
-      purpose: 'api.rocketlawyer.com/document-manager/v1/binders',
-      expirationTime: 160_780_393_200,
-      upid: '9b713671-3b19-470e-85b6-191f2fc09a7a'
-    }
-  end
-
-  def request_header
-    {
-      'Content-Type' => 'application/json',
-      Accept: 'application/json'
-    }
-  end
-
-  def get_response_with_redirect(response)
-    return if response.code != '303'
-
-    response.each_header.to_h['location'] if response.code == '303'
   end
 end
