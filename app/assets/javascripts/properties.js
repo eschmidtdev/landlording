@@ -55,6 +55,7 @@ $(document).ready(function () {
 
     // Interactive Zipcodes
     $('input.zipcode_interactive').blur(function (data) {
+        $('#IncorrectZipCode').text('');
         const zipcode = $(this).val();
         const from = $(this).data('from');
         getCityState(zipcode, from)
@@ -179,13 +180,19 @@ $(document).ready(function () {
             type: 'GET',
             data: {},
             success: function (data) {
-                if (from === 'tenant_notice') {
-                    $('#propertyTNCity').attr('value', data.object.city);
-                    $('#propertyTNState').attr('value', data.object.state);
-                } else {
-                    $('#propertyCity').attr('value', data.object.city);
-                    $('#propertyState').attr('value', data.object.state);
+                if (data.success === true){
+                    if (from === 'tenant_notice') {
+                        $('#propertyTNCity').attr('value', data.message.city);
+                        $('#propertyTNState').attr('value', data.message.state);
+                    } else {
+                        $('#propertyCity').attr('value', data.message.city);
+                        $('#propertyState').attr('value', data.message.state);
+                    }
                 }
+                else{
+                    $('#IncorrectZipCode').text('').show().text(data.message);
+                }
+
 
             },
             error: function (exception) {

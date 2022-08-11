@@ -7,7 +7,7 @@ class PropertiesController < ApplicationController
 
   MESSAGES = {
     created: I18n.t('Properties.Created'),
-    deleted: I18n.t('Properties.deleted')
+    deleted: I18n.t('Properties.deleted'),
   }.freeze
 
   def index
@@ -39,28 +39,10 @@ class PropertiesController < ApplicationController
 
     return_user current_user
   end
+
   def get_zip_data
-    @zipcode = Zipcode.find_by(code: params[:code])
-    if @zipcode
-      @counties = County.where('state_id = ?', @zipcode.county.state_id)
-      return_city_state @zipcode
-    else
-      if params[:code].blank?
-        return true
-      else
-        if params[:code].is_zipcode?
-          data = {
-            'err' => "Could not find Zipcode [#{params[:code]}].  If this is a valid
-                      zipcode please notify support, so we can update our database."
-          }
-        else
-          data = {
-            'err' => "[#{params[:code]}] is not a valid Zipcode."
-          }
-        end
-        render text: data.to_json
-      end
-    end
+    response = ZipCodeService.call(params[:code])
+    render_response(response[:success], response[:message], response[:method], response[:url])
   end
 
   private
@@ -94,18 +76,6 @@ class PropertiesController < ApplicationController
         name: construct_user_name(user)
       }
     }
-  end
-
-  def return_city_state(zipcode)
-    render json: {
-      success: true,
-      object: {
-        state: zipcode.state.name,
-        county: zipcode.county.name,
-        city: zipcode.city.titleize
-      }
-    }
-
   end
 
   def construct_user_name(user)
