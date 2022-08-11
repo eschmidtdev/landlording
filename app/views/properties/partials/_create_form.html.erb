@@ -3,7 +3,7 @@
 
   <!-- Property Type Dropdown -->
   <div class="form-group">
-    <label for="propertyPropertyType">Property Type*</label>
+    <label for="propertyPropertyType" class="bold">Property Type*</label>
     <select name="property[property_type]" id="propertyPropertyType" class="form-control form-control-lg input-45">
       <option disabled selected>Select Property</option>
       <% Property.property_types.keys.each do |property_type| %>
@@ -14,7 +14,7 @@
 
   <!-- Street Address Line 1 -->
   <div class="form-group">
-    <label for="propertySAL1">Street Address Line 1*</label>
+    <label for="propertySAL1" class="bold">Street Address Line 1*</label>
     <input
       type="text"
       id="propertySAL1"
@@ -26,7 +26,7 @@
 
   <!-- Street Address Line 2 -->
   <div class="form-group">
-    <label for="propertySAL2">Street Address Line 2</label>
+    <label for="propertySAL2" class="bold">Street Address Line 2</label>
     <input
       type="text"
       id="propertySAL2"
@@ -41,7 +41,7 @@
     <!-- Postal -->
     <div class="col">
       <div class="form-group">
-        <label for="propertyPostalCode">Postal Code*</label>
+        <label for="propertyPostalCode" class="bold">Postal Code*</label>
         <input
           type="text"
           placeholder="Zip Code"
@@ -56,7 +56,7 @@
     <!-- City -->
     <div class="col">
       <div class="form-group">
-        <label for="propertyCity">City*</label>
+        <label for="propertyCity" class="bold">City*</label>
         <input
           disabled
           type="text"
@@ -70,7 +70,7 @@
     <!-- State -->
     <div class="col">
       <div class="form-group">
-        <label for="propertyState">State*</label>
+        <label for="propertyState" class="bold">State*</label>
         <input
           disabled
           type="text"
@@ -85,9 +85,9 @@
 
   <!-- Bed Rooms -->
   <div class="row">
-    <!-- Bed Room 1 -->
+    <!-- Bedroom -->
     <div class="col margin-top-mob">
-      <label for="propertyBedroomA">Bedroom</label>
+      <label for="propertyBedroomA" class="bold">Bedroom</label>
       <select name="property[BedroomA]" id="propertyBedroomA" class="form-control form-control-lg input-45">
         <option value="" disabled selected>Select Bedroom</option>
         <% bedrooms_a.to_a.each do |room| %>
@@ -95,9 +95,9 @@
         <% end %>
       </select>
     </div>
-    <!-- Bed Room 2 -->
+    <!-- Bathroom -->
     <div class="col margin-top-mob">
-      <label for="propertyBedroomB">Bathroom</label>
+      <label for="propertyBedroomB" class="bold">Bathroom</label>
       <select name="property[BedroomB]" id="propertyBedroomB" class="form-control form-control-lg input-45">
         <option value="" disabled selected>Select Bathroom</option>
         <% bathrooms.to_a.each do |room| %>
@@ -109,13 +109,13 @@
 
   <div class="form-check form-check-inline desktop-margin">
     <input type="checkbox" class="form-check-input" id="propertyLandlordInfo">
-    <label class="form-check-label mt-mob-22" for="propertyLandlordInfo">Same landlord contact info as found in your
+    <label class="form-check-label mt-mob-22 bold" for="propertyLandlordInfo">Same landlord contact info as found in your
       Account Settings?</label>
   </div>
 
   <!-- Landlord Contact Name -->
   <div class="form-group mt-3">
-    <label for="propertyLandlordContactName">Landlord Contact Name*</label>
+    <label for="propertyLandlordContactName" class="bold">Landlord Contact Name*</label>
     <input
       type="text"
       placeholder="Landlord Full Name"
@@ -128,7 +128,7 @@
 
   <!-- Landlord Contact Phone -->
   <div class="form-group">
-    <label for="propertyLandlordContactPhone">Landlord Contact Phone*</label>
+    <label for="propertyLandlordContactPhone" class="bold">Landlord Contact Phone*</label>
     <input
       type="text"
       placeholder="Phone Number"
@@ -143,7 +143,7 @@
 
   <!-- Landlord Contact Email -->
   <div class="form-group">
-    <label for="propertyLandlordContactEmail">Landlord Contact Email*</label>
+    <label for="propertyLandlordContactEmail" class="bold">Landlord Contact Email*</label>
     <input
       type="email"
       placeholder="Enter Email Address"
@@ -155,7 +155,7 @@
   </div>
 
   <!-- Radio Buttons -->
-  <span class="radio-label bold">Currently Leased?</span>
+  <span class="radio-label bold" class="bold">Currently Leased?</span>
   <label class="radio-inline" for="CLY">
     <input type="radio" class="ml-2 currently-leased" id="CLY" name="property[CurrentlyLeased]" value="true" checked><span class="ml-1">Yes</span>
   </label>
@@ -181,7 +181,7 @@
 
     <!-- Street Address Line 1 -->
     <div class="form-group">
-      <label for="propertyTSAL1">Tenant Notice Address Street Line 1*</label>
+      <label for="propertyTSAL1" class="bold">Tenant Notice Address Street Line 1*</label>
       <input
         type="text"
         id="propertyTSAL1"
@@ -193,7 +193,7 @@
 
     <!-- Street Address Line 2 -->
     <div class="form-group">
-      <label for="propertyTSAL2">Tenant Notice Address Street Line 2</label>
+      <label for="propertyTSAL2" class="bold">Tenant Notice Address Street Line 2</label>
       <input
         type="text"
         id="propertyTSAL2"
@@ -208,7 +208,7 @@
       <!-- Postal -->
       <div class="col">
         <div class="form-group">
-          <label for="propertyTNPostalCode">Postal Code*</label>
+          <label for="propertyTNPostalCode" class="bold">Postal Code*</label>
           <input
             type="text"
             data-from="tenant_notice"
@@ -222,7 +222,7 @@
       <!-- City -->
       <div class="col">
         <div class="form-group">
-          <label for="propertyTNCity">City*</label>
+          <label for="propertyTNCity" class="bold">City*</label>
           <input
             disabled
             type="text"
@@ -236,7 +236,7 @@
       <!-- State -->
       <div class="col">
         <div class="form-group">
-          <label for="propertyTNState">State*</label>
+          <label for="propertyTNState" class="bold">State*</label>
           <input
             disabled
             type="text"
