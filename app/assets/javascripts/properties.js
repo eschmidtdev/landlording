@@ -164,10 +164,18 @@ $(document).ready(function () {
             },
             success: function (data) {
                 if (data.success === true) {
-                    landlord_contact_name.prop('disabled', true).attr('value', data.user.name);
-                    landlord_contact_phone.prop('disabled', true).attr('value', data.user.phone);
-                    landlord_contact_email.prop('disabled', true).attr('value', data.user.email);
-                } else if (data.success === false) {}
+                    landlord_contact_name.prop('disabled', true).attr('value', data.message.name);
+                    landlord_contact_phone.prop('disabled', true).attr('value', data.message.phone);
+                    landlord_contact_email.prop('disabled', true).attr('value', data.message.email);
+                } else if (data.success === false) {
+                    if (data.method === 'add_email') {
+                        $('.landlord_email_error').text('').show().text(data.message);
+                    } else if (data.method === 'add_phone') {
+                        $('.landlord_phone_error').text('').show().text(data.message);
+                    } else if (data.method === 'add_name') {
+                        $('.landlord_name_error').text('').show().text(data.message);
+                    }
+                }
             },
             error: function (exception) {
             }

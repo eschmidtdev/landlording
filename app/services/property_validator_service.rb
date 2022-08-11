@@ -6,7 +6,9 @@ class PropertyValidatorService < ApplicationService
   MESSAGES = {
     missing_params: I18n.t('GeneralError.ParamsMissing'),
     went_wrong: I18n.t('GeneralError.WentWrong'),
-    add_phone: I18n.t('Properties.AddPhone')
+    add_phone: I18n.t('Properties.AddPhone'),
+    add_email: I18n.t('Properties.AddEmail'),
+    add_name: I18n.t('Properties.AddName')
   }.freeze
 
   def initialize(property_params, current_user = nil)
@@ -23,7 +25,13 @@ class PropertyValidatorService < ApplicationService
   end
 
   def check_user
-    { message: MESSAGES[:add_phone] } if user.phone_number.blank?
+    if user.email.blank?
+      { message: MESSAGES[:add_email], method: 'add_email' }
+    elsif user.phone_number.blank?
+      { message: MESSAGES[:add_phone], method: 'add_phone' }
+    elsif user.first_name.blank? && user.last_name.blank?
+      { message: MESSAGES[:add_name], method: 'add_name' }
+    end
   end
 
 end

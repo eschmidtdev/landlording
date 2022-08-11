@@ -35,9 +35,10 @@ class PropertiesController < ApplicationController
 
   def fetch_landlord
     response = PropertyValidatorService.call(property_params.to_h, current_user)
-    return render_response(false, response[:message], nil, nil) unless response.nil?
+    return render_response(false, response[:message], response[:method], nil) unless response.nil?
 
-    return_user current_user
+    landlord_response = FetchLandlordService.call(current_user)
+    render_response(landlord_response[:success], landlord_response[:message], landlord_response[:method], landlord_response[:url])
   end
 
   def get_zip_data
@@ -66,25 +67,5 @@ class PropertiesController < ApplicationController
   end
 
   def merged_property_params = property_params.merge({ user_id: current_user.id })
-
-  def return_user(user)
-    render json: {
-      success: true,
-      user: {
-        email: user.email,
-        phone: user.phone_number,
-        name: construct_user_name(user)
-      }
-    }
-  end
-
-  def construct_user_name(user)
-    last_name = ''
-    fist_name = ''
-    last_name = user.last_name if user.last_name.present?
-    fist_name = user.first_name if user.first_name.present?
-
-    "#{fist_name} #{last_name}"
-  end
 
 end
