@@ -3,7 +3,7 @@
 
   <!-- Property Type Dropdown -->
   <div class="form-group">
-    <label for="propertyPropertyType">Property Type*</label>
+    <label for="propertyPropertyType" class="bold">Property Type</label>
     <%= select_tag 'property[property_type]',
                    options_for_select(Property.property_types.keys.map { |type| [type] }, selected: property.property_type),
                    id: 'propertyPropertyType',
@@ -14,7 +14,7 @@
 
   <!-- Street Address Line 1 -->
   <div class="form-group">
-    <label for="propertySAL1">Street Address Line 1*</label>
+    <label for="propertySAL1" class="bold">Street Address Line 1</label>
     <input
       type="text"
       id="propertySAL1"
@@ -27,7 +27,7 @@
 
   <!-- Street Address Line 2 -->
   <div class="form-group">
-    <label for="propertySAL2">Street Address Line 2</label>
+    <label for="propertySAL2" class="bold">Street Address Line 2</label>
     <input
       type="text"
       id="propertySAL2"
@@ -43,7 +43,7 @@
     <!-- Postal -->
     <div class="col">
       <div class="form-group">
-        <label for="propertyPostalCode">Postal Code*</label>
+        <label for="propertyPostalCode" class="bold">Postal Code*</label>
         <input
           type="text"
           placeholder="Zip Code"
@@ -57,7 +57,7 @@
     <!-- City -->
     <div class="col">
       <div class="form-group">
-        <label for="propertyCity">City*</label>
+        <label for="propertyCity" class="bold">City*</label>
         <input
           disabled
           type="text"
@@ -72,7 +72,7 @@
     <!-- State -->
     <div class="col">
       <div class="form-group">
-        <label for="propertyState">State*</label>
+        <label for="propertyState" class="bold">State*</label>
         <input
           disabled
           type="text"
@@ -90,7 +90,7 @@
   <div class="row">
     <!-- Bed Room 1 -->
     <div class="col margin-top-mob">
-      <label for="propertyBedroomA">Bedroom</label>
+      <label for="propertyBedroomA" class="bold">Bedroom</label>
       <%= select_tag('property[BedroomA]',
                      options_for_select(map_bedrooms, selected: property.bed_one),
                      { prompt: "Select Bedroom",
@@ -100,7 +100,7 @@
     </div>
     <!-- Bed Room 2 -->
     <div class="col margin-top-mob">
-      <label for="propertyBedroomB">Bathroom</label>
+      <label for="propertyBedroomB" class="bold">Bathroom</label>
       <%= select_tag('property[BedroomB]',
                      options_for_select(map_bathrooms, selected: property.bed_two),
                      { prompt: "Select Bathroom",
@@ -112,13 +112,13 @@
 
   <div class="form-check form-check-inline desktop-margin">
     <input type="checkbox" class="form-check-input" id="propertyLandlordInfo" <%= 'checked' if property.saved_landlord %>>
-    <label class="form-check-label mt-mob-22" for="propertyLandlordInfo">Same landlord contact info as found in your
+    <label class="form-check-label mt-mob-22 bold" for="propertyLandlordInfo">Same landlord contact info as found in your
       Account Settings?</label>
   </div>
 
   <!-- Landlord Contact Name -->
   <div class="form-group mt-3">
-    <label for="propertyLandlordContactName">Landlord Contact Name*</label>
+    <label for="propertyLandlordContactName" class="bold">Landlord Contact Name*</label>
     <input
       type="text"
       <%= disabled?(property, 'name') %>
@@ -132,7 +132,7 @@
 
   <!-- Landlord Contact Phone -->
   <div class="form-group">
-    <label for="propertyLandlordContactPhone">Landlord Contact Phone*</label>
+    <label for="propertyLandlordContactPhone" class="bold">Landlord Contact Phone*</label>
     <input
       type="text"
       <%= disabled?(property, 'phone') %>
@@ -148,7 +148,7 @@
 
   <!-- Landlord Contact Email -->
   <div class="form-group">
-    <label for="propertyLandlordContactEmail">Landlord Contact Email*</label>
+    <label for="propertyLandlordContactEmail" class="bold">Landlord Contact Email*</label>
     <input
       type="email"
       <%= disabled?(property, 'email') %>
