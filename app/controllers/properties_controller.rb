@@ -25,7 +25,9 @@ class PropertiesController < ApplicationController
 
   def edit; end
 
-  def update; end
+  def update
+    binding.pry
+  end
 
   def destroy
     @property.destroy

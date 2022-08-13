@@ -37,6 +37,39 @@ $(document).ready(function () {
         });
     });
 
+    $(function () {
+        $("form[name='edit_property_form']").validate({
+            rules: {
+                'Eproperty[City]':                 {required: true},
+                'Eproperty[State]':                {required: true},
+                'Eproperty[TSAL1]':                {required: true},
+                'Eproperty[TNCity]':               {required: true},
+                'Eproperty[TNState]':              {required: true},
+                'Eproperty[PostalCode]':           {required: true},
+                'Eproperty[TNPostalCode]':         {required: true},
+                'Eproperty[LandlordContactName]':  {required: true},
+                'Eproperty[LandlordContactPhone]': {required: true},
+                'Eproperty[LandlordContactEmail]': {required: true},
+            },
+            messages: {
+                'Eproperty[TNCity]':               {required: 'City is required'},
+                'Eproperty[TNState]':              {required: 'State is required'},
+                'Eproperty[State]':                {required: 'Please select state'},
+                'Eproperty[City]':                 {required: 'City name is required'},
+                'Eproperty[TNPostalCode]':         {required: 'Postal Code is required'},
+                'Eproperty[PostalCode]':           {required: 'Postal Code is required'},
+                'Eproperty[LandlordContactName]':  {required: 'Landlord Contact Name is required'},
+                'Eproperty[LandlordContactEmail]': {required: 'Landlord Contact Email is required'},
+                'Eproperty[LandlordContactPhone]': {required: 'Landlord Contact Phone is required'},
+                'Eproperty[TSAL1]':                {required: 'Tenant Notice Address Street Line 1 is required'},
+
+            },
+            submitHandler: function (form, e) {
+                EditajaxRequest(e);
+            }
+        });
+    });
+
     $('#propertyLandlordInfo').change(function () {
         const checkbox = $('#propertyLandlordInfo');
 
@@ -86,7 +119,7 @@ $(document).ready(function () {
 
     function ajaxRequest(e) {
         e.preventDefault();
-        const city = $('#propertyCity').val();
+        const city                          = $('#propertyCity').val();
         const address_line_one              = $('#propertySAL1').val();
         const address_line_two              = $('#propertySAL2').val();
         const state                         = $('#propertyState').val();
@@ -122,6 +155,75 @@ $(document).ready(function () {
                     bed_one:                       bed_one,
                     bed_two:                       bed_two,
                     postal_code:                   postal_code,
+                    property_type:                 property_type,
+                    saved_landlord:                saved_landlord,
+                    address_line_one:              address_line_one,
+                    address_line_two:              address_line_two,
+                    currently_leased:              currently_leased,
+                    tenant_notice_city:            tenant_notice_city,
+                    tenant_notice_state:           tenant_notice_state,
+                    property_for_notice:           property_for_notice,
+                    landlord_contact_name:         landlord_contact_name,
+                    landlord_contact_phone:        landlord_contact_phone,
+                    landlord_contact_email:        landlord_contact_email,
+                    tenant_notice_postal_code:     tenant_notice_postal_code,
+                    tenant_notice_street_line_one: tenant_notice_street_line_one,
+                    tenant_notice_street_line_two: tenant_notice_street_line_two,
+                },
+                tenant: {
+                    name:             name,
+                    email:            email,
+                    phone_number:     phone_number,
+                    lease_end_date:   lease_end_date,
+                    lease_start_date: lease_start_date
+                }
+            },
+            success: function (data) {},
+            error: function (exception) {}
+        });
+        return false;
+    }
+    function EditajaxRequest(e) {
+        debugger;
+        e.preventDefault();
+        const property_id                   = $('#EpropertyID').val();
+        const city                          = $('#EpropertyCity').val();
+        const address_line_one              = $('#EpropertySAL1').val();
+        const address_line_two              = $('#EpropertySAL2').val();
+        const state                         = $('#EpropertyState').val();
+        const tenant_notice_street_line_one = $('#EpropertyTSAL1').val();
+        const tenant_notice_street_line_two = $('#EpropertyTSAL2').val();
+        const user_id                       = $('#EPropertyUserID').val();
+        const tenant_notice_city            = $('#EpropertyTNCity').val();
+        const tenant_notice_state           = $('#EpropertyTNState').val();
+        const bed_one                       = $('#EpropertyBedroomA').val();
+        const bed_two                       = $('#EpropertyBedroomB').val();
+        const postal_code                   = $('#EpropertyPostalCode').val();
+        const property_type                 = $('#EpropertyPropertyType').val();
+        const tenant_notice_postal_code     = $('#EpropertyTNPostalCode').val();
+        const name                          = $('#EpropertyNewTenantName').val();
+        const phone_number                  = $('#EpropertyNewTenantPhone').val();
+        const email                         = $('#EpropertyNewTenantEmail').val();
+        const lease_end_date                = $('#EpropertyNewLeaseEndDate').val();
+        const currently_leased              = $('.currently-leased:checked').val();
+        const lease_start_date              = $('#EpropertyNewLeaseStartDate').val();
+        const property_for_notice           = $('.asked-for-property:checked').val();
+        const landlord_contact_name         = $('#EpropertyLandlordContactName').val();
+        const landlord_contact_phone        = $('#EpropertyLandlordContactPhone').val();
+        const landlord_contact_email        = $('#EpropertyLandlordContactEmail').val();
+        const saved_landlord                = !!$('#EpropertyLandlordInfo').is(':checked');
+        $.ajax({
+            url: `/properties/${property_id}`,
+            type: 'PUT',
+            data: {
+                property: {
+                    city:                          city,
+                    state:                         state,
+                    user_id:                       user_id,
+                    bed_one:                       bed_one,
+                    bed_two:                       bed_two,
+                    postal_code:                   postal_code,
+                    property_id:                   property_id,
                     property_type:                 property_type,
                     saved_landlord:                saved_landlord,
                     address_line_one:              address_line_one,
