@@ -26,10 +26,10 @@
         </div>
       </li>
 
-      <li class="<%= 'active_border' if current_page? visitors_path %>">
-        <a href="<%= visitors_url %>">
-          <%= image_tag current_page?(visitors_url) ? 'sidebar/active_category.svg' : 'sidebar/inactive_category.svg', width: '25' %>
-          <span class="<%= current? 'active', visitors_url %>">Overview</span>
+      <li class="<%= 'active_border' if current_page? root_path %>">
+        <a href="<%= root_path %>">
+          <%= image_tag current_page?(root_path) ? 'sidebar/active_category.svg' : 'sidebar/inactive_category.svg', width: '25' %>
+          <span class="<%= current? 'active', root_path %>">Overview</span>
         </a>
       </li>
 

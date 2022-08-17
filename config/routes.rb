@@ -4,13 +4,13 @@ Rails.application.routes.draw do
 
   devise_for :users, controllers: { registrations: 'registrations', sessions: 'sessions' }
   devise_scope :user do
-    root to: 'sessions#index'
-    get '/', to: 'sessions#index'
-    get '/signup', to: 'registrations#index'
-    post '/sent/email', to: 'passwords#create'
-    get '/confirmation', to: 'passwords#confirmation'
+    root                                to: 'visitors#index'
+    get '/login',                       to: 'sessions#index'
+    post '/sent/email',                 to: 'passwords#create'
+    get '/signup',                      to: 'registrations#index'
     get '/auth/google_oauth2/callback', to: 'sessions#google_auth'
-    get '/email_confirmation', to: 'registrations#email_confirmation'
+    get '/confirmation',                to: 'passwords#confirmation'
+    get '/email_confirmation',          to: 'registrations#email_confirmation'
   end
 
   resources :properties do
@@ -23,7 +23,7 @@ Rails.application.routes.draw do
       get :confirm_email
     end
   end
-  resources :visitors, only: :index
+
   resources :subscriptions do
     member do
       get '/cancel', to: 'subscriptions#cancel_subscription'

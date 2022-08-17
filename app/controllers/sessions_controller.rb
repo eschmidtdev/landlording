@@ -10,9 +10,7 @@ class SessionsController < Devise::SessionsController
     signed_in: I18n.t('devise.sessions.signed_in')
   }.freeze
 
-  def index
-    redirect_to visitors_url if user_signed_in?
-  end
+  def index; end
 
   def new
     set_flash_message(:notice, :invalid)

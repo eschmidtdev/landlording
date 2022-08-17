@@ -51,7 +51,7 @@ module VisitorsHelper
   end
 
   def image_path
-    if current_page?(visitors_path)
+    if current_page?(root_path)
       'visitors/active_arrow.svg'
     else
       'visitors/inactive_arrow.svg'
