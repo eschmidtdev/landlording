@@ -1,13 +1,14 @@
 # frozen_string_literal: true
 
 class PropertiesController < ApplicationController
-  before_action :set_property, only: %i[edit destroy]
+  before_action :set_property, only: %i[edit destroy update]
 
   include Responseable
 
   MESSAGES = {
+    updated: I18n.t('Properties.Updated'),
     created: I18n.t('Properties.Created'),
-    deleted: I18n.t('Properties.deleted'),
+    deleted: I18n.t('Properties.deleted')
   }.freeze
 
   def index
@@ -26,7 +27,12 @@ class PropertiesController < ApplicationController
   def edit; end
 
   def update
-    binding.pry
+    flash[:notice] = if @property.update(property_params)
+                       MESSAGES[:updated]
+                     else
+                       'Property was not updated successfully.'
+                     end
+    redirect_to properties_url
   end
 
   def destroy
@@ -56,12 +62,12 @@ class PropertiesController < ApplicationController
     params.require(:property).permit(required_property_params)
   end
 
-  def tenant_params
-    params.require(:tenant).permit(required_tenant_params)
-  end
-
   def required_property_params
     Property.column_names.reject { |k| ['id'].include?(k) }.map(&:to_sym)
+  end
+
+  def tenant_params
+    params.require(:tenant).permit(required_tenant_params)
   end
 
   def required_tenant_params

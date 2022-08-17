@@ -10,11 +10,12 @@ en:
     NotValid:  'Wrong email or password. Try again or click Forgot password to reset it.'
 
   Properties:
+    Updated: 'Property was successfully updated.'
+    AddName: 'Name is missing from account settings'
     Created: 'Property has been created successfully.'
     deleted: 'Property has been deleted successfully.'
-    AddPhone: 'Phone number is missing from account settings'
     AddEmail: 'Email is missing from account settings'
-    AddName: 'Name is missing from account settings'
+    AddPhone: 'Phone number is missing from account settings'
 
   GeneralError:
     ParamsMissing: 'Params are missing or values are empty.'
