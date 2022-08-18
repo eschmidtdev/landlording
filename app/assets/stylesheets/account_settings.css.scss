@@ -157,6 +157,18 @@
   background-color: #FF8F00 !important;
 }
 
+.add-payment-card {
+  top: 50%;
+  left: 50%;
+  position: absolute;
+  transform: translateX(-50%) translateY(-50%);
+}
+
+.add-payment-card a {
+  color: #000000;
+  text-decoration: none;
+}
+
 @media only screen and (max-width: 600px) {
   .personal-info-rectangle {
     padding: 0 0 15px 0;
