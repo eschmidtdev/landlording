@@ -3,16 +3,8 @@
 class PropertyValidatorService < ApplicationService
   attr_reader :property_params, :user
 
-  MESSAGES = {
-    missing_params: I18n.t('GeneralError.ParamsMissing'),
-    add_phone: I18n.t('Properties.AddPhone'),
-    went_wrong: I18n.t('GeneralError.WentWrong'),
-    add_email: I18n.t('Properties.AddEmail'),
-    add_name: I18n.t('Properties.AddName')
-  }.freeze
-
   def initialize(property_params, current_user = nil)
-    @user = current_user
+    @user            = current_user
     @property_params = property_params
   end
 

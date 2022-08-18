@@ -185,6 +185,86 @@
     </label><br>
   </div>
 
+  <div class="mt-4 <%= 'display_none' if property.property_for_notice %>" id="EditTenantNoticeSection">
+
+    <!-- Street Address Line 1 -->
+    <div class="form-group">
+      <label for="propertyTSAL1" class="bold">Tenant Notice Address Street Line 1*</label>
+      <input
+        type="text"
+        id="propertyTSAL1"
+        name="property[TSAL1]"
+        placeholder="Your Address"
+        class="form-control form-control-lg input-45"
+        value="<%= check_for(property.tenant_notice_street_line_one) %>"
+      >
+    </div>
+
+    <!-- Street Address Line 2 -->
+    <div class="form-group">
+      <label for="propertyTSAL2" class="bold">Tenant Notice Address Street Line 2</label>
+      <input
+        type="text"
+        id="propertyTSAL2"
+        name="property[TSAL2]"
+        placeholder="Your Address"
+        class="form-control form-control-lg input-45"
+        value="<%= check_for(property.tenant_notice_street_line_two) %>"
+      >
+    </div>
+
+    <!-- Postal, City, State -->
+    <div class="row">
+      <!-- Postal -->
+      <div class="col">
+        <div class="form-group">
+          <label for="propertyTNPostalCode" class="bold">Postal Code*</label>
+          <input
+            type="text"
+            data-from="tenant_notice"
+            placeholder="Zip Code"
+            id="propertyTNPostalCode"
+            name="property[TNPostalCode]"
+            class="form-control form-control-lg input-45 zipcode_interactive"
+            value="<%= check_for(property.tenant_notice_postal_code) %>"
+          >
+          <span id="IncorrectZipCodeTN" class="error"></span>
+        </div>
+      </div>
+      <!-- City -->
+      <div class="col">
+        <div class="form-group">
+          <label for="propertyTNCity" class="bold">City*</label>
+          <input
+            disabled
+            type="text"
+            id="propertyTNCity"
+            placeholder="City"
+            name="property[TNCity]"
+            class="form-control form-control-lg input-45"
+            value="<%= check_for(property.tenant_notice_city) %>"
+          >
+        </div>
+      </div>
+      <!-- State -->
+      <div class="col">
+        <div class="form-group">
+          <label for="propertyTNState" class="bold">State*</label>
+          <input
+            disabled
+            type="text"
+            id="propertyTNState"
+            placeholder="State"
+            name="property[TNState]"
+            class="form-control form-control-lg input-45"
+            value="<%= check_for(property.tenant_notice_state) %>"
+          >
+        </div>
+      </div>
+    </div>
+
+  </div>
+
   <hr>
 
   <div class="d-flex justify-content-start mb-5">

@@ -7,13 +7,13 @@ en:
 
   Sessions:
     EmailSent: 'Email sent successfully.'
-    NotValid:  'Wrong email or password. Try again or click Forgot password to reset it.'
+    NotValid: 'Wrong email or password. Try again or click Forgot password to reset it.'
 
   Properties:
-    Updated: 'Property was successfully updated.'
+    Updated: 'Rental Property was successfully updated.'
     AddName: 'Name is missing from account settings'
-    Created: 'Property has been created successfully.'
-    deleted: 'Property has been deleted successfully.'
+    Created: 'New Rental Property was successfully added.'
+    deleted: 'Rental Property was successfully deleted.'
     AddEmail: 'Email is missing from account settings'
     AddPhone: 'Phone number is missing from account settings'
 

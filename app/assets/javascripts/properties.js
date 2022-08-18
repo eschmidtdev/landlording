@@ -75,8 +75,10 @@ $(document).ready(function () {
         const value = $(this).val();
         if (value === 'true') {
             $('#TenantSection').fadeIn(250);
+            $('#EditTenantSection').removeClass('display_none').fadeIn(250);
         } else if (value === 'false') {
             $('#TenantSection').fadeOut(250);
+            $('#EditTenantSection').fadeOut(250);
         }
     });
 
@@ -85,8 +87,10 @@ $(document).ready(function () {
         const value = $(this).val();
         if (value === 'true') {
             $('#TenantNoticeSection').fadeOut(250);
+            $('#EditTenantNoticeSection').fadeOut(250);
         } else if (value === 'false') {
             $('#TenantNoticeSection').fadeIn(250);
+            $('#EditTenantNoticeSection').removeClass('display_none').fadeIn(250);
         }
 
     });
@@ -142,9 +146,13 @@ $(document).ready(function () {
         const phone_number                  = $('#propertyNewTenantPhone').val();
         const email                         = $('#propertyNewTenantEmail').val();
         const lease_end_date                = $('#propertyNewLeaseEndDate').val();
+        const additional_tenant_name        = $('#ADpropertyNewTenantName').val();
+        const additional_tenant_phone       = $('#ADpropertyNewTenantPhone').val();
+        const additional_tenant_email       = $('#ADpropertyNewTenantEmail').val();
         const currently_leased              = $('.currently-leased:checked').val();
         const lease_start_date              = $('#propertyNewLeaseStartDate').val();
         const property_for_notice           = $('.asked-for-property:checked').val();
+
         const landlord_contact_name         = $('#propertyLandlordContactName').val();
         const landlord_contact_phone        = $('#propertyLandlordContactPhone').val();
         const landlord_contact_email        = $('#propertyLandlordContactEmail').val();
@@ -180,7 +188,10 @@ $(document).ready(function () {
                     email:            email,
                     phone_number:     phone_number,
                     lease_end_date:   lease_end_date,
-                    lease_start_date: lease_start_date
+                    lease_start_date: lease_start_date,
+                    additional_tenant_name:  additional_tenant_name,
+                    additional_tenant_phone: additional_tenant_phone,
+                    additional_tenant_email: additional_tenant_email,
                 }
             },
             success: function (data) {},
@@ -207,16 +218,21 @@ $(document).ready(function () {
         const property_type                 = $('#EpropertyPropertyType').val();
         const tenant_notice_postal_code     = $('#EpropertyTNPostalCode').val();
         const name                          = $('#EpropertyNewTenantName').val();
+        const additional_tenant_name        = $('#ADpropertyNewTenantName').val();
         const phone_number                  = $('#EpropertyNewTenantPhone').val();
         const email                         = $('#EpropertyNewTenantEmail').val();
         const lease_end_date                = $('#EpropertyNewLeaseEndDate').val();
         const currently_leased              = $('.currently-leased:checked').val();
+        const additional_tenant_phone       = $('#ADpropertyNewTenantPhone').val();
+        const additional_tenant_email       = $('#ADpropertyNewTenantEmail').val();
         const lease_start_date              = $('#EpropertyNewLeaseStartDate').val();
         const property_for_notice           = $('.asked-for-property:checked').val();
         const landlord_contact_name         = $('#EpropertyLandlordContactName').val();
         const landlord_contact_phone        = $('#EpropertyLandlordContactPhone').val();
         const landlord_contact_email        = $('#EpropertyLandlordContactEmail').val();
         const saved_landlord                = !!$('#EpropertyLandlordInfo').is(':checked');
+
+
         $.ajax({
             url: `/properties/${id}`,
             type: 'PUT',
@@ -244,11 +260,14 @@ $(document).ready(function () {
                     tenant_notice_street_line_two: tenant_notice_street_line_two,
                 },
                 tenant: {
-                    name:             name,
-                    email:            email,
-                    phone_number:     phone_number,
-                    lease_end_date:   lease_end_date,
-                    lease_start_date: lease_start_date
+                    name:                    name,
+                    email:                   email,
+                    phone_number:            phone_number,
+                    lease_end_date:          lease_end_date,
+                    lease_start_date:        lease_start_date,
+                    additional_tenant_name:  additional_tenant_name,
+                    additional_tenant_phone: additional_tenant_phone,
+                    additional_tenant_email: additional_tenant_email,
                 }
             },
             success: function (data) {},

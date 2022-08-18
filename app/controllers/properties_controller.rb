@@ -2,6 +2,7 @@
 
 class PropertiesController < ApplicationController
   before_action :set_property, only: %i[edit destroy update]
+  before_action :validate_property, only: %i[create update]
 
   include Responseable
 
@@ -16,11 +17,8 @@ class PropertiesController < ApplicationController
   end
 
   def create
-    response = PropertyValidatorService.call(property_params.to_h, current_user)
-    return render_response(false, response[:message], nil, nil) unless response.nil?
-
     TransactPropertyService.call(merged_property_params, tenant_params)
-    flash[:notice] = 'New Rental Property was successfully added.'
+    flash[:notice] = MESSAGES[:created]
     redirect_to properties_url
   end
 
@@ -72,5 +70,12 @@ class PropertiesController < ApplicationController
   end
 
   def merged_property_params = property_params.merge({ user_id: current_user.id })
+
+  def validate_property
+    response = PropertyValidatorService.call(property_params.to_h, current_user)
+    unless response.nil?
+      render_response(false, response[:message], response[:method], nil)
+    end
+  end
 
 end

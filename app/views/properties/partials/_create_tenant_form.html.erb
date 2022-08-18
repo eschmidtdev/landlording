@@ -17,7 +17,7 @@
               type="text"
               id="propertyNewTenantName"
               placeholder="Enter Full Name"
-              name="property[NewTenantName]"
+              name="property[NewTenantName][]"
               class="form-control form-control-lg input-45"
             >
           </div>
@@ -32,7 +32,7 @@
                   type="text"
                   id="propertyNewTenantPhone"
                   placeholder="Enter Full Name"
-                  name="property[NewTenantPhone]"
+                  name="property[NewTenantPhone][]"
                   class="form-control form-control-lg input-45"
                   onkeypress="return event.charCode >= 48 && event.charCode <= 57"
                   oncopy="return false" oncut="return false" onpaste="return false"
@@ -46,7 +46,7 @@
                 <input
                   type="email"
                   id="propertyNewTenantEmail"
-                  name="property[NewTenantEmail]"
+                  name="property[NewTenantEmail][]"
                   placeholder="Enter Email Address"
                   class="form-control form-control-lg input-45"
                 >
@@ -64,7 +64,7 @@
                   type="date"
                   placeholder="Enter Full Name"
                   id="propertyNewLeaseStartDate"
-                  name="property[NewLeaseStartDate]"
+                  name="property[NewLeaseStartDate][]"
                   class="form-control form-control-lg input-45"
                 >
               </div>
@@ -84,6 +84,7 @@
             </div>
           </div>
 
+          <!-- ------------------------------ Add Additional Tenant ------------------------------>
           <div class="mt-2">
             <a role="button" class="bold" id="SwitchAdditionalTenant">Add Additional Tenant</a>
           </div>
@@ -95,12 +96,12 @@
 
             <!-- Tenant Name -->
             <div class="form-group">
-              <label for="propertyNewTenantName" class="bold">Tenant Name</label>
+              <label for="ADpropertyNewTenantName" class="bold">Tenant Name</label>
               <input
                 type="text"
-                id="propertyNewTenantName"
+                id="ADpropertyNewTenantName"
                 placeholder="Enter Full Name"
-                name="property[NewTenantName]"
+                name="ADproperty[NewTenantName][]"
                 class="form-control form-control-lg input-45"
               >
             </div>
@@ -110,12 +111,12 @@
               <!-- Phone -->
               <div class="col">
                 <div class="form-group">
-                  <label for="propertyNewTenantPhone" class="bold">Tenant Phone</label>
+                  <label for="ADpropertyNewTenantPhone" class="bold">Tenant Phone</label>
                   <input
                     type="text"
-                    id="propertyNewTenantPhone"
+                    id="ADpropertyNewTenantPhone"
                     placeholder="Enter Full Name"
-                    name="property[NewTenantPhone]"
+                    name="ADproperty[NewTenantPhone][]"
                     class="form-control form-control-lg input-45"
                     onkeypress="return event.charCode >= 48 && event.charCode <= 57"
                     oncopy="return false" oncut="return false" onpaste="return false"
@@ -125,11 +126,11 @@
               <!-- Email -->
               <div class="col">
                 <div class="form-group">
-                  <label for="propertyNewTenantEmail" class="bold">Tenant Email</label>
+                  <label for="ADpropertyNewTenantEmail" class="bold">Tenant Email</label>
                   <input
                     type="email"
-                    id="propertyNewTenantEmail"
-                    name="property[NewTenantEmail]"
+                    id="ADpropertyNewTenantEmail"
+                    name="ADproperty[NewTenantEmail]"
                     placeholder="Enter Email Address"
                     class="form-control form-control-lg input-45"
                   >
