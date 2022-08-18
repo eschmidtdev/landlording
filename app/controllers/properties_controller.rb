@@ -27,11 +27,8 @@ class PropertiesController < ApplicationController
   def edit; end
 
   def update
-    flash[:notice] = if @property.update(property_params)
-                       MESSAGES[:updated]
-                     else
-                       'Property was not updated successfully.'
-                     end
+    Properties::UpdatePropertyService.call(@property, property_params, tenant_params)
+    flash[:notice] = MESSAGES[:updated]
     redirect_to properties_url
   end
 
@@ -63,7 +60,7 @@ class PropertiesController < ApplicationController
   end
 
   def required_property_params
-    Property.column_names.reject { |k| ['id'].include?(k) }.map(&:to_sym)
+    Property.column_names.map(&:to_sym)
   end
 
   def tenant_params

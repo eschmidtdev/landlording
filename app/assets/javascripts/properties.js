@@ -70,6 +70,27 @@ $(document).ready(function () {
         });
     });
 
+    // Enable Disable Tenant Area
+    $('.currently-leased').change(function () {
+        const value = $(this).val();
+        if (value === 'true') {
+            $('#TenantSection').fadeIn(250);
+        } else if (value === 'false') {
+            $('#TenantSection').fadeOut(250);
+        }
+    });
+
+    // Enable Disable Tenant Notice Area
+    $('.asked-for-property').change(function () {
+        const value = $(this).val();
+        if (value === 'true') {
+            $('#TenantNoticeSection').fadeOut(250);
+        } else if (value === 'false') {
+            $('#TenantNoticeSection').fadeIn(250);
+        }
+
+    });
+
     $('#propertyLandlordInfo').change(function () {
         const checkbox = $('#propertyLandlordInfo');
 
@@ -95,26 +116,10 @@ $(document).ready(function () {
         getCityState(zipcode, from)
     });
 
-    // Enable Disable Tenant Area
-    $('.currently-leased').change(function () {
-        const value = $(this).val();
-        if (value === 'true') {
-            $('#TenantSection').show();
-        } else if (value === 'false') {
-            $('#TenantSection').hide();
-        }
-
-    });
-
-    // Enable Disable Tenant Notice Area
-    $('.asked-for-property').change(function () {
-        const value = $(this).val();
-        if (value === 'true') {
-            $('#TenantNoticeSection').hide();
-        } else if (value === 'false') {
-            $('#TenantNoticeSection').show();
-        }
-
+    // Show Additional Tenant Section
+    $('#SwitchAdditionalTenant').click(function () {
+        $(this).hide();
+        $('#AdditionalTenantSection').fadeIn(250);
     });
 
     function ajaxRequest(e) {
@@ -183,10 +188,10 @@ $(document).ready(function () {
         });
         return false;
     }
+
     function EditajaxRequest(e) {
-        debugger;
         e.preventDefault();
-        const property_id                   = $('#EpropertyID').val();
+        const id                   = $('#EpropertyID').val();
         const city                          = $('#EpropertyCity').val();
         const address_line_one              = $('#EpropertySAL1').val();
         const address_line_two              = $('#EpropertySAL2').val();
@@ -213,7 +218,7 @@ $(document).ready(function () {
         const landlord_contact_email        = $('#EpropertyLandlordContactEmail').val();
         const saved_landlord                = !!$('#EpropertyLandlordInfo').is(':checked');
         $.ajax({
-            url: `/properties/${property_id}`,
+            url: `/properties/${id}`,
             type: 'PUT',
             data: {
                 property: {
@@ -223,7 +228,6 @@ $(document).ready(function () {
                     bed_one:                       bed_one,
                     bed_two:                       bed_two,
                     postal_code:                   postal_code,
-                    property_id:                   property_id,
                     property_type:                 property_type,
                     saved_landlord:                saved_landlord,
                     address_line_one:              address_line_one,

@@ -107,14 +107,15 @@
     </div>
   </div>
 
-  <div class="form-check form-check-inline desktop-margin">
+  <div class="form-check form-check-inline desktop-margin my-4">
     <input type="checkbox" class="form-check-input" id="propertyLandlordInfo">
-    <label class="form-check-label mt-mob-22 bold" for="propertyLandlordInfo">Same landlord contact info as found in your
+    <label class="form-check-label mt-mob-22 bold mt5" for="propertyLandlordInfo">Same landlord contact info as found in
+      your
       Account Settings?</label>
   </div>
 
   <!-- Landlord Contact Name -->
-  <div class="form-group mt-3">
+  <div class="form-group">
     <label for="propertyLandlordContactName" class="bold">Landlord Contact Name*</label>
     <input
       type="text"
@@ -155,14 +156,15 @@
   </div>
 
   <!-- Radio Buttons -->
-  <span class="radio-label bold" class="bold">Currently Leased?</span>
-  <label class="radio-inline" for="CLY">
-    <input type="radio" class="ml-2 currently-leased" id="CLY" name="property[CurrentlyLeased]" value="true" checked><span class="ml-1">Yes</span>
-  </label>
-  <label class="radio-inline" for="CLN">
-    <input type="radio" class="ml-2 currently-leased" id="CLN" name="property[CurrentlyLeased]" value="false"><span class="ml-1">No</span>
-  </label><br>
-
+  <div class="my-4">
+    <span class="radio-label bold" class="bold">Currently Leased?</span>
+    <label class="radio-inline" for="CLY">
+      <input type="radio" class="ml-2 currently-leased" id="CLY" name="property[CurrentlyLeased]" value="true" checked><span class="ml-1">Yes</span>
+    </label>
+    <label class="radio-inline" for="CLN">
+      <input type="radio" class="ml-2 currently-leased" id="CLN" name="property[CurrentlyLeased]" value="false"><span class="ml-1">No</span>
+    </label><br>
+  </div>
 
   <!-- Add New Tenant -->
   <%= render partial: 'properties/partials/create_tenant_form' %>
@@ -260,7 +262,7 @@
       class="create-button"
       id="SavePropertyBtn"
     >
-      Save
+      Save & Update
     </button>
     <button
       type="button"
