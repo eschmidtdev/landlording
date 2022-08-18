@@ -16,7 +16,7 @@ module Validators
 
     def validate_request
       case request
-      when 'create'
+      when 'create', 'update'
         check_property_params
       when 'fetch_landlord'
         check_user
@@ -28,17 +28,17 @@ module Validators
 
     def check_user
       if user.email.blank?
-        { message: MESSAGES[:add_email], method: 'add_email', url: '' }
+        { message: MESSAGES[:add_email], method: 'add_email', url: nil }
       elsif user.phone_number.blank?
-        { message: MESSAGES[:add_phone], method: 'add_phone', url: '' }
+        { message: MESSAGES[:add_phone], method: 'add_phone', url: nil }
       elsif user.first_name.blank? && user.last_name.blank?
-        { message: MESSAGES[:add_name], method: 'add_name', url: '' }
+        { message: MESSAGES[:add_name], method: 'add_name', url: nil }
       end
     end
 
     def check_property_params
       unless required_keys.all? { |s| property_params.key? s }
-        { message: MESSAGES[:missing_params], method: '', url: '' }
+        { message: MESSAGES[:missing_params], method: '', url: nil }
       end
     end
 

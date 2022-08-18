@@ -51,19 +51,11 @@ class PropertiesController < ApplicationController
   def set_property = @property = Property.find(params[:id])
 
   def property_params
-    params.require(:property).permit(required_property_params)
-  end
-
-  def required_property_params
-    Property.column_names.map(&:to_sym)
+    params.require(:property).permit(Property.column_names.reject { |k| ['id'].include?(k) }.map(&:to_sym))
   end
 
   def tenant_params
-    params.require(:tenant).permit(required_tenant_params)
-  end
-
-  def required_tenant_params
-    Tenant.column_names.reject { |k| ['id'].include?(k) }.map(&:to_sym)
+    params.require(:tenant).permit(Tenant.column_names.reject { |k| ['id'].include?(k) }.map(&:to_sym))
   end
 
   def merged_property_params = property_params.merge({ user_id: current_user.id })

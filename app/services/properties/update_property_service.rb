@@ -18,6 +18,7 @@ module Properties
 
     def update_property
       property.update(property_params)
+      property.tenants.last.update(tenant_params)
     end
 
   end

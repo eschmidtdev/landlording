@@ -111,15 +111,14 @@
     </div>
   </div>
 
-  <div class="form-check form-check-inline desktop-margin">
+  <div class="form-check form-check-inline desktop-margin my-4">
     <input type="checkbox" class="form-check-input" id="EpropertyLandlordInfo" <%= 'checked' if property.saved_landlord %>>
     <label class="form-check-label mt-mob-22 bold" for="EpropertyLandlordInfo">Same landlord contact info as found in
-      your
-      Account Settings?</label>
+      your Account Settings?</label>
   </div>
 
   <!-- Landlord Contact Name -->
-  <div class="form-group mt-3">
+  <div class="form-group">
     <label for="EpropertyLandlordContactName" class="bold">Landlord Contact Name*</label>
     <input
       type="text"
@@ -163,13 +162,15 @@
   </div>
 
   <!-- Radio Buttons -->
-  <span class="radio-label bold">Currently Leased?</span>
-  <label class="radio-inline" for="ECLY">
-    <input type="radio" class="ml-2 currently-leased" id="ECLY" name="Eproperty[CurrentlyLeased]" value="true" <%= 'checked' if property.currently_leased %>><span class="ml-1">Yes</span>
-  </label>
-  <label class="radio-inline" for="ECLN">
-    <input type="radio" class="ml-2 currently-leased" id="ECLN" name="Eproperty[CurrentlyLeased]" value="false" <%= 'checked' if !property.currently_leased %>><span class="ml-1">No</span>
-  </label><br>
+  <div class="my-4">
+    <span class="radio-label bold">Currently Leased?</span>
+    <label class="radio-inline" for="ECLY">
+      <input type="radio" class="ml-2 currently-leased" id="ECLY" name="Eproperty[CurrentlyLeased]" value="true" <%= 'checked' if property.currently_leased %>><span class="ml-1">Yes</span>
+    </label>
+    <label class="radio-inline" for="ECLN">
+      <input type="radio" class="ml-2 currently-leased" id="ECLN" name="Eproperty[CurrentlyLeased]" value="false" <%= 'checked' if !property.currently_leased %>><span class="ml-1">No</span>
+    </label><br>
+  </div>
 
 
   <!-- Add New Tenant -->
@@ -189,11 +190,11 @@
 
     <!-- Street Address Line 1 -->
     <div class="form-group">
-      <label for="propertyTSAL1" class="bold">Tenant Notice Address Street Line 1*</label>
+      <label for="EpropertyTSAL1" class="bold">Tenant Notice Address Street Line 1*</label>
       <input
         type="text"
-        id="propertyTSAL1"
-        name="property[TSAL1]"
+        id="EpropertyTSAL1"
+        name="Eproperty[TSAL1]"
         placeholder="Your Address"
         class="form-control form-control-lg input-45"
         value="<%= check_for(property.tenant_notice_street_line_one) %>"
@@ -202,11 +203,11 @@
 
     <!-- Street Address Line 2 -->
     <div class="form-group">
-      <label for="propertyTSAL2" class="bold">Tenant Notice Address Street Line 2</label>
+      <label for="EpropertyTSAL2" class="bold">Tenant Notice Address Street Line 2</label>
       <input
         type="text"
-        id="propertyTSAL2"
-        name="property[TSAL2]"
+        id="EpropertyTSAL2"
+        name="Eproperty[TSAL2]"
         placeholder="Your Address"
         class="form-control form-control-lg input-45"
         value="<%= check_for(property.tenant_notice_street_line_two) %>"
@@ -218,13 +219,13 @@
       <!-- Postal -->
       <div class="col">
         <div class="form-group">
-          <label for="propertyTNPostalCode" class="bold">Postal Code*</label>
+          <label for="EpropertyTNPostalCode" class="bold">Postal Code*</label>
           <input
             type="text"
             data-from="tenant_notice"
             placeholder="Zip Code"
-            id="propertyTNPostalCode"
-            name="property[TNPostalCode]"
+            id="EpropertyTNPostalCode"
+            name="Eproperty[TNPostalCode]"
             class="form-control form-control-lg input-45 zipcode_interactive"
             value="<%= check_for(property.tenant_notice_postal_code) %>"
           >
@@ -234,13 +235,13 @@
       <!-- City -->
       <div class="col">
         <div class="form-group">
-          <label for="propertyTNCity" class="bold">City*</label>
+          <label for="EpropertyTNCity" class="bold">City*</label>
           <input
             disabled
             type="text"
-            id="propertyTNCity"
+            id="EpropertyTNCity"
             placeholder="City"
-            name="property[TNCity]"
+            name="Eproperty[TNCity]"
             class="form-control form-control-lg input-45"
             value="<%= check_for(property.tenant_notice_city) %>"
           >
@@ -249,13 +250,13 @@
       <!-- State -->
       <div class="col">
         <div class="form-group">
-          <label for="propertyTNState" class="bold">State*</label>
+          <label for="EpropertyTNState" class="bold">State*</label>
           <input
             disabled
             type="text"
-            id="propertyTNState"
+            id="EpropertyTNState"
             placeholder="State"
-            name="property[TNState]"
+            name="Eproperty[TNState]"
             class="form-control form-control-lg input-45"
             value="<%= check_for(property.tenant_notice_state) %>"
           >

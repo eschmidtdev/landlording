@@ -107,55 +107,21 @@
     </div>
   </div>
 
+  <!--------------------------------  Landlord Section -------------------------------->
+
+  <!-- Landlord Toggle -->
   <div class="form-check form-check-inline desktop-margin my-4">
     <input type="checkbox" class="form-check-input" id="propertyLandlordInfo">
     <label class="form-check-label mt-mob-22 bold mt5" for="propertyLandlordInfo">Same landlord contact info as found in
-      your
-      Account Settings?</label>
+      your Account Settings?</label>
   </div>
 
-  <!-- Landlord Contact Name -->
-  <div class="form-group">
-    <label for="propertyLandlordContactName" class="bold">Landlord Contact Name*</label>
-    <input
-      type="text"
-      placeholder="Landlord Full Name"
-      id="propertyLandlordContactName"
-      name="property[LandlordContactName]"
-      class="form-control form-control-lg input-45"
-    >
-    <span class="error landlord_name_error"></span>
-  </div>
+  <!-- Landlord Form -->
+  <%= render partial: 'properties/partials/landlord_form' %>
 
-  <!-- Landlord Contact Phone -->
-  <div class="form-group">
-    <label for="propertyLandlordContactPhone" class="bold">Landlord Contact Phone*</label>
-    <input
-      type="text"
-      placeholder="Phone Number"
-      id="propertyLandlordContactPhone"
-      name="property[LandlordContactPhone]"
-      class="form-control form-control-lg input-45"
-      onkeypress="return event.charCode >= 48 && event.charCode <= 57"
-      oncopy="return false" oncut="return false" onpaste="return false"
-    >
-    <span class="error landlord_phone_error"></span>
-  </div>
+  <!-------------------------------- Add Tenant Section -------------------------------->
 
-  <!-- Landlord Contact Email -->
-  <div class="form-group">
-    <label for="propertyLandlordContactEmail" class="bold">Landlord Contact Email*</label>
-    <input
-      type="email"
-      placeholder="Enter Email Address"
-      id="propertyLandlordContactEmail"
-      name="property[LandlordContactEmail]"
-      class="form-control form-control-lg input-45"
-    >
-    <span class="error landlord_email_error"></span>
-  </div>
-
-  <!-- Radio Buttons -->
+  <!-- Tenant Toggle -->
   <div class="my-4">
     <span class="radio-label bold" class="bold">Currently Leased?</span>
     <label class="radio-inline" for="CLY">
@@ -166,9 +132,12 @@
     </label><br>
   </div>
 
-  <!-- Add New Tenant -->
+  <!-- Add New Tenant Form -->
   <%= render partial: 'properties/partials/create_tenant_form' %>
 
+  <!-------------------------------- Add Tenant Notice Section -------------------------------->
+
+  <!--  Tenant Notice Toggle -->
   <div class="mt-4">
     <span class="radio-label bold">Will the property address also be used for notices sent to the tenant?</span><br>
     <label class="radio-inline" for="APAY">
@@ -179,80 +148,8 @@
     </label><br>
   </div>
 
-  <div class="mt-4 display_none" id="TenantNoticeSection">
-
-    <!-- Street Address Line 1 -->
-    <div class="form-group">
-      <label for="propertyTSAL1" class="bold">Tenant Notice Address Street Line 1*</label>
-      <input
-        type="text"
-        id="propertyTSAL1"
-        name="property[TSAL1]"
-        placeholder="Your Address"
-        class="form-control form-control-lg input-45"
-      >
-    </div>
-
-    <!-- Street Address Line 2 -->
-    <div class="form-group">
-      <label for="propertyTSAL2" class="bold">Tenant Notice Address Street Line 2</label>
-      <input
-        type="text"
-        id="propertyTSAL2"
-        name="property[TSAL2]"
-        placeholder="Your Address"
-        class="form-control form-control-lg input-45"
-      >
-    </div>
-
-    <!-- Postal, City, State -->
-    <div class="row">
-      <!-- Postal -->
-      <div class="col">
-        <div class="form-group">
-          <label for="propertyTNPostalCode" class="bold">Postal Code*</label>
-          <input
-            type="text"
-            data-from="tenant_notice"
-            placeholder="Zip Code"
-            id="propertyTNPostalCode"
-            name="property[TNPostalCode]"
-            class="form-control form-control-lg input-45 zipcode_interactive"
-          >
-          <span id="IncorrectZipCodeTN" class="error"></span>
-        </div>
-      </div>
-      <!-- City -->
-      <div class="col">
-        <div class="form-group">
-          <label for="propertyTNCity" class="bold">City*</label>
-          <input
-            disabled
-            type="text"
-            id="propertyTNCity"
-            placeholder="City"
-            name="property[TNCity]"
-            class="form-control form-control-lg input-45"
-          >
-        </div>
-      </div>
-      <!-- State -->
-      <div class="col">
-        <div class="form-group">
-          <label for="propertyTNState" class="bold">State*</label>
-          <input
-            disabled
-            type="text"
-            id="propertyTNState"
-            placeholder="State"
-            name="property[TNState]"
-            class="form-control form-control-lg input-45"
-          >
-        </div>
-      </div>
-    </div>
-
-  </div>
+  <!--  Tenant Notice Form -->
+  <%= render partial: 'properties/partials/tenant_notice_form' %>
 
   <hr>
 

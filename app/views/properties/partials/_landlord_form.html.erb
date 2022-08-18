@@ -1,0 +1,40 @@
+<!-- Landlord Contact Name -->
+<div class="form-group">
+  <label for="propertyLandlordContactName" class="bold">Landlord Contact Name*</label>
+  <input
+    type="text"
+    placeholder="Landlord Full Name"
+    id="propertyLandlordContactName"
+    name="property[LandlordContactName]"
+    class="form-control form-control-lg input-45"
+  >
+  <span class="error landlord_name_error"></span>
+</div>
+
+<!-- Landlord Contact Phone -->
+<div class="form-group">
+  <label for="propertyLandlordContactPhone" class="bold">Landlord Contact Phone*</label>
+  <input
+    type="text"
+    placeholder="Phone Number"
+    id="propertyLandlordContactPhone"
+    name="property[LandlordContactPhone]"
+    class="form-control form-control-lg input-45"
+    onkeypress="return event.charCode >= 48 && event.charCode <= 57"
+    oncopy="return false" oncut="return false" onpaste="return false"
+  >
+  <span class="error landlord_phone_error"></span>
+</div>
+
+<!-- Landlord Contact Email -->
+<div class="form-group">
+  <label for="propertyLandlordContactEmail" class="bold">Landlord Contact Email*</label>
+  <input
+    type="email"
+    placeholder="Enter Email Address"
+    id="propertyLandlordContactEmail"
+    name="property[LandlordContactEmail]"
+    class="form-control form-control-lg input-45"
+  >
+  <span class="error landlord_email_error"></span>
+</div>

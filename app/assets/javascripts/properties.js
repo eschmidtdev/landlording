@@ -152,7 +152,6 @@ $(document).ready(function () {
         const currently_leased              = $('.currently-leased:checked').val();
         const lease_start_date              = $('#propertyNewLeaseStartDate').val();
         const property_for_notice           = $('.asked-for-property:checked').val();
-
         const landlord_contact_name         = $('#propertyLandlordContactName').val();
         const landlord_contact_phone        = $('#propertyLandlordContactPhone').val();
         const landlord_contact_email        = $('#propertyLandlordContactEmail').val();
