@@ -2,13 +2,13 @@
 
 class PropertiesController < ApplicationController
   before_action :set_property, only: %i[edit destroy update]
-  before_action :validate_property, only: %i[create update]
+  before_action :validate_property, only: %i[create update fetch_landlord]
 
   include Responseable
 
   MESSAGES = {
-    updated: I18n.t('Properties.Updated'),
     created: I18n.t('Properties.Created'),
+    updated: I18n.t('Properties.Updated'),
     deleted: I18n.t('Properties.deleted')
   }.freeze
 
@@ -17,7 +17,7 @@ class PropertiesController < ApplicationController
   end
 
   def create
-    TransactPropertyService.call(merged_property_params, tenant_params)
+    Properties::CreatePropertyService.call(merged_property_params, tenant_params)
     flash[:notice] = MESSAGES[:created]
     redirect_to properties_url
   end
@@ -37,9 +37,6 @@ class PropertiesController < ApplicationController
   end
 
   def fetch_landlord
-    response = PropertyValidatorService.call(property_params.to_h, current_user)
-    return render_response(false, response[:message], response[:method], nil) unless response.nil?
-
     landlord_response = FetchLandlordService.call(current_user)
     render_response(landlord_response[:success], landlord_response[:message], landlord_response[:method], landlord_response[:url])
   end
@@ -72,9 +69,9 @@ class PropertiesController < ApplicationController
   def merged_property_params = property_params.merge({ user_id: current_user.id })
 
   def validate_property
-    response = PropertyValidatorService.call(property_params.to_h, current_user)
+    response = Validators::PropertyValidatorService.call(params[:action], property_params.to_h, current_user)
     unless response.nil?
-      render_response(false, response[:message], response[:method], nil)
+      render_response(false, response[:message], response[:method], response[:url])
     end
   end
 

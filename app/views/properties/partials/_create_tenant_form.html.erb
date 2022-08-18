@@ -1,5 +1,5 @@
 <%= stylesheet_link_tag 'properties' %>
-<div id="TenantSection">
+<div id="TenantSection" class="display_none">
 
   <div class="mt-3">
     <span class="font-18 bold">Add New Tenant</span>
@@ -16,7 +16,7 @@
             <input
               type="text"
               id="propertyNewTenantName"
-              placeholder="Enter Full Name"
+              placeholder="Tenant Name"
               name="property[NewTenantName][]"
               class="form-control form-control-lg input-45"
             >
@@ -31,7 +31,7 @@
                 <input
                   type="text"
                   id="propertyNewTenantPhone"
-                  placeholder="Enter Full Name"
+                  placeholder="Tenant Phone"
                   name="property[NewTenantPhone][]"
                   class="form-control form-control-lg input-45"
                   onkeypress="return event.charCode >= 48 && event.charCode <= 57"
@@ -47,7 +47,7 @@
                   type="email"
                   id="propertyNewTenantEmail"
                   name="property[NewTenantEmail][]"
-                  placeholder="Enter Email Address"
+                  placeholder="Tenant Email Address"
                   class="form-control form-control-lg input-45"
                 >
               </div>
@@ -100,7 +100,7 @@
               <input
                 type="text"
                 id="ADpropertyNewTenantName"
-                placeholder="Enter Full Name"
+                placeholder="Tenant Name"
                 name="ADproperty[NewTenantName][]"
                 class="form-control form-control-lg input-45"
               >
@@ -115,7 +115,7 @@
                   <input
                     type="text"
                     id="ADpropertyNewTenantPhone"
-                    placeholder="Enter Full Name"
+                    placeholder="Tenant Phone"
                     name="ADproperty[NewTenantPhone][]"
                     class="form-control form-control-lg input-45"
                     onkeypress="return event.charCode >= 48 && event.charCode <= 57"
@@ -131,7 +131,7 @@
                     type="email"
                     id="ADpropertyNewTenantEmail"
                     name="ADproperty[NewTenantEmail]"
-                    placeholder="Enter Email Address"
+                    placeholder="Tenant Email Address"
                     class="form-control form-control-lg input-45"
                   >
                 </div>
