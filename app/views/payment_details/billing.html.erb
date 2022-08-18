@@ -74,16 +74,16 @@
 
       <!-- Checkbox -->
       <div class="form-group">
-        <input type="checkbox"
-               class="fetch_account_address"
-               id="SameAccountAddress"
-               <%= 'checked' if payment_detail.is_address == true %>/>
+        <input
+          type="checkbox"
+          id="SameAccountAddress"
+          class="fetch_account_address"
+          <%= 'checked' if payment_detail.present? && payment_detail.is_address == true %>/>
         <label class="form-check-label remember-me" for="SameAsAccountAddress">Billing Address is same as Account
-          Setting
-          address</label>
+          Setting address</label>
       </div>
 
-      <div id="BillingAddressSection" class="<%= 'display_none' if payment_detail.is_address %>">
+      <div id="BillingAddressSection" class="<%= 'display_none' if payment_detail.present? && payment_detail.is_address %>">
         <h4 class="billing_form_heading my-4">Billing Address</h4>
 
         <!-- First & Last Name -->

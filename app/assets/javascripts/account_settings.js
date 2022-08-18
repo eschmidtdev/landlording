@@ -25,6 +25,7 @@ $(document).ready(function () {
 
     // Interactive Zipcodes
     $('input.zipcode_interactive').blur(function (data) {
+        $('#ASIncorrectZipCode').text('');
         const zipcode = $(this).val();
         const from = $(this).data('from');
         getCityState(zipcode, from)
@@ -33,11 +34,11 @@ $(document).ready(function () {
     function ajaxRequest(e) {
         e.preventDefault();
         disableButton();
+        const user_id = $('#accountSettingUserID').val();
         const last_name = $('#accountSettingLastName').val();
         const first_name = $('#accountSettingFirstName').val();
         const phone_number = $('#accountSettingPhoneNumber').val();
         const company_name = $('#accountSettingCompanyName').val();
-        const user_id = $('#accountSettingUserID').val();
         $.ajax({
             url: `/account_settings/${user_id}`,
             type: 'PUT',
@@ -117,20 +118,15 @@ $(document).ready(function () {
             type: 'GET',
             data: {},
             success: function (data) {
-                if (from === 'tenant_notice') {
-                    $('#propertyTNCity').attr('value', data.object.city);
-                    $('#propertyTNState').attr('value', data.object.state);
-                }
-                if (from === 'account_settings') {
-                    debugger;
-                    $('#accountSettingCity').attr('value', data.object.city);
-                    $('#accountSettingState').attr('value', data.object.state);
-                    $('#accountSettingCountry').attr('value', data.object.county);
+                if (data.success === true) {
+                    if (from === 'account_settings') {
+                        $('#accountSettingCity').attr('value', data.message.city);
+                        $('#accountSettingState').attr('value', data.message.state);
+                        $('#accountSettingCountry').attr('value', data.message.county);
+                    }
                 } else {
-                    $('#propertyCity').attr('value', data.object.city);
-                    $('#propertyState').attr('value', data.object.state);
+                    $('#ASIncorrectZipCode').text('').show().text(data.message);
                 }
-
             },
             error: function (exception) {
             }

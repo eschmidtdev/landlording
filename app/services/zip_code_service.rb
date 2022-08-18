@@ -27,7 +27,7 @@ class ZipCodeService < ApplicationService
 
   def return_city_state(zipcode)
     { success: true, message: { state: zipcode.state.name,
-                                county: zipcode.county.name,
+                                county: 'United States',
                                 city: zipcode.city.titleize }, method: nil, url: nil }
   end
 

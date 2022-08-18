@@ -12,7 +12,7 @@
       <!-- First Name -->
       <div class="col">
         <div class="form-group">
-          <label for="accountSettingFirstName" class="font-normal">First Name*</label>
+          <label for="accountSettingFirstName" class="bold">First Name*</label>
           <div class="fake-input-edit">
             <input
               type="text"
@@ -29,7 +29,7 @@
       <div class="col auto-flex-base">
         <!-- Last Name -->
         <div class="form-group">
-          <label for="accountSettingLastName" class="font-normal">Last Name*</label>
+          <label for="accountSettingLastName" class="bold">Last Name*</label>
           <div class="fake-input-edit">
             <input
               type="text"
@@ -47,7 +47,7 @@
 
     <!-- Company Name -->
     <div class="form-group">
-      <label for="accountSettingCompanyName" class="font-normal">Company Name (Optional)</label>
+      <label for="accountSettingCompanyName" class="bold">Company Name (Optional)</label>
       <div class="fake-input-edit">
         <input
           type="text"
@@ -62,7 +62,7 @@
 
     <!-- Email -->
     <div class="form-group">
-      <label for="accountSettingEmail" class="font-normal">Email</label>
+      <label for="accountSettingEmail" class="bold">Email</label>
       <input
         readonly
         type="email"
@@ -75,8 +75,8 @@
 
     <!-- Phone Number -->
     <div class="form-group">
-      <label for="accountSettingPhoneNumber" class="font-normal">Phone Number*</label>
-      <div class="fake-input">
+      <label for="accountSettingPhoneNumber" class="bold">Phone Number*</label>
+      <div class="fake-input-edit">
         <input
           type="text"
           id="accountSettingPhoneNumber"
@@ -91,7 +91,7 @@
 
     <!-- Address Line 1 -->
     <div class="form-group">
-      <label for="accountSettingAddressLine1" class="font-normal"><span class="setting_label">Address Line 1*</span></label>
+      <label for="accountSettingAddressLine1" class="bold"><span class="setting_label">Address Line 1*</span></label>
       <input
         type="text"
         id="accountSettingAddressLine1"
@@ -103,7 +103,7 @@
 
     <!-- Address Line 2 -->
     <div class="form-group">
-      <label for="accountSettingAddressLine2" class="font-normal"><span class="setting_label">Address Line 2*</span></label>
+      <label for="accountSettingAddressLine2" class="bold"><span class="setting_label">Address Line 2*</span></label>
       <input
         type="text"
         id="accountSettingAddressLine2"
@@ -118,7 +118,7 @@
       <!-- Postal Code -->
       <div class="col">
         <div class="form-group">
-          <label for="accountSettingPostalCode" class="font-normal"><span class="setting_label">Postal Code*</span></label>
+          <label for="accountSettingPostalCode" class="bold"><span class="setting_label">Postal Code*</span></label>
           <input
             type="text"
             placeholder="Zip Code"
@@ -128,12 +128,13 @@
             value="<%= check_for(current_user.postal_code) %>"
             class="form-control form-control-lg input-45 zipcode_interactive"
           >
+          <span id="ASIncorrectZipCode" class="error"></span>
         </div>
       </div>
       <!-- City -->
       <div class="col auto-flex-base">
         <div class="form-group">
-          <label for="accountSettingCity" class="font-normal"><span class="setting_label">City*</span></label>
+          <label for="accountSettingCity" class="bold"><span class="setting_label">City*</span></label>
           <input
             disabled
             type="text"
@@ -152,7 +153,7 @@
       <!-- State -->
       <div class="col">
         <div class="form-group">
-          <label for="accountSettingState" class="font-normal"><span class="setting_label">State*</span></label>
+          <label for="accountSettingState" class="bold"><span class="setting_label">State*</span></label>
           <input
             disabled
             type="text"
@@ -167,7 +168,7 @@
       <!-- Country -->
       <div class="col auto-flex-base">
         <div class="form-group">
-          <label for="accountSettingCountry" class="font-normal"><span class="setting_label">Country*</span></label>
+          <label for="accountSettingCountry" class="bold"><span class="setting_label">Country*</span></label>
           <input
             disabled
             type="text"
