@@ -134,33 +134,4 @@ $(document).ready(function () {
     //
     // });
 
-    // Interactive Zipcodes
-    $('input.zipcode_interactive').blur(function (data) {
-        $('#IncorrectZipCode').text('');
-        const zipcode = $(this).val();
-        const from = $(this).data('from');
-        getCityState(zipcode, from)
-    });
-
-    function getCityState(zipcode, from) {
-        $.ajax({
-            url: '/properties/get_zip_data/' + zipcode,
-            type: 'GET',
-            data: {},
-            success: function (data) {
-                if (data.success === true) {
-                    if (from === 'payment_details') {
-                        $('#BillingCity').attr('value', data.message.city);
-                        $('#BillingState').attr('value', data.message.state);
-                        $('#BillingCountry').attr('value', data.message.county);
-                    }
-                }else {
-                    $('#IncorrectZipCode').text('').show().text(data.message);
-                }
-            },
-            error: function (exception) {
-            }
-        });
-    }
-
 });

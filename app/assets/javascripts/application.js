@@ -36,20 +36,10 @@ $(document).ready(function () {
                         $('#propertyCity').attr('value', data.message.city);
                         $('#propertyState').attr('value', data.message.state);
                     }
-                    else if (from === 'create_property_tenant'){
-                        $('#createZipErrTN').text('');
-                        $('#propertyTNCity').attr('value', data.message.city);
-                        $('#propertyTNState').attr('value', data.message.state);
-                    }
                     else if (from === 'update_property'){
                         $('#updateZipErr').text('');
                         $('#EpropertyCity').attr('value', data.message.city);
                         $('#EpropertyState').attr('value', data.message.state);
-                    }
-                    else if (from === 'update_property_tenant'){
-                        $('#updateZipErrTN').text('');
-                        $('#EpropertyTNCity').attr('value', data.message.city);
-                        $('#EpropertyTNState').attr('value', data.message.state);
                     }
                     else if (from === 'account_settings'){
                         $('#updateAccountSettingErr').text('');
@@ -57,27 +47,45 @@ $(document).ready(function () {
                         $('#accountSettingState').attr('value', data.message.state);
                         $('#accountSettingCountry').attr('value', data.message.county);
                     }
-                }
-                else {
-                    if (from === 'create_property'){
-                        $('#createZipErr').text('').show().text(data.message);
+                    else if (from === 'payment_details') {
+                        $('#BillingCity').attr('value', data.message.city);
+                        $('#BillingState').attr('value', data.message.state);
+                        $('#BillingCountry').attr('value', data.message.county);
                     }
                     else if (from === 'create_property_tenant'){
-                        $('#createZipErrTN').text('').show().text(data.message);
+                        $('#createZipErrTN').text('');
+                        $('#propertyTNCity').attr('value', data.message.city);
+                        $('#propertyTNState').attr('value', data.message.state);
+                    }
+                    else if (from === 'update_property_tenant'){
+                        $('#updateZipErrTN').text('');
+                        $('#EpropertyTNCity').attr('value', data.message.city);
+                        $('#EpropertyTNState').attr('value', data.message.state);
+                    }
+                }
+                else {
+                    if (from === 'payment_details'){
+                        $('#IncorrectZipCode').text('').show().text(data.message);
+                    }
+                    else if (from === 'create_property'){
+                        $('#createZipErr').text('').show().text(data.message);
                     }
                     else if (from === 'update_property'){
                         $('#updateZipErr').text('').show().text(data.message);
                     }
-                    else if (from === 'update_property_tenant'){
-                        $('#updateZipErrTN').text('').show().text(data.message);
-                    }
                     else if (from === 'account_settings'){
                         $('#updateAccountSettingErr').text('').show().text(data.message);
                     }
+                    else if (from === 'update_property_tenant'){
+                        $('#updateZipErrTN').text('').show().text(data.message);
+                    }
+                    else if (from === 'create_property_tenant'){
+                        $('#createZipErrTN').text('').show().text(data.message);
+                    }
+
                 }
             },
-            error: function (exception) {
-            }
+            error: function (exception) {}
         });
     }
 
