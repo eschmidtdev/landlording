@@ -33,14 +33,6 @@ $(document).ready(function () {
         ajaxDeleteReq(userID);
     });
 
-    // Interactive Zipcodes
-    $('input.zipcode_interactive').blur(function (data) {
-        $('#ASIncorrectZipCode').text('');
-        const zipcode = $(this).val();
-        const from = $(this).data('from');
-        getCityState(zipcode, from)
-    });
-
     function ajaxRequest(e) {
         e.preventDefault();
         disableButton();
@@ -128,27 +120,6 @@ $(document).ready(function () {
 
     function clearErrors() {
         $('.error_alert').text('').addClass('display_none');
-    }
-
-    function getCityState(zipcode, from) {
-        $.ajax({
-            url: '/properties/get_zip_data/' + zipcode,
-            type: 'GET',
-            data: {},
-            success: function (data) {
-                if (data.success === true) {
-                    if (from === 'account_settings') {
-                        $('#accountSettingCity').attr('value', data.message.city);
-                        $('#accountSettingState').attr('value', data.message.state);
-                        $('#accountSettingCountry').attr('value', data.message.county);
-                    }
-                } else {
-                    $('#ASIncorrectZipCode').text('').show().text(data.message);
-                }
-            },
-            error: function (exception) {
-            }
-        });
     }
 
 });

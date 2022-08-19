@@ -109,7 +109,6 @@ $(document).ready(function () {
             },
             success: function (data) {
                 if (data.success === true) {
-                    debugger;
                     city.prop('disabled', true).attr('value', data.user.city);
                     state.prop('disabled', true).attr('value', data.user.state);
                     country.prop('disabled', true).attr('value', data.user.country);

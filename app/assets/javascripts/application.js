@@ -42,7 +42,6 @@ $(document).ready(function () {
                         $('#propertyTNState').attr('value', data.message.state);
                     }
                     else if (from === 'update_property'){
-                        debugger;
                         $('#updateZipErr').text('');
                         $('#EpropertyCity').attr('value', data.message.city);
                         $('#EpropertyState').attr('value', data.message.state);
@@ -52,19 +51,28 @@ $(document).ready(function () {
                         $('#EpropertyTNCity').attr('value', data.message.city);
                         $('#EpropertyTNState').attr('value', data.message.state);
                     }
+                    else if (from === 'account_settings'){
+                        $('#updateAccountSettingErr').text('');
+                        $('#accountSettingCity').attr('value', data.message.city);
+                        $('#accountSettingState').attr('value', data.message.state);
+                        $('#accountSettingCountry').attr('value', data.message.county);
+                    }
                 }
                 else {
                     if (from === 'create_property'){
                         $('#createZipErr').text('').show().text(data.message);
                     }
-                    if (from === 'create_property_tenant'){
+                    else if (from === 'create_property_tenant'){
                         $('#createZipErrTN').text('').show().text(data.message);
                     }
-                    if (from === 'update_property'){
+                    else if (from === 'update_property'){
                         $('#updateZipErr').text('').show().text(data.message);
                     }
-                    if (from === 'update_property_tenant'){
+                    else if (from === 'update_property_tenant'){
                         $('#updateZipErrTN').text('').show().text(data.message);
+                    }
+                    else if (from === 'account_settings'){
+                        $('#updateAccountSettingErr').text('').show().text(data.message);
                     }
                 }
             },
