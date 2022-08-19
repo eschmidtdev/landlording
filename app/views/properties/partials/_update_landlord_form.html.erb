@@ -1,0 +1,43 @@
+<!-- Landlord Contact Name -->
+<div class="form-group">
+  <label for="EpropertyLandlordContactName" class="bold">Landlord Contact Name*</label>
+  <input
+    type="text"
+    <%= disabled?(property, 'name') %>
+    placeholder="Landlord Full Name"
+    id="EpropertyLandlordContactName"
+    name="Eproperty[LandlordContactName]"
+    class="form-control form-control-lg input-45"
+    value="<%= check_for(property.landlord_contact_name) %>"
+  >
+</div>
+
+<!-- Landlord Contact Phone -->
+<div class="form-group">
+  <label for="EpropertyLandlordContactPhone" class="bold">Landlord Contact Phone*</label>
+  <input
+    type="text"
+    <%= disabled?(property, 'phone') %>
+    placeholder="Phone Number"
+    id="EpropertyLandlordContactPhone"
+    name="Eproperty[LandlordContactPhone]"
+    class="form-control form-control-lg input-45"
+    value="<%= check_for(property.landlord_contact_phone) %>"
+    onkeypress="return event.charCode >= 48 && event.charCode <= 57"
+    oncopy="return false" oncut="return false" onpaste="return false"
+  >
+</div>
+
+<!-- Landlord Contact Email -->
+<div class="form-group">
+  <label for="EpropertyLandlordContactEmail" class="bold">Landlord Contact Email*</label>
+  <input
+    type="email"
+    <%= disabled?(property, 'email') %>
+    placeholder="Enter Email Address"
+    id="EpropertyLandlordContactEmail"
+    name="Eproperty[LandlordContactEmail]"
+    class="form-control form-control-lg input-45"
+    value="<%= check_for(property.landlord_contact_email) %>"
+  >
+</div>

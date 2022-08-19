@@ -49,10 +49,12 @@
           type="text"
           placeholder="Zip Code"
           id="EpropertyPostalCode"
+          data-from="update_property"
           name="Eproperty[PostalCode]"
-          class="form-control form-control-lg input-45"
+          class="form-control form-control-lg input-45 zipcode_interactive"
           value="<%= check_for(property.postal_code) %>"
         >
+        <span id="IncorrectZipCode" class="error"></span>
       </div>
     </div>
     <!-- City -->
@@ -111,57 +113,20 @@
     </div>
   </div>
 
+  <!-------------------------------- Landlord Section -------------------------------->
+
+  <!-- Landlord Toggle -->
   <div class="form-check form-check-inline desktop-margin my-4">
     <input type="checkbox" class="form-check-input" id="EpropertyLandlordInfo" <%= 'checked' if property.saved_landlord %>>
     <label class="form-check-label mt-mob-22 bold" for="EpropertyLandlordInfo">Same landlord contact info as found in
       your Account Settings?</label>
   </div>
 
-  <!-- Landlord Contact Name -->
-  <div class="form-group">
-    <label for="EpropertyLandlordContactName" class="bold">Landlord Contact Name*</label>
-    <input
-      type="text"
-      <%= disabled?(property, 'name') %>
-      placeholder="Landlord Full Name"
-      id="EpropertyLandlordContactName"
-      name="Eproperty[LandlordContactName]"
-      class="form-control form-control-lg input-45"
-      value="<%= check_for(property.landlord_contact_name) %>"
-    >
-  </div>
+  <%= render partial: 'properties/partials/update_landlord_form', locals: { property: @property } %>
 
-  <!-- Landlord Contact Phone -->
-  <div class="form-group">
-    <label for="EpropertyLandlordContactPhone" class="bold">Landlord Contact Phone*</label>
-    <input
-      type="text"
-      <%= disabled?(property, 'phone') %>
-      placeholder="Phone Number"
-      id="EpropertyLandlordContactPhone"
-      name="Eproperty[LandlordContactPhone]"
-      class="form-control form-control-lg input-45"
-      value="<%= check_for(property.landlord_contact_phone) %>"
-      onkeypress="return event.charCode >= 48 && event.charCode <= 57"
-      oncopy="return false" oncut="return false" onpaste="return false"
-    >
-  </div>
+  <!-------------------------------- Update Tenant Section -------------------------------->
 
-  <!-- Landlord Contact Email -->
-  <div class="form-group">
-    <label for="EpropertyLandlordContactEmail" class="bold">Landlord Contact Email*</label>
-    <input
-      type="email"
-      <%= disabled?(property, 'email') %>
-      placeholder="Enter Email Address"
-      id="EpropertyLandlordContactEmail"
-      name="Eproperty[LandlordContactEmail]"
-      class="form-control form-control-lg input-45"
-      value="<%= check_for(property.landlord_contact_email) %>"
-    >
-  </div>
-
-  <!-- Radio Buttons -->
+  <!-- Tenant Toggle -->
   <div class="my-4">
     <span class="radio-label bold">Currently Leased?</span>
     <label class="radio-inline" for="ECLY">
@@ -172,10 +137,12 @@
     </label><br>
   </div>
 
-
   <!-- Add New Tenant -->
   <%= render partial: 'properties/partials/update_tenant_form', locals: { property: @property } %>
 
+  <!-------------------------------- Update Tenant Notice Section -------------------------------->
+
+  <!--  Tenant Notice Toggle -->
   <div class="mt-4">
     <span class="radio-label bold">Will the property address also be used for notices sent to the tenant?</span><br>
     <label class="radio-inline" for="EAPAY">
@@ -186,85 +153,7 @@
     </label><br>
   </div>
 
-  <div class="mt-4 <%= 'display_none' if property.property_for_notice %>" id="EditTenantNoticeSection">
-
-    <!-- Street Address Line 1 -->
-    <div class="form-group">
-      <label for="EpropertyTSAL1" class="bold">Tenant Notice Address Street Line 1*</label>
-      <input
-        type="text"
-        id="EpropertyTSAL1"
-        name="Eproperty[TSAL1]"
-        placeholder="Your Address"
-        class="form-control form-control-lg input-45"
-        value="<%= check_for(property.tenant_notice_street_line_one) %>"
-      >
-    </div>
-
-    <!-- Street Address Line 2 -->
-    <div class="form-group">
-      <label for="EpropertyTSAL2" class="bold">Tenant Notice Address Street Line 2</label>
-      <input
-        type="text"
-        id="EpropertyTSAL2"
-        name="Eproperty[TSAL2]"
-        placeholder="Your Address"
-        class="form-control form-control-lg input-45"
-        value="<%= check_for(property.tenant_notice_street_line_two) %>"
-      >
-    </div>
-
-    <!-- Postal, City, State -->
-    <div class="row">
-      <!-- Postal -->
-      <div class="col">
-        <div class="form-group">
-          <label for="EpropertyTNPostalCode" class="bold">Postal Code*</label>
-          <input
-            type="text"
-            data-from="tenant_notice"
-            placeholder="Zip Code"
-            id="EpropertyTNPostalCode"
-            name="Eproperty[TNPostalCode]"
-            class="form-control form-control-lg input-45 zipcode_interactive"
-            value="<%= check_for(property.tenant_notice_postal_code) %>"
-          >
-          <span id="IncorrectZipCodeTN" class="error"></span>
-        </div>
-      </div>
-      <!-- City -->
-      <div class="col">
-        <div class="form-group">
-          <label for="EpropertyTNCity" class="bold">City*</label>
-          <input
-            disabled
-            type="text"
-            id="EpropertyTNCity"
-            placeholder="City"
-            name="Eproperty[TNCity]"
-            class="form-control form-control-lg input-45"
-            value="<%= check_for(property.tenant_notice_city) %>"
-          >
-        </div>
-      </div>
-      <!-- State -->
-      <div class="col">
-        <div class="form-group">
-          <label for="EpropertyTNState" class="bold">State*</label>
-          <input
-            disabled
-            type="text"
-            id="EpropertyTNState"
-            placeholder="State"
-            name="Eproperty[TNState]"
-            class="form-control form-control-lg input-45"
-            value="<%= check_for(property.tenant_notice_state) %>"
-          >
-        </div>
-      </div>
-    </div>
-
-  </div>
+  <%= render partial: 'properties/partials/update_tenant_notice_form', locals: { property: @property } %>
 
   <hr>
 

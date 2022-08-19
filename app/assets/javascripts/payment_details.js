@@ -74,14 +74,14 @@ $(document).ready(function () {
         return false;
     }
 
-    $('.fetch_account_address').change(function () {
-        const checkbox = $(this);
+    $('.fetch-account-address').change(function () {
+        const checkbox = $('#SameAccountAddress');
         if (checkbox.is(":checked")) {
-            getLandLordInfo();
+            getAccountSettingInfo();
         }
     });
 
-    function getLandLordInfo() {
+    function getAccountSettingInfo() {
         const company          = $('#BillingCN');
         const last_name        = $('#BillingFN');
         const first_name       = $('#BillingLN');
@@ -109,6 +109,7 @@ $(document).ready(function () {
             },
             success: function (data) {
                 if (data.success === true) {
+                    debugger;
                     city.prop('disabled', true).attr('value', data.user.city);
                     state.prop('disabled', true).attr('value', data.user.state);
                     country.prop('disabled', true).attr('value', data.user.country);
@@ -125,17 +126,18 @@ $(document).ready(function () {
         });
     }
 
-    $('#SameAccountAddress').change(function () {
-        if ($(this).prop('checked') === true) {
-            $('#BillingAddressSection').hide();
-        } else if ($(this).prop('checked') === false) {
-            $('#BillingAddressSection').show();
-        }
-
-    });
+    // $('#SameAccountAddress').change(function () {
+    //     if ($(this).prop('checked') === true) {
+    //         $('#BillingAddressSection').hide();
+    //     } else if ($(this).prop('checked') === false) {
+    //         $('#BillingAddressSection').show();
+    //     }
+    //
+    // });
 
     // Interactive Zipcodes
     $('input.zipcode_interactive').blur(function (data) {
+        $('#IncorrectZipCode').text('');
         const zipcode = $(this).val();
         const from = $(this).data('from');
         getCityState(zipcode, from)
@@ -147,18 +149,15 @@ $(document).ready(function () {
             type: 'GET',
             data: {},
             success: function (data) {
-                if (from === 'tenant_notice') {
-                    $('#propertyTNCity').attr('value', data.object.city);
-                    $('#propertyTNState').attr('value', data.object.state);
-                } else if (from === 'payment_details') {
-                    $('#BillingCity').attr('value', data.object.city);
-                    $('#BillingState').attr('value', data.object.state);
-                    $('#BillingCountry').attr('value', data.object.state);
-                } else {
-                    $('#propertyCity').attr('value', data.object.city);
-                    $('#propertyState').attr('value', data.object.state);
+                if (data.success === true) {
+                    if (from === 'payment_details') {
+                        $('#BillingCity').attr('value', data.message.city);
+                        $('#BillingState').attr('value', data.message.state);
+                        $('#BillingCountry').attr('value', data.message.county);
+                    }
+                }else {
+                    $('#IncorrectZipCode').text('').show().text(data.message);
                 }
-
             },
             error: function (exception) {
             }

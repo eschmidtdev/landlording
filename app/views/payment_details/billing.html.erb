@@ -17,7 +17,7 @@
 
       <!-- Card Number -->
       <div class="form-group">
-        <label for="BillingCardNumber" class="font-normal"><span class="setting_label">Card Number*</span></label>
+        <label for="BillingCardNumber" class="font-normal"><span class="bold">Card Number*</span></label>
         <input
           type="text"
           maxlength="16"
@@ -37,7 +37,7 @@
         <!-- Expiration -->
         <div class="col">
           <div class="form-group">
-            <label for="BillingEXP" class="font-normal"><span class="setting_label">Expiration*</span></label>
+            <label for="BillingEXP" class="font-normal"><span class="bold">Expiration*</span></label>
             <input
               type="text"
               maxlength="4"
@@ -55,7 +55,7 @@
         <!-- CVC -->
         <div class="col auto-flex-base">
           <div class="form-group">
-            <label for="BillingCVC" class="font-normal"><span class="setting_label">Security Code*</span></label>
+            <label for="BillingCVC" class="font-normal"><span class="bold">Security Code*</span></label>
             <input
               type="text"
               maxlength="3"
@@ -77,7 +77,7 @@
         <input
           type="checkbox"
           id="SameAccountAddress"
-          class="fetch_account_address"
+          class="fetch-account-address"
           <%= 'checked' if payment_detail.present? && payment_detail.is_address == true %>/>
         <label class="form-check-label remember-me" for="SameAsAccountAddress">Billing Address is same as Account
           Setting address</label>
@@ -91,7 +91,7 @@
           <!-- First Name -->
           <div class="col">
             <div class="form-group">
-              <label for="BillingFN" class="font-normal"><span class="setting_label">First Name*</span></label>
+              <label for="BillingFN" class="font-normal"><span class="bold">First Name*</span></label>
               <input
                 type="text"
                 id="BillingFN"
@@ -106,7 +106,7 @@
           <!-- Last Name -->
           <div class="col auto-flex-base">
             <div class="form-group">
-              <label for="BillingLN" class="font-normal"><span class="setting_label">Last Name*</span></label>
+              <label for="BillingLN" class="font-normal"><span class="bold">Last Name*</span></label>
               <input
                 type="text"
                 id="BillingLN"
@@ -123,7 +123,7 @@
 
         <!-- Company Name -->
         <div class="form-group">
-          <label for="BillingCN" class="font-normal"><span class="setting_label">Company (Optional)</span></label>
+          <label for="BillingCN" class="font-normal"><span class="bold">Company (Optional)</span></label>
           <input
             type="text"
             id="BillingCN"
@@ -136,7 +136,7 @@
 
         <!-- Address Line 1 -->
         <div class="form-group">
-          <label for="BillingAL1" class="font-normal"><span class="setting_label">Address Line 1*</span></label>
+          <label for="BillingAL1" class="font-normal"><span class="bold">Address Line 1*</span></label>
           <input
             type="text"
             id="BillingAL1"
@@ -149,7 +149,7 @@
 
         <!-- Address Line 2 -->
         <div class="form-group">
-          <label for="BillingAL2" class="font-normal"><span class="setting_label">Address Line 2</span></label>
+          <label for="BillingAL2" class="font-normal"><span class="bold">Address Line 2</span></label>
           <input
             type="text"
             id="BillingAL2"
@@ -165,7 +165,7 @@
           <!-- Postal Code -->
           <div class="col">
             <div class="form-group">
-              <label for="BillingPC" class="font-normal"><span class="setting_label">Postal Code*</span></label>
+              <label for="BillingPC" class="font-normal"><span class="bold">Postal Code*</span></label>
               <input
                 type="text"
                 id="BillingPC"
@@ -176,12 +176,13 @@
                 value="<%= check_for(payment_detail&.postal_code) %>"
                 class="form-control form-control-lg input-45 zipcode_interactive"
               >
+              <span id="IncorrectZipCode" class="error"></span>
             </div>
           </div>
           <!-- City -->
           <div class="col auto-flex-base">
             <div class="form-group">
-              <label for="BillingCity" class="font-normal"><span class="setting_label">City*</span></label>
+              <label for="BillingCity" class="font-normal"><span class="bold">City*</span></label>
               <input
                 disabled
                 type="text"
@@ -202,7 +203,7 @@
           <!-- State -->
           <div class="col">
             <div class="form-group">
-              <label for="BillingState" class="font-normal"><span class="setting_label">State *</span></label>
+              <label for="BillingState" class="font-normal"><span class="bold">State *</span></label>
               <input
                 disabled
                 type="text"
@@ -218,7 +219,7 @@
           <!-- Country -->
           <div class="col">
             <div class="form-group">
-              <label for="BillingCountry" class="font-normal"><span class="setting_label">Country *</span></label>
+              <label for="BillingCountry" class="font-normal"><span class="bold">Country *</span></label>
               <input
                 disabled
                 type="text"

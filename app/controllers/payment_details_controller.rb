@@ -12,25 +12,20 @@ class PaymentDetailsController < ApplicationController
       payment_detail = PaymentDetail.new(payment_detail_params)
       if payment_detail.save!
         flash[:notice] = 'Payment details were successfully added.'
-        redirect_to account_url
       else
         flash[:error] = payment_detail.error.full_messages
-        redirect_to
       end
+      redirect_to account_setting_path
     else
       if @payment_detail.update(payment_detail_params)
         flash[:notice] = 'Payment details were successfully updated.'
-        redirect_to account_url
+        redirect_to account_setting_path
       end
     end
   end
 
   def fetch_landlord
-    return_user(current_user)
-    if @payment_detail.update(payment_detail_params)
-      flash[:notice] = 'Payment details were successfully updated.'
-      redirect_to account_url
-    end
+    user_obj(current_user)
   end
 
   private
@@ -38,14 +33,10 @@ class PaymentDetailsController < ApplicationController
   def set_payment_detail = @payment_detail = User.find(params[:id]).payment_detail
 
   def payment_detail_params
-    params.require(:payment_detail).permit(white_list_params)
+    params.require(:payment_detail).permit(PaymentDetail.column_names.reject { |k| ['id'].include?(k) }.map(&:to_sym))
   end
 
-  def white_list_params
-    PaymentDetail.column_names.reject { |k| ['id'].include?(k) }.map(&:to_sym)
-  end
-
-  def return_user(user)
+  def user_obj(user)
     render json: {
       success: true,
       user: {
