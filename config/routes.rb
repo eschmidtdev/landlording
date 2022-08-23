@@ -32,6 +32,7 @@ Rails.application.routes.draw do
   resources :account_settings, except: :index do
     member do
       get '/change/password', to: 'account_settings#change_password'
+      put '/change/password', to: 'account_settings#update_password'
     end
   end
   resources :rental_applications, only: :index

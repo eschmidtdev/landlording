@@ -1,7 +1,9 @@
 # frozen_string_literal: true
 
 class AccountSettingsUpdateService < ApplicationService
-  attr_reader :settings_params, :user
+  attr_reader :request, :settings_params, :user
+
+  include Devise::Controllers::SignInOut
 
   MESSAGES = {
     updated: I18n.t('AccountSettings.Updated'),
@@ -10,26 +12,27 @@ class AccountSettingsUpdateService < ApplicationService
     info_not_updated: I18n.t('AccountSettings.InfoNotUpdated')
   }.freeze
 
-  def initialize(params, user)
+  def initialize(request, params, user)
     @user            = user
+    @request         = request
     @settings_params = params
   end
 
   def call
-    return update_password if change_password?
-
-    update_account_settings
-  end
-
-  def change_password?
-    settings_params['from'] == 'ChangePassword'
+    case request
+    when 'update'
+      update_account_settings
+    when 'update_password'
+      update_password
+    else
+      # type code here
+    end
   end
 
   def update_password
     new_password  = settings_params['new_password']
     user.password = user.password_confirmation = new_password
     if user.save
-      bypass_sign_in(user)
       { success: true, message: MESSAGES[:updated] }
     else
       { success: false, message: MESSAGES[:not_updated] }

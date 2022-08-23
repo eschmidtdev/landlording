@@ -1,12 +1,13 @@
 # frozen_string_literal: true
 
 class PaymentDetailsController < ApplicationController
-  before_action :set_payment_detail, only: %i[update]
+  before_action :set_payment_detail, only: :update
+  before_action :validate_payment_detail, only: :update
 
-  def billing
-  end
+  def billing; end
 
   def update
+    binding.pry
     if params[:payment_detail][:from].present?
       payment_detail = PaymentDetail.new(payment_detail_params)
       if payment_detail.save!
@@ -24,18 +25,7 @@ class PaymentDetailsController < ApplicationController
   end
 
   def fetch_landlord
-    user_obj(current_user)
-  end
-
-  private
-
-  def set_payment_detail = @payment_detail = User.find(params[:id]).payment_detail
-
-  def payment_detail_params
-    params.require(:payment_detail).permit(PaymentDetail.column_names.reject { |k| ['id'].include?(k) }.map(&:to_sym))
-  end
-
-  def user_obj(user)
+    user = current_user
     render json: {
       success: true,
       user: {
@@ -50,6 +40,23 @@ class PaymentDetailsController < ApplicationController
         address_line_two: user.address_line_two
       }
     }
+  end
+
+  private
+
+  def set_payment_detail = @payment_detail = User.find(params[:id]).payment_detail
+
+  def payment_detail_params
+    params.require(:payment_detail).permit(PaymentDetail.column_names.reject { |k| ['id'].include?(k) }.map(&:to_sym))
+  end
+
+  def validate_payment_detail
+    binding.pry
+    response = Validators::PaymentDetailsValidator.call(params[:action], payment_detail_params.to_h, @payment_detail)
+    unless response.nil?
+      flash[:notice] = response[:message]
+      redirect_to billing_path
+    end
   end
 
 end

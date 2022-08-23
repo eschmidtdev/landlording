@@ -9,11 +9,11 @@ $(document).ready(function () {
             },
             messages: {
                 'Setting[CP]': {
-                    required: 'Current Password is required',
+                    required:  'Current Password is required',
                     minlength: 'Password is too short (minimum is 8 characters)'
                 },
                 'Setting[NP]': {
-                    required: 'New Password is required',
+                    required:  'New Password is required',
                     minlength: 'Password is too short (minimum is 8 characters)'
                 },
                 'Setting[CNP]': {required: 'Confirm New Password is required'},
@@ -27,66 +27,28 @@ $(document).ready(function () {
     function ajaxReqUpdatePassword(e) {
         e.preventDefault();
         disableButton();
-        const new_password = $('#SettingNP').val();
+        const new_password     = $('#SettingNP').val();
         const current_password = $('#SettingCP').val();
         const confirm_password = $('#SettingCNP').val();
-        const user_id = $('#AccSettingPassUpdateUID').val();
+        const user_id          = $('#AccSettingPassUpdateUID').val();
         $.ajax({
-            url: `/account_settings/${user_id}`,
+            url: `/account_settings/${user_id}/change/password`,
             type: 'PUT',
             data: {
                 account_setting: {
-                    new_password: new_password,
-                    from: 'ChangePassword',
+                    new_password:     new_password,
                     current_password: current_password,
                     confirm_password: confirm_password
                 }
             },
-            success: function (data) {
-                response_handler(data);
-            },
-            error: function (exception) {
-            }
+            success: function (data) {},
+            error: function (exception) {}
         });
         return false;
     }
 
-    function enableButton() {
-        $('#SavePersonalInfo').prop('disabled', false);
-    }
-
     function disableButton() {
         $('#SavePersonalInfo').prop('disabled', true);
-    }
-
-    function response_handler(data) {
-        clearErrors();
-        if (data.success === true) {
-            render_response(data);
-        }
-        else if (data.success === false) {
-            render_conditional_response(data);
-        }
-        enableButton();
-    }
-
-    function render_response(data) {
-        $("#ChangePassword").trigger("reset");
-        $('.success_alert')
-            .text('')
-            .show()
-            .append(data.message)
-            .delay(2000)
-            .fadeOut(300);
-    }
-
-    function render_conditional_response(data) {
-        if (data.method === 'invalid?') {
-            $('#PassIncorrect').text('').show().text(data.message);
-        }
-        else if(data.method === 'doesnt_match?'){
-            $('#PasswordError').text('').show().text(data.message);
-        }
     }
 
     function clearErrors() {
