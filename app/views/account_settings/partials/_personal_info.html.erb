@@ -1,15 +1,11 @@
 <div class="personal-info-rectangle">
 
-  <!-- Personal Information -->
   <span class="heading bold">Personal Information</span>
 
-  <!-- Personal Information Form -->
   <form name="personal_info" class="mt-4">
     <input type="hidden" value="<%= current_user.id %>" id="accountSettingUserID">
 
-    <!-- First & Last Name -->
     <div class="row">
-      <!-- First Name -->
       <div class="col">
         <div class="form-group">
           <label for="accountSettingFirstName" class="bold">First Name*</label>
@@ -25,9 +21,7 @@
           </div>
         </div>
       </div>
-      <!-- Last Name -->
       <div class="col auto-flex-base">
-        <!-- Last Name -->
         <div class="form-group">
           <label for="accountSettingLastName" class="bold">Last Name*</label>
           <div class="fake-input-edit">
@@ -45,7 +39,6 @@
 
     </div>
 
-    <!-- Company Name -->
     <div class="form-group">
       <label for="accountSettingCompanyName" class="bold">Company Name (Optional)</label>
       <div class="fake-input-edit">
@@ -60,7 +53,6 @@
       </div>
     </div>
 
-    <!-- Email -->
     <div class="form-group">
       <label for="accountSettingEmail" class="bold">Email</label>
       <input
@@ -73,7 +65,6 @@
       <span class="instruction opacity-0-5">Email address cannot be changed</span>
     </div>
 
-    <!-- Phone Number -->
     <div class="form-group">
       <label for="accountSettingPhoneNumber" class="bold">Phone Number*</label>
       <div class="fake-input-edit">
@@ -89,7 +80,6 @@
       </div>
     </div>
 
-    <!-- Address Line 1 -->
     <div class="form-group">
       <label for="accountSettingAddressLine1" class="bold"><span class="setting_label">Address Line 1*</span></label>
       <input
@@ -101,7 +91,6 @@
       >
     </div>
 
-    <!-- Address Line 2 -->
     <div class="form-group">
       <label for="accountSettingAddressLine2" class="bold"><span class="setting_label">Address Line 2</span></label>
       <input
@@ -113,9 +102,7 @@
       >
     </div>
 
-    <!-- Postal Code & City -->
     <div class="row">
-      <!-- Postal Code -->
       <div class="col">
         <div class="form-group">
           <label for="accountSettingPostalCode" class="bold"><span class="setting_label">Postal Code*</span></label>
@@ -131,7 +118,6 @@
           <span id="updateAccountSettingErr" class="error"></span>
         </div>
       </div>
-      <!-- City -->
       <div class="col auto-flex-base">
         <div class="form-group">
           <label for="accountSettingCity" class="bold"><span class="setting_label">City*</span></label>
@@ -148,9 +134,7 @@
       </div>
     </div>
 
-    <!-- State & Country -->
     <div class="row">
-      <!-- State -->
       <div class="col">
         <div class="form-group">
           <label for="accountSettingState" class="bold"><span class="setting_label">State*</span></label>
@@ -165,7 +149,6 @@
           >
         </div>
       </div>
-      <!-- Country -->
       <div class="col auto-flex-base">
         <div class="form-group">
           <label for="accountSettingCountry" class="bold"><span class="setting_label">Country*</span></label>
@@ -182,35 +165,10 @@
       </div>
     </div>
 
-    <!--    Removed as per doc requirements -->
-    <!-- Password -->
-    <!--    <div class="form-group">-->
-    <!--      <label for="accountSettingPassword">Password</label>-->
-    <!--      <input-->
-    <!--        type="password"-->
-    <!--        id="accountSettingPassword"-->
-    <!--        name="accountSetting[Password]"-->
-    <!--        class="form-control form-control-lg input-45"-->
-    <!--      >-->
-    <!--      <span class="instruction opacity-0-5">Want to change the password?</span>-->
-    <%#= link_to 'Change Password',
-                  change_password_account_setting_path(1),
-                  class: 'password-link bold ml-1'
-    %>
-    <!--    </div>-->
-    <!--    Removed as per doc requirements -->
-
-    <!--    Change Password -->
-
     <div class="my-3">
-      <%= link_to 'Change Password',
-                  change_password_account_setting_path(1),
-                  class: 'password-link bold ml-1',
-                  style: 'font-size: 14px;'
-      %>
+      <%= link_to 'Change Password', change_password_account_setting_path(1), class: 'password-link bold ml-1', style: 'font-size: 14px;' %>
     </div>
 
-    <!-- Buttons -->
     <div class="d-flex justify-content-start">
       <button type="submit" class="create-button" id="SavePersonalInfo">Save</button>
       <button type="button" class="cancel-button ml-3">Cancel</button>

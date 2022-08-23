@@ -1,6 +1,5 @@
 <div class="billing-rectangle mb-5">
 
-  <!-- Billing Details Heading -->
   <div class="row">
     <div class="col-md-12 p-0 mt-3">
       <div class="col-md-6">
@@ -9,7 +8,6 @@
     </div>
   </div>
 
-  <!-- Billing Details Cards -->
   <div class="mt-3">
     <div class="row">
       <div class="col-sm-6">
@@ -18,12 +16,10 @@
 
             <% if current_user.payment_detail.present? %>
               <div class="d-flex justify-content-between">
-                <!-- Brand Image-->
                 <div class="brand-container">
                   <%= image_tag 'account_settings/master_card_logo.svg', class: ' pull-left mt-1', width: '30' %>
                   <br>
                 </div>
-                <!-- Options -->
                 <div class="dropdown">
                   <a type="button" id="dropdownMenuButton" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
                     <%= image_tag 'global_images/more.svg', width: '20' %>
@@ -53,7 +49,6 @@
                   </div>
                 </div>
               </div>
-              <!-- Card Number -->
               <span class="number"><%= card_number(current_user) %></span><br>
               <span class="expiry opacity-0-75"><%= expiry_date(current_user) %></span><br>
               <span class="expiry opacity-0-75"><%= billing_address(current_user) %></span><br>

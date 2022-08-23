@@ -1,14 +1,11 @@
 <div class="subscription-rectangle">
   <div class="container mb-4">
-    <!-- Subscription Heading -->
     <div class="d-flex justify-content-between mt-3">
       <span class="pull-left heading bold">My Subscription</span>
       <%#= image_tag 'account_settings/account_setting_tooltip.svg', class: 'pull-right', width: '20' %>
     </div>
 
-    <!-- Plan Name & Description -->
     <div class="row mt-3">
-      <!-- Name -->
       <div class="col">
         <div>
           <span class="pull-left account-name"><%= process_plan(current_user)[:name] %></span><br>
@@ -17,7 +14,6 @@
           </p>
         </div>
       </div>
-      <!-- Description -->
       <div class="col my-auto">
         <% if current_user.subscription&.plan == 'free' %>
           <div class="pull-right my-auto">
@@ -40,11 +36,9 @@
         <% end %>
       </div>
     </div>
+
     <% unless current_user.subscription&.plan == 'free' %>
-      <%= link_to 'Change or Cancel Subscription',
-                  subscriptions_path,
-                  class: 'cancel-subscription bold pull-right'
-      %>
+      <%= link_to 'Change or Cancel Subscription', subscriptions_path, class: 'cancel-subscription bold pull-right' %>
     <% end %>
 
   </div>
