@@ -4,7 +4,6 @@ class SessionsController < Devise::SessionsController
   skip_before_action :verify_authenticity_token
 
   include Responseable
-  include SessionsHelper
 
   MESSAGES = {
     signed_in: I18n.t('devise.sessions.signed_in')

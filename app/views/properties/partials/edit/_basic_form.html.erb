@@ -1,0 +1,100 @@
+<div class="form-group">
+  <label for="EpropertyPropertyType" class="bold">Property Type</label>
+  <%= select_tag 'Eproperty[property_type]',
+                 options_for_select(Property.property_types.keys.map { |type| [type] }, selected: @property.property_type),
+                 id: 'EpropertyPropertyType',
+                 class: 'form-control form-control-lg input-45'
+
+  %>
+</div>
+
+<div class="form-group">
+  <label for="EpropertySAL1" class="bold">Street Address Line 1</label>
+  <input
+    type="text"
+    id="EpropertySAL1"
+    name="Eproperty[SAL1]"
+    placeholder="You Address"
+    class="form-control form-control-lg input-45"
+    value="<%= check_for(@property.address_line_one) %>"
+  >
+</div>
+
+<div class="form-group">
+  <label for="EpropertySAL2" class="bold">Street Address Line 2</label>
+  <input
+    type="text"
+    id="EpropertySAL2"
+    name="Eproperty[SAL2]"
+    placeholder="You Address"
+    class="form-control form-control-lg input-45"
+    value="<%= check_for(@property.address_line_two) %>"
+  >
+</div>
+
+<div class="row">
+  <div class="col">
+    <div class="form-group">
+      <label for="EpropertyPostalCode" class="bold">Postal Code*</label>
+      <input
+        type="text"
+        placeholder="Zip Code"
+        id="EpropertyPostalCode"
+        data-from="update_property"
+        name="Eproperty[PostalCode]"
+        class="form-control form-control-lg input-45 zipcode_interactive"
+        value="<%= check_for(@property.postal_code) %>"
+      >
+      <span id="IncorrectZipCode" class="error"></span>
+    </div>
+  </div>
+  <div class="col">
+    <div class="form-group">
+      <label for="EpropertyCity" class="bold">City*</label>
+      <input
+        disabled
+        type="text"
+        id="EpropertyCity"
+        placeholder="City"
+        name="Eproperty[City]"
+        value="<%= check_for(@property.city) %>"
+        class="form-control form-control-lg input-45"
+      >
+    </div>
+  </div>
+  <div class="col">
+    <div class="form-group">
+      <label for="EpropertyState" class="bold">State*</label>
+      <input
+        disabled
+        type="text"
+        id="EpropertyState"
+        placeholder="State"
+        name="Eproperty[State]"
+        value="<%= check_for(@property.state) %>"
+        class="form-control form-control-lg input-45"
+      >
+    </div>
+  </div>
+</div>
+
+<div class="row">
+  <div class="col margin-top-mob">
+    <label for="EpropertyBedroomA" class="bold">Bedroom</label>
+    <%= select_tag('Eproperty[BedroomA]',
+                   options_for_select(map_bedrooms, selected: @property.bed_one),
+                   { prompt: "Select Bedroom",
+                     id: 'EpropertyBedroomA',
+                     class: 'form-control form-control-lg input-45' })
+    %>
+  </div>
+  <div class="col margin-top-mob">
+    <label for="EpropertyBedroomB" class="bold">Bathroom</label>
+    <%= select_tag('Eproperty[BedroomB]',
+                   options_for_select(map_bathrooms, selected: @property.bed_two),
+                   { prompt: "Select Bathroom",
+                     id: 'EpropertyBedroomB',
+                     class: 'form-control form-control-lg input-45' })
+    %>
+  </div>
+</div>

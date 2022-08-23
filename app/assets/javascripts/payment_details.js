@@ -38,7 +38,6 @@ $(document).ready(function () {
         const cvc            = $('#BillingCVC').val();
         const expiration     = $('#BillingEXP').val();
         const city           = $('#BillingCity').val();
-        const from           = $('#BillingFrom').val();
         const state          = $('#BillingState').val();
         const userID         = $('#BillingUserID').val();
         const country        = $('#BillingCountry').val();
@@ -50,7 +49,6 @@ $(document).ready(function () {
             data: {
                 payment_detail: {
                     cvc:              cvc,
-                    from:             from,
                     city:             city,
                     state:            state,
                     user_id:          userID,

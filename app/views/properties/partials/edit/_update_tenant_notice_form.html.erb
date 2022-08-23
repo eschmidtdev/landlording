@@ -1,6 +1,15 @@
-<div class="mt-4 <%= 'display_none' if property.property_for_notice %>" id="EditTenantNoticeSection">
+<div class="mt-4">
+  <span class="radio-label bold">Will the property address also be used for notices sent to the tenant?</span><br>
+  <label class="radio-inline" for="EAPAY">
+    <input type="radio" class="asked-for-property" id="EAPAY" name="Eproperty[AskPropertyAddress]" value="true" <%= 'checked' if @property.property_for_notice %>><span class="ml-1">Yes</span>
+  </label>
+  <label class="radio-inline" for="EAPAN">
+    <input type="radio" class="asked-for-property" id="EAPAN" name="Eproperty[AskPropertyAddress]" value="false" <%= 'checked' unless @property.property_for_notice %>><span class="ml-1">No</span>
+  </label><br>
+</div>
 
-  <!-- Street Address Line 1 -->
+<div class="mt-4 <%= 'display_none' if @property.property_for_notice %>" id="EditTenantNoticeSection">
+
   <div class="form-group">
     <label for="EpropertyTSAL1" class="bold">Tenant Notice Address Street Line 1*</label>
     <input
@@ -9,11 +18,10 @@
       name="Eproperty[TSAL1]"
       placeholder="Your Address"
       class="form-control form-control-lg input-45"
-      value="<%= check_for(property.tenant_notice_street_line_one) %>"
+      value="<%= check_for(@property.tenant_notice_street_line_one) %>"
     >
   </div>
 
-  <!-- Street Address Line 2 -->
   <div class="form-group">
     <label for="EpropertyTSAL2" class="bold">Tenant Notice Address Street Line 2</label>
     <input
@@ -22,13 +30,12 @@
       name="Eproperty[TSAL2]"
       placeholder="Your Address"
       class="form-control form-control-lg input-45"
-      value="<%= check_for(property.tenant_notice_street_line_two) %>"
+      value="<%= check_for(@property.tenant_notice_street_line_two) %>"
     >
   </div>
 
-  <!-- Postal, City, State -->
   <div class="row">
-    <!-- Postal -->
+
     <div class="col">
       <div class="form-group">
         <label for="EpropertyTNPostalCode" class="bold">Postal Code*</label>
@@ -39,12 +46,12 @@
           name="Eproperty[TNPostalCode]"
           data-from="update_property_tenant"
           class="form-control form-control-lg input-45 zipcode_interactive"
-          value="<%= check_for(property.tenant_notice_postal_code) %>"
+          value="<%= check_for(@property.tenant_notice_postal_code) %>"
         >
         <span id="updateZipErrTN" class="error"></span>
       </div>
     </div>
-    <!-- City -->
+
     <div class="col">
       <div class="form-group">
         <label for="EpropertyTNCity" class="bold">City*</label>
@@ -55,11 +62,11 @@
           placeholder="City"
           name="Eproperty[TNCity]"
           class="form-control form-control-lg input-45"
-          value="<%= check_for(property.tenant_notice_city) %>"
+          value="<%= check_for(@property.tenant_notice_city) %>"
         >
       </div>
     </div>
-    <!-- State -->
+
     <div class="col">
       <div class="form-group">
         <label for="EpropertyTNState" class="bold">State*</label>
@@ -70,10 +77,11 @@
           placeholder="State"
           name="Eproperty[TNState]"
           class="form-control form-control-lg input-45"
-          value="<%= check_for(property.tenant_notice_state) %>"
+          value="<%= check_for(@property.tenant_notice_state) %>"
         >
       </div>
     </div>
+
   </div>
 
 </div>

@@ -1,9 +1,37 @@
 <%= render partial: 'layouts/page_heading' %>
 
-<!-- ErrorAlert -->
-<div class="d-flex justify-content-start mb-4">
-  <div class="error_alert display_none center"></div>
-  <div class="success_alert display_none center"></div>
-</div>
+<form name="edit_property_form" class="new-property-form">
+  <input type="hidden" value="<%= current_user.id %>" id="EpropertyUserID">
+  <input type="hidden" value="<%= @property.id %>" id="EpropertyID">
 
-<%= render partial: 'properties/partials/update_form', locals: { property: @property } %>
+  <%= render partial: 'properties/partials/edit/basic_form' %>
+
+  <%= render partial: 'properties/partials/edit/update_landlord_form' %>
+
+  <%= render partial: 'properties/partials/edit/update_tenant_form' %>
+
+  <%= render partial: 'properties/partials/edit/update_tenant_notice_form' %>
+
+  <hr>
+
+  <div class="d-flex justify-content-start mb-5">
+    <button
+      type="submit"
+      class="create-button"
+      id="UpdatePropertyBtn"
+    >
+      Save
+    </button>
+    <button
+      type="button"
+      class="cancel-button ml-3"
+      onclick="window.location.href='<%= properties_path %>'"
+    >
+      Cancel
+    </button>
+  </div>
+
+</form>
+
+<%= javascript_include_tag 'properties' %>
+

@@ -1,4 +1,5 @@
 <div class="row mb-4">
+
   <% @properties.each_with_index do |property| %>
     <div class="col-sm-6 card-margin" id="MyPropertyCardMargin">
       <div class="card">
@@ -10,31 +11,19 @@
               <%= show_home_image(property.property_type) %>
             </div>
 
-            <!-- DropDown Menu -->
+            <!-- DropDown -->
             <div class="dropdown">
               <a type="button" id="dropdownMenuButton" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
                 <%= image_tag 'global_images/more.svg', width: '20' %>
               </a>
               <div class="dropdown-menu" aria-labelledby="dropdownMenuButton" id="CustomMobileMenu">
-
-                <!-- Edit -->
-                <a
-                  class="dropdown-item"
-                  href="<%= edit_property_path(property.id) %>"
-                >
+                <a class="dropdown-item" href="<%= edit_property_path(property.id) %>">
                   <div class="d-flex justify-content-start">
                     <%= image_tag 'properties/edit_svg.svg', class: 'm-0', width: '15' %>
                     <span class="ml-2">Edit</span>
                   </div>
                 </a>
-
-                <!-- Delete -->
-                <a
-                  role="button"
-                  data-toggle="modal"
-                  class="dropdown-item"
-                  data-target="#deletePropModal<%= property.id %>"
-                >
+                <a role="button" data-toggle="modal" class="dropdown-item" data-target="#deletePropModal<%= property.id %>">
                   <div class="d-flex justify-content-start">
                     <%= image_tag 'properties/delete_icon.svg', class: 'm-0', width: '15' %>
                     <span class="ml-2">Delete</span>
@@ -44,7 +33,7 @@
             </div>
           </div>
 
-          <!-- Property Address -->
+          <!-- Address -->
           <h3 class="name bold property-nam-mob my-3">
             <a href="<%= edit_property_path(property.id) %>" class="property-address-link font-18">
               <%= show_property_name(property.address_line_one, property.address_line_two) %>
@@ -52,15 +41,16 @@
           </h3>
 
           <hr>
+
           <!-- Card Footer -->
           <div class="d-flex justify-content-between">
 
-            <!-- Tenant Label -->
+            <!-- Tenant -->
             <div>
               <span class="opacity-0-5">Tenant: </span><span class="bold"><%= show_tenant_name(property) %></span>
             </div>
 
-            <!-- Tenant Name -->
+            <!-- Image -->
             <div>
               <%= image_tag 'properties/property_go_active_arrow.svg', width: '20' %>
             </div>
@@ -70,9 +60,8 @@
       </div>
     </div>
 
-
-    <!-- Delete Property Modal -->
     <%= render partial: 'properties/partials/delete_modal', locals: { property: property } %>
+
   <% end %>
 
 </div>

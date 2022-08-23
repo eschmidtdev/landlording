@@ -4,7 +4,6 @@ class PaymentDetailsController < ApplicationController
   before_action :set_payment_detail, only: %i[update]
 
   def billing
-    @from = params[:from] if params[:from].present?
   end
 
   def update

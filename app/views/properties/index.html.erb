@@ -2,16 +2,8 @@
 
 <%= render partial: 'layouts/page_heading' %>
 
-<!-- ErrorAlert -->
-<div class="d-flex justify-content-start mb-4">
-  <div class="error_alert display_none center"></div>
-  <div class="success_alert display_none center"></div>
-</div>
+<%= render partial: 'properties/partials/card' %>
 
-<!-- Properties Index Card -->
-<%= render partial: 'properties/partials/properties_card' %>
-
-<!-- Pagination -->
 <%= will_paginate @properties, renderer: WillPaginate::ActionView::BootstrapLinkRenderer %>
 
 <%= javascript_include_tag 'properties' %>

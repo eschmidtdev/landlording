@@ -1,4 +1,15 @@
 <%= stylesheet_link_tag 'properties' %>
+
+<div class="my-4">
+  <span class="radio-label bold" class="bold">Currently Leased?</span>
+  <label class="radio-inline" for="CLY">
+    <input type="radio" class="ml-2 currently-leased" id="CLY" name="property[CurrentlyLeased]" value="true"><span class="ml-1">Yes</span>
+  </label>
+  <label class="radio-inline" for="CLN">
+    <input type="radio" class="ml-2 currently-leased" id="CLN" name="property[CurrentlyLeased]" value="false" checked><span class="ml-1">No</span>
+  </label><br>
+</div>
+
 <div id="TenantSection" class="display_none">
 
   <div class="mt-3">
@@ -10,7 +21,6 @@
       <div class="card-body" id="CardBodyMob">
         <div class="container p-3 col-12" id="TenantFormMob">
 
-          <!-- Tenant Name -->
           <div class="form-group">
             <label for="propertyNewTenantName" class="bold">Tenant Name</label>
             <input
@@ -22,9 +32,7 @@
             >
           </div>
 
-          <!-- Tenant Phone & Email -->
           <div class="row">
-            <!-- Phone -->
             <div class="col">
               <div class="form-group">
                 <label for="propertyNewTenantPhone" class="bold">Tenant Phone</label>
@@ -39,7 +47,6 @@
                 >
               </div>
             </div>
-            <!-- Email -->
             <div class="col">
               <div class="form-group">
                 <label for="propertyNewTenantEmail" class="bold">Tenant Email</label>
@@ -54,9 +61,7 @@
             </div>
           </div>
 
-          <!-- Lease Start & End Date -->
           <div class="row">
-            <!-- Start Date -->
             <div class="col">
               <div class="form-group">
                 <label for="propertyNewLeaseStartDate" class="bold">Lease Start Date</label>
@@ -69,7 +74,6 @@
                 >
               </div>
             </div>
-            <!-- Start Date -->
             <div class="col">
               <div class="form-group">
                 <label for="propertyNewLeaseEndDate" class="bold">Lease End Date (if Known)</label>
@@ -84,7 +88,6 @@
             </div>
           </div>
 
-          <!-- ------------------------------ Add Additional Tenant ------------------------------>
           <div class="mt-2">
             <a role="button" class="bold" id="SwitchAdditionalTenant">Add Additional Tenant</a>
           </div>
@@ -94,7 +97,6 @@
               <span class="font-16 bold">Add Additional Tenant</span>
             </div>
 
-            <!-- Tenant Name -->
             <div class="form-group">
               <label for="ADpropertyNewTenantName" class="bold">Tenant Name</label>
               <input
@@ -106,9 +108,7 @@
               >
             </div>
 
-            <!-- Tenant Phone & Email -->
             <div class="row">
-              <!-- Phone -->
               <div class="col">
                 <div class="form-group">
                   <label for="ADpropertyNewTenantPhone" class="bold">Tenant Phone</label>
@@ -123,7 +123,6 @@
                   >
                 </div>
               </div>
-              <!-- Email -->
               <div class="col">
                 <div class="form-group">
                   <label for="ADpropertyNewTenantEmail" class="bold">Tenant Email</label>

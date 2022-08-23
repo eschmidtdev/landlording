@@ -1,0 +1,148 @@
+<%= stylesheet_link_tag 'properties' %>
+<% tenant = @property&.tenants&.last %>
+
+<div class="my-4">
+  <span class="radio-label bold">Currently Leased?</span>
+  <label class="radio-inline" for="ECLY">
+    <input type="radio" class="ml-2 currently-leased" id="ECLY" name="Eproperty[CurrentlyLeased]" value="true" <%= 'checked' if @property.currently_leased %>><span class="ml-1">Yes</span>
+  </label>
+  <label class="radio-inline" for="ECLN">
+    <input type="radio" class="ml-2 currently-leased" id="ECLN" name="Eproperty[CurrentlyLeased]" value="false" <%= 'checked' unless @property.currently_leased %>><span class="ml-1">No</span>
+  </label><br>
+</div>
+
+<div class="<%= 'display_none' unless @property.currently_leased %>" id="EditTenantSection">
+
+  <div class="mt-3">
+    <span class="font-18 bold">Edit Tenant</span>
+  </div>
+
+  <div class="card mt-2" id="CardBorderMob">
+    <div class="card-body" id="CardBodyMob">
+      <div class="container p-3 col-12" id="TenantFormMob">
+
+        <div class="form-group">
+          <label for="EpropertyNewTenantName" class="bold">Tenant Name</label>
+          <input
+            type="text"
+            id="EpropertyNewTenantName"
+            placeholder="Enter Full Name"
+            name="Eproperty[NewTenantName]"
+            class="form-control form-control-lg input-45"
+            value="<%= check_for(tenant.name) %>"
+          >
+        </div>
+
+        <div class="row">
+          <div class="col">
+            <div class="form-group">
+              <label for="EpropertyNewTenantPhone" class="bold">Tenant Phone</label>
+              <input
+                type="text"
+                id="EpropertyNewTenantPhone"
+                placeholder="Enter Full Name"
+                name="Eproperty[NewTenantPhone]"
+                value="<%= check_for(tenant.phone_number) %>"
+                class="form-control form-control-lg input-45"
+                onkeypress="return event.charCode >= 48 && event.charCode <= 57"
+                oncopy="return false" oncut="return false" onpaste="return false"
+              >
+            </div>
+          </div>
+          <div class="col">
+            <div class="form-group">
+              <label for="EpropertyNewTenantEmail" class="bold">Tenant Email</label>
+              <input
+                type="email"
+                id="EpropertyNewTenantEmail"
+                name="Eproperty[NewTenantEmail]"
+                placeholder="Enter Email Address"
+                value="<%= check_for(tenant.email) %>"
+                class="form-control form-control-lg input-45"
+              >
+            </div>
+          </div>
+        </div>
+
+        <div class="row">
+          <div class="col">
+            <div class="form-group">
+              <label for="EpropertyNewLeaseStartDate" class="bold">Lease Start Date</label>
+              <input
+                type="date"
+                placeholder="Enter Full Name"
+                id="EpropertyNewLeaseStartDate"
+                name="Eproperty[NewLeaseStartDate]"
+                class="form-control form-control-lg input-45"
+                value="<%= check_for(tenant.lease_start_date) %>"
+              >
+            </div>
+          </div>
+          <div class="col">
+            <div class="form-group">
+              <label for="EpropertyNewLeaseEndDate" class="bold">Lease End Date (if Known)</label>
+              <input
+                type="date"
+                id="EpropertyNewLeaseEndDate"
+                name="Eproperty[NewLeaseEndDate]"
+                placeholder="Enter Email Address"
+                class="form-control form-control-lg input-45"
+                value="<%= check_for(tenant.lease_end_date) %>"
+              >
+            </div>
+          </div>
+        </div>
+
+        <div class="my-3">
+          <span class="font-16 bold">Edit Additional Tenant</span>
+        </div>
+
+        <div class="form-group">
+          <label for="ADpropertyNewTenantName" class="bold">Tenant Name</label>
+          <input
+            type="text"
+            id="ADpropertyNewTenantName"
+            placeholder="Enter Full Name"
+            name="ADproperty[NewTenantName][]"
+            class="form-control form-control-lg input-45"
+            value="<%= check_for(tenant.additional_tenant_name) %>"
+          >
+        </div>
+
+        <div class="row">
+
+          <div class="col">
+            <div class="form-group">
+              <label for="ADpropertyNewTenantPhone" class="bold">Tenant Phone</label>
+              <input
+                type="text"
+                id="ADpropertyNewTenantPhone"
+                placeholder="Enter Full Name"
+                name="ADproperty[NewTenantPhone][]"
+                class="form-control form-control-lg input-45"
+                value="<%= check_for(tenant.additional_tenant_phone) %>"
+                onkeypress="return event.charCode >= 48 && event.charCode <= 57"
+                oncopy="return false" oncut="return false" onpaste="return false"
+              >
+            </div>
+          </div>
+
+          <div class="col">
+            <div class="form-group">
+              <label for="ADpropertyNewTenantEmail" class="bold">Tenant Email</label>
+              <input
+                type="email"
+                id="ADpropertyNewTenantEmail"
+                name="ADproperty[NewTenantEmail]"
+                placeholder="Enter Email Address"
+                class="form-control form-control-lg input-45"
+                value="<%= check_for(tenant.additional_tenant_email) %>"
+              >
+            </div>
+          </div>
+        </div>
+
+      </div>
+    </div>
+  </div>
+</div>

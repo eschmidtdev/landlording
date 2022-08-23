@@ -1,9 +1,27 @@
 <%= render partial: 'layouts/page_heading' %>
 
-<!-- ErrorAlert -->
-<div class="d-flex justify-content-start mb-4">
-  <div class="error_alert display_none center"></div>
-  <div class="success_alert display_none center"></div>
-</div>
+<form name="property_form" class="new-property-form">
+  <input type="hidden" value="<%= current_user.id %>" id="PropertyUserID">
 
-<%= render partial: 'properties/partials/create_form' %>
+  <%= render partial: 'properties/partials/new/basic_form' %>
+
+  <%= render partial: 'properties/partials/new/landlord_form' %>
+
+  <%= render partial: 'properties/partials/new/create_tenant_form' %>
+
+  <%= render partial: 'properties/partials/new/tenant_notice_form' %>
+
+  <hr>
+
+  <div class="d-flex justify-content-start mb-5">
+    <button type="submit" class="create-button" id="SavePropertyBtn">
+      Save & Update
+    </button>
+    <button type="button" class="cancel-button ml-3" onclick="window.location.href='<%= properties_path %>'">
+      Cancel
+    </button>
+  </div>
+
+</form>
+
+<%= javascript_include_tag 'properties' %>
