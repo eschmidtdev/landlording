@@ -36,28 +36,32 @@ $(document).ready(function () {
     function ajaxRequest(e) {
         e.preventDefault();
         disableButton();
-        const city         = $('#accountSettingCity').val();
-        const state        = $('#accountSettingState').val();
-        const user_id      = $('#accountSettingUserID').val();
-        const country      = $('#accountSettingCountry').val();
-        const last_name    = $('#accountSettingLastName').val();
-        const first_name   = $('#accountSettingFirstName').val();
-        const phone_number = $('#accountSettingPhoneNumber').val();
-        const company_name = $('#accountSettingCompanyName').val();
-        const postal_code  = $('#accountSettingPostalCode').val();
+        const city              = $('#accountSettingCity').val();
+        const state             = $('#accountSettingState').val();
+        const user_id           = $('#accountSettingUserID').val();
+        const country           = $('#accountSettingCountry').val();
+        const last_name         = $('#accountSettingLastName').val();
+        const first_name        = $('#accountSettingFirstName').val();
+        const phone_number      = $('#accountSettingPhoneNumber').val();
+        const company_name      = $('#accountSettingCompanyName').val();
+        const postal_code       = $('#accountSettingPostalCode').val();
+        const address_line_one  = $('#accountSettingAddressLine1').val();
+        const address_line_two  = $('#accountSettingAddressLine2').val();
         $.ajax({
             url: `/account_settings/${user_id}`,
             type: 'PUT',
             data: {
                 account_setting: {
-                    city:         city,
-                    state:        state,
-                    country:      country,
-                    last_name:    last_name,
-                    first_name:   first_name,
-                    postal_code:  postal_code,
-                    phone_number: phone_number,
-                    company_name: company_name
+                    city:             city,
+                    state:            state,
+                    country:          country,
+                    last_name:        last_name,
+                    first_name:       first_name,
+                    postal_code:      postal_code,
+                    phone_number:     phone_number,
+                    company_name:     company_name,
+                    address_line_one: address_line_one,
+                    address_line_two: address_line_two
                 }
             },
             success: function (data) {
