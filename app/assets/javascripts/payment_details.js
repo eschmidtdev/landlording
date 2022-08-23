@@ -78,13 +78,23 @@ $(document).ready(function () {
         const checkbox = $('#SameAccountAddress');
         if (checkbox.is(":checked")) {
             getAccountSettingInfo();
+        } else if (checkbox.not(":checked")) {
+            $('#BillingCity').attr('value', '');
+            $('#BillingState').attr('value', '');
+            $('#BillingCountry').attr('value', '');
+            $('#BillingFN').prop('disabled', false).attr('value', '');
+            $('#BillingLN').prop('disabled', false).attr('value', '');
+            $('#BillingCN').prop('disabled', false).attr('value', '');
+            $('#BillingPC').prop('disabled', false).attr('value', '');
+            $('#BillingAL1').prop('disabled', false).attr('value', '');
+            $('#BillingAL2').prop('disabled', false).attr('value', '');
         }
     });
 
     function getAccountSettingInfo() {
         const company          = $('#BillingCN');
-        const last_name        = $('#BillingFN');
-        const first_name       = $('#BillingLN');
+        const last_name        = $('#BillingLN');
+        const first_name       = $('#BillingFN');
         const postal_code      = $('#BillingPC');
         const address_line_one = $('#BillingAL1');
         const address_line_two = $('#BillingAL2');
@@ -93,19 +103,9 @@ $(document).ready(function () {
         const country          = $('#BillingCountry');
         $.ajax({
             url: '/payment_details/fetch_landlord',
-            type: 'PUT',
+            type: 'GET',
             data: {
-                payment_detail: {
-                    city:             city,
-                    state:            state,
-                    country:          country,
-                    company:          company,
-                    last_name:        last_name,
-                    first_name:       first_name,
-                    postal_code:      postal_code,
-                    address_line_one: address_line_one,
-                    address_line_two: address_line_two
-                },
+                payment_detail: {},
             },
             success: function (data) {
                 if (data.success === true) {

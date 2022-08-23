@@ -1,7 +1,7 @@
 # frozen_string_literal: true
 
 class PaymentDetailsController < ApplicationController
-  before_action :set_payment_detail, only: %i[update fetch_landlord]
+  before_action :set_payment_detail, only: %i[update]
 
   def billing
     @from = params[:from] if params[:from].present?
@@ -43,7 +43,7 @@ class PaymentDetailsController < ApplicationController
         city: user.city,
         state: user.state,
         country: user.country,
-        company: user.company,
+        company: user.company_name,
         last_name: user.last_name,
         first_name: user.first_name,
         postal_code: user.postal_code,

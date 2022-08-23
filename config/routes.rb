@@ -37,7 +37,7 @@ Rails.application.routes.draw do
   resources :rental_applications, only: :index
   resources :payment_details, only: %i[update] do
     collection do
-      put :fetch_landlord
+      get :fetch_landlord
     end
   end
 

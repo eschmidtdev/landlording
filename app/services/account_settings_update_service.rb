@@ -16,7 +16,7 @@ class AccountSettingsUpdateService < ApplicationService
   end
 
   def call
-    update_password if change_password?
+    return update_password if change_password?
 
     update_account_settings
   end
