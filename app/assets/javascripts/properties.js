@@ -108,7 +108,21 @@ $(document).ready(function () {
             landlord_contact_phone.prop( 'disabled', false ).attr('value', '');
             landlord_contact_email.prop( 'disabled', false ).attr('value', '');
         }
+    });
 
+    $('#EpropertyLandlordInfo').change(function () {
+        const checkbox = $('#EpropertyLandlordInfo');
+
+        if (checkbox.is(":checked")) {
+            getEditLandLordInfo('true');
+        } else if (checkbox.not(":checked")) {
+            const landlord_contact_name = $('#EpropertyLandlordContactName');
+            const landlord_contact_phone = $('#EpropertyLandlordContactPhone');
+            const landlord_contact_email = $('#EpropertyLandlordContactEmail');
+            landlord_contact_name.prop( 'disabled', false ).attr('value', '');
+            landlord_contact_phone.prop( 'disabled', false ).attr('value', '');
+            landlord_contact_email.prop( 'disabled', false ).attr('value', '');
+        }
     });
 
 
@@ -272,6 +286,38 @@ $(document).ready(function () {
         const landlord_contact_name = $('#propertyLandlordContactName');
         const landlord_contact_phone = $('#propertyLandlordContactPhone');
         const landlord_contact_email = $('#propertyLandlordContactEmail');
+        $.ajax({
+            url: '/properties/fetch_landlord',
+            type: 'GET',
+            data: {
+                property: {
+                    saved_landlord: state
+                }
+            },
+            success: function (data) {
+                if (data.success === true) {
+                    landlord_contact_name.prop('disabled', true).attr('value', data.message.name);
+                    landlord_contact_phone.prop('disabled', true).attr('value', data.message.phone);
+                    landlord_contact_email.prop('disabled', true).attr('value', data.message.email);
+                } else if (data.success === false) {
+                    if (data.method === 'add_email') {
+                        $('.landlord_email_error').text('').show().text(data.message);
+                    } else if (data.method === 'add_phone') {
+                        $('.landlord_phone_error').text('').show().text(data.message);
+                    } else if (data.method === 'add_name') {
+                        $('.landlord_name_error').text('').show().text(data.message);
+                    }
+                }
+            },
+            error: function (exception) {
+            }
+        });
+    }
+
+    function getEditLandLordInfo(state) {
+        const landlord_contact_name = $('#EpropertyLandlordContactName');
+        const landlord_contact_phone = $('#EpropertyLandlordContactPhone');
+        const landlord_contact_email = $('#EpropertyLandlordContactEmail');
         $.ajax({
             url: '/properties/fetch_landlord',
             type: 'GET',
