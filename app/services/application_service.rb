@@ -19,5 +19,4 @@ class ApplicationService
     add_name: I18n.t('Properties.AddName')
   }.freeze
 
-
 end

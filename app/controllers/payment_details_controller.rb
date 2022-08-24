@@ -2,26 +2,13 @@
 
 class PaymentDetailsController < ApplicationController
   before_action :set_payment_detail, only: :update
-  before_action :validate_payment_detail, only: :update
 
   def billing; end
 
   def update
-    binding.pry
-    if params[:payment_detail][:from].present?
-      payment_detail = PaymentDetail.new(payment_detail_params)
-      if payment_detail.save!
-        flash[:notice] = 'Payment details were successfully added.'
-      else
-        flash[:error] = payment_detail.error.full_messages
-      end
-      redirect_to account_setting_path
-    else
-      if @payment_detail.update(payment_detail_params)
-        flash[:notice] = 'Payment details were successfully updated.'
-        redirect_to account_setting_path
-      end
-    end
+    resp = PaymentDetails::PaymentDetailsService.call(set_action, payment_detail_params.to_h, User.find(params[:id]))
+    flash[:notice] = resp[:message]
+    redirect_to account_path
   end
 
   def fetch_landlord
@@ -50,13 +37,8 @@ class PaymentDetailsController < ApplicationController
     params.require(:payment_detail).permit(PaymentDetail.column_names.reject { |k| ['id'].include?(k) }.map(&:to_sym))
   end
 
-  def validate_payment_detail
-    binding.pry
-    response = Validators::PaymentDetailsValidator.call(params[:action], payment_detail_params.to_h, @payment_detail)
-    unless response.nil?
-      flash[:notice] = response[:message]
-      redirect_to billing_path
-    end
+  def set_action
+    @payment_detail.nil? ? 'create' : 'update'
   end
 
 end

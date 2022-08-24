@@ -39,7 +39,7 @@
                         </div>
                       </a>
                     <% else %>
-                      <a class="dropdown-item" href="<%= billing_path(from: 'new') %>">
+                      <a class="dropdown-item" href="<%= billing_path %>">
                         <div class="d-flex justify-content-start">
                           <%= image_tag 'account_settings/edit_svg.svg', class: 'm-0', width: '15' %>
                           <span class="ml-2">Add</span>
@@ -57,7 +57,7 @@
               </div>
             <% else %>
               <div class="add-payment-card">
-                <a href="<%= billing_path(from: 'new') %>">
+                <a href="<%= billing_path %>">
                   <span class="bold">Add Payment Method</span>
                 </a>
               </div>

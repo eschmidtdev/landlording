@@ -42,7 +42,7 @@ $(document).ready(function () {
         const userID         = $('#BillingUserID').val();
         const country        = $('#BillingCountry').val();
         const cardNumber     = $('#BillingCardNumber').val();
-        const is_address     = $('#SameAsAccountAddress').val();
+        const is_address     = !!$('#SameAccountAddress').is(':checked');
         $.ajax({
             url: `/payment_details/${userID}`,
             type: 'PUT',

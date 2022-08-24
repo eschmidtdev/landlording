@@ -52,7 +52,7 @@ ActiveRecord::Schema.define(version: 2022_08_18_101749) do
     t.bigint "user_id", null: false
     t.datetime "created_at", precision: 6, null: false
     t.datetime "updated_at", precision: 6, null: false
-    t.boolean "is_address", default: true
+    t.boolean "is_address", default: false
     t.index ["user_id"], name: "index_payment_details_on_user_id"
   end
 
