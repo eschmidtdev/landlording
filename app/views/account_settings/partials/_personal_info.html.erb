@@ -70,11 +70,13 @@
       <div class="fake-input-edit">
         <input
           type="text"
+          maxlength="10"
           id="accountSettingPhoneNumber"
           name="accountSetting[PhoneNumber]"
-          value="<%= check_for(current_user.phone_number) %>"
           class="form-control form-control-lg input-45"
+          value="<%= check_for(current_user.phone_number) %>"
           onkeypress="return event.charCode >= 48 && event.charCode <= 57"
+          oncopy="return false" oncut="return false" onpaste="return false"
         >
         <%= image_tag 'account_settings/acc_setting_edit_icon.svg', width: '20' %>
       </div>
