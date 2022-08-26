@@ -21,7 +21,7 @@ class Property < ApplicationRecord
   private
 
   def normalize_phone
-    self.landlord_contact_phone = Phonelib.parse(landlord_contact_phone).full_e164.presence
+    self.landlord_contact_phone = Phonelib.parse(landlord_contact_phone).full_e164
   end
 
 end
