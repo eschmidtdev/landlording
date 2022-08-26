@@ -21,10 +21,11 @@ module Properties
     private
 
     def update_property
-      if property.update(property_params) && property.tenants.last.update(tenant_params)
+      tenant = property&.tenants&.last
+      if property.update(property_params) && tenant.update(tenant_params)
         { success: true, message: MESSAGES[:updated] }
       else
-        { success: false, message: property.errors.full_messages.join(', ') }
+        { success: false, message: property.errors.full_messages.present? ? property.errors.full_messages.join(', ') : tenant.errors.full_messages.join(', ') }
       end
     end
 
