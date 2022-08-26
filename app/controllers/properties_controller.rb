@@ -12,7 +12,6 @@ class PropertiesController < ApplicationController
 
   def create
     resp = Properties::CreatePropertyService.call(merged_property_params, tenant_params)
-    binding.pry
     case resp[:success]
     when true
       flash[:notice] = resp[:message]
@@ -45,7 +44,7 @@ class PropertiesController < ApplicationController
 
   def destroy
     @property.destroy
-    flash[:notice] = MESSAGES[:deleted]
+    flash[:notice] = 'Property has ben deleted successfully.'
     redirect_to properties_url
   end
 
