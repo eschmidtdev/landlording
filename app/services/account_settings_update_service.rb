@@ -43,7 +43,7 @@ class AccountSettingsUpdateService < ApplicationService
     if user.update(settings_params)
       { success: true, message: MESSAGES[:info_updated] }
     else
-      { success: false, message: MESSAGES[:info_not_updated] }
+      { success: false, message: user.errors.full_messages.join(', ') }
     end
   end
 

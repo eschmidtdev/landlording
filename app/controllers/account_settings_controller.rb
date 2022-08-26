@@ -16,7 +16,15 @@ class AccountSettingsController < ApplicationController
 
   def update
     resp = AccountSettingsUpdateService.call(params[:action], personal_info_params.to_h, @user)
-    render_response(resp[:success], resp[:message], nil, nil)
+    case resp[:success]
+    when true
+      flash[:notice] = resp[:message]
+    when false
+      flash[:danger] = resp[:message]
+    else
+      flash[:error] = 'Something went wrong please try again.'
+    end
+    redirect_to account_path
   end
 
   def update_password

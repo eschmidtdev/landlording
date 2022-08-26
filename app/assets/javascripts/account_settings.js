@@ -35,7 +35,6 @@ $(document).ready(function () {
 
     function ajaxRequest(e) {
         e.preventDefault();
-        disableButton();
         const city              = $('#accountSettingCity').val();
         const state             = $('#accountSettingState').val();
         const user_id           = $('#accountSettingUserID').val();
@@ -64,11 +63,8 @@ $(document).ready(function () {
                     address_line_two: address_line_two
                 }
             },
-            success: function (data) {
-                response_handler(data);
-            },
-            error: function (exception) {
-            }
+            success: function (data) {},
+            error: function (exception) {}
         });
         return false;
     }
@@ -97,34 +93,6 @@ $(document).ready(function () {
         });
     }
 
-    function enableButton() {
-        $('#AccSettingUpdatePassBtn').prop('disabled', false);
-    }
-
-    function disableButton() {
-        $('#AccSettingUpdatePassBtn').prop('disabled', true);
-    }
-
-    function response_handler(data) {
-        if (data.success === true || data.success === false) {
-            render_message(data);
-        }
-    }
-
-    function render_message(data) {
-        clearErrors();
-        $(data.success === true ? '.success_alert' : '.error_alert')
-            .text('')
-            .show()
-            .append(data.message)
-            .delay(2000)
-            .fadeOut(300);
-        enableButton();
-    }
-
-    function clearErrors() {
-        $('.error_alert').text('').addClass('display_none');
-    }
 
 });
 

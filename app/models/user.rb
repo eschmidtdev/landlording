@@ -16,9 +16,13 @@ class User < ApplicationRecord
   has_many :properties, dependent: :destroy
 
   # Activerecord callbacks
+  before_save :normalize_phone
   after_create :transact_service
   after_create :update_confirmed_at
   after_create :send_change_password_email
+
+  # Activerecord Validations
+  validates :phone_number, phone: true
 
   private
 
@@ -35,6 +39,10 @@ class User < ApplicationRecord
 
   def send_change_password_email
     UserMailer.change_password(self, password).deliver_now! unless uid.nil?
+  end
+
+  def normalize_phone
+    self.phone_number = Phonelib.parse(phone_number).full_e164.presence
   end
 
 end
