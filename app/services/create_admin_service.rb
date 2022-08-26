@@ -3,13 +3,14 @@
 # Service for create Admin User
 class CreateAdminService < ApplicationService
   attr_reader :first_name, :last_name, :email, :password,
-              :confirmation_token, :current_datetime
+              :confirmation_token, :current_datetime, :phone_number
 
-  def initialize(first_name, last_name, email, password, confirmation_token, current_datetime)
+  def initialize(first_name, last_name, email, password, confirmation_token, current_datetime, phone_number)
     @email              = email
     @password           = password
     @last_name          = last_name
     @first_name         = first_name
+    @phone_number       = phone_number
     @datetime           = current_datetime
     @confirmation_token = confirmation_token
   end
@@ -17,7 +18,7 @@ class CreateAdminService < ApplicationService
   def call
     prev_user = User.find_by email: @email
     if prev_user.present?
-      raise StandardError, I18n.t('EForm.Messages.Error.AlreadyExists')
+      raise StandardError, 'User already exists'
     end
 
     user = User.create(
@@ -25,6 +26,7 @@ class CreateAdminService < ApplicationService
       password:,
       last_name:,
       first_name:,
+      phone_number:,
       confirmation_token:,
       confirmed_at: current_datetime,
       confirmation_sent_at: current_datetime
