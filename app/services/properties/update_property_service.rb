@@ -4,9 +4,13 @@ module Properties
   class UpdatePropertyService < ApplicationService
     attr_reader :property, :property_params, :tenant_params
 
+    MESSAGES = {
+      updated: I18n.t('Properties.Updated'),
+    }.freeze
+
     def initialize(property, property_params, tenant_params)
-      @property        = property
-      @tenant_params   = tenant_params
+      @property = property
+      @tenant_params = tenant_params
       @property_params = property_params
     end
 
@@ -17,8 +21,11 @@ module Properties
     private
 
     def update_property
-      property.update(property_params)
-      property.tenants.last.update(tenant_params)
+      if property.update(property_params) && property.tenants.last.update(tenant_params)
+        { success: true, message: MESSAGES[:updated] }
+      else
+        { success: false, message: property.errors.full_messages.join(', ') }
+      end
     end
 
   end

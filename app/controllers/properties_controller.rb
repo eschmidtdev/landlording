@@ -6,28 +6,41 @@ class PropertiesController < ApplicationController
 
   include Responseable
 
-  MESSAGES = {
-    created: I18n.t('Properties.Created'),
-    updated: I18n.t('Properties.Updated'),
-    deleted: I18n.t('Properties.deleted')
-  }.freeze
-
   def index
     @properties = Property.paginate(page: params[:page]).order('id DESC')
   end
 
   def create
-    Properties::CreatePropertyService.call(merged_property_params, tenant_params)
-    flash[:notice] = MESSAGES[:created]
-    redirect_to properties_url
+    resp = Properties::CreatePropertyService.call(merged_property_params, tenant_params)
+    binding.pry
+    case resp[:success]
+    when true
+      flash[:notice] = resp[:message]
+      redirect_to properties_url
+    when false
+      flash[:danger] = resp[:message]
+      redirect_to new_property_path
+    else
+      flash[:error] = 'Something went wrong please try again.'
+      redirect_to properties_url
+    end
   end
 
   def edit; end
 
   def update
-    Properties::UpdatePropertyService.call(@property, property_params, tenant_params)
-    flash[:notice] = MESSAGES[:updated]
-    redirect_to properties_url
+    resp = Properties::UpdatePropertyService.call(@property, property_params, tenant_params)
+    case resp[:success]
+    when true
+      flash[:notice] = resp[:message]
+      redirect_to properties_url
+    when false
+      flash[:danger] = resp[:message]
+      redirect_to edit_property_path(@property.id)
+    else
+      flash[:error] = 'Something went wrong please try again.'
+    end
+
   end
 
   def destroy
