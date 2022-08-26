@@ -56,7 +56,7 @@ class DocumentsController < ApplicationController
 
   def email_me_the_document(document)
     UserMailer.send_me_document(document).deliver_now!
-    redirect_to documents_path, notice: I18n.t('EForm.Messages.Success.EmailSent')
+    redirect_to documents_path, notice: 'Email sent'
   end
 
   def pdf_params
