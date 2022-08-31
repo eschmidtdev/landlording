@@ -1,6 +1,5 @@
 $(document).ready(function () {
 
-    // Form Validation
     $(function () {
         $("form[name='session']").validate({
             rules: {
@@ -10,7 +9,7 @@ $(document).ready(function () {
             messages: {
                 'user[email]': 'Please enter a valid email address',
                 'user[password]': {
-                    required: 'Please provide a password',
+                    required:  'Please provide a password',
                     minlength: 'Password is too short (minimum is 8 characters)'
                 }
             },
@@ -32,7 +31,7 @@ $(document).ready(function () {
             type: 'POST',
             data: {
                 user: {
-                    email: email,
+                    email:    email,
                     password: password
                 }
             },

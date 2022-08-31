@@ -22,7 +22,11 @@ class User < ApplicationRecord
   after_create :send_change_password_email
 
   # Activerecord Validations
-  validates :phone_number, phone: true
+  validates :phone_number, phone: true, allow_blank: true
+
+  def not_confirmed?
+    confirmed_at.nil?
+  end
 
   private
 
@@ -42,7 +46,7 @@ class User < ApplicationRecord
   end
 
   def normalize_phone
-    self.phone_number = Phonelib.parse(phone_number).full_e164.presence
+    self.phone_number = Phonelib.parse(phone_number).full_e164
   end
 
 end

@@ -14,7 +14,7 @@ class CreateOAuthUserService
   end
 
   def call
-    User.find_or_create_by(uid: @auth['uid']) do |u|
+    User.find_or_create_by!(uid: @auth['uid']) do |u|
       u.email                = @email
       u.password             = @password
       u.first_name           = @name

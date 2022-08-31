@@ -19,4 +19,6 @@ class ApplicationService
     add_name: I18n.t('Properties.AddName')
   }.freeze
 
+  def error_response(message) = { success: false, message: }
+
 end
