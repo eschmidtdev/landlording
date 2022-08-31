@@ -5,10 +5,6 @@ class RegistrationsController < Devise::RegistrationsController
 
   include Responseable
 
-  MESSAGES = {
-    signed_up: I18n.t('Registrations.SignedUp')
-  }.freeze
-
   def index; end
 
   def create
@@ -22,7 +18,7 @@ class RegistrationsController < Devise::RegistrationsController
     # render json: { success: true,
     #                url: email_confirmation_url }
     sign_in(resource)
-    render_response(true, MESSAGES[:signed_up], nil, visitors_url)
+    render_response(true, 'Signed up successfully.', nil, visitors_url)
   end
 
   def email_confirmation; end
