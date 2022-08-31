@@ -11,7 +11,7 @@ module Validators
     }.freeze
 
     def initialize(params, user)
-      @user = user
+      @user   = user
       @params = HashWithIndifferentAccess.new params
     end
 
@@ -22,7 +22,7 @@ module Validators
     private
 
     def missing_params?
-      unless required_keys.all? { |s| params.key? s } || params.values.any?(&:blank?)
+      if !required_keys.all? { |s| params.key? s } || params.values.any?(&:blank?)
         error_response('Params missing or values are empty')
       end
     end
