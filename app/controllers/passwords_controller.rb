@@ -6,10 +6,6 @@ class PasswordsController < Devise::PasswordsController
 
   include Responseable
 
-  MESSAGES = {
-    went_wrong: I18n.t('GeneralError.WentWrong')
-  }.freeze
-
   def create
     self.resource = resource_class.send_reset_password_instructions(resource_params)
     yield resource if block_given?
@@ -18,7 +14,7 @@ class PasswordsController < Devise::PasswordsController
       return render_response(true, '', '', confirmation_url)
     end
 
-    render_response(false, MESSAGES[:went_wrong], nil, nil)
+    render_response(false, I18n.t('GeneralError.WentWrong'), nil, nil)
   end
 
   def confirmation; end

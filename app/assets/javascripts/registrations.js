@@ -43,7 +43,19 @@ $(document).ready(function () {
                 }
             },
             success: function (data) {
-                response_handler(data);
+                if (data.success === true) {
+                    clearErrors();
+                    enableButton();
+                    window.location.href = data.url;
+                    $('#RegistrationForm')[0].reset();
+                }
+                if (data.success === false) {
+                    if (data.message === 'Email has already been taken. Try Another') {
+                        debugger;
+                        $('#UserExists').removeClass('display_none').show().append(data.message);
+                        enableButton();
+                    }
+                }
             },
             error: function (exception) {
             }
@@ -57,37 +69,6 @@ $(document).ready(function () {
 
     function disableButton() {
         $('#SignupBtn').prop('disabled', true).text('Submitting...');
-    }
-
-    function response_handler(data) {
-        if (data.success === true) {
-            render_response(data);
-            $('#RegistrationForm')[0].reset();
-        }
-        if (data.success === false) {
-            render_conditional_response(data)
-        }
-    }
-
-    function render_response(data) {
-        clearErrors();
-        enableButton();
-        window.location.href = data.url;
-    }
-
-    function render_conditional_response(data) {
-        clearErrors();
-        if (data.method === 'user_exists?' || data.method === 'validate_email?') {
-            $('#UserExists').show().text(data.message);
-        }
-        if (data.method === 'password_clashing?') {
-            $('#PasswordError').show().text(data.message);
-        }
-        if (data.method === 'params_missing?') {
-            $('.error_alert').text('').show().text(data.message);
-        }
-
-        enableButton();
     }
 
     function clearErrors() {
