@@ -2,7 +2,6 @@
 
 class RegistrationsController < Devise::RegistrationsController
   skip_before_action :verify_authenticity_token
-  before_action :set_user, only: %i[validate_registration]
   before_action :validate_registration, only: :create
 
   include Responseable
@@ -24,11 +23,6 @@ class RegistrationsController < Devise::RegistrationsController
 
   def user_params
     params.require(:user).permit(:first_name, :email, :password)
-  end
-
-  def set_user
-    binding.pry
-
   end
 
   def validate_registration
