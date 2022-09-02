@@ -16,10 +16,8 @@
 
             <% if current_user.payment_detail.present? %>
               <div class="d-flex justify-content-between">
-                <div class="brand-container">
-                  <%= image_tag 'account_settings/master_card_logo.svg', class: ' pull-left mt-1', width: '30' %>
-                  <br>
-                </div>
+                <%= card_brand(current_user.payment_detail.brand) %>
+                <br>
                 <div class="dropdown">
                   <a type="button" id="dropdownMenuButton" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
                     <%= image_tag 'global_images/more.svg', width: '20' %>

@@ -25,4 +25,9 @@ module AccountSettingsHelper
       '123 Apple Street, Unit 101, Austin, TX 78741'
     end
   end
+
+  def card_brand(brand)
+    image_tag "account_settings/#{brand}.png", class: ' pull-left mt-1', width: '30'
+  end
+
 end
