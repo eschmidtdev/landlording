@@ -7,4 +7,15 @@ module Responseable
     render json: { success:, message:, method:, url: }
   end
 
+  def render_message(resp)
+    case resp[:success]
+    when true
+      flash[:notice] = resp[:message]
+    when false
+      flash[:danger] = resp[:message]
+    else
+      flash[:error] = 'Something went wrong please try again.'
+    end
+  end
+
 end

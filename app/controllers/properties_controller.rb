@@ -12,34 +12,20 @@ class PropertiesController < ApplicationController
 
   def create
     resp = Properties::CreatePropertyService.call(merged_property_params, tenant_params)
-    case resp[:success]
-    when true
-      flash[:notice] = resp[:message]
-      redirect_to properties_url
-    when false
-      flash[:danger] = resp[:message]
-      redirect_to new_property_path
-    else
-      flash[:error] = 'Something went wrong please try again.'
-      redirect_to properties_url
-    end
+    render_message(resp)
+    return redirect_to new_property_path unless resp[:success]
+
+    redirect_to properties_url
   end
 
   def edit; end
 
   def update
     resp = Properties::UpdatePropertyService.call(@property, property_params, tenant_params)
-    case resp[:success]
-    when true
-      flash[:notice] = resp[:message]
-      redirect_to properties_url
-    when false
-      flash[:danger] = resp[:message]
-      redirect_to edit_property_path(@property.id)
-    else
-      flash[:error] = 'Something went wrong please try again.'
-    end
+    render_message(resp)
+    return redirect_to properties_url if resp[:success]
 
+    redirect_to edit_property_path(@property.id)
   end
 
   def destroy

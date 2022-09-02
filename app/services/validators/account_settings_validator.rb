@@ -4,13 +4,6 @@ module Validators
   class AccountSettingsValidator < ApplicationService
     attr_reader :request, :params, :user
 
-    MESSAGES = {
-      incorrect: I18n.t('AccountSettings.Incorrect'),
-      doesnt_match: I18n.t('AccountSettings.DoesntMatch'),
-      missing_params: I18n.t('GeneralError.ParamsMissing'),
-      billing_deleted: I18n.t('AccountSettings.BillingDeleted')
-    }.freeze
-
     def initialize(request, params, user)
       @user    = user
       @params  = params
@@ -18,34 +11,31 @@ module Validators
     end
 
     def call
-      case request
-      when 'update'
-        check_account_params
-      when 'update_password'
-        check_password_params
-      else
-        # type code here
-      end
+      return check_account_params if request == 'update'
+
+      check_password_params
     end
 
     def check_account_params
-      unless (required_personal_info_keys - params.keys.sort).empty?
-        { message: MESSAGES[:missing_params], method: '', url: nil }
-      end
+      resp_hash unless (required_personal_info_keys - params.keys.sort).empty?
     end
 
     def check_password_params
-      unless (required_password_params - params.keys.sort).empty?
-        { message: MESSAGES[:missing_params], method: '', url: nil }
-      end
+      resp_hash unless (required_password_params - params.keys.sort).empty?
     end
 
     def required_personal_info_keys
-      %w[address_line_one address_line_two city company_name country first_name last_name phone_number postal_code state]
+      %w[address_line_one address_line_two city
+         company_name country first_name last_name
+         phone_number postal_code state]
     end
 
     def required_password_params
       %w[confirm_password current_password new_password]
+    end
+
+    def resp_hash
+      { message: 'Params are missing or values are empty.', method: '', url: nil }
     end
 
   end

@@ -6,24 +6,13 @@ class AccountSettingsController < ApplicationController
 
   include Responseable
 
-  MESSAGES = {
-    deleted: I18n.t('AccountSettings.BillingDeleted')
-  }.freeze
-
   def account_index; end
 
   def change_password; end
 
   def update
     resp = AccountSettingsUpdateService.call(params[:action], personal_info_params.to_h, @user)
-    case resp[:success]
-    when true
-      flash[:notice] = resp[:message]
-    when false
-      flash[:danger] = resp[:message]
-    else
-      flash[:error] = 'Something went wrong please try again.'
-    end
+    render_message(resp)
     redirect_to account_path
   end
 
@@ -35,7 +24,7 @@ class AccountSettingsController < ApplicationController
 
   def destroy
     @user.payment_detail.destroy
-    flash[:notice] = MESSAGES[:deleted]
+    flash[:notice] = 'Billing Details has been deleted successfully.'
     redirect_to account_path
   end
 
@@ -62,14 +51,9 @@ class AccountSettingsController < ApplicationController
   end
 
   def set_params
-    case params[:action]
-    when 'update'
-      personal_info_params
-    when 'update_password'
-      password_params
-    else
-      # type code here
-    end
+    return personal_info_params if params[:action] == 'update'
+
+    password_params
   end
 
 end
