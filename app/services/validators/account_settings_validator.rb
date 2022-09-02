@@ -35,7 +35,7 @@ module Validators
     end
 
     def resp_hash
-      { message: 'Params are missing or values are empty.', method: '', url: nil }
+      error_response('Params are missing or values are empty.')
     end
 
   end

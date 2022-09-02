@@ -6,7 +6,7 @@
 
 <%= render partial: 'account_settings/partials/subscription' %>
 
-<%= render partial: 'account_settings/partials/billing_details' %>
+<%= render partial: 'account_settings/partials/billing_details', locals: { payment_detail: @payment_detail } %>
 
 <%= javascript_include_tag 'account_settings' %>
 

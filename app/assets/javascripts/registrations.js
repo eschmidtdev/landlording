@@ -54,7 +54,6 @@ $(document).ready(function () {
                 }
                 if (data.success === false) {
                     if (data.message === 'Email has already been taken. Try Another') {
-                        debugger;
                         $('#UserExists').removeClass('display_none').show().append(data.message);
                         enableButton();
                     }

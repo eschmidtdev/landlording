@@ -7,7 +7,6 @@
 
     <form name="billing_information">
       <input type="hidden" value="<%= current_user.id %>" id="BillingUserID">
-      <input type="hidden" value="<%= @from %>" id="BillingFrom">
       <% payment_detail = current_user&.payment_detail %>
 
       <div class="mb-4">

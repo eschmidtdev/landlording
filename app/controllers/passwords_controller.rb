@@ -2,6 +2,7 @@
 
 class PasswordsController < Devise::PasswordsController
   skip_before_action :verify_authenticity_token
+  before_action :set_user, only: %i[create validate_password]
   before_action :validate_password, only: :create
 
   include Responseable
@@ -21,10 +22,14 @@ class PasswordsController < Devise::PasswordsController
 
   private
 
+  def set_user = @user = User.find_by(email: params[:user][:email])
+
   def validate_password
-    user = User.find_by(email: params[:user][:email])
-    response = Validators::PasswordValidator.call(permitted_params, user)
-    render_response(false, response[:message], nil, nil) unless response.nil?
+    resp = Validators::PasswordValidator.call(permitted_params, @user)
+    return if resp.nil?
+
+    render_message(resp)
+    redirect_to '/users/password/new'
   end
 
   def permitted_params = params.require(:user).permit(:email)

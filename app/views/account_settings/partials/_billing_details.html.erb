@@ -14,16 +14,16 @@
         <div class="card" style="min-height: 202px;">
           <div class="card-body">
 
-            <% if current_user.payment_detail.present? %>
+            <% if payment_detail.present? %>
               <div class="d-flex justify-content-between">
-                <%= card_brand(current_user.payment_detail.brand) %>
+                <%= card_brand(payment_detail.brand) %>
                 <br>
                 <div class="dropdown">
                   <a type="button" id="dropdownMenuButton" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
                     <%= image_tag 'global_images/more.svg', width: '20' %>
                   </a>
                   <div class="dropdown-menu" aria-labelledby="dropdownMenuButton" id="BillingDetailDropdown">
-                    <% if current_user.payment_detail.present? %>
+                    <% if payment_detail.present? %>
                       <a class="dropdown-item" href="<%= billing_path %>">
                         <div class="d-flex justify-content-start">
                           <%= image_tag 'account_settings/edit_svg.svg', class: 'm-0', width: '15' %>
@@ -66,9 +66,5 @@
     </div>
   </div>
 
-  <!-- ErrorAlert -->
-  <div class="d-flex justify-content-start error_alert_container display_none mt-5">
-    <div class="error_alert display_none mb-4" id="BillingDetailNotice"></div>
-  </div>
 
 </div>
