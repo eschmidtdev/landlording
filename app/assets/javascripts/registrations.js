@@ -10,7 +10,10 @@ $(document).ready(function () {
                 'user[password]': {required: true, minlength: 8}
             },
             messages: {
-                'user[email]':    'Please enter a valid email address',
+                'user[email]': {
+                    required: 'Email is required',
+                    email:    'Email is not valid'
+                },
                 'user[FullName]': {required: 'Full Name is required.'},
                 'user[password]': {
                     required: 'Please provide a password',
