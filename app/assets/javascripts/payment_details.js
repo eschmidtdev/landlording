@@ -42,6 +42,7 @@ $(document).ready(function () {
         const userID         = $('#BillingUserID').val();
         const country        = $('#BillingCountry').val();
         const cardNumber     = $('#BillingCardNumber').val();
+        const brand          = getCardBrand(cardNumber)
         const is_address     = !!$('#SameAccountAddress').is(':checked');
         $.ajax({
             url: `/payment_details/${userID}`,
@@ -51,6 +52,7 @@ $(document).ready(function () {
                     cvc:              cvc,
                     city:             city,
                     state:            state,
+                    brand:            brand,
                     user_id:          userID,
                     company:          company,
                     country:          country,
@@ -121,6 +123,38 @@ $(document).ready(function () {
             error: function (exception) {
             }
         });
+    }
+
+    function getCardBrand(num) {
+
+        // first, sanitize the number by removing all non-digit characters.
+        num = num.replace(/[^\d]/g,'');
+
+        // MasterCard
+        if (num.match(/^5[1-5][0-9]{5,}$/)) {
+            return 'MasterCard';
+
+            // Visa
+        } else if ( num.match(/^4[0-9]{6,}$/) ) {
+            return 'Visa';
+
+            /* AMEX */
+        } else if (num.match(/^3[47][0-9]{5,}$/)) {
+            return 'AMEX';
+
+            // Discover
+        } else if (num.match(/^6(?:011|5[0-9]{2})[0-9]{3,}$/)) {
+            return 'Discover';
+
+            // Diners Club
+        } else if (num.match(/^3(?:0[0-5]|[68][0-9])[0-9]{4,}$/)){
+            return 'Diners Club';
+
+            // JCB
+        } else if (num.match(/^(?:2131|1800|35[0-9]{3})[0-9]{3,}$/)){
+            return 'JCB';
+        }
+        return 'UNKNOWN';
     }
 
     // $('#SameAccountAddress').change(function () {
