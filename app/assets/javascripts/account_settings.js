@@ -51,7 +51,7 @@ $(document).ready(function () {
             type: 'PUT',
             data: {
                 account_setting: {
-                    city: c ity,
+                    city: city,
                     state: state,
                     country: country,
                     last_name: last_name,
