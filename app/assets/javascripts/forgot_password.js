@@ -6,7 +6,10 @@ $(document).ready(function () {
                 'user[email]': {required: true, email: true}
             },
             messages: {
-                'user[email]': 'Please enter a valid email address'
+                'user[email]': {
+                    required: 'Email is required',
+                    email: 'Email is not valid'
+                }
             }, submitHandler: function (form, e) {
                 ajaxRequest(e);
             }
