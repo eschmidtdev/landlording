@@ -21,7 +21,7 @@ module Properties
     private
 
     def update_property
-      tenant = property&.tenants&.last
+      tenant = property.tenant
       if property.update(property_params) && tenant.update(tenant_params)
         { success: true, message: MESSAGES[:updated] }
       else

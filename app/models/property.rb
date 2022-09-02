@@ -4,7 +4,7 @@ class Property < ApplicationRecord
 
   # Associations
   belongs_to :user
-  has_many :tenants, dependent: :destroy
+  has_one :tenant, dependent: :destroy
 
   # Activerecord callbacks
   before_save :normalize_phone

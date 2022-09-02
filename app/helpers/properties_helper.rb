@@ -26,11 +26,9 @@ module PropertiesHelper
   end
 
   def show_tenant_name(property)
-    if property&.tenants&.any? && property.tenants.last&.name.present?
-      property.tenants.last&.name
-    else
-      'None'
-    end
+    return property.tenant.name unless property.tenant.name.blank?
+
+    'None'
   end
 
   def disabled?(property, value)
