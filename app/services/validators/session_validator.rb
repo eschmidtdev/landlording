@@ -16,7 +16,7 @@ module Validators
     end
 
     def call
-      missing_params? || user_confirmation || user_existence
+      missing_params? || user_existence || user_confirmation
     end
 
     private
