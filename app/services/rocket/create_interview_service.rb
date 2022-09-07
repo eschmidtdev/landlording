@@ -24,7 +24,7 @@ module Rocket
       request['Authorization'] = "Bearer #{access_token}"
       request['Content-Type']  = 'application/json'
       request.body = JSON.dump({
-                                 partnerEndUserId: user.id,
+                                 partnerEndUserId: user.uuid,
                                  partyEmailAddress: user.email,
                                  templateId: '04d9d0ba-3113-40d3-9a4e-e7b226a72154'
                                })
