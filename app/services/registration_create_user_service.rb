@@ -11,10 +11,11 @@ class RegistrationCreateUserService < ApplicationService
 
   def call
     user                       = User.new(user_params)
-    user.confirmation_token    = SecureRandom.hex(10)
     user.confirmed_at          = nil
     user.confirmation_sent_at  = DateTime.now
     user.password_confirmation = user.password
+    user.uuid                  = SecureRandom.uuid
+    user.confirmation_token    = SecureRandom.hex(10)
     construct_name(user, user_params)
     user.save!
     user
