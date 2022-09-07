@@ -22,11 +22,11 @@ module Rocket
 
       request = Net::HTTP::Post.new(url)
       request['Authorization'] = "Bearer #{access_token}"
-      request['Content-Type'] = 'application/json'
+      request['Content-Type']  = 'application/json'
       request.body = JSON.dump({
-                                 templateId: '04d9d0ba-3113-40d3-9a4e-e7b226a72154',
+                                 partnerEndUserId: user.id,
                                  partyEmailAddress: user.email,
-                                 partnerEndUserId: 'cfd1ee5a'
+                                 templateId: '04d9d0ba-3113-40d3-9a4e-e7b226a72154'
                                })
 
       response = https.request(request)
