@@ -23,6 +23,8 @@ module Rocket
 
       request = Net::HTTP::Post.new(url)
       request['Authorization'] = "Bearer #{access_token}"
+      request['Content-Type'] = 'application/json'
+      request.body = JSON.dump({ answersPayload: answer_hash })
 
       response = https.request(request)
       return nil unless response.code == '201'
@@ -35,6 +37,16 @@ module Rocket
       {
         binder_id: response['binder']['binderId'],
         document_id: response['binder']['documentId']
+      }
+    end
+
+    def answer_hash
+      {
+        Fk8jctrn744ku5: false,
+        Fk8jd1no93zprz: "",
+        Fk8jd4pfntjpvf: false,
+        Fk8jdel8mfwiot: "",
+        version: 0
       }
     end
 

@@ -5,6 +5,13 @@
 >
   Save Progress
 </button>
+<button
+  type="button"
+  class="create-button pull-right"
+  onclick="window.location.href='<%= sign_document_path(interview_id: @interview_id, access_token: @access_token) %>'"
+>
+  Sign Document
+</button>
 
 <script src="https://logo-ipsum.sandbox.rocketlawyer.com/rocket-document.js"></script>
 

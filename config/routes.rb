@@ -45,6 +45,7 @@ Rails.application.routes.draw do
   get '/documents', to: 'documents#index'
   get '/users/sign_out', to: 'sessions#destroy'
   get '/billing', to: 'payment_details#billing'
+  get '/sign/document', to: 'documents#sign_document'
   get '/account', to: 'account_settings#account_index'
   get '/create/interview', to: 'documents#create_interview'
   get '/complete/interview', to: 'documents#complete_interview'

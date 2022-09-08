@@ -2,8 +2,10 @@
 
 class DocumentsController < ApplicationController
   before_action :authenticate_user!, except: :create_interview
+
+  require 'uri'
   require 'json'
-  require 'open-uri'
+  require 'net/http'
 
   def index
     @documents = Document.paginate(page: params[:page]).order('id DESC')
@@ -32,6 +34,25 @@ class DocumentsController < ApplicationController
     return redirect_to documents_url if retrieval_response.nil?
 
     @url = retrieval_response['url']
+  end
+
+  def sign_document
+    interview_response = Rocket::GetInterviewService.call(params[:access_token], params[:interview_id])
+    return redirect_to documents_url if interview_response.nil?
+
+    binder_id = interview_response['binder']['binderId']
+
+    upid_response = Rocket::GetUpidService.call(params[:access_token], binder_id)
+    return redirect_to documents_url if upid_response.nil?
+
+    upid = upid_response['parties'].first['id']
+
+    service_token_response = Rocket::GenerateServiceTokenService.call(params[:access_token], upid)
+    return redirect_to documents_url if service_token_response.nil?
+
+    service_token = service_token_response['token']
+
+    @url = "https://document-manager.sandbox.rocketlawyer.com/#{binder_id}#serviceToken=#{service_token}"
   end
 
   def export
