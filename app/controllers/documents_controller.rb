@@ -21,6 +21,8 @@ class DocumentsController < ApplicationController
 
     @rl_rdoc_service_token = interview_response['service_token']
     @interview_id = interview_response['interview_id']
+
+    Documents::CreateDocumentService.call(@interview_id, current_user)
   end
 
   def complete_interview
