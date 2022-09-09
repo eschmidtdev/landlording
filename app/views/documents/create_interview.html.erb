@@ -1,20 +1,13 @@
-<button
-  type="button"
-  class="create-button pull-right"
-  onclick="window.location.href='<%= complete_interview_path(interview_id: @interview_id, access_token: @access_token) %>'"
->
-  Save Progress
-</button>
-<button
-  type="button"
-  class="create-button pull-right"
-  onclick="window.location.href='<%= sign_document_path(interview_id: @interview_id, access_token: @access_token) %>'"
->
-  Sign Document
-</button>
+<!--<button type="button" class="create-button pull-right"-->
+<!--        onclick="window.location.href='<%#= complete_interview_path(interview_id: @interview_id, access_token: @access_token) %>'">-->
+<!--  Save Progress-->
+<!--</button>-->
+
+<!--<button type="button" class="create-button pull-right"-->
+<!--        onclick="window.location.href='<%#= sign_document_path(interview_id: @interview_id, access_token: @access_token) %>'">-->
+<!--  Sign Document-->
+<!--</button>-->
+
+<rocket-document serviceToken="<%= @rl_rdoc_service_token %>" interviewId="<%= @interview_id %>"></rocket-document>
 
 <script src="https://logo-ipsum.sandbox.rocketlawyer.com/rocket-document.js"></script>
-
-<div class="container-fluid">
-  <rocket-document serviceToken="<%= @rl_rdoc_service_token %>" interviewId="<%= @interview_id %>"></rocket-document>
-</div>
