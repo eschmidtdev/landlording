@@ -40,4 +40,8 @@ $(document).ready(function () {
         });
     }
 
+    $('#CreateDocument').click(function () {
+        $(this).prop('disabled', true);
+    });
+
 });

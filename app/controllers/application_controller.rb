@@ -20,7 +20,8 @@ class ApplicationController < ActionController::Base
     params[:controller] == 'passwords' ||
       params[:controller] == 'payment_details' ||
       params[:controller] == 'account_settings' ||
-      params[:controller] == 'properties'
+      params[:controller] == 'properties' ||
+      params[:controller] == 'documents'
   end
 
 end

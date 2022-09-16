@@ -9,7 +9,7 @@
       </button>
 
       <!-- Create Document -->
-      <button type="button" class="create-button" onclick="window.location.href='<%= create_interview_path %>'">
+      <button type="button" class="create-button" id="<%= set_ids(params[:controller], params[:action]) %>" onclick="window.location.href='<%= create_interview_path %>'">
         <%= image_tag 'global_images/plus_icon.svg', class: 'pull-left', width: '20' %> Create New
       </button>
     </div>

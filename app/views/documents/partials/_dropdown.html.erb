@@ -1,4 +1,5 @@
 <div class="d-flex justify-content-around dropdown-padding">
+
   <!-- Download -->
   <%= link_to '#' do %>
     <%= image_tag 'documents/downlaod_icon.svg' %>
@@ -23,38 +24,82 @@
 
     <div class="dropdown-menu" aria-labelledby="documentDropdown" id="DocDropMob">
       <ul>
-        <li><%= link_to '#', class: 'dropdown-item' do %>
+        <li>
+          <%= link_to '#', class: 'dropdown-item' do %>
             <div class="d-flex justify-content-start">
               <%= image_tag 'documents/view_icon.svg', class: 'm-0' %>
               <span>View</span>
             </div>
-          <% end %></li>
-        <li><%= link_to '#', class: 'dropdown-item' do %>
+          <% end %>
+        </li>
+        <li>
+          <%= link_to '#', class: 'dropdown-item' do %>
             <div class="d-flex justify-content-start">
               <%= image_tag 'documents/print_icon.svg', class: 'm-0' %>
               <span>Print</span>
             </div>
-          <% end %></li>
-        <li><%= link_to '#', class: 'dropdown-item' do %>
+          <% end %>
+        </li>
+        <li>
+          <%= link_to '#', class: 'dropdown-item' do %>
             <div class="d-flex justify-content-start">
               <%= image_tag 'documents/share_icon.svg', class: 'm-0', width: '20' %>
               <span>Share</span>
             </div>
-          <% end %></li>
-        <li><%= link_to '#', class: 'dropdown-item ml-2' do %>
+          <% end %>
+        </li>
+        <li>
+          <%= link_to '#', class: 'dropdown-item ml-2', data: { toggle: 'modal', target: "#renameModal#{document.id}" } do %>
             <div class="d-flex justify-content-start">
               <%= image_tag 'documents/rename_icon.svg', class: 'm-0' %>
               <span>Rename</span>
             </div>
-          <% end %></li>
-        <li><%= link_to '#', class: 'dropdown-item ml-2' do %>
+          <% end %>
+        </li>
+        <li>
+          <%= link_to '#', class: 'dropdown-item ml-2' do %>
             <div class="d-flex justify-content-start">
               <%= image_tag 'documents/delete_icon.svg', class: 'm-0' %>
               <span>Delete</span>
             </div>
-          <% end %></li>
+          <% end %>
+        </li>
       </ul>
     </div>
   </div>
 
+</div>
+
+<!-- Rename Modal -->
+<div class="modal fade rename-modal" id="renameModal<%= document.id %>" tabindex="-1" role="dialog" aria-labelledby="renameModalLabel<%= document.id %>" aria-hidden="true">
+  <div class="modal-dialog" role="document">
+    <div class="modal-content">
+      <div class="modal-header">
+        <button type="button" class="close" data-dismiss="modal" aria-label="Close">
+          <span aria-hidden="true">&times;</span>
+        </button>
+      </div>
+      <div class="modal-body text-center">
+        <h5 class="modal-title" id="renameModalLabel<%= document.id %>"><b>Rename Document</b></h5>
+      </div>
+      <form action="/update/document" method="post">
+        <div class="modal-body">
+          <div class="form-outline">
+            <label class="form-label font-normal" for="InputRename"></label>
+            <input
+              type="text"
+              id="InputRename"
+              name="document[name]"
+              value="<%= check_for(document.name) %>"
+              class="form-control form-control-lg"
+            >
+            <input type="hidden" name="id" value="<%= document.id %>">
+          </div>
+        </div>
+        <div class="modal-footer rename-modal-footer d-flex justify-content-center">
+          <button type="submit" class="btn create-button w-100">Save</button>
+        </div>
+      </form>
+    </div>
+  </div>
 </div>

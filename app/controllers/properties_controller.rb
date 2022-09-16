@@ -13,6 +13,7 @@ class PropertiesController < ApplicationController
   def create
     resp = Properties::CreatePropertyService.call(merged_property_params, tenant_params)
     render_message(resp)
+
     return redirect_to new_property_path unless resp[:success]
 
     redirect_to properties_url

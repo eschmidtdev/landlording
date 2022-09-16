@@ -47,11 +47,11 @@
                   </div>
                 </div>
               </div>
-              <span class="number"><%= card_number(current_user) %></span><br>
-              <span class="expiry opacity-0-75"><%= expiry_date(current_user) %></span><br>
-              <span class="expiry opacity-0-75"><%= billing_address(current_user) %></span><br>
+              <span class="number"><%= card_number(payment_detail) %></span><br>
+              <span class="expiry opacity-0-75"><%= expiry_date(payment_detail) %></span><br>
+              <span class="expiry opacity-0-75"><%= billing_address(payment_detail) %></span><br>
               <div class="mt-4">
-                <span class="last-used bold">LAST USED 11/04/2021</span>
+                <span class="last-used bold"><%= usage_date(payment_detail) %></span>
               </div>
             <% else %>
               <div class="add-payment-card">

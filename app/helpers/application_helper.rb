@@ -46,4 +46,10 @@ module ApplicationHelper
     end
   end
 
+  def set_ids(controller, action)
+    if controller == 'documents' && action == 'index'
+      'CreateDocument'
+    end
+  end
+
 end
