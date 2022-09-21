@@ -23,7 +23,7 @@ module Rocket
       https.use_ssl = true
 
       request = Net::HTTP::Get.new(url)
-      request['Accept'] = 'application/pdf'
+      request['Accept'] = 'text/html'
       request['Authorization'] = "Bearer #{access_token}"
 
       response = https.request(request)
