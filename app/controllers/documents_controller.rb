@@ -2,7 +2,7 @@
 
 class DocumentsController < ApplicationController
   before_action :authenticate_user!, except: :create_interview
-  before_action :set_document, only: %i[update validate_document]
+  before_action :set_document, only: %i[update delete validate_document]
   before_action :validate_document, only: :update
 
   include Responseable
@@ -17,6 +17,13 @@ class DocumentsController < ApplicationController
 
   def update
     resp = Documents::UpdateDocumentService.call(@document, params)
+    render_message(resp)
+
+    redirect_to documents_url
+  end
+
+  def delete
+    resp = Documents::DeleteDocumentService.call(@document)
     render_message(resp)
 
     redirect_to documents_url

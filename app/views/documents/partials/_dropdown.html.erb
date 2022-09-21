@@ -57,7 +57,7 @@
           <% end %>
         </li>
         <li>
-          <%= link_to '#', class: 'dropdown-item ml-2' do %>
+          <%= link_to '#', class: 'dropdown-item ml-2', data: { toggle: 'modal', target: "#deleteModal#{document.id}" } do %>
             <div class="d-flex justify-content-start">
               <%= image_tag 'documents/delete_icon.svg', class: 'm-0' %>
               <span>Delete</span>
@@ -98,6 +98,35 @@
         </div>
         <div class="modal-footer rename-modal-footer d-flex justify-content-center">
           <button type="submit" class="btn create-button w-100">Save</button>
+        </div>
+      </form>
+    </div>
+  </div>
+</div>
+
+<!-- Delete Modal -->
+<div class="modal fade rename-modal" id="deleteModal<%= document.id %>" tabindex="-1" role="dialog" aria-labelledby="deleteModalLabel<%= document.id %>" aria-hidden="true">
+  <div class="modal-dialog" role="document" style="min-width: 600px;">
+    <div class="modal-content">
+      <div class="modal-header">
+        <button type="button" class="close" data-dismiss="modal" aria-label="Close">
+          <span aria-hidden="true">&times;</span>
+        </button>
+      </div>
+      <div class="modal-body text-center">
+        <%= image_tag('documents/doc_delete_icon.svg') %>
+        <h3 class="modal-title my-3" id="deleteModalLabel<%= document.id %>"><b>Are you sure?</b></h3>
+      </div>
+      <form action="/delete/document/" method="post">
+        <div class="modal-body">
+          <div class="form-outline text-center">
+            Are you sure to delete the “<%= document.name %>” document?
+            <input type="hidden" name="id" value="<%= document.id %>">
+          </div>
+        </div>
+        <div class="modal-footer rename-modal-footer d-flex justify-content-center my-3">
+          <button type="submit" class="btn create-button">Yes</button>
+          <button type="button" class="btn cancel-button" data-dismiss="modal">Cancel</button>
         </div>
       </form>
     </div>
