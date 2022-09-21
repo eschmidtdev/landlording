@@ -10,7 +10,7 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema.define(version: 2022_09_15_065048) do
+ActiveRecord::Schema.define(version: 2022_09_21_114350) do
 
   # These are extensions that must be enabled in order to support this database
   enable_extension "plpgsql"
@@ -124,6 +124,12 @@ ActiveRecord::Schema.define(version: 2022_09_15_065048) do
     t.string "additional_tenant_phone"
     t.string "additional_tenant_email"
     t.index ["property_id"], name: "index_tenants_on_property_id"
+  end
+
+  create_table "tokens", force: :cascade do |t|
+    t.text "access_token", default: "", null: false
+    t.datetime "created_at", precision: 6, null: false
+    t.datetime "updated_at", precision: 6, null: false
   end
 
   create_table "users", id: :serial, force: :cascade do |t|

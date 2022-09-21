@@ -12,7 +12,7 @@ class DocumentsController < ApplicationController
   require 'net/http'
 
   def index
-    @documents = Document.paginate(page: params[:page]).order('id DESC')
+    @documents = Document.user_documents(current_user.id).paginate(page: params[:page]).order('id DESC')
   end
 
   def update

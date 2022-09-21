@@ -28,6 +28,7 @@ gem 'uglifier'
 gem 'wicked_pdf'
 gem 'will_paginate-bootstrap4'
 gem 'wkhtmltopdf-binary'
+gem 'whenever'
 
 group :development do
   gem 'better_errors'

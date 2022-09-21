@@ -13,4 +13,7 @@ class Document < ApplicationRecord
   }
 
   self.per_page = 5
+
+  # Scope
+  scope :user_documents, ->(id) { where(user_id: id) }
 end
