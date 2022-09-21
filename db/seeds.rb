@@ -11,3 +11,5 @@ CreateAdminService.call(first_name, last_name, 'autr@ipm.com', password, token, 
 CreateAdminService.call(first_name, last_name, 'artur@ipm.com', password, token, DateTime.now, phone, SecureRandom.uuid)
 
 Rake::Task['zipcodes:update'].invoke
+
+Rake::Task['token:access_token'].invoke
