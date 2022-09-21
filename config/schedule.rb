@@ -2,7 +2,7 @@
 set :output, 'log/cron.log'
 
 # Sets the environment to run during development mode (Set to production by default)
-set :environment, 'development'
+set :environment, 'production'
 
 env :PATH, ENV['PATH']
 env :GEM_PATH, ENV['GEM_PATH']
