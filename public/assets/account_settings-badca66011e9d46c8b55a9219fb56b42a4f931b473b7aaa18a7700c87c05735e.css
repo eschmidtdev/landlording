@@ -1,0 +1,254 @@
+/* line 1, app/assets/stylesheets/account_settings.css.scss */
+.personal-info-rectangle {
+  padding: 30px 20px;
+  border: 1.3px solid #E5E5E5;
+  border-top-right-radius: 10px;
+  border-top-left-radius: 10px;
+}
+
+/* line 8, app/assets/stylesheets/account_settings.css.scss */
+.personal-info-rectangle .heading {
+  font-size: 20px;
+}
+
+/* line 12, app/assets/stylesheets/account_settings.css.scss */
+.personal-info-rectangle .instruction {
+  font-size: 12px;
+}
+
+/* line 16, app/assets/stylesheets/account_settings.css.scss */
+.personal-info-rectangle .password-link {
+  font-size: 12px;
+  color: #FF8F00 !important;
+  text-decoration: underline;
+}
+
+/* line 22, app/assets/stylesheets/account_settings.css.scss */
+.subscription-rectangle {
+  padding: 20px 20px;
+  border: 1.3px solid #E5E5E5;
+  border-top: none !important;
+}
+
+/* line 28, app/assets/stylesheets/account_settings.css.scss */
+.subscription-rectangle .heading {
+  font-size: 20px;
+}
+
+/* line 32, app/assets/stylesheets/account_settings.css.scss */
+.subscription-rectangle .account-name {
+  font-size: 15px;
+  font-weight: 700;
+  line-height: 36px;
+}
+
+/* line 38, app/assets/stylesheets/account_settings.css.scss */
+.subscription-rectangle .free-account-desc {
+  letter-spacing: -0.003em !important;
+  color: rgba(0, 0, 0, 0.75);
+}
+
+/* line 43, app/assets/stylesheets/account_settings.css.scss */
+.plan-rectangle {
+  padding: 15px;
+  border-radius: 7px;
+  border: 1px solid #E5E5E5;
+}
+
+/* line 49, app/assets/stylesheets/account_settings.css.scss */
+.plan-rectangle .name {
+  font-weight: 700;
+  font-size: 18px;
+}
+
+/* line 54, app/assets/stylesheets/account_settings.css.scss */
+.plan-rectangle .price {
+  font-size: 18px;
+}
+
+/* line 58, app/assets/stylesheets/account_settings.css.scss */
+.plan-rectangle .description {
+  font-size: 12px;
+}
+
+/* line 62, app/assets/stylesheets/account_settings.css.scss */
+.plan-rectangle .validity {
+  font-size: 12px;
+  font-weight: bold;
+}
+
+/* line 68, app/assets/stylesheets/account_settings.css.scss */
+.subscription-rectangle .cancel-subscription {
+  color: #FF8F00;
+  margin-top: 5px;
+  font-size: 12px;
+}
+
+/* line 74, app/assets/stylesheets/account_settings.css.scss */
+.billing-rectangle {
+  padding: 20px 20px;
+  border: 1.3px solid #E5E5E5;
+  border-top: none !important;
+  border-bottom-left-radius: 10px;
+  border-bottom-right-radius: 10px;
+}
+
+/* line 82, app/assets/stylesheets/account_settings.css.scss */
+.billing-rectangle .heading {
+  font-size: 20px;
+}
+
+/* line 87, app/assets/stylesheets/account_settings.css.scss */
+.billing-rectangle .card-rectangle {
+  border: 1px solid #E5E5E5;
+  border-radius: 7px;
+  padding: 15px;
+  height: 195px;
+  max-width: 500px !important;
+}
+
+/* line 95, app/assets/stylesheets/account_settings.css.scss */
+.billing-rectangle .brand-container {
+  border: 1px solid #E5E5E5;
+  border-radius: 2px;
+  padding: 2px;
+  width: 35px;
+  height: 20px;
+}
+
+/* line 103, app/assets/stylesheets/account_settings.css.scss */
+.billing-rectangle .number {
+  font-size: 25px;
+  line-height: 40px;
+  letter-spacing: 0.05em;
+}
+
+/* line 109, app/assets/stylesheets/account_settings.css.scss */
+.billing-rectangle .expiry {
+  font-size: 13px;
+}
+
+/* line 113, app/assets/stylesheets/account_settings.css.scss */
+.billing-rectangle .last-used {
+  padding: 5px;
+  font-size: 10px;
+  background: rgba(255, 143, 0, 0.15);
+}
+
+/* line 119, app/assets/stylesheets/account_settings.css.scss */
+.billing-rectangle .add-payment-btn {
+  color: black;
+  text-decoration: none !important;
+}
+
+/* line 124, app/assets/stylesheets/account_settings.css.scss */
+.billing-rectangle .add-payment-btn:hover {
+  color: black;
+}
+
+/* line 128, app/assets/stylesheets/account_settings.css.scss */
+.billing-rectangle .parent {
+  width: 100%;
+  height: 100%;
+  display: table;
+  text-align: center;
+}
+
+/* line 135, app/assets/stylesheets/account_settings.css.scss */
+.billing-rectangle .parent > .child {
+  display: table-cell;
+  vertical-align: middle;
+}
+
+/* line 140, app/assets/stylesheets/account_settings.css.scss */
+.billing-rectangle a {
+  cursor: pointer;
+}
+
+/* line 144, app/assets/stylesheets/account_settings.css.scss */
+.link-font-size {
+  font-size: 15px;
+}
+
+/* line 148, app/assets/stylesheets/account_settings.css.scss */
+.btn-outline-success {
+  color: #FF8F00;
+  width: 260px !important;
+  height: 40px !important;
+  border-color: #FF8F00 !important;
+}
+
+/* line 155, app/assets/stylesheets/account_settings.css.scss */
+.btn-outline-success:hover {
+  color: #FFFFFF;
+  background-color: #FF8F00 !important;
+}
+
+/* line 160, app/assets/stylesheets/account_settings.css.scss */
+.add-payment-card {
+  top: 50%;
+  left: 50%;
+  position: absolute;
+  transform: translateX(-50%) translateY(-50%);
+}
+
+/* line 167, app/assets/stylesheets/account_settings.css.scss */
+.add-payment-card a {
+  color: #000000;
+  text-decoration: none;
+}
+
+@media only screen and (max-width: 600px) {
+  /* line 173, app/assets/stylesheets/account_settings.css.scss */
+  .personal-info-rectangle {
+    padding: 0 0 15px 0;
+    border-top: none;
+    border-right: none;
+    border-left: none;
+    border-bottom: 1.3px solid #E5E5E5;
+  }
+  /* line 180, app/assets/stylesheets/account_settings.css.scss */
+  .container-fluid {
+    padding: 10px;
+  }
+  /* line 183, app/assets/stylesheets/account_settings.css.scss */
+  .subscription-rectangle {
+    padding: 0 0 15px 0;
+    border-top: none;
+    border-right: none;
+    border-left: none;
+    border-bottom: 1.3px solid #E5E5E5;
+  }
+  /* line 190, app/assets/stylesheets/account_settings.css.scss */
+  .subscription-rectangle .container {
+    padding: 0;
+    margin: 0;
+  }
+  /* line 194, app/assets/stylesheets/account_settings.css.scss */
+  .subscription-rectangle .col {
+    flex-basis: 12em !important;
+    margin-right: 40px;
+  }
+  /* line 198, app/assets/stylesheets/account_settings.css.scss */
+  .plan-rectangle {
+    width: 100%;
+  }
+  /* line 201, app/assets/stylesheets/account_settings.css.scss */
+  .cancel-subscription {
+    float: left;
+  }
+  /* line 204, app/assets/stylesheets/account_settings.css.scss */
+  .billing-rectangle {
+    padding: 0;
+    border: none;
+  }
+  /* line 208, app/assets/stylesheets/account_settings.css.scss */
+  .auto-flex-base {
+    flex-basis: auto;
+  }
+  /* line 211, app/assets/stylesheets/account_settings.css.scss */
+  #BillingDetailDropdown {
+    min-width: 130px !important;
+    transform: translate3d(-80px, 24px, 0px) !important;
+  }
+}

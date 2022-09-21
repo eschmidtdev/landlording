@@ -1,0 +1,11 @@
+/* line 1, app/assets/stylesheets/visitors.css.scss */
+.card-link-style {
+  color: black;
+  text-decoration: none;
+}
+
+/* line 6, app/assets/stylesheets/visitors.css.scss */
+a:hover {
+  color: black;
+  text-decoration: none;
+}

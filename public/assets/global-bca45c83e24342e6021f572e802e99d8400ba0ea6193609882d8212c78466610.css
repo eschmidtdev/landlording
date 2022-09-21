@@ -1,0 +1,428 @@
+/* line 1, app/assets/stylesheets/global.css.scss */
+html * {
+  font-style: normal !important;
+  font-family: 'Gordita', sans-serif !important;
+}
+
+/* line 6, app/assets/stylesheets/global.css.scss */
+body {
+  margin: 0;
+  color: #000000;
+  font-family: 'Gordita', serif;
+}
+
+/* line 12, app/assets/stylesheets/global.css.scss */
+input {
+  font-size: 15px !important;
+}
+
+/* line 16, app/assets/stylesheets/global.css.scss */
+label {
+  margin: 0;
+  font-size: 14px;
+  font-weight: 400;
+  font-style: normal;
+}
+
+/* line 23, app/assets/stylesheets/global.css.scss */
+select {
+  font-size: 15px !important;
+}
+
+/* line 27, app/assets/stylesheets/global.css.scss */
+form .error {
+  color: #FF0011;
+  font-size: 12px;
+  font-weight: 400;
+}
+
+/* line 34, app/assets/stylesheets/global.css.scss */
+.filter-button {
+  border: none;
+  padding: 12px 15px;
+  border-radius: 7px;
+  opacity: 0.75 !important;
+}
+
+/* line 41, app/assets/stylesheets/global.css.scss */
+.filter-button img {
+  margin: 7px 7px 7px 0;
+}
+
+/* line 45, app/assets/stylesheets/global.css.scss */
+.create-button {
+  border: none;
+  color: #FFFFFF;
+  font-size: 16px;
+  padding: 10px 15px;
+  font-weight: bold;
+  border-radius: 7px;
+  background: #FF8F00;
+}
+
+/* line 55, app/assets/stylesheets/global.css.scss */
+.create-button:hover {
+  color: #FFFFFF;
+}
+
+/* line 59, app/assets/stylesheets/global.css.scss */
+.create-button img {
+  margin: 0 10px 0 0;
+}
+
+/* line 63, app/assets/stylesheets/global.css.scss */
+.cancel-button {
+  border: none;
+  font-weight: bold;
+  background: transparent;
+}
+
+/* line 69, app/assets/stylesheets/global.css.scss */
+.omni-auth-btn {
+  left: 941px;
+  height: 60px;
+  top: 771.3px;
+  font-size: 18px;
+  border-radius: 7px;
+  text-align: center;
+  color: #000000 !important;
+  border: 1.3px solid #EBEBEB;
+}
+
+/* line 80, app/assets/stylesheets/global.css.scss */
+.omni-auth-btn div {
+  top: -1px;
+  width: 23px;
+  height: 39px;
+  position: relative;
+  display: inline-block;
+  vertical-align: middle;
+  background: transparent url(/GoogleOmniAuth.png) no-repeat;
+  background-size: 191px 47px;
+  background-position: -14px -3px;
+}
+
+/* line 94, app/assets/stylesheets/global.css.scss */
+.font-normal {
+  font-weight: normal !important;
+}
+
+/* line 98, app/assets/stylesheets/global.css.scss */
+.font-14 {
+  font-size: 14px;
+}
+
+/* line 102, app/assets/stylesheets/global.css.scss */
+.font-15 {
+  font-size: 15px;
+}
+
+/* line 106, app/assets/stylesheets/global.css.scss */
+.font-16 {
+  font-size: 16px;
+}
+
+/* line 110, app/assets/stylesheets/global.css.scss */
+.font-18 {
+  font-size: 18px;
+}
+
+/* line 114, app/assets/stylesheets/global.css.scss */
+.bold {
+  font-weight: bold;
+}
+
+/* line 119, app/assets/stylesheets/global.css.scss */
+.opacity-0-5 {
+  opacity: 0.5;
+}
+
+/* line 123, app/assets/stylesheets/global.css.scss */
+.opacity-0-6 {
+  opacity: 0.6;
+}
+
+/* line 127, app/assets/stylesheets/global.css.scss */
+.opacity-0-75 {
+  opacity: 0.75 !important;
+}
+
+/* line 133, app/assets/stylesheets/global.css.scss */
+.mtb-20 {
+  padding: 20px 0;
+}
+
+/* line 138, app/assets/stylesheets/global.css.scss */
+.input-45 {
+  height: 45px !important;
+}
+
+/* line 147, app/assets/stylesheets/global.css.scss */
+.page-item.active .page-link {
+  background-color: #FF8F00 !important;
+  border-color: #FF8F00 !important;
+  color: white !important;
+}
+
+/* line 153, app/assets/stylesheets/global.css.scss */
+.pagination > li > a, .pagination > li > span {
+  color: #000000 !important;
+}
+
+/* line 158, app/assets/stylesheets/global.css.scss */
+.page-heading-container .page-heading {
+  font-size: 30px;
+  font-weight: 700 !important;
+}
+
+/* line 164, app/assets/stylesheets/global.css.scss */
+.success_alert {
+  background: rgba(255, 44, 58, 0.07);
+  border-radius: 5px;
+  padding: 5px 10px;
+  color: #008000;
+}
+
+/* line 171, app/assets/stylesheets/global.css.scss */
+.alert-success {
+  color: green !important;
+  text-align: center !important;
+  background: #c3e6cb !important;
+}
+
+/* line 177, app/assets/stylesheets/global.css.scss */
+.alert-danger {
+  color: #FF0011;
+  text-align: center;
+  background: rgba(255, 44, 58, 0.07) !important;
+}
+
+/* line 183, app/assets/stylesheets/global.css.scss */
+.error_alert {
+  color: #FF2C3A;
+  padding: 5px 10px;
+  border-radius: 5px;
+  background: rgba(255, 44, 58, 0.07);
+}
+
+/* line 190, app/assets/stylesheets/global.css.scss */
+.error {
+  margin: 0;
+  color: #FF0011;
+  font-size: 12px;
+  font-weight: 400;
+}
+
+/* line 199, app/assets/stylesheets/global.css.scss */
+.form-control {
+  opacity: 0.8;
+  height: 50px;
+  border-radius: 8px;
+  mix-blend-mode: normal;
+}
+
+/* line 206, app/assets/stylesheets/global.css.scss */
+.form-control:focus {
+  border: 1.3px solid #FF8F00;
+  box-shadow: inset 0 1px 1px rgba(0, 0, 0, 0.075), 0 0 0 rgba(255, 0, 0, 0.6);
+}
+
+/* line 211, app/assets/stylesheets/global.css.scss */
+input, input::placeholder {
+  font: 15px/3 'Gordita', sans-serif !important;
+}
+
+/* line 215, app/assets/stylesheets/global.css.scss */
+.active {
+  color: #FF8F00;
+}
+
+/* line 219, app/assets/stylesheets/global.css.scss */
+.center {
+  height: auto;
+  padding: 10px;
+  margin: 0 auto;
+  position: relative;
+}
+
+/* line 226, app/assets/stylesheets/global.css.scss */
+.active_border {
+  background-color: white !important;
+  border-right: 3px solid #FF8F00 !important;
+}
+
+/* line 231, app/assets/stylesheets/global.css.scss */
+.custom-long-btn {
+  height: 50px;
+  color: white;
+  padding-left: 2.5rem;
+  padding-right: 2.5rem;
+  border-radius: 7px !important;
+  background: #FF8F00 !important;
+}
+
+/* line 240, app/assets/stylesheets/global.css.scss */
+.custom-long-btn:hover {
+  color: white;
+}
+
+/* line 244, app/assets/stylesheets/global.css.scss */
+.or-text {
+  color: rgba(0, 0, 0, 0.45);
+  font-size: 15px !important;
+}
+
+/* line 263, app/assets/stylesheets/global.css.scss */
+.divider:after,
+.divider:before {
+  content: "";
+  flex: 1;
+  height: 1px;
+  background: #eee;
+}
+
+/* line 272, app/assets/stylesheets/global.css.scss */
+.got-it-btn {
+  width: 120px;
+  height: 50px;
+  float: left;
+}
+
+/* line 278, app/assets/stylesheets/global.css.scss */
+.login_text {
+  color: #0E0E0E;
+  font-size: 42px;
+  font-weight: bold;
+}
+
+/* line 284, app/assets/stylesheets/global.css.scss */
+.text-body {
+  color: #FF8F00 !important;
+}
+
+/* line 288, app/assets/stylesheets/global.css.scss */
+.link-danger {
+  color: #FF8F00 !important;
+}
+
+/* line 292, app/assets/stylesheets/global.css.scss */
+.bg-light_red {
+  background-color: #F6F6F6;
+}
+
+/* line 297, app/assets/stylesheets/global.css.scss */
+.display_none {
+  display: none;
+}
+
+/* line 301, app/assets/stylesheets/global.css.scss */
+.display_block {
+  display: block;
+}
+
+/* line 305, app/assets/stylesheets/global.css.scss */
+.set_login_ill {
+  height: 100vh;
+}
+
+/* line 309, app/assets/stylesheets/global.css.scss */
+.set_back_icon {
+  margin: 0 8px 0 0;
+}
+
+/* line 313, app/assets/stylesheets/global.css.scss */
+.fake-input {
+  position: relative;
+}
+
+/* line 317, app/assets/stylesheets/global.css.scss */
+.fake-input input {
+  width: 100%;
+  display: block;
+  box-sizing: border-box;
+}
+
+/* line 323, app/assets/stylesheets/global.css.scss */
+.fake-input img {
+  top: 18px;
+  right: 10px;
+  cursor: pointer;
+  position: absolute;
+}
+
+/* line 330, app/assets/stylesheets/global.css.scss */
+.fake-input-edit {
+  position: relative;
+}
+
+/* line 334, app/assets/stylesheets/global.css.scss */
+.fake-input-edit img {
+  top: 18px;
+  right: 10px;
+  cursor: pointer;
+  position: absolute;
+}
+
+/* line 341, app/assets/stylesheets/global.css.scss */
+.fake-input-edit img {
+  top: 12px;
+  right: 10px;
+  cursor: pointer;
+  position: absolute;
+}
+
+@media only screen and (max-width: 600px) {
+  /* line 350, app/assets/stylesheets/global.css.scss */
+  .set_login_ill {
+    display: none !important;
+  }
+}
+
+/* line 356, app/assets/stylesheets/global.css.scss */
+#loader {
+  top: 0;
+  left: 0;
+  right: 0;
+  bottom: 0;
+  width: 100%;
+  position: fixed;
+  z-index: 9999;
+  display: none;
+  background-color: rgba(0, 0, 0, 0.5);
+}
+
+@-webkit-keyframes spin {
+  from {
+    -webkit-transform: rotate(0deg);
+  }
+  to {
+    -webkit-transform: rotate(360deg);
+  }
+}
+
+@keyframes spin {
+  from {
+    transform: rotate(0deg);
+  }
+  to {
+    transform: rotate(360deg);
+  }
+}
+
+/* line 386, app/assets/stylesheets/global.css.scss */
+#loader::after {
+  top: 40%;
+  left: 48%;
+  width: 40px;
+  content: '';
+  height: 40px;
+  display: block;
+  border-width: 4px;
+  border-radius: 50%;
+  position: absolute;
+  border-style: solid;
+  border-color: #FF8F00;
+  border-top-color: transparent;
+  animation: spin .8s linear infinite;
+  -webkit-animation: spin .8s linear infinite;
+}

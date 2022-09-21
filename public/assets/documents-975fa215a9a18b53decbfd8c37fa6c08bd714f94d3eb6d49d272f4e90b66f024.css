@@ -1,0 +1,205 @@
+/* line 1, app/assets/stylesheets/documents.css.scss */
+.documents-table {
+  margin: 20px 0;
+}
+
+/* line 5, app/assets/stylesheets/documents.css.scss */
+.document-name-cell-container {
+  padding: 10px 0;
+}
+
+/* line 9, app/assets/stylesheets/documents.css.scss */
+.document-name-cell-container .name {
+  padding: 5px;
+  font-size: 17px;
+  font-weight: 600;
+  line-height: 31px;
+  letter-spacing: -0.01em;
+}
+
+/* line 17, app/assets/stylesheets/documents.css.scss */
+.document-name-cell-container .date {
+  font-size: 13px;
+  font-weight: 400;
+  line-height: 21px;
+  margin-left: 7px;
+  letter-spacing: -0.01em;
+}
+
+/* line 25, app/assets/stylesheets/documents.css.scss */
+.document-status {
+  padding: 25px 0;
+}
+
+/* line 29, app/assets/stylesheets/documents.css.scss */
+.document-status span {
+  color: #FF4C4C;
+  text-transform: uppercase;
+}
+
+/* line 34, app/assets/stylesheets/documents.css.scss */
+.document-status .signed {
+  color: #999999;
+  font-size: 12px;
+  border-radius: 5px;
+  font-weight: bold;
+  padding: 5px 10px;
+  background: #EEEEEE;
+}
+
+/* line 43, app/assets/stylesheets/documents.css.scss */
+.document-status .completed {
+  color: #00B167;
+  font-size: 12px;
+  border-radius: 5px;
+  font-weight: bold;
+  padding: 5px 10px;
+  background: #DFF8EB;
+}
+
+/* line 52, app/assets/stylesheets/documents.css.scss */
+.document-status .ready_to_sign {
+  color: #1CA0FF;
+  font-size: 12px;
+  border-radius: 5px;
+  font-weight: bold;
+  padding: 5px 10px;
+  background: #E9F4FF;
+}
+
+/* line 61, app/assets/stylesheets/documents.css.scss */
+.document-status .waiting_for_signature {
+  color: #DDA900;
+  font-size: 12px;
+  border-radius: 5px;
+  font-weight: bold;
+  padding: 5px 10px;
+  background: #FCF6E1;
+}
+
+/* line 70, app/assets/stylesheets/documents.css.scss */
+.dropdown-padding {
+  padding: 25px 25px;
+}
+
+/* line 74, app/assets/stylesheets/documents.css.scss */
+.dropdown-menu {
+  min-width: 110px !important;
+}
+
+/* line 78, app/assets/stylesheets/documents.css.scss */
+.dropdown-menu ul {
+  list-style: none;
+  padding: 0;
+}
+
+/* line 83, app/assets/stylesheets/documents.css.scss */
+.dropdown-menu ul li span {
+  margin-left: 10px;
+}
+
+/* line 87, app/assets/stylesheets/documents.css.scss */
+.dropdown-item {
+  margin: 5px 0;
+}
+
+/* line 91, app/assets/stylesheets/documents.css.scss */
+.documents-table > tbody {
+  border: 1px solid #ddd;
+  border-radius: 15px !important;
+}
+
+/* line 96, app/assets/stylesheets/documents.css.scss */
+.documents-table > thead > tr > th {
+  border: none !important;
+  font-size: 15px;
+}
+
+/* line 101, app/assets/stylesheets/documents.css.scss */
+.documents-table-mob {
+  display: none;
+}
+
+/* line 106, app/assets/stylesheets/documents.css.scss */
+.rename-modal .modal-content {
+  padding: 0 20px;
+}
+
+/* line 110, app/assets/stylesheets/documents.css.scss */
+.rename-modal .modal-body {
+  padding: 0 20px !important;
+}
+
+/* line 115, app/assets/stylesheets/documents.css.scss */
+.rename-modal .modal-header {
+  border-bottom: none !important;
+}
+
+/* line 120, app/assets/stylesheets/documents.css.scss */
+.rename-modal .modal-footer {
+  padding-top: 0 !important;
+  border-top: none !important;
+}
+
+@media only screen and (max-width: 600px) {
+  /* line 126, app/assets/stylesheets/documents.css.scss */
+  .documents-table {
+    display: none;
+  }
+  /* line 129, app/assets/stylesheets/documents.css.scss */
+  .documents-table-mob {
+    display: block;
+    border-radius: 5px;
+    background: #FFFFFF;
+    border: 1.3px solid #E5E5E5;
+  }
+  /* line 135, app/assets/stylesheets/documents.css.scss */
+  .doc-content-container {
+    border-bottom: 1.3px solid #E5E5E5;
+  }
+  /* line 139, app/assets/stylesheets/documents.css.scss */
+  .doc-content-container .card {
+    padding: 0;
+    float: none;
+    border: none;
+  }
+  /* line 145, app/assets/stylesheets/documents.css.scss */
+  .doc-content-container .card-body {
+    padding: 30px 15px !important;
+  }
+  /* line 149, app/assets/stylesheets/documents.css.scss */
+  .doc-content-container .name {
+    font-size: 20px;
+    line-height: 31px;
+    letter-spacing: -0.01em;
+    font-weight: 600 !important;
+  }
+  /* line 156, app/assets/stylesheets/documents.css.scss */
+  .doc-content-container .document-status {
+    padding: 0 !important;
+  }
+  /* line 160, app/assets/stylesheets/documents.css.scss */
+  .doc-content-container .date {
+    font-size: 15px !important;
+  }
+  /* line 164, app/assets/stylesheets/documents.css.scss */
+  .doc-content-container .dropdown-padding {
+    padding: 0 !important;
+  }
+  /* line 168, app/assets/stylesheets/documents.css.scss */
+  .mob-margin {
+    margin: 0 10px;
+  }
+  /* line 171, app/assets/stylesheets/documents.css.scss */
+  .no-mob-name {
+    display: none;
+  }
+  /* line 175, app/assets/stylesheets/documents.css.scss */
+  #DocDropMob {
+    transform: translate3d(-95px, 30px, 0px) !important;
+  }
+  /* line 178, app/assets/stylesheets/documents.css.scss */
+  #StatusLinkMob {
+    margin-top: 20px !important;
+  }
+}
