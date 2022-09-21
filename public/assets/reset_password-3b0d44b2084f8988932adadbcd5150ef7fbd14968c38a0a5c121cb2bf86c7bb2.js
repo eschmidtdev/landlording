@@ -1,1 +1,0 @@
-$(document).ready(function(){$(function(){$("form[name='reset_password']").validate({rules:{"user[password]":{required:!0,minlength:8},"user[password_confirmation]":{required:!0,equalTo:"#ResetNewPassword"}},submitHandler:function(e,r){ajaxRequest(r)}})})});
