@@ -1,0 +1,30 @@
+# ┌───────────── minute (0 - 59)
+# │ ┌───────────── hour (0 - 23)
+# │ │ ┌───────────── day of the month (1 - 31)
+# │ │ │ ┌───────────── month (1 - 12)
+# │ │ │ │ ┌───────────── day of the week (0 - 6)
+# │ │ │ │ │
+# │ │ │ │ │
+# │ │ │ │ │
+# * * * * * <command to execute>
+
+Some useful commands:
+
+1-  To see runtime logs for cron
+    $ tail -f log/cron.log
+
+2-  Run following command every time you update schedule.rb file
+    $ whenever --update-crontab
+    $ whenever --update-crontab --set environment='development' # for development environment
+
+3-  Clear your crontab
+    $ whenever --clear-crontab
+
+4-  See your cron jobs
+    $ crontab -l
+
+5-  Remove jobs
+    $ crontab -r
+
+For more info please see following documentation
+https://github.com/javan/whenever
