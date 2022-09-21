@@ -87,7 +87,3 @@ pickle-email-*.html
 vendor/cache/
 config/database.yml
 .env
-
-/config/credentials/development.key
-
-/config/credentials/production.key
