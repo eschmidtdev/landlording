@@ -15,7 +15,7 @@ module AccountSettingsHelper
   end
 
   def billing_address(payment_detail)
-    return 'Street, Suite, City, State Zip' if payment_detail.address_line_one.nil? && payment_detail.address_line_two.nil?
+    return 'Street, Suite, City, State, Zip' if payment_detail.address_line_one.nil? && payment_detail.address_line_two.nil?
 
     payment_detail.address_line_one + ' ' + payment_detail.address_line_two
   end

@@ -14,7 +14,7 @@ module Documents
     private
 
     def create_document
-      document = Document.create(name: 'Testing Document', user_id: user.id, status: 0, interview_id:)
+      document = Document.create(name: 'Testing Document', user_id: user.id, interview_id:)
       document.attributes
     end
 
