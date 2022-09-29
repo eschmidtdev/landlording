@@ -38,8 +38,8 @@
 }
 
 .subscription-rectangle .free-account-desc {
-  letter-spacing: -0.003em !important;
   color: rgba(0, 0, 0, 0.75);
+  letter-spacing: -0.003em !important;
 }
 
 .subscription-rectangle .cancel-subscription {
@@ -68,8 +68,8 @@
 }
 
 .plan-rectangle .name {
-  font-weight: 700;
   font-size: 18px;
+  font-weight: 700;
 }
 
 .plan-rectangle .price {
@@ -124,10 +124,10 @@
 }
 
 .billing-rectangle .card-rectangle {
-  border: 1px solid #E5E5E5;
-  border-radius: 7px;
   padding: 15px;
   height: 195px;
+  border-radius: 7px;
+  border: 1px solid #E5E5E5;
   max-width: 500px !important;
 }
 
@@ -142,11 +142,11 @@
 }
 
 .billing-rectangle .brand-container {
-  border: 1px solid #E5E5E5;
-  border-radius: 2px;
-  padding: 2px;
   width: 35px;
+  padding: 2px;
   height: 20px;
+  border-radius: 2px;
+  border: 1px solid #E5E5E5;
 }
 
 .billing-rectangle .add-payment-card {
@@ -188,8 +188,8 @@
 }
 
 .billing-history-rectangle .bordered {
-  border: 1px solid #E5E5E5 !important;
   border-radius: 8px !important;
+  border: 1px solid #E5E5E5 !important;
 }
 
 .billing-history-rectangle thead tr th {
@@ -229,28 +229,28 @@
   }
 
   .subscription-rectangle {
-    padding: 0 0 15px 0;
     border-top: none;
-    border-right: none;
     border-left: none;
+    border-right: none;
+    padding: 0 0 15px 0;
     border-bottom: 1.3px solid #E5E5E5;
   }
 
   .personal-info-rectangle {
-    padding: 0 0 15px 0;
     border-top: none;
-    border-right: none;
     border-left: none;
+    border-right: none;
+    padding: 0 0 15px 0;
     border-bottom: 1.3px solid #E5E5E5;
   }
 
   .subscription-rectangle .col {
-    flex-basis: 12em !important;
     margin-right: 40px;
+    flex-basis: 12em !important;
   }
 
   .subscription-rectangle .container {
-    padding: 0;
     margin: 0;
+    padding: 0;
   }
 }
