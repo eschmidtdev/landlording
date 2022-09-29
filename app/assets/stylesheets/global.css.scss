@@ -3,12 +3,6 @@
   src: url('Gordita Regular.otf');
 }
 
-html * {
-  font-size: 15px;
-  font-style: normal !important;
-  font-family: 'Gordita', sans-serif !important;
-}
-
 body {
   margin: 0;
   color: #000000;
@@ -30,6 +24,12 @@ select {
   font-size: 15px !important;
 }
 
+html * {
+  font-size: 15px;
+  font-style: normal !important;
+  font-family: 'Gordita', sans-serif !important;
+}
+
 form .error {
   color: #FF0011;
   font-size: 12px;
@@ -37,33 +37,27 @@ form .error {
 }
 
 // Buttons
-.filter-button {
-  border: none;
-  padding: 12px 15px;
-  border-radius: 7px;
-  opacity: 0.75 !important;
-}
-
-.filter-button img {
-  margin: 7px 7px 7px 0;
+.got-it-btn {
+  float: left;
+  width: 120px;
+  height: 50px;
 }
 
 .create-button {
   border: none;
   color: #FFFFFF;
   font-size: 14px;
-  padding: 10px 15px;
   font-weight: bold;
+  padding: 10px 15px;
   border-radius: 7px;
   background: #FF8F00;
 }
 
-.create-button:hover {
-  color: #FFFFFF;
-}
-
-.create-button img {
-  margin: 0 10px 0 0;
+.filter-button {
+  border: none;
+  padding: 12px 15px;
+  border-radius: 7px;
+  opacity: 0.75 !important;
 }
 
 .cancel-button {
@@ -83,6 +77,14 @@ form .error {
   border: 1.3px solid #EBEBEB;
 }
 
+.create-button img {
+  margin: 0 10px 0 0;
+}
+
+.filter-button img {
+  margin: 7px 7px 7px 0;
+}
+
 .omni-auth-btn div {
   top: -1px;
   width: 23px;
@@ -95,10 +97,14 @@ form .error {
   background-position: -14px -3px;
 }
 
-// Global Font
+.create-button:hover {
+  color: #FFFFFF;
+}
 
-.font-normal {
-  font-weight: normal !important;
+
+// Global Font
+.bold {
+  font-weight: bold;
 }
 
 .font-14 {
@@ -117,8 +123,8 @@ form .error {
   font-size: 18px;
 }
 
-.bold {
-  font-weight: bold;
+.font-normal {
+  font-weight: normal !important;
 }
 
 // Global Opacity
@@ -146,14 +152,14 @@ form .error {
 }
 
 // Pagination Style
-.pagination .page-item .active {
-  //background-color: #FF8F00 !important;
+.page-item.active .page-link {
+  color: white !important;
+  border-color: #FF8F00 !important;
+  background-color: #FF8F00 !important;
 }
 
-.page-item.active .page-link {
-  background-color: #FF8F00 !important;
-  border-color: #FF8F00 !important;
-  color: white !important;
+.pagination .page-item .active {
+  //background-color: #FF8F00 !important;
 }
 
 .pagination > li > a, .pagination > li > span {
@@ -167,23 +173,11 @@ form .error {
 }
 
 // Error/Success
-.success_alert {
-  background: rgba(255, 44, 58, 0.07);
-  border-radius: 5px;
-  padding: 5px 10px;
-  color: #008000;
-}
-
-.alert-success {
-  color: green !important;
-  text-align: center !important;
-  background: #c3e6cb !important;
-}
-
-.alert-danger {
+.error {
+  margin: 0;
   color: #FF0011;
-  text-align: center;
-  background: rgba(255, 44, 58, 0.07) !important;
+  font-size: 12px;
+  font-weight: 400;
 }
 
 .error_alert {
@@ -193,31 +187,26 @@ form .error {
   background: rgba(255, 44, 58, 0.07);
 }
 
-.error {
-  margin: 0;
+.alert-danger {
   color: #FF0011;
-  font-size: 12px;
-  font-weight: 400;
+  text-align: center;
+  background: rgba(255, 44, 58, 0.07) !important;
+}
+
+.alert-success {
+  color: green !important;
+  text-align: center !important;
+  background: #c3e6cb !important;
+}
+
+.success_alert {
+  color: #008000;
+  padding: 5px 10px;
+  border-radius: 5px;
+  background: rgba(255, 44, 58, 0.07);
 }
 
 // Input
-
-.form-control {
-  opacity: 0.8;
-  height: 50px;
-  border-radius: 8px;
-  mix-blend-mode: normal;
-}
-
-.form-control:focus {
-  border: 1.3px solid #FF8F00;
-  box-shadow: inset 0 1px 1px rgba(0, 0, 0, 0.075), 0 0 0 rgba(255, 0, 0, 0.6);
-}
-
-input, input::placeholder {
-  font: 15px/3 'Gordita', sans-serif !important;
-}
-
 .active {
   color: #FF8F00;
 }
@@ -227,6 +216,18 @@ input, input::placeholder {
   padding: 10px;
   margin: 0 auto;
   position: relative;
+}
+
+.or-text {
+  color: rgba(0, 0, 0, 0.45);
+  font-size: 15px !important;
+}
+
+.form-control {
+  opacity: 0.8;
+  height: 50px;
+  border-radius: 8px;
+  mix-blend-mode: normal;
 }
 
 .active_border {
@@ -243,52 +244,64 @@ input, input::placeholder {
   background: #FF8F00 !important;
 }
 
+.form-control:focus {
+  border: 1.3px solid #FF8F00;
+  box-shadow: inset 0 1px 1px rgba(0, 0, 0, 0.075), 0 0 0 rgba(255, 0, 0, 0.6);
+}
+
 .custom-long-btn:hover {
   color: white;
 }
 
-.or-text {
-  color: rgba(0, 0, 0, 0.45);
-  font-size: 15px !important;
+input, input::placeholder {
+  font: 15px/3 'Gordita', sans-serif !important;
 }
 
-//--------------------------------------------------- Make all images responsive by default ---------------------------
-//img {
-//  @extend .img-responsive;
-//  margin: 0 auto;
-//}
+// Fake Input
+.fake-input {
+  position: relative;
+}
 
-//--------------------------------------------------- Section default css ---------------------------------------------
-//section {
-//  @extend .row;
-//  margin-top: 20px;
-//}
+.fake-input img {
+  top: 18px;
+  right: 10px;
+  cursor: pointer;
+  position: absolute;
+}
 
-//--------------------------------------------------- Login ----------------------------------------------------------
+.fake-input-edit {
+  position: relative;
+}
+
+.fake-input input {
+  width: 100%;
+  display: block;
+  box-sizing: border-box;
+}
+
+.fake-input-edit img {
+  top: 18px;
+  right: 10px;
+  cursor: pointer;
+  position: absolute;
+}
+
+.fake-input-edit img {
+  top: 12px;
+  right: 10px;
+  cursor: pointer;
+  position: absolute;
+}
 
 .divider:after,
-.divider:before {
-  content: "";
-  flex: 1;
-  height: 1px;
-  background: #eee;
-}
-
-
-.got-it-btn {
-  width: 120px;
-  height: 50px;
-  float: left;
+.text-body {
+  color: #FF8F00 !important;
 }
 
 .login_text {
   color: #0E0E0E;
   font-size: 42px;
   font-weight: bold;
-}
-
-.text-body {
-  color: #FF8F00 !important;
 }
 
 .link-danger {
@@ -298,7 +311,6 @@ input, input::placeholder {
 .bg-light_red {
   background-color: #F6F6F6;
 }
-
 
 .display_none {
   display: none;
@@ -316,46 +328,11 @@ input, input::placeholder {
   margin: 0 8px 0 0;
 }
 
-.fake-input {
-  position: relative;
-}
-
-.fake-input input {
-  width: 100%;
-  display: block;
-  box-sizing: border-box;
-}
-
-.fake-input img {
-  top: 18px;
-  right: 10px;
-  cursor: pointer;
-  position: absolute;
-}
-
-.fake-input-edit {
-  position: relative;
-}
-
-.fake-input-edit img {
-  top: 18px;
-  right: 10px;
-  cursor: pointer;
-  position: absolute;
-}
-
-.fake-input-edit img {
-  top: 12px;
-  right: 10px;
-  cursor: pointer;
-  position: absolute;
-}
-
-//Global Login Image
-@media only screen and (max-width: 600px) {
-  .set_login_ill {
-    display: none !important;
-  }
+.divider:before {
+  flex: 1;
+  height: 1px;
+  content: "";
+  background: #eee;
 }
 
 //Loader
@@ -365,19 +342,10 @@ input, input::placeholder {
   right: 0;
   bottom: 0;
   width: 100%;
-  position: fixed;
   z-index: 9999;
   display: none;
+  position: fixed;
   background-color: rgba(0, 0, 0, 0.5);
-}
-
-@-webkit-keyframes spin {
-  from {
-    -webkit-transform: rotate(0deg);
-  }
-  to {
-    -webkit-transform: rotate(360deg);
-  }
 }
 
 @keyframes spin {
@@ -405,3 +373,33 @@ input, input::placeholder {
   animation: spin .8s linear infinite;
   -webkit-animation: spin .8s linear infinite;
 }
+
+@-webkit-keyframes spin {
+  from {
+    -webkit-transform: rotate(0deg);
+  }
+  to {
+    -webkit-transform: rotate(360deg);
+  }
+}
+
+// Media Queries
+@media only screen and (max-width: 600px) {
+  .set_login_ill {
+    display: none !important;
+  }
+}
+
+//--------------------------------------------------- Make all images responsive by default ---------------------------
+//img {
+//  @extend .img-responsive;
+//  margin: 0 auto;
+//}
+
+//--------------------------------------------------- Section default css ---------------------------------------------
+//section {
+//  @extend .row;
+//  margin-top: 20px;
+//}
+
+//--------------------------------------------------- Login ----------------------------------------------------------
