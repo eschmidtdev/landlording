@@ -13,8 +13,8 @@
 }
 
 .documents-table > thead > tr > th {
-  border: none !important;
   font-size: 15px;
+  border: none !important;
 }
 
 // Document Status
@@ -30,36 +30,36 @@
 .document-status .signed {
   color: #999999;
   font-size: 12px;
-  border-radius: 5px;
   font-weight: bold;
   padding: 5px 10px;
+  border-radius: 5px;
   background: #EEEEEE;
 }
 
 .document-status .completed {
   color: #00B167;
   font-size: 12px;
-  border-radius: 5px;
   font-weight: bold;
   padding: 5px 10px;
+  border-radius: 5px;
   background: #DFF8EB;
 }
 
 .document-status .ready_to_sign {
   color: #1CA0FF;
   font-size: 12px;
-  border-radius: 5px;
   font-weight: bold;
   padding: 5px 10px;
+  border-radius: 5px;
   background: #E9F4FF;
 }
 
 .document-status .waiting_for_signature {
   color: #DDA900;
   font-size: 12px;
-  border-radius: 5px;
   font-weight: bold;
   padding: 5px 10px;
+  border-radius: 5px;
   background: #FCF6E1;
 }
 
@@ -94,8 +94,8 @@
 }
 
 .dropdown-menu ul {
-  list-style: none;
   padding: 0;
+  list-style: none;
 }
 
 .dropdown-padding {
