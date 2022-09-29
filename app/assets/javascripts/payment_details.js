@@ -118,7 +118,13 @@ $(document).ready(function () {
                     postal_code.prop('disabled', true).attr('value', data.user.postal_code);
                     address_line_one.prop('disabled', true).attr('value', data.user.address_line_one);
                     address_line_two.prop('disabled', true).attr('value', data.user.address_line_two);
-                } else if (data.success === false) {}
+                } else if (data.success === false) {
+                    if (data.message === 'Please update Address Line 1 in account settings first.') {
+                        $('#BillingAL1Err').text('').append(data.message);
+                    } else if (data.message === 'Please update Postal Code in account settings first.') {
+                        $('#IncorrectZipCode').text('').append(data.message)
+                    }
+                }
             },
             error: function (exception) {
             }
