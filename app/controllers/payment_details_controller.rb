@@ -2,6 +2,7 @@
 
 class PaymentDetailsController < ApplicationController
   before_action :set_payment_detail, only: :update
+  before_action :validate_payment_detail, only: :fetch_landlord
 
   def billing; end
 
@@ -32,6 +33,12 @@ class PaymentDetailsController < ApplicationController
   private
 
   def set_payment_detail = @payment_detail = User.find(params[:id]).payment_detail
+
+  def validate_payment_detail
+    resp = Validators::PaymentDetailsValidator.call(params[:action], params, current_user)
+    render json: resp unless resp.nil? && request.xhr?
+
+  end
 
   def payment_detail_params
     params.require(:payment_detail).permit(PaymentDetail.column_names.reject { |k| ['id'].include?(k) }.map(&:to_sym))
