@@ -5,7 +5,9 @@ class CreateAdminService < ApplicationService
   attr_reader :first_name, :last_name, :email, :password,
               :confirmation_token, :current_datetime, :phone_number, :uuid
 
-  def initialize(first_name, last_name, email, password, confirmation_token, current_datetime, phone_number, uuid)
+  def initialize(first_name, last_name, email, password, confirmation_token,
+                 current_datetime, phone_number, uuid)
+
     @uuid               = uuid
     @email              = email
     @password           = password
@@ -18,9 +20,7 @@ class CreateAdminService < ApplicationService
 
   def call
     prev_user = User.find_by email: @email
-    if prev_user.present?
-      raise StandardError, 'User already exists'
-    end
+    raise StandardError, 'User already exists' if prev_user.present?
 
     user = User.create(
       uuid:,
@@ -35,4 +35,5 @@ class CreateAdminService < ApplicationService
     )
     user.save!
   end
+
 end
