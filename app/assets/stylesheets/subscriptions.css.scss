@@ -1,6 +1,9 @@
+#PlanRectangleMob {
+  display: none;
+}
 
-.plan_text span {
-  font-weight: 700;
+.plan_month {
+  opacity: 0.5;
   font-size: 15px;
 }
 
@@ -10,81 +13,50 @@
   opacity: 0.8;
 }
 
-.plan-rectangle {
-  border: 1.3px solid #E5E5E5;
-  border-radius: 5px;
-  padding: 20px;
-}
-
-.plan-rectangle .plan_name {
-  font-size: 20px;
-  font-weight: 700;
-}
-
-.plan-rectangle .subscription_desc {
-  opacity: 0.5;
-  font-weight: 700;
-  font-size: 12px;
-}
-
 .plan_amount {
-  font-weight: 700;
   font-size: 18px;
-}
-
-.plan_month {
-  opacity: 0.5;
-  font-size: 15px;
-}
-
-.change_subscription_btn {
-  border: none;
-  background: #FF8F00;
-  border-radius: 7px;
-  font-weight: 550;
-  font-size: 13px;
-  letter-spacing: -0.01em;
-  color: white;
-  padding: 10px;
-}
-
-.cancel-subscription_heading span {
   font-weight: 700;
-  font-size: 20px;
-  line-height: 36px;
-}
-
-.cancellation_warning {
-  margin-top: 30px;
-}
-
-.cancellation_warning span {
-  opacity: 0.75;
 }
 
 .decide_latter {
-  text-decoration: none !important;
   color: black;
   font-weight: 700;
+  text-decoration: none !important;
+}
+
+.plan_text span {
+  font-size: 15px;
+  font-weight: 700;
+}
+
+.plan-rectangle {
+  padding: 20px;
+  border-radius: 5px;
+  border: 1.3px solid #E5E5E5;
+}
+
+.cancel_plan_amount {
+  color: #010101;
+  font-size: 25px;
+  font-weight: 700;
+  line-height: 51px;
 }
 
 .decide_latter:hover {
   color: black;
 }
 
-.cancel_plan-rectangle {
-  border: 1.3px solid #E5E5E5;
-  border-radius: 5px;
-  width: 420px;
-  height: 370px;
-  padding: 20px;
+.loose_feature_waring {
+  font-size: 15px;
+  font-weight: 700;
 }
 
-.cancel_plan_amount {
-  font-weight: 700;
-  font-size: 25px;
-  line-height: 51px;
-  color: #010101;
+.cancellation_warning {
+  margin-top: 30px;
+}
+
+.decide-mob-container {
+  display: none;
 }
 
 .end_subscription_text {
@@ -95,37 +67,69 @@
   font-weight: 700;
 }
 
-.loose_feature_waring {
+.cancel_plan-rectangle {
+  width: 420px;
+  height: 370px;
+  padding: 20px;
+  border-radius: 5px;
+  border: 1.3px solid #E5E5E5;
+}
+
+.change_subscription_btn {
+  color: white;
+  border: none;
+  padding: 10px;
+  font-size: 13px;
+  font-weight: 550;
+  border-radius: 7px;
+  background: #FF8F00;
+  letter-spacing: -0.01em;
+}
+
+.cancellation_warning span {
+  opacity: 0.75;
+}
+
+.plan-rectangle .plan_name {
+  font-size: 20px;
   font-weight: 700;
-  font-size: 15px;
 }
 
-#PlanRectangleMob {
-  display: none;
+.cancel-subscription_heading span {
+  font-size: 20px;
+  font-weight: 700;
+  line-height: 36px;
 }
 
-.decide-mob-container {
-  display: none;
+.plan-rectangle .subscription_desc {
+  opacity: 0.5;
+  font-size: 12px;
+  font-weight: 700;
 }
 
 @media only screen and (max-width: 600px) {
-  .plan-rectangle {
-    display: none;
+  #CancelSubMob {
+    margin-bottom: 40px;
   }
-  #PlanRectangleMob {
-    display: block;
-  }
-  #DecideLaterWeb {
-    display: none !important;
-  }
-  .decide-mob-container {
-    display: block;
-    text-align: center !important;
-  }
+
   #DecideLaterMob {
     margin-bottom: 10px;
   }
-  #CancelSubMob {
-    margin-bottom: 40px;
+
+  #DecideLaterWeb {
+    display: none !important;
+  }
+
+  #PlanRectangleMob {
+    display: block;
+  }
+
+  .plan-rectangle {
+    display: none;
+  }
+
+  .decide-mob-container {
+    display: block;
+    text-align: center !important;
   }
 }
