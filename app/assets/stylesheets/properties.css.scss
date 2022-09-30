@@ -8,13 +8,26 @@
   text-decoration: underline;
 }
 
+.mt5 {
+  margin-top: 5px;
+}
+
 .btn-link {
   color: black;
   text-decoration: none !important;
 }
 
+.card-margin {
+  margin-bottom: 1.5rem;
+}
+
 .desktop-margin {
   margin-top: 20px;
+}
+
+.property-address-link {
+  color: #000000;
+  text-decoration: none;
 }
 
 .new-property-form .edit {
@@ -37,6 +50,11 @@
   font-size: 18px;
 }
 
+.property-address-link:hover {
+  color: #000000;
+  text-decoration: none;
+}
+
 .new-property-form .rectangle {
   border-radius: 7px;
   border: 1px solid #E5E5E5;
@@ -56,29 +74,11 @@
   max-height: 600px !important;
 }
 
-.card-margin {
-  margin-bottom: 1.5rem;
-}
-
-.property-address-link {
-  color: #000000;
-  text-decoration: none;
-}
-
-.property-address-link:hover {
-  color: #000000;
-  text-decoration: none;
-}
-
-.mt5 {
-  margin-top: 5px;
-}
-
 @media only screen and (max-width: 600px) {
   #headingOne {
-    border-bottom: none;
     margin: 0;
     padding: 0;
+    border-bottom: none;
   }
   #CardBodyMob {
     padding: 0;
@@ -93,8 +93,8 @@
     border: none;
   }
   #TenantFormMob {
-    padding: 0 !important;
     margin-top: 10px;
+    padding: 0 !important;
   }
   #TenantModalMob {
     padding: 0 !important;
@@ -130,8 +130,8 @@
     margin-top: 15px;
   }
   .property-nam-mob {
-    margin-top: 1.5rem;
     font-size: 20px;
+    margin-top: 1.5rem;
   }
   .new-property-form .col {
     flex-basis: 12em !important;
