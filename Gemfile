@@ -33,7 +33,6 @@ gem 'whenever'
 group :development do
   gem 'better_errors'
   gem 'listen', '~> 3.0.5'
-  gem 'pry-rails'
   gem 'rails_layout'
   gem 'spring'
   gem 'spring-commands-rspec'
@@ -46,6 +45,7 @@ group :test do
   gem 'database_cleaner'
   gem 'launchy'
   gem 'selenium-webdriver'
+  gem 'simplecov', require: false
 end
 
 group :development, :test do
@@ -54,5 +54,6 @@ group :development, :test do
   gem 'factory_bot_rails'
   gem 'faker'
   gem 'rspec-rails'
+  gem 'pry-rails'
 end
 gem 'mocha', group: :test

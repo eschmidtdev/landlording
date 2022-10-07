@@ -11,8 +11,8 @@ module AccountSettings
     }.freeze
 
     def initialize(request, params, user)
-      @user = user
-      @request = request
+      @user            = user
+      @request         = request
       @settings_params = params
     end
 
