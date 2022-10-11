@@ -9,11 +9,9 @@ class PasswordsController < Devise::PasswordsController
 
   def create
     self.resource = resource_class.send_reset_password_instructions(resource_params)
-    yield resource if block_given?
+    yield(resource) if block_given?
 
-    if successfully_sent?(resource)
-      return render_response(true, '', '', confirmation_url)
-    end
+    return render_response(true, '', '', confirmation_url) if successfully_sent?(resource)
 
     render_response(false, I18n.t('GeneralError.WentWrong'), nil, nil)
   end
@@ -29,9 +27,8 @@ class PasswordsController < Devise::PasswordsController
     return if resp.nil?
 
     render_message(resp)
-    redirect_to '/users/password/new'
+    redirect_to('/users/password/new')
   end
 
   def permitted_params = params.require(:user).permit(:email)
-
 end
