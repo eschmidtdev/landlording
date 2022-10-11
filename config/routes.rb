@@ -51,7 +51,7 @@ Rails.application.routes.draw do
   get '/account', to: 'account_settings#account_index'
   get '/create/interview', to: 'documents#create_interview'
   get '/complete/interview', to: 'documents#complete_interview'
-  get 'properties/get_zip_data/:code', controller: 'properties', action: 'get_zip_data'
+  get 'properties/fetch_zip_data/:code', controller: 'properties', action: 'fetch_zip_data'
 
   # resources :documents do
   #   member do

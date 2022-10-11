@@ -404,7 +404,7 @@
 
     function getCityState(zipcode, from) {
         $.ajax({
-            url: '/properties/get_zip_data/' + zipcode,
+            url: '/properties/fetch_zip_data/' + zipcode,
             type: 'GET',
             data: {},
             success: function (data) {
