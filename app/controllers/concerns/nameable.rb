@@ -8,5 +8,4 @@ module Nameable
     user.first_name = name.shift
     user.last_name = name.join(' ')
   end
-
 end
