@@ -30,5 +30,4 @@ class RegistrationsController < Devise::RegistrationsController
     response = Validators::RegistrationValidator.call(user_params, user)
     render_response(false, response[:message], nil, nil) unless response.nil?
   end
-
 end

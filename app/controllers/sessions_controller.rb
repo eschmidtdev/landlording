@@ -10,7 +10,7 @@ class SessionsController < Devise::SessionsController
   def index; end
 
   def new
-    redirect_to root_url
+    redirect_to(root_url)
   end
 
   def create
@@ -18,18 +18,18 @@ class SessionsController < Devise::SessionsController
     signed_in = sign_in(resource_name, resource)
     if signed_in
       flash[:notice] = 'Signed in successfully.'
-      redirect_to root_url
+      redirect_to(root_url)
     else
       render_response(true, 'Signed in successfully.', nil, root_url)
     end
-    session[:return_to] = nil unless session[:return_to].blank?
+    session[:return_to] = nil if session[:return_to].present?
   end
 
   def google_auth
     user = CreateOAuthUserService.new(auth).call
-    sign_in user
+    sign_in(user)
     set_flash_message(:notice, :signed_in) if is_navigational_format?
-    redirect_to root_path
+    redirect_to(root_path)
   end
 
   private
@@ -48,5 +48,4 @@ class SessionsController < Devise::SessionsController
   def permitted_params
     params.require(:user).permit(:email, :password)
   end
-
 end
