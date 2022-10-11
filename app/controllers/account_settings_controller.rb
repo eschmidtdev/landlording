@@ -14,7 +14,7 @@ class AccountSettingsController < ApplicationController
 
   def update_password
     resp = AccountSettings::AccountSettingsUpdate.call(params[:action], password_params.to_h, @user)
-    sign_in(:user, @user, bypass: true)
+    bypass_sign_in(@user)
     render_message(resp)
     redirect_to(account_path)
   end
