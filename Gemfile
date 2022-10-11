@@ -25,10 +25,10 @@ gem 'sass-rails'
 gem 'turbolinks'
 gem 'tzinfo-data', platforms: %i[mingw mswin x64_mingw jruby]
 gem 'uglifier'
+gem 'whenever'
 gem 'wicked_pdf'
 gem 'will_paginate-bootstrap4'
 gem 'wkhtmltopdf-binary'
-gem 'whenever'
 
 group :development do
   gem 'better_errors'
@@ -53,7 +53,10 @@ group :development, :test do
   gem 'dotenv-rails'
   gem 'factory_bot_rails'
   gem 'faker'
-  gem 'rspec-rails'
   gem 'pry-rails'
+  gem 'rspec-rails'
+  gem 'rubocop', require: false
+  gem 'rubocop-performance', require: false
+  gem 'rubocop-rails', require: false
 end
 gem 'mocha', group: :test
