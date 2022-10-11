@@ -23,5 +23,4 @@ class ApplicationController < ActionController::Base
       params[:controller] == 'properties' ||
       params[:controller] == 'documents'
   end
-
 end
