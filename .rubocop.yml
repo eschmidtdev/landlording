@@ -17,8 +17,8 @@ require:
   - rubocop-rails
 
 AllCops:
-  TargetRubyVersion: 2.7
-  TargetRailsVersion: 6.0
+  TargetRubyVersion: 3.1.0
+  TargetRailsVersion: 6.1.7
   Exclude:
     - '**/db/migrate/*'
     - 'db/schema.rb'
@@ -40,7 +40,7 @@ AllCops:
 ####################### Gemspec ###########################
 ###########################################################
 
-Gemspec/DateAssignment: # (new in 1.10)
+Gemspec/DeprecatedAttributeAssignment: # (new in 1.10)
   Enabled: true
 
 ###########################################################

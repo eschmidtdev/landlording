@@ -9,20 +9,20 @@ class AccountSettingsController < ApplicationController
   def update
     resp = AccountSettings::AccountSettingsUpdate.call(params[:action], personal_info_params.to_h, @user)
     render_message(resp)
-    redirect_to account_path
+    redirect_to(account_path)
   end
 
   def update_password
     resp = AccountSettings::AccountSettingsUpdate.call(params[:action], password_params.to_h, @user)
-    sign_in :user, @user, bypass: true
+    sign_in(:user, @user, bypass: true)
     render_message(resp)
-    redirect_to account_path
+    redirect_to(account_path)
   end
 
   def destroy
-    @user.payment_detail.destroy
+    @user.payment_detail.destroy!
     flash[:notice] = 'Billing Details has been deleted successfully.'
-    redirect_to account_path
+    redirect_to(account_path)
   end
 
   def account_index
@@ -36,7 +36,8 @@ class AccountSettingsController < ApplicationController
   def set_user = @user = User.find(params[:id])
 
   def personal_info_params
-    params.require(:account_setting).permit(User.column_names.reject { |k| [' id '].include?(k) }.map(&:to_sym))
+    id = ['id']
+    params.require(:account_setting).permit(User.column_names.reject { |k| id.include?(k) }.map(&:to_sym))
   end
 
   def password_params
@@ -48,7 +49,7 @@ class AccountSettingsController < ApplicationController
     return if resp.nil?
 
     render_message(resp)
-    redirect_to account_path
+    redirect_to(account_path)
   end
 
   def set_params
@@ -56,5 +57,4 @@ class AccountSettingsController < ApplicationController
 
     password_params
   end
-
 end
