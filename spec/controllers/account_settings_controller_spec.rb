@@ -2,10 +2,12 @@
 
 require 'rails_helper'
 
-RSpec.describe AccountSettingsController, type: :request do
+RSpec.describe(AccountSettingsController, type: :request) do
+  include Warden::Test::Helpers
+  Warden.test_mode!
 
   before do
-    allow_any_instance_of(ApplicationController).to receive(:authenticate_user!).and_return(true)
+    allow_any_instance_of(ApplicationController).to(receive(:authenticate_user!).and_return(true))
   end
 
   let(:valid_attributes) do
@@ -60,7 +62,7 @@ RSpec.describe AccountSettingsController, type: :request do
         user = User.create!(valid_attributes)
         patch "/account_settings/#{user.id}", params: { account_setting: new_attributes, action: 'update' }
         user.reload
-        expect(response).to redirect_to(account_path)
+        expect(response).to(redirect_to(account_path))
       end
     end
 
@@ -68,7 +70,7 @@ RSpec.describe AccountSettingsController, type: :request do
       it 'Should redirect to the account path' do
         user = User.create!(valid_attributes)
         patch "/account_settings/#{user.id}", params: { account_setting: invalid_attributes, action: 'update' }
-        expect(response).to redirect_to(account_path)
+        expect(response).to(redirect_to(account_path))
       end
     end
   end
@@ -92,7 +94,7 @@ RSpec.describe AccountSettingsController, type: :request do
         user = User.create!(valid_attributes)
         put "/account_settings/#{user.id}/change/password", params: { account_setting: new_attributes, action: 'update_password' }
         user.reload
-        expect(response).to redirect_to(account_path)
+        expect(response).to(redirect_to(account_path))
       end
     end
 
@@ -106,7 +108,7 @@ RSpec.describe AccountSettingsController, type: :request do
       it 'Should redirect to the account path' do
         user = User.create!(valid_attributes)
         patch "/account_settings/#{user.id}", params: { account_setting: new_attributes, action: 'update' }
-        expect(response).to redirect_to(account_path)
+        expect(response).to(redirect_to(account_path))
       end
     end
   end
@@ -124,12 +126,13 @@ RSpec.describe AccountSettingsController, type: :request do
     end
   end
 
-  # describe 'GET /index' do
-  #   it 'renders a successful response' do
-  #     User.create!(valid_attributes)
-  #     get '/account'
-  #     expect(response).to(be_successful)
-  #   end
-  # end
+  describe 'GET /index' do
+    it 'renders a successful response' do
+      user = User.create!(valid_attributes)
+      login_as(user, scope: :user)
+      get '/account'
+      expect(response).to(be_successful)
+    end
+  end
 
 end
