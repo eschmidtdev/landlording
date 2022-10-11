@@ -4,7 +4,7 @@ module Responseable
   extend ActiveSupport::Concern
 
   def render_response(success, message, method, url)
-    render json: { success:, message:, method:, url: }
+    render(json: { success:, message:, method:, url: })
   end
 
   def render_message(resp)
@@ -17,5 +17,4 @@ module Responseable
       flash[:error] = 'Something went wrong please try again.'
     end
   end
-
 end
