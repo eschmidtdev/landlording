@@ -19,23 +19,23 @@ class DocumentsController < ApplicationController
     resp = Documents::UpdateDocumentService.call(@document, params)
     render_message(resp)
 
-    redirect_to documents_url
+    redirect_to(documents_url)
   end
 
   def delete
     resp = Documents::DeleteDocumentService.call(@document)
     render_message(resp)
 
-    redirect_to documents_url
+    redirect_to(documents_url)
   end
 
   def create_interview
     access_token_response = Rocket::GenerateAccessTokenService.call
-    return redirect_to documents_url if access_token_response.nil?
+    return redirect_to(documents_url) if access_token_response.nil?
 
     @access_token = access_token_response['access_token']
     interview_response = Rocket::CreateInterviewService.call(@access_token, current_user)
-    return redirect_to documents_url if interview_response.nil?
+    return redirect_to(documents_url) if interview_response.nil?
 
     @rl_rdoc_service_token = interview_response['service_token']
     @interview_id = interview_response['interview_id']
@@ -45,30 +45,30 @@ class DocumentsController < ApplicationController
 
   def complete_interview
     completion_response = Rocket::CompleteInterviewService.call(params[:interview_id], params[:access_token])
-    return redirect_to documents_url if completion_response.nil?
+    return redirect_to(documents_url) if completion_response.nil?
 
     @binder_id = completion_response['binder_id']
     @document_id = completion_response['document_id']
 
     retrieval_response = Rocket::RetrieveDocumentService.call(@binder_id, @document_id, params[:access_token])
-    return redirect_to documents_url if retrieval_response.nil?
+    return redirect_to(documents_url) if retrieval_response.nil?
 
     @url = retrieval_response['url']
   end
 
   def sign_document
     interview_response = Rocket::GetInterviewService.call(params[:access_token], params[:interview_id])
-    return redirect_to documents_url if interview_response.nil?
+    return redirect_to(documents_url) if interview_response.nil?
 
     binder_id = interview_response['binder']['binderId']
 
     upid_response = Rocket::GetUpidService.call(params[:access_token], binder_id)
-    return redirect_to documents_url if upid_response.nil?
+    return redirect_to(documents_url) if upid_response.nil?
 
     upid = upid_response['parties'].first['id']
 
     service_token_response = Rocket::GenerateServiceTokenService.call(params[:access_token], upid)
-    return redirect_to documents_url if service_token_response.nil?
+    return redirect_to(documents_url) if service_token_response.nil?
 
     service_token = service_token_response['token']
 
@@ -103,15 +103,14 @@ class DocumentsController < ApplicationController
 
   def email_me_the_document(document)
     UserMailer.send_me_document(document).deliver_now!
-    redirect_to documents_path, notice: 'Email sent'
+    redirect_to(documents_path, notice: 'Email sent')
   end
 
   def validate_document
     resp = Validators::DocumentValidator.call(permitted_params)
-    unless resp.nil?
-      render_message(resp)
-      redirect_to documents_url
-    end
-  end
+    return if resp.nil?
 
+    render_message(resp)
+    redirect_to(documents_url)
+  end
 end
