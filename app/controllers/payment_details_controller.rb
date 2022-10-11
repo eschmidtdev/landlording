@@ -9,12 +9,12 @@ class PaymentDetailsController < ApplicationController
   def update
     resp = PaymentDetails::PaymentDetailsService.call(set_action, payment_detail_params.to_h, User.find(params[:id]))
     flash[:notice] = resp[:message]
-    redirect_to account_path
+    redirect_to(account_path)
   end
 
   def fetch_landlord
     user = current_user
-    render json: {
+    render(json: {
       success: true,
       user: {
         city: user.city,
@@ -28,6 +28,7 @@ class PaymentDetailsController < ApplicationController
         address_line_two: user.address_line_two
       }
     }
+          )
   end
 
   private
@@ -36,16 +37,15 @@ class PaymentDetailsController < ApplicationController
 
   def validate_payment_detail
     resp = Validators::PaymentDetailsValidator.call(params[:action], params, current_user)
-    render json: resp unless resp.nil? && request.xhr?
-
+    render(json: resp) unless resp.nil? && request.xhr?
   end
 
   def payment_detail_params
-    params.require(:payment_detail).permit(PaymentDetail.column_names.reject { |k| ['id'].include?(k) }.map(&:to_sym))
+    id = ['id']
+    params.require(:payment_detail).permit(PaymentDetail.column_names.reject { |k| id.include?(k) }.map(&:to_sym))
   end
 
   def set_action
     @payment_detail.nil? ? 'create' : 'update'
   end
-
 end
