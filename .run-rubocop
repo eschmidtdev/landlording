@@ -1,0 +1,23 @@
+We have the option to run RuboCop on
+
+* Whole project
+* Files inside single folder
+* Only on single file
+
+Whole Project
+    $ rubocop
+
+Files inside single folder
+    $ rubocop app
+
+Single file
+    $ rubocop app/models/user.rb
+
+We can run auto correction with the following command:
+    $ rubocop -a
+    # or
+    $ rubocop --auto-correct
+    # or
+    $ rubocop -A
+    # or
+    $ rubocop --auto-correct-all
