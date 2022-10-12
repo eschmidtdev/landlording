@@ -101,10 +101,10 @@ class DocumentsController < ApplicationController
 
   def permitted_params = params.require(:document).permit(:name)
 
-  def email_me_the_document(document)
-    UserMailer.send_me_document(document).deliver_now!
-    redirect_to(documents_path, notice: 'Email sent')
-  end
+  # def email_me_the_document(document)
+  #   UserMailer.send_me_document(document).deliver_now!
+  #   redirect_to(documents_path, notice: 'Email sent')
+  # end
 
   def validate_document
     resp = Validators::DocumentValidator.call(permitted_params)

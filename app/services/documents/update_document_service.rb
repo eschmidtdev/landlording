@@ -1,15 +1,12 @@
+# frozen_string_literal: true
+
 module Documents
   class UpdateDocumentService < ApplicationService
     attr_reader :document, :name
 
-    MESSAGES = {
-      updated: 'Document has been updated successfully.',
-      not_updated: 'Document has not been updated successfully.'
-    }.freeze
-
     def initialize(document, params)
       @document = document
-      @name = params[:document][:name]
+      @name     = params[:document][:name]
     end
 
     def call
@@ -19,9 +16,9 @@ module Documents
     private
 
     def update_document
-      return success_response(MESSAGES[:updated]) if document.update(name: name)
+      return success_response('Document has been updated successfully.') if document.update(name:)
 
-      error_response(MESSAGES[:not_updated])
+      error_response('Document has not been updated successfully.')
     end
 
   end

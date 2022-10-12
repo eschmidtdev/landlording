@@ -5,15 +5,16 @@ class Document < ApplicationRecord
   belongs_to :user
 
   # Enums
-  enum status: { in_progress: 0,
-                 signed: 1,
-                 completed: 2,
-                 ready_to_sign: 3,
-                 waiting_for_signature: 4
+  enum status: {
+    in_progress: 0,
+    signed: 1,
+    completed: 2,
+    ready_to_sign: 3,
+    waiting_for_signature: 4
   }
 
   self.per_page = 5
 
   # Scope
-  scope :user_documents, ->(id) { where(user_id: id) }
+  scope :user_documents, -> (id) { where(user_id: id) }
 end

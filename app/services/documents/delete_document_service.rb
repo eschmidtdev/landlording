@@ -11,8 +11,8 @@ module Documents
     end
 
     def delete_from_landlording_db
-      interview_id = @document.interview_id
-      return delete_from_rocket(interview_id) if @document.destroy
+      interview_id = document.interview_id
+      return delete_from_rocket(interview_id) if document.destroy
 
       error_response('Document has not been deleted successfully')
     end
