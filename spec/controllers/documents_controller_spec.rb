@@ -68,13 +68,21 @@ RSpec.describe(DocumentsController, type: :request) do
     end
 
     describe 'GET /create/interview' do
-      context 'with valid Access-Token' do
-        it 'Should create a new interview & a new document' do
-          expect do
-            login_as(user, scope: :user)
-            get('/create/interview')
-          end.to(change(Document, :count).by(1))
-        end
+      it 'Should create a new interview & a new document' do
+        expect do
+          login_as(user, scope: :user)
+          get('/create/interview')
+        end.to(change(Document, :count).by(1))
+      end
+    end
+
+    describe 'GET /complete/interview' do
+      it 'Should complete an interview & return & redirect to retrieval url' do
+        access_token_response = Rocket::GenerateAccessTokenService.call
+        interview_response = Rocket::CreateInterviewService.call(access_token_response['access_token'], user)
+        interview_id = interview_response['interview_id']
+        get('/complete/interview', params: { access_token: access_token_response['access_token'], interview_id: })
+        expect(response.status).to(eql(200))
       end
     end
   end
