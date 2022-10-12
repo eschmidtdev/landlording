@@ -66,5 +66,16 @@ RSpec.describe(DocumentsController, type: :request) do
         expect(response).to(redirect_to(documents_url))
       end
     end
+
+    describe 'GET /create/interview' do
+      context 'with valid Access-Token' do
+        it 'Should create a new interview & a new document' do
+          expect do
+            login_as(user, scope: :user)
+            get('/create/interview')
+          end.to(change(Document, :count).by(1))
+        end
+      end
+    end
   end
 end
