@@ -59,8 +59,10 @@ RSpec.describe(DocumentsController, type: :request) do
     describe 'POST /destroy' do
       it 'destroys the requested Document' do
         access_token_response = Rocket::GenerateAccessTokenService.call
+
         interview_response = Rocket::CreateInterviewService.call(access_token_response['access_token'], user)
         interview_id = interview_response['interview_id']
+
         document = Document.create!(name: Faker::Company.name, user_id: user.id, interview_id:)
         post('/delete/document', params: { id: document.id })
         expect(response).to(redirect_to(documents_url))
@@ -79,9 +81,24 @@ RSpec.describe(DocumentsController, type: :request) do
     describe 'GET /complete/interview' do
       it 'Should complete an interview & return & redirect to retrieval url' do
         access_token_response = Rocket::GenerateAccessTokenService.call
+
         interview_response = Rocket::CreateInterviewService.call(access_token_response['access_token'], user)
         interview_id = interview_response['interview_id']
+
         get('/complete/interview', params: { access_token: access_token_response['access_token'], interview_id: })
+        expect(response.status).to(eql(200))
+      end
+    end
+
+    describe 'GET /sign/document' do
+      it 'Should return document for signing process & redirect to retrieval url' do
+        access_token_response = Rocket::GenerateAccessTokenService.call
+        access_token = access_token_response['access_token']
+
+        interview_response = Rocket::CreateInterviewService.call(access_token, user)
+        interview_id = interview_response['interview_id']
+
+        get('/sign/document', params: { access_token:, interview_id: })
         expect(response.status).to(eql(200))
       end
     end
