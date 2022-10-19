@@ -310,6 +310,8 @@ GEM
       rexml (~> 3.2, >= 3.2.5)
       rubyzip (>= 1.2.2, < 3.0)
       websocket (~> 1.0)
+    shoulda-callback-matchers (1.1.4)
+      activesupport (>= 3)
     shoulda-matchers (5.1.0)
       activesupport (>= 5.2.0)
     simplecov (0.21.2)
@@ -409,6 +411,7 @@ DEPENDENCIES
   rubocop-rails
   sass-rails
   selenium-webdriver
+  shoulda-callback-matchers
   shoulda-matchers
   simplecov
   spring

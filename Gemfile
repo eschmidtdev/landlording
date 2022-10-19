@@ -47,6 +47,7 @@ group :test do
   gem 'selenium-webdriver'
   gem 'shoulda-matchers'
   gem 'simplecov'
+  gem 'shoulda-callback-matchers'
 end
 
 group :development, :test do
