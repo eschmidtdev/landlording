@@ -32,6 +32,15 @@ RSpec.describe(AccountSettingsController, type: :request) do
     }
   end
 
+  describe 'GET /index' do
+    it 'renders a successful response' do
+      user = User.create!(valid_attributes)
+      login_as(user, scope: :user)
+      get '/account'
+      expect(response).to(be_successful)
+    end
+  end
+
   describe 'PATCH /update' do
     context 'with valid parameters' do
       let(:new_attributes) do
@@ -75,7 +84,20 @@ RSpec.describe(AccountSettingsController, type: :request) do
     end
   end
 
-  describe 'PUT /update' do
+  describe 'DELETE /destroy' do
+    it 'Should destroy the requested PaymentDetail' do
+      user = User.create!(valid_attributes)
+      delete "/account_settings/#{user.id}"
+    end
+
+    it 'redirects to the widgets list' do
+      user = User.create!(valid_attributes)
+      delete "/account_settings/#{user.id}"
+      expect(response).to(redirect_to(account_path))
+    end
+  end
+
+  describe 'PUT /change/password' do
     context 'with valid parameters' do
       let(:new_attributes) do
         {
@@ -112,27 +134,4 @@ RSpec.describe(AccountSettingsController, type: :request) do
       end
     end
   end
-
-  describe 'DELETE /destroy' do
-    it 'Should destroy the requested PaymentDetail' do
-      user = User.create!(valid_attributes)
-      delete "/account_settings/#{user.id}"
-    end
-
-    it 'redirects to the widgets list' do
-      user = User.create!(valid_attributes)
-      delete "/account_settings/#{user.id}"
-      expect(response).to(redirect_to(account_path))
-    end
-  end
-
-  describe 'GET /index' do
-    it 'renders a successful response' do
-      user = User.create!(valid_attributes)
-      login_as(user, scope: :user)
-      get '/account'
-      expect(response).to(be_successful)
-    end
-  end
-
 end
