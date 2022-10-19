@@ -14,4 +14,11 @@ RSpec.describe(User, type: :model) do
       it { should have_many(:properties).dependent(:destroy) }
     end
   end
+
+  describe 'Activerecord Callbacks' do
+    it { is_expected.to(callback(:normalize_phone).before(:save)) }
+    it { is_expected.to(callback(:transact_service).after(:create)) }
+    it { is_expected.to(callback(:update_confirmed_at).after(:create)) }
+    it { is_expected.to(callback(:send_change_password_email).after(:create)) }
+  end
 end
