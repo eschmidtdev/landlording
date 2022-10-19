@@ -21,4 +21,12 @@ RSpec.describe(User, type: :model) do
     it { is_expected.to(callback(:update_confirmed_at).after(:create)) }
     it { is_expected.to(callback(:send_change_password_email).after(:create)) }
   end
+
+  describe 'Instance Methods' do
+    it 'Should test not_confirmed? & return true' do
+      user = User.new(confirmed_at: nil)
+      response = user.not_confirmed?
+      expect(response).to be_truthy
+    end
+  end
 end

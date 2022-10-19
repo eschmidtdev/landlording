@@ -38,7 +38,7 @@ class User < ApplicationRecord
   end
 
   def update_confirmed_at
-    update(confirmed_at: DateTime.now)
+    update!(confirmed_at: DateTime.now)
   end
 
   def send_change_password_email
