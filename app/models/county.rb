@@ -12,8 +12,8 @@ class County < ActiveRecord::Base
     county = County.arel_table
     zipcodes = Zipcode.arel_table
     zipjoin = county
-        .join(zipcodes, Arel::Nodes::OuterJoin)
-        .on(zipcodes[:county_id].eq(county[:id]))
+              .join(zipcodes, Arel::Nodes::OuterJoin)
+              .on(zipcodes[:county_id].eq(county[:id]))
     joins(zipjoin.join_sources).where(zipcodes[:county_id].eq(nil))
   }
   scope :without_state, lambda {
