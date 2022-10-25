@@ -1,38 +1,35 @@
 # frozen_string_literal: true
 
 module PropertiesHelper
-
   def property_index?(params)
     params[:controller] == 'properties' && params[:action] == 'index'
   end
 
   def show_home_image(property_type)
-    case property_type
-    when 'Single-Family Home'
-      image_tag 'properties/my_properties_home_1.svg', width: '40'
-    when 'Apartment/Condo'
-      image_tag 'properties/my_properties_home_2.svg', width: '40'
-    else
-      # type code here
-    end
+    property_types = {
+      'Single-Family Home' => image_tag('properties/my_properties_home_1.svg', width: '40'),
+      'Apartment/Condo' => image_tag('properties/my_properties_home_2.svg', width: '40')
+    }.freeze
+
+    property_types[property_type]
   end
 
   def show_property_name(address_line_one, address_line_two)
-    if address_line_one.present? && address_line_two.blank?
-      address_line_one
-    elsif address_line_one.present? && address_line_two.present?
-      "#{address_line_one}  #{address_line_two}"
-    end
+    return complete_address(address_line_one, address_line_two) if address_line_one.present? && address_line_two.present?
+
+    address_line_one
   end
 
+  def complete_address(address_line_one, address_line_two) = "#{address_line_one}  #{address_line_two}"
+
   def show_tenant_name(property)
-    return property.tenant.name unless property.tenant.name.blank?
+    return property.tenant.name if property.tenant.name.present?
 
     'None'
   end
 
   def disabled?(property, value)
-    !property.send("landlord_contact_#{value}").blank? && property.saved_landlord == true ? 'disabled' : ''
+    property.send("landlord_contact_#{value}").present? && property.saved_landlord == true ? 'disabled' : ''
   end
 
   def bedrooms_a
