@@ -19,10 +19,10 @@ class CreateAdminService < ApplicationService
   end
 
   def call
-    prev_user = User.find_by email: @email
-    raise StandardError, 'User already exists' if prev_user.present?
+    prev_user = User.find_by(email: @email)
+    raise(StandardError, 'User already exists') if prev_user.present?
 
-    user = User.create(
+    user = User.create!(
       uuid:,
       email:,
       password:,
