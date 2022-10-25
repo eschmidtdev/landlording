@@ -3,14 +3,17 @@
 # This module is responsible for method that is (mostly) used in your Rails
 # views to share reusable code
 module ApplicationHelper
-
   def check_for(value)
-    value.present? ? value : ''
+    value.presence || ''
   end
 
   def current?(key, path)
-    key.to_s if current_page? path
+    key.to_s if current_page?(path)
   end
+
+  # rubocop: disable Metrics/AbcSize
+  # rubocop: disable Metrics/CyclomaticComplexity
+  # rubocop: disable Metrics/PerceivedComplexity
 
   def heading(params)
     if params[:controller] == 'visitors' && params[:action] == 'index'
@@ -35,21 +38,26 @@ module ApplicationHelper
       'Cancel Subscription'
     elsif params[:controller] == 'payment_details' && params[:action] == 'index'
       'Enter Payment Details'
+    else
+      ''
     end
   end
+
+  # rubocop: enable Metrics/AbcSize
+  # rubocop: enable Metrics/CyclomaticComplexity
+  # rubocop: enable Metrics/PerceivedComplexity
 
   def user_name(user)
-    if user&.first_name.present? && user&.last_name.blank?
-      user.first_name
-    elsif user&.first_name.present? && user&.last_name.present?
-      "#{user.first_name}  #{user.last_name}"
-    end
+    return complete_name(user) if user&.first_name.present? && user&.last_name.present?
+
+    first_name(user)
   end
+
+  def first_name(user) = user.first_name
+
+  def complete_name(user) = "#{user.first_name}  #{user.last_name}"
 
   def set_ids(controller, action)
-    if controller == 'documents' && action == 'index'
-      'CreateDocument'
-    end
+    'CreateDocument' if controller == 'documents' && action == 'index'
   end
-
 end

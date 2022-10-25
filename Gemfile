@@ -45,9 +45,9 @@ group :test do
   gem 'database_cleaner'
   gem 'launchy'
   gem 'selenium-webdriver'
+  gem 'shoulda-callback-matchers'
   gem 'shoulda-matchers'
   gem 'simplecov'
-  gem 'shoulda-callback-matchers'
 end
 
 group :development, :test do
