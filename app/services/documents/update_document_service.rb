@@ -20,6 +20,5 @@ module Documents
 
       error_response('Document has not been updated successfully.')
     end
-
   end
 end
