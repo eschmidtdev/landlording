@@ -5,9 +5,7 @@ class CreateAdminService < ApplicationService
   attr_reader :first_name, :last_name, :email, :password,
               :confirmation_token, :current_datetime, :phone_number, :uuid
 
-  def initialize(first_name, last_name, email, password, confirmation_token,
-                 current_datetime, phone_number, uuid)
-
+  def initialize(first_name, last_name, email, password, confirmation_token, current_datetime, phone_number, uuid)
     @uuid               = uuid
     @email              = email
     @password           = password
@@ -35,5 +33,4 @@ class CreateAdminService < ApplicationService
     )
     user.save!
   end
-
 end

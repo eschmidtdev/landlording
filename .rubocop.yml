@@ -267,6 +267,9 @@ Metrics/ModuleLength:
 Metrics/PerceivedComplexity:
   Max: 10
 
+Metrics/ParameterLists:
+  Enabled: false
+
 ###########################################################
 ######################## Naming ###########################
 ###########################################################
