@@ -1,10 +1,6 @@
 # frozen_string_literal: true
 
-require 'memoist'
-
 class County < ApplicationRecord
-  extend Memxist
-
   # Associations
   belongs_to :state
 
@@ -32,6 +28,4 @@ class County < ApplicationRecord
   def cities
     zipcodes.map(&:city).sort.uniq
   end
-
-  memoize :cities
 end
