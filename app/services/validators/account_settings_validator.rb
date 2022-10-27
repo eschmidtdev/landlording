@@ -25,9 +25,11 @@ module Validators
     end
 
     def required_personal_info_keys
-      %w[address_line_one address_line_two city
-         company_name country first_name last_name
-         phone_number postal_code state]
+      %w[
+        address_line_one address_line_two city
+        company_name country first_name last_name
+        phone_number postal_code state
+      ]
     end
 
     def required_password_params
@@ -37,6 +39,5 @@ module Validators
     def resp_hash
       error_response('Params are missing or values are empty.')
     end
-
   end
 end
