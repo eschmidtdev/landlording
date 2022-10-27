@@ -10,12 +10,12 @@ module Rocket
     end
 
     def call
-      get_upid
+      pull_upid
     end
 
     private
 
-    def get_upid
+    def pull_upid
       url = URI("#{ENV.fetch('ROCKET_BASE_URL', nil)}/document-manager/v1/binders/#{binder_id}")
 
       https = Net::HTTP.new(url.host, url.port)
@@ -30,6 +30,5 @@ module Rocket
 
       JSON.parse(response.read_body)
     end
-
   end
 end
