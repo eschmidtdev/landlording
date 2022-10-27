@@ -22,19 +22,19 @@ module Rocket
       https.use_ssl = true
 
       request = Net::HTTP::Post.new(url)
-      request["Authorization"] = "Bearer #{access_token}"
-      request["Content-Type"]  = 'application/json'
+      request['Authorization'] = "Bearer #{access_token}"
+      request['Content-Type'] = 'application/json'
       request.body = JSON.dump({
-                                 purpose: 'api.rocketlawyer.com/document-manager/v1/binders',
-                                 expirationTime: 160780393200,
-                                 upid: uipd
-                               })
+        purpose: 'api.rocketlawyer.com/document-manager/v1/binders',
+        expirationTime: 160_780_393_200,
+        upid: uipd
+      }
+                              )
 
       response = https.request(request)
       return nil unless response.code == '200'
 
       JSON.parse(response.read_body)
     end
-
   end
 end
