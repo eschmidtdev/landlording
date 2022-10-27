@@ -30,7 +30,7 @@ module Rocket
       return nil unless response.code == '303'
 
       data = construct_hash(response)
-      HashWithIndifferentAccess.new data
+      HashWithIndifferentAccess.new(data)
     end
 
     def construct_hash(response)
@@ -38,6 +38,5 @@ module Rocket
         url: response.each_header.to_h['location']
       }
     end
-
   end
 end
