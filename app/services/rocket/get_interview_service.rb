@@ -10,12 +10,12 @@ module Rocket
     end
 
     def call
-      get_interview
+      pull_interview
     end
 
     private
 
-    def get_interview
+    def pull_interview
       url = URI("#{ENV.fetch('ROCKET_BASE_URL', nil)}/rocketdoc/v1/interviews/#{interview_id}")
 
       https = Net::HTTP.new(url.host, url.port)
@@ -29,6 +29,5 @@ module Rocket
 
       JSON.parse(response.read_body)
     end
-
   end
 end
