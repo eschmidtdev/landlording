@@ -1,11 +1,11 @@
 # frozen_string_literal: true
 
 admin = OpenStruct.new(
-  f_name: 'Artur',
+  f_name: 'Autr',
   l_name: 'Masagutov',
   phone: '2012987481',
   password: 'Test@123',
-  email: 'artur@ipm.com',
+  email: 'autr@ipm.com',
   token: SecureRandom.hex(10),
   uuid: SecureRandom.uuid,
   date: DateTime.now
