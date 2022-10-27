@@ -1,7 +1,6 @@
 # frozen_string_literal: true
 
 class Tenant < ApplicationRecord
-
   # Associations
   belongs_to :property
 
@@ -18,5 +17,4 @@ class Tenant < ApplicationRecord
     self.phone_number = Phonelib.parse(phone_number).full_e164
     self.additional_tenant_phone = Phonelib.parse(additional_tenant_phone).full_e164
   end
-
 end
