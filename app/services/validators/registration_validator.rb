@@ -10,10 +10,11 @@ module Validators
       short_password: I18n.t('Registrations.ShortPassword'),
       email_not_valid: I18n.t('Registrations.EmailNotValid')
     }.freeze
+    private_constant :MESSAGES
 
     def initialize(params, user)
       @user = user
-      @params = HashWithIndifferentAccess.new params
+      @params = HashWithIndifferentAccess.new(params)
     end
 
     def call
@@ -23,9 +24,7 @@ module Validators
     private
 
     def missing_params?
-      if !required_keys.all? { |s| params.key? s } || params.values.any?(&:blank?)
-        error_response('Params missing or values are empty')
-      end
+      error_response('Params missing or values are empty') if !required_keys.all? { |s| params.key?(s) } || params.values.any?(&:blank?)
     end
 
     def user_existence
@@ -33,6 +32,5 @@ module Validators
     end
 
     def required_keys = %i[first_name email password]
-
   end
 end

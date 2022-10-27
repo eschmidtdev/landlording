@@ -7,12 +7,12 @@ module Validators
     MESSAGES = {
       not_valid: I18n.t('Sessions.NotValid'),
       not_confirmed: I18n.t('devise.registrations.signed_up_but_inactive')
-
     }.freeze
+    private_constant :MESSAGES
 
     def initialize(params, user)
-      @user   = user
-      @params = HashWithIndifferentAccess.new params
+      @user = user
+      @params = HashWithIndifferentAccess.new(params)
     end
 
     def call
@@ -22,9 +22,7 @@ module Validators
     private
 
     def missing_params?
-      if !required_keys.all? { |s| params.key? s } || params.values.any?(&:blank?)
-        error_response('Params missing or values are empty')
-      end
+      error_response('Params missing or values are empty') if !required_keys.all? { |s| params.key?(s) } || params.values.any?(&:blank?)
     end
 
     def user_confirmation
@@ -32,12 +30,9 @@ module Validators
     end
 
     def user_existence
-      if user.nil? || !user.valid_password?(params['password'])
-        error_response(MESSAGES[:not_valid])
-      end
+      error_response(MESSAGES[:not_valid]) if user.nil? || !user.valid_password?(params['password'])
     end
 
     def required_keys = %i[email password]
-
   end
 end
