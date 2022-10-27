@@ -1,3 +1,5 @@
+# frozen_string_literal: true
+
 # Creates a output log for you to view previously run cron jobs
 set :output, 'log/cron.log'
 

@@ -1,6 +1,5 @@
 # frozen_string_literal: true
 
-# rubocop:disable Metrics/BlockLength
 Rails.application.configure do
   # Settings specified here will take precedence over those in config/application.rb.
 
@@ -74,7 +73,7 @@ Rails.application.configure do
   host = 'i-pm-app.herokuapp.com'
 
   # ActionMailer Config
-  config.action_mailer.default_url_options = { host: host }
+  config.action_mailer.default_url_options = { host: }
   config.action_mailer.default_options = { from: 'isoquick217@gmail.com' }
   config.action_mailer.delivery_method = :smtp
   config.action_mailer.raise_delivery_errors = true
@@ -97,13 +96,14 @@ Rails.application.configure do
   # require 'syslog/logger'
   # config.logger = ActiveSupport::TaggedLogging.new(Syslog::Logger.new 'app-name')
 
+  # rubocop: disable Style/MissingElse
   if ENV['RAILS_LOG_TO_STDOUT'].present?
     logger = ActiveSupport::Logger.new($stdout)
     logger.formatter = config.log_formatter
     config.logger = ActiveSupport::TaggedLogging.new(logger)
   end
+  # rubocop: enable Style/MissingElse
 
   # Do not dump schema after migrations.
   config.active_record.dump_schema_after_migration = false
 end
-# rubocop:enable Metrics/BlockLength

@@ -12,4 +12,6 @@ Rails.application.config.assets.version = '1.0'
 # application.js, application.css, and all non-JS/CSS in app/assets folder are already added.
 # Rails.application.config.assets.precompile += %w( search.js )
 
+# rubocop: disable Rails/FilePath
 Rails.application.config.assets.paths << Rails.root.join('app', 'assets', 'fonts')
+# rubocop: enable Rails/FilePath

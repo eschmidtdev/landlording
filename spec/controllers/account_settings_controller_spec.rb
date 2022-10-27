@@ -58,7 +58,7 @@ RSpec.describe(AccountSettingsController, type: :request) do
           postal_code: Faker::Address.postcode,
           address_line_one: Faker::Address.street_address,
           address_line_two: Faker::Address.street_address,
-          phone_number: Faker::PhoneNumber.cell_phone_in_e164,
+          phone_number: Faker::PhoneNumber.cell_phone_in_e164
         }
       end
 
@@ -124,7 +124,7 @@ RSpec.describe(AccountSettingsController, type: :request) do
       let(:new_attributes) do
         {
           new_password: 'Test@124',
-          confirm_password: 'Test@1234',
+          confirm_password: 'Test@1234'
         }
       end
       it 'Should redirect to the account path' do

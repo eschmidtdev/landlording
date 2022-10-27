@@ -4,27 +4,27 @@ require 'open-uri'
 require 'csv'
 
 namespace :zipcodes do
-
   desc 'Update states table'
   task update_states: :environment do
     puts '>>> Begin update of states table...'
     url = 'all_us_states.csv'
-    data = open(url)
-    file = nil
-    if data.is_a? StringIO
-      file = Tempfile.new('all_us_states.csv')
-      file.write(data.read)
-      file.flush
-      file.close
-    else
-      file = data
+    File.open(url) do |f|
+      file = nil
+      if f.is_a?(StringIO)
+        file = Tempfile.new('all_us_states.csv')
+        file.write(f.read)
+        file.flush
+        file.close
+      else
+        file = f
+      end
+      CSV.foreach(file.path, headers: true) do |row|
+        puts "Updating state: [#{row['name']}]"
+        state = State.where(abbr: row['abbr']).first_or_initialize
+        state.update!(name: row['name'])
+      end
+      f.close
     end
-    CSV.foreach(file.path, headers: true) do |row|
-      puts "Updating state: [#{row['name']}]"
-      state = State.where(abbr: row['abbr']).first_or_initialize
-      state.update_attribute(:name, row['name'])
-    end
-    data.close
     puts '>>> End update of states table...'
   end
 
@@ -32,24 +32,24 @@ namespace :zipcodes do
   task update_counties: :update_states do
     puts '>>> Begin update of counties table...'
     url = 'all_us_counties.csv'
-    data = open(url)
-    file = nil
-    if data.is_a? StringIO
-      file = Tempfile.new('all_us_counties.csv')
-      file.write(data.read)
-      file.flush
-      file.close
-    else
-      file = data
+    File.open(url) do |f|
+      file = nil
+      if f.is_a?(StringIO)
+        file = Tempfile.new('all_us_counties.csv')
+        file.write(f.read)
+        file.flush
+        file.close
+      else
+        file = f
+      end
+      CSV.foreach(file.path, headers: true) do |row|
+        puts "Updating county: [#{row['name']}]"
+        state = State.find_by!(abbr: row['state'])
+        county = County.where(name: row['name'], state_id: state.to_param).first_or_initialize
+        county.update!(county_seat: row['county_seat'])
+      end
+      f.close
     end
-    CSV.foreach(file.path, headers: true) do |row|
-      puts "Updating county: [#{row['name']}]"
-      # lookup state
-      state = State.find_by_abbr!(row['state'])
-      county = County.where(name: row['name'], state_id: state.to_param).first_or_initialize
-      county.update_attribute(:county_seat, row['county_seat'])
-    end
-    data.close
     puts '>>> End update of counties table...'
   end
 
@@ -57,37 +57,38 @@ namespace :zipcodes do
   task update_zipcodes: :update_counties do
     puts '>>> Begin update of zipcodes table...'
     url = 'all_us_zipcodes.csv'
-    data = open(url)
-    file = nil
-    if data.is_a? StringIO
-      file = Tempfile.new('all_us_zipcodes.csv')
-      file.write(data.read)
-      file.flush
-      file.close
-    else
-      file = data
-    end
-    CSV.foreach(file.path, headers: true) do |row|
-      puts "Updating zipcode: [#{row['code']}], '#{row['city']}, #{row['state']}, #{row['county']}"
-      # lookup state
-      state = State.find_by_abbr!(row['state'])
-      begin
-        county = County.find_by_name_and_state_id!(row['county'], state.to_param)
-      rescue Exception => e
-        puts ">>> e: [#{e}]"
-        puts ">>>> No county found for zipcode: [#{row['code']}], '#{row['city']}, #{row['state']}, #{row['county']}... SKIPPING..."
-        next
+    File.open(url) do |f|
+      file = nil
+      if f.is_a?(StringIO)
+        file = Tempfile.new('all_us_zipcodes.csv')
+        file.write(f.read)
+        file.flush
+        file.close
+      else
+        file = f
       end
-      zipcode = Zipcode.where(code: row['code']).first_or_initialize
-      zipcode.update(
-        city: row['city'].titleize,
-        state_id: state.to_param,
-        county_id: county.to_param,
-        lat: row['lat'],
-        lon: row['lon']
-      )
+      CSV.foreach(file.path, headers: true) do |row|
+        puts "Updating zipcode: [#{row['code']}], '#{row['city']}, #{row['state']}, #{row['county']}"
+        # lookup state
+        state = State.find_by!(abbr: row['state'])
+        begin
+          county = County.find_by!(name: row['county'], state_id: state.to_param)
+        rescue StandardError => e
+          puts(">>> e: [#{e}]")
+          puts(">>>> No county found for zipcode: [#{row['code']}], '#{row['city']}, #{row['state']}, #{row['county']}... SKIPPING...")
+          next
+        end
+        zipcode = Zipcode.where(code: row['code']).first_or_initialize
+        zipcode.update!(
+          city: row['city'].titleize,
+          state_id: state.to_param,
+          county_id: county.to_param,
+          lat: row['lat'],
+          lon: row['lon']
+        )
+      end
+      f.close
     end
-    data.close
     puts '>>> End update of zipcodes table...'
   end
 
@@ -105,11 +106,11 @@ namespace :zipcodes do
         csv << [
           state.abbr,
           state.name
-          ]
+        ]
       end
     end
     filename = 'all_us_states.csv'
-    open("#{Rails.root}/db/#{filename}", 'w') do |f|
+    File.open("#{Rails.root}/db/#{filename}", 'w') do |f|
       f.write(csv_string)
     end
   end
@@ -124,11 +125,11 @@ namespace :zipcodes do
           county.name,
           county.state.abbr,
           county.county_seat
-          ]
+        ]
       end
     end
     filename = 'all_us_counties.csv'
-    open("#{Rails.root}/db/#{filename}", 'w') do |f|
+    File.open("#{Rails.root}/db/#{filename}", 'w') do |f|
       f.write(csv_string)
     end
   end
@@ -147,11 +148,11 @@ namespace :zipcodes do
           zip.area_code,
           zip.lat,
           zip.lon
-          ]
+        ]
       end
     end
     filename = 'all_us_zipcodes.csv'
-    open("#{Rails.root}/db/#{filename}", 'w') do |f|
+    File.open("#{Rails.root}/db/#{filename}", 'w') do |f|
       f.write(csv_string)
     end
   end
@@ -162,5 +163,4 @@ namespace :zipcodes do
     Rake::Task['zipcodes:export_counties'].invoke
     Rake::Task['zipcodes:export_zipcodes'].invoke
   end
-
 end

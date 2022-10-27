@@ -1,6 +1,5 @@
 # frozen_string_literal: true
 
-# rubocop:disable Metrics/BlockLength
 Rails.application.configure do
   # Settings specified here will take precedence over those in config/application.rb.
 
@@ -48,7 +47,7 @@ Rails.application.configure do
   host = 'localhost:3000'
 
   # ActionMailer Config
-  config.action_mailer.default_url_options = { host: host }
+  config.action_mailer.default_url_options = { host: }
   config.action_mailer.delivery_method = :smtp
   config.action_mailer.raise_delivery_errors = true
 
@@ -76,4 +75,3 @@ Rails.application.configure do
   # routes, locales, etc. This feature depends on the listen gem.
   config.file_watcher = ActiveSupport::EventedFileUpdateChecker
 end
-# rubocop:enable Metrics/BlockLength

@@ -1,7 +1,6 @@
 # frozen_string_literal: true
 
 Rails.application.routes.draw do
-
   devise_for :users, controllers: { registrations: 'registrations', sessions: 'sessions' }
   devise_scope :user do
     root to: 'visitors#index'
@@ -59,5 +58,4 @@ Rails.application.routes.draw do
   #     get :generate_pdf
   #   end
   # end
-
 end

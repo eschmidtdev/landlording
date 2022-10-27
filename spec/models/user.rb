@@ -3,7 +3,6 @@
 require 'rails_helper'
 
 RSpec.describe(User, type: :model) do
-
   describe 'Associations' do
     context "The 'have_one' matcher" do
       it { should have_one(:subscription).dependent(:destroy) }
