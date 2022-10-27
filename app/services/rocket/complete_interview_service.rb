@@ -30,7 +30,7 @@ module Rocket
       return nil unless response.code == '201'
 
       data = construct_hash(JSON.parse(response.read_body))
-      HashWithIndifferentAccess.new data
+      HashWithIndifferentAccess.new(data)
     end
 
     def construct_hash(response)
@@ -43,12 +43,11 @@ module Rocket
     def answer_hash
       {
         Fk8jctrn744ku5: false,
-        Fk8jd1no93zprz: "",
+        Fk8jd1no93zprz: '',
         Fk8jd4pfntjpvf: false,
-        Fk8jdel8mfwiot: "",
+        Fk8jdel8mfwiot: '',
         version: 0
       }
     end
-
   end
 end

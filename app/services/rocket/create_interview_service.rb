@@ -8,6 +8,7 @@ module Rocket
       @user         = user
       @access_token = access_token
     end
+
     def call
       create_interview
     end
@@ -22,18 +23,19 @@ module Rocket
 
       request = Net::HTTP::Post.new(url)
       request['Authorization'] = "Bearer #{access_token}"
-      request['Content-Type']  = 'application/json'
+      request['Content-Type'] = 'application/json'
       request.body = JSON.dump({
-                                 partnerEndUserId: user.uuid,
-                                 partyEmailAddress: user.email,
-                                 templateId: '04d9d0ba-3113-40d3-9a4e-e7b226a72154'
-                               })
+        partnerEndUserId: user.uuid,
+        partyEmailAddress: user.email,
+        templateId: '04d9d0ba-3113-40d3-9a4e-e7b226a72154'
+      }
+                              )
 
       response = https.request(request)
       return nil unless response.code == '201'
 
       data = construct_hash(response)
-      HashWithIndifferentAccess.new data
+      HashWithIndifferentAccess.new(data)
     end
 
     def construct_hash(response)
@@ -42,6 +44,5 @@ module Rocket
         service_token: response.each_header.to_h['rl-rdoc-servicetoken']
       }
     end
-
   end
 end
