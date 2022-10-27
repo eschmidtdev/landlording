@@ -48,5 +48,4 @@ class User < ApplicationRecord
   def normalize_phone
     self.phone_number = Phonelib.parse(phone_number).full_e164
   end
-
 end
