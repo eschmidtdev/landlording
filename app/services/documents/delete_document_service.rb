@@ -1,3 +1,5 @@
+# frozen_string_literal: true
+
 module Documents
   class DeleteDocumentService < ApplicationService
     attr_reader :document
@@ -19,10 +21,7 @@ module Documents
 
     def delete_from_rocket(interview_id)
       access_token_response = Rocket::GenerateAccessTokenService.call
-
       Rocket::DeleteInterviewService.call(interview_id, access_token_response['access_token'])
     end
-
   end
 end
-
