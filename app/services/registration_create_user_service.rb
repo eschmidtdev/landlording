@@ -20,5 +20,4 @@ class RegistrationCreateUserService < ApplicationService
     user.save!
     user
   end
-
 end

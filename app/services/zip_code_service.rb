@@ -17,18 +17,22 @@ class ZipCodeService < ApplicationService
     return { success: false, message: 'Please enter postal code', method: nil, url: nil } if code.blank?
 
     zipcode = Zipcode.find_by(code:)
-    if zipcode.nil?
-      return { success: false, message: "[#{code}] is not a valid Zipcode.", method: nil, url: nil }
-    end
+    return { success: false, message: "[#{code}] is not a valid Zipcode.", method: nil, url: nil } if zipcode.nil?
 
-    @counties = County.where('state_id = ?', zipcode.county.state_id)
-    return_city_state zipcode
+    @counties = County.where(state_id: zipcode.county.state_id)
+    return_city_state(zipcode)
   end
 
   def return_city_state(zipcode)
-    { success: true, message: { state: zipcode.state.name,
-                                county: 'United States',
-                                city: zipcode.city.titleize }, method: nil, url: nil }
+    {
+      success: true,
+      message: {
+        state: zipcode.state.name,
+        county: 'United States',
+        city: zipcode.city.titleize
+      },
+      method: nil,
+      url: nil
+    }
   end
-
 end

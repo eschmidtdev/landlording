@@ -18,7 +18,8 @@ class FetchLandlordService < ApplicationService
   end
 
   def get_user_attributes(user)
-    { email: user.email,
+    {
+      email: user.email,
       phone: user.phone_number,
       name: construct_user_name(user)
     }
@@ -32,5 +33,4 @@ class FetchLandlordService < ApplicationService
 
     "#{fist_name} #{last_name}"
   end
-
 end
