@@ -2,27 +2,24 @@
 
 module PaymentDetails
   class PaymentDetailsService < ApplicationService
-    attr_reader :request, :params, :user
+    attr_accessor :request, :params, :user
 
     def initialize(request, params, user)
-      @user = user
-      @params = params
+      @user    = user
+      @params  = params
       @request = request
     end
 
     def call
-      case request
-      when 'update'
-        update_payment_detail
-      when 'create'
-        create_payment_details
-      end
+      return update_payment_detail if request == 'update'
+
+      create_payment_details
     end
 
     private
 
     def update_payment_detail
-      user.payment_detail.update(params)
+      user.payment_detail.update!(params)
       { success: true, message: 'Payment details has been updated successfully.' }
     end
 
@@ -30,6 +27,5 @@ module PaymentDetails
       user.create_payment_detail!(params)
       { success: true, message: 'Payment details has been added successfully.' }
     end
-
   end
 end
