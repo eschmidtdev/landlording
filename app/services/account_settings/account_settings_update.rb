@@ -9,6 +9,7 @@ module AccountSettings
       not_updated: I18n.t('AccountSettings.NotUpdated'),
       info_updated: I18n.t('AccountSettings.InfoUpdated')
     }.freeze
+    private_constant :MESSAGES
 
     def initialize(request, params, user)
       @user            = user
@@ -35,6 +36,5 @@ module AccountSettings
 
       error_response(user.errors.full_messages.join(', '))
     end
-
   end
 end
