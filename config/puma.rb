@@ -5,8 +5,10 @@
 # Any libraries that use thread pools should be configured to match
 # the maximum value specified for Puma. Default is set to 5 threads for minimum
 # and maximum, this matches the default thread size of Active Record.
-#
-threads_count = Integer(ENV.fetch('RAILS_MAX_THREADS', 5), 10)
+# rubocop: disable Lint/NumberConversion
+threads_count = ENV.fetch('RAILS_MAX_THREADS', 5).to_i
+# rubocop: enable Lint/NumberConversion
+
 threads threads_count, threads_count
 
 # Specifies the `port` that Puma will listen on to receive requests, default is 3000.
